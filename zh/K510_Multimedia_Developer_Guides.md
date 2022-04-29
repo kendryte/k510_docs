@@ -1,0 +1,765 @@
+![](images/canaan-cover.png)
+
+**<font face="黑体" size="6" style="float:right">K510 多媒体开发指南</font>**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<font face="黑体"  size=3>文档版本：V1.0.0</font>
+
+<font face="黑体"  size=3>发布日期：2022-03-09</font>
+
+
+
+<div style="page-break-after:always"></div>
+
+<font face="黑体" size=3>**免责声明**</font>
+您购买的产品、服务或特性等应受北京嘉楠捷思信息技术有限公司（“本公司”，下同）商业合同和条款的约束，本文档中描述的全部或部分产品、服务或特性可能不在您的购买或使用范围之内。除非合同另有约定，本公司不对本文档的任何陈述、信息、内容的准确性、可靠性、完整性、营销型、特定目的性和非侵略性提供任何明示或默示的声明或保证。除非另有约定，本文档仅作为使用指导的参考。
+由于产品版本升级或其他原因，本文档内容将可能在未经任何通知的情况下，不定期进行更新或修改。
+
+
+
+**<font face="黑体"  size=3>商标声明</font>**
+
+“<img src="images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
+
+
+
+**<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
+本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
+
+
+
+
+
+
+
+
+
+
+
+
+
+**<font face="黑体"  size=3>北京嘉楠捷思信息技术有限公司</font>** 
+网址：canaan-creative.com
+商务垂询：salesAI@canaan-creative.com
+
+
+
+
+
+<div style="page-break-after:always"></div>
+# 前言
+## 文档目的
+本文档为K510 Multimedia 应用实例的说明文档。
+## 目标读者
+本文档面向的人员：
+- 软件开发人员
+- 技术支持人员
+- …
+
+## 修订记录
+| 版本号    | 修改者 | 修订日期| 修订说明  |  
+|  ------  |-------| -------| ------| 
+| v1.0.0    |系统软件组 | 2022-03-09 | SDK V1.5发布 |
+|     |     |      |   |
+
+<div style="page-break-after:always"></div>
+**<font face="黑体"  size=6>目 录</font>**
+
+[TOC]
+
+# 1  Encoder API
+
+## 1.1 头文件说明
+
+k510_buildroot/package/encode_app/enc_interface.h
+
+## 1.2  API 函数说明
+
+### 1.2.1    VideoEncoder_Create
+
+【描述】
+
+创建视频编码器
+
+【语法】
+```c
+EncoderHandle* VIdeoEncoder_Create(EncSettings *pCfg)
+```
+【参数】
+
+pCfg：输入编码配置参数
+
+```c
+typedef struct
+{
+  int channel;  //encode channel number
+  unsigned short width;
+  unsigned short height;
+  unsigned char FrameRate;
+  RateCtrlMode rcMode;
+  unsigned int BitRate;
+  unsigned int MaxBitRate;
+  int SliceQP; //auto: -1, or from 0 to 51
+  AVC_Profile profile;
+  unsigned int level; //1 .. 51, 51 is 5.1
+  AVC_AspectRatio AspectRatio;
+  int FreqIDR; //default value : -1
+  unsigned int gopLen; //GOP lengh
+}EncSettings;
+typedef enum
+{
+  CONST_QP, 
+  CBR, 
+  VBR
+} RateCtrlMode;
+typedef enum
+{
+  AVC_C_BASELINE, 
+  AVC_MAIN, 
+  AVC_HIGH,
+  JPEG
+} AVC_Profile;
+typedef enum
+{
+  ASPECT_RATIO_AUTO, 
+  ASPECT_RATIO_4_3, 
+  ASPECT_RATIO_16_9, 
+  ASPECT_RATIO_NONE
+} AVC_AspectRatio;
+```
+
+【返回值】
+```c
+ typedef void* EncoderHandle
+```
+
+### 1.2.2    VideoEncoder_Destory
+
+【描述】
+
+销毁视频编码器
+
+【语法】
+
+```c
+EncStatus VideoEncoder_Destroy(EncoderHandle *hEnc)
+```
+
+【参数】
+
+  hEnc: 创建时返回的句柄
+
+【返回值】
+
+```c
+typedef enum
+{
+  Enc_SUCCESS = 0, 
+  Enc_ERR = 1,
+}EncStatus;
+```
+
+### 1.2.3    VideoEncoder_EncodeOneFrame
+
+【描述】
+
+编码一个视频帧
+
+【语法】
+
+```c
+EncStatus VideoEncoder_EncodeOneFrame
+(EncoderHandle *hEnc, EncInputFrame *input)
+```
+
+【参数】
+
+hEnc: 创建时返回的句柄
+
+input：输入YUV视频数据
+
+```c
+typedef struct
+{
+  unsigned short width;
+  unsigned short height;
+  unsigned short stride;
+  unsigned char *data;
+}EncInputFrame;
+```
+
+【返回值】                 
+```c
+Enc_SUCCESS = 0, 
+Enc_ERR = 1
+```
+
+### 1.2.4    VideoEncoder_GetStream
+
+【描述】
+
+获取视频编码流的buffer
+
+【语法】
+
+```c
+EncStatus VideoEncoder_GetStream 
+(EncoderHandle *hEnc, EncOutputStream *output)
+```
+
+【参数】
+
+hEnc: 创建时返回的句柄       
+
+output：输出编码后的流数据buffer，bufSize大于0才有输出
+
+```c
+typedef struct
+{
+  unsigned char *bufAddr;
+  unsigned int bufSize; 
+}EncOutputStream;
+```
+
+【返回值】
+
+```c
+Enc_SUCCESS = 0, 
+Enc_ERR = 1
+```
+
+### 1.2.5    VideoEncoder_ReleaseStream
+
+【描述】
+
+释放视频编码流的buffer
+
+【语法】
+
+```c
+EncStatus VideoEncoder_ReleaseStream
+(EncoderHandle *hEnc, EncOutputStream *output)
+```
+
+【参数】
+
+- hEnc:  创建时返回的句柄       
+- output：VideoEncoder_GetStream返回的buffer
+
+【返回值】
+
+```c
+Enc_SUCCESS = 0, 
+Enc_ERR = 1
+```
+
+### 1.2.6    VideoStreamer_init
+
+【描述】
+
+Video Streamer (Live555)初始化
+
+【语法】
+
+```c
+int VideoStreamer_init(double framerate)
+```
+
+【参数】
+
+framerate: 帧率                
+
+【返回值】
+
+0：成功
+
+-1：错误
+
+### 1.2.7    VideoStreamer
+
+【描述】
+
+通过rtsp传输视频编码流
+
+【语法】
+
+```c
+int VideoStreamer(long bufAddr, uint32_t bufSize, void *shared_vAddr)
+```
+
+【参数】
+
+- bufAddr：视频码流的buffer地址
+- datasize：传输数据长度
+- shared_vAddr：传送编码长度，仅用于调试目的
+
+【使用说明】
+
+rtsp server传输的端口号为8554，streamName为testStream，接收端使用vlc播放 时需要配置网络URL为：`rtsp://<ipaddr>:8554/testStream` ，其中ipaddr为开发板的ip地址，可以通过查看env参数得到，也就可以在启动是通过set ipaddr命令修改
+
+### 1.2.8    VideoStreamer_deinit
+
+【描述】
+
+销毁Video Streamer (Live555)
+
+【语法】
+
+```c
+int VideoStreamer_deinit()
+```
+
+【参数】
+
+无                            
+
+【返回值】
+
+- 0：成功
+- -1：错误
+
+# 2 硬件结构图及软件架构
+# 2.1 硬件结构图
+K510的硬件框图如下，
+
+![hardware_block_diagram](images/multimedia_guides/hardware_block_diagram.png)
+
+从video sensor接收到的数据，经MIPI DPHY、CSI、VI、ISP处理得到yuv源数据，并存储到DDR中。h264 encoder模块从DDR读取数据，进行编码运算，运算结果存储到DDR中。
+# 2.2 软件架构
+多媒体开发平台的软件架构如下：
+
+![multimedia_block_diagram.png](images/multimedia_guides/multimedia_block_diagram.png)
+
+其中，
+- `libvenc`: encoder库，用于调用h264 encoder core
+- `libmediactl`: isp库，用于控制sensor
+- `libaudio3a`: audio3a库，用于对音频进行3a运算
+- `alsa-lib`: 音频库，用于控制音频接口
+
+# 3  Demo应用
+## 3.1 Encode Application
+
+程序放在`/app/encode_app`目录下：
+- `encode_app`：Encode application程序
+- 用于测试的yuv文件尺寸较大，没有放入SDK包
+
+运行`encode_app`
+
+| 参数名      | 参数解释     |  默认值      | 取值范围  |           
+|:-|:-|:-|:-|
+| help | 帮助信息| | |
+| split | 通道个数 | NULL | |
+| ch | 通道号（从0开始） | NULL | |
+| i | 输入yuv文件，只支持**nv12**格式 | NULL | v4l2 <br> xxx.yuv |
+| dev | v4l2 device name | NULL | |
+| o | 输出| NULL | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG |
+| w | 输出图像宽度 | 1920 | |
+| h | 输出图像高度 | 1080 | |
+| e | 设置摄像头的曝光率 | 64 | 1~128 |
+| ag | 设置摄像头的增益 | 0 | 0~232 |
+| fps | 摄像头采集帧率，目前只支持30pfs | 30 | 30 |
+| r | 编码输出帧率 | 30 | |
+| inframes | 输入yuv帧数 | NULL | |
+| outframes | 输出yuv帧数，如果比参数-inframes大，将会重复编码 | NULL | |
+| bitrate | 设置输出流的码率 | 4000000 | |
+| conf | vl42配置文件,会指定的配置文件的基础上，根据命令行输入参数修改v4l2配置参数 | NULL | |
+
+
+### 3.1.1 输入yuv文件，输出文件：
+```shell
+./encode_app -split 1 -ch 0 -i your_file.yuv -o out.264 -w 1920 -h 1080 -inframes 10 -outframes 30
+./encode_app -split 1 -ch 0 -i your_file.yuv -o out.mjpeg -w 1920 -h 1080 -inframes 10 -outframes 30
+```
+
+### 3.1.2 输入v4l2，输出rtsp推流：
+#### 3.1.2.1 单通道
+
+```shell
+./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1920 -h 1080 -conf video_sample.conf
+```
+
+#### 3.1.2.2 单摄像头双通道
+
+```shell
+./encode_app -split 2 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1920 -h 1080 -ch 1 -i v4l2 -dev /dev/video4 -o rtsp -w 1280 -h 720 -conf video_sample.conf
+```
+#### 3.1.2.3 双摄像头
+
+```shell
+./encode_app -split 2 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1920 -h 1080 -ch 1 -i v4l2 -dev /dev/video7 -o rtsp -w 1920 -h 1080 -conf video_sample.conf
+```
+
+- 运行环境：核心板sensor：IMX219_SENSOR
+- rtsp运行准备参见live555_canaan章节
+- live555拉流的端口号为（8554 + <通道号>*2)
+- rtsp运行准备参见live555_canaan章节
+
+### 3.1.3 帧率变换
+
+```shell
+./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -r 60 -o rtsp -w 1920 -h 1080 -conf video_sample.conf
+```
+
+## 3.2 live555_canaan
+
+live555 demo程序放在`/app/live555_canaan`目录下：
+- `VideoStreamerFile` ：rtsp推流程序
+
+运行准备：
+（1）开发板需要与接收端pc连接到同一个局域网内，ip地址通过DHCP自动分配。
+
+（2）接收端PC VLC配置
+
+媒体->打开网络流串->网络，配置网络URL，如下图所示(rtsp://10.100.226.130:8554/testStream)，其中10.100.226.21为开发板的ip地址，根据实际情况修改。点击下图红框按钮，打开循环单曲。
+
+![LIVE555 Demo](images/sdk_application/demo_rtsp.png)
+
+运行live555 demo：
+
+```shell
+./VideoStreamerFile old_town_cross_1080p50.264
+```
+其中，
+- `old_town_cross_1080p50.264` ：用于测试的264文件
+
+运行结果： VLC上循环播放测试视频。
+
+
+## 3.3 ffmpeg
+ffmpeg放在/usr/local/bin目录下。
+- `ffmpeg`: ffmpeg应用程序。
+
+运行`ffmpeg`
+
+(1)  encoder参数
+
+ 参数名      | 参数解释     |  默认值      | 取值范围  
+:-|:-|:-|:-
+ g | gop size | 25 | 0~1000 
+ b | bitrate | 4000000 | 0~100000000  
+ r | 帧率,由于isp目前只支持30fps，故解码器应设置为30 | 30 | 30
+ idr_freq | IDR频率 | -1(没有IDR) | -1~256 
+ qp | 用cqp编码时，配置qp值 | -1 | -1~100 
+ maxrate | bitrate的最大值 | 0 | 100000000 
+ profile | 支持的profile | 2(high) | 0 - baseline <br> 1 - mian <br> 2 - high 
+ level | 编码level | 42 | 10~42 
+ ar | 屏幕宽高比 | 0（auto） | 0 - auto <br> 1 - 4:3 <br> 2 - 16:9 <br> 3 - none 
+ ch | channel number | 0 | 0-7 
+ framesToEncode | 编码帧数 | -1(所有帧) | -1~16383 
+
+(2) audio3a参数
+
+| 参数名      | 参数解释     |  默认值      | 取值范围  |           
+:-|:-|:-|:-|
+| sample_rate | 音频采样率 | 16000 | 1~65535 |
+| agc | 音频增益模式 | 3(AgcModeFixedDigital) | 0 - AgcModeUnchanged <br> 1 -  AgcModeAdaptiveAnalog <br> 2 - AgcModeAdaptiveDigital <br> 3 - AgcModeFixedDigital |
+| ns | 噪声level | 3(VeryHigh) | 0 - Low <br> 1 - Moderate <br> 2 - High <br> 3 - VeryHigh |
+| dsp_task | auido3a运行位置 | 1(dsp) | 0 - cpu <br>1 - dsp |
+
+可以通过help命令查看可配置参数
+
+```shell
+ffmpeg -h encoder=libk510_h264 #查看k510编码器的参数
+ffmpeg -h demuxer=v4l2 #查看demuxer的配置参数
+ffmpeg -h filter=audio3a #查看audio3a的配置参数
+```
+
+ffmpeg的逻辑框如下：
+
+![ffmpeg_block_diagram](images/multimedia_guides/ffmpeg_block_diagram.png)
+
+audio3a用于将接收到的音频进行3a运算并输出，其逻辑框图如下：
+
+![ffmpeg_canaan_audio3a](images/multimedia_guides/ffmpeg_canaan_audio3a.png)
+
+### 3.3.1 程序运行说明
+#### 3.3.1.1 rtp推流
+##### 3.3.1.1.1. rtp推送视频流
+ffmpeg运行命令示例：
+
+```shell
+ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_h264 -an -f rtp rtp://10.102.231.29:1234
+```
+
+其中10.102.231.29为接收端地址，根据实际更改。
+程序运行中按"q"停止运行。
+
+ffplay接收命令：
+
+```shell
+ffplay.exe -protocol_whitelist "file,udp,rtp" -i test.sdp -fflags nobuffer -analyzeduration 1000000 -flags low_delay
+```
+
+其中test.sdp按照如下示例配置。
+
+```
+SDP:
+v=0
+o=- 0 0 IN IP4 127.0.0.1
+s=No Name
+c=IN IP4 10.102.231.29
+t=0 0
+a=tool:libavformat 58.76.100
+m=video 1234 RTP/AVP 96
+a=rtpmap:96 H264/90000
+a=fmtp:96 packetization-mode=1
+```
+
+.sdp参数说明：
+- c=：媒体链接信息；IN：网络类型；IP4：地址类型；后面是IP地址（注意是接收端所在的IP地址，不是发送方的IP）
+- m=是媒体级会话的开始处，video：媒体类型；1234：端口号；RTP/AVP：传输协议；96：rtp头中的payload格式
+按照实际情况修改接收端IP地址和端口号，注意rtp的端口号需为偶数。
+
+##### 3.3.1.1.2. rtp推送音频流
+ffmpeg运行命令示例：
+```shell
+ffmpeg -f alsa -ac 2 -ar 32000 -i hw:0 -acodec aac -f rtp rtp://10.100.232.11:1234
+```
+其中10.100.232.11为接收端地址，根据实际修改。
+- ac：设置音频通道数
+- ar：设置音频采样率
+
+ffplay接收命令与接收视频流相同，sdp文件参考下面的示例。
+```
+SDP:
+v=0
+o=- 0 0 IN IP4 127.0.0.1
+s=No Name
+c=IN IP4 10.100.232.11
+t=0 0
+a=tool:libavformat 58.76.100
+m=audio 1234 RTP/AVP 97
+b=AS:128
+a=rtpmap:97 MPEG4-GENERIC/32000/2
+a=fmtp:97 profile-level-id=1;mode=AAC-hbr;sizelength=13;indexlength=3;indexdeltalength=3; config=129056E500
+```
+
+##### 3.3.1.1.3 rtp推送音视频流
+ffmpeg运行命令示例：
+```shell
+ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_h264 -an -f rtp rtp://10.100.232.11:1234 -f alsa -ac 2 -ar 32000 -i hw:0 -acodec aac -vn -f rtp rtp://10.100.232.11:1236
+```
+
+ffplay接收命令与接收音频流相同，sdp文件参考下面的示例。
+```
+SDP:
+v=0
+o=- 0 0 IN IP4 127.0.0.1
+s=No Name
+t=0 0
+a=tool:libavformat 58.76.100
+m=video 1234 RTP/AVP 96
+c=IN IP4 10.100.232.11
+a=rtpmap:96 H264/90000
+a=fmtp:96 packetization-mode=1
+m=audio 1236 RTP/AVP 97
+c=IN IP4 10.100.232.11
+b=AS:128
+a=rtpmap:97 MPEG4-GENERIC/32000/2
+a=fmtp:97 profile-level-id=1;mode=AAC-hbr;sizelength=13;indexlength=3;indexdeltalength=3; config=129056E500
+```
+#### 3.3.1.2 rtsp推流
+rtsp推流前需要部署rtsp服务器，将数据流推送到服务器上。
+##### 3.3.1.2.1 rtsp推视频流
+ffmpeg运行命令示例：
+```shell
+ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_h264 -acodec copy -f rtsp rtsp://10.100.232.11:5544/live/test110
+```
+- `idr_freq`为IDR帧间隔，需要为GOP的整数倍。rtsp推流必须生成IDR帧才能拉到流。
+- `rtsp://10.100.232.11:5544/live/test110`为rtsp服务器的推拉流url地址
+
+ffplay拉流命令示例：
+```shell
+ffplay.exe -protocol_whitelist "file,udp,rtp,tcp" -i rtsp://10.100.232.11:5544/live/test110
+```
+##### 3.3.1.2.2 rtsp推音频流
+ffmpeg运行命令示例：
+```shell
+ffmpeg -f alsa -ac 2 -ar 32000 -i hw:0 -acodec aac -f rtsp rtsp://10.100.232.11:5544/live/test110
+```
+ffplay拉流命令与rtsp推视频流的命令相同。
+##### 3.3.1.2.3 rtsp推音视频流
+ffmpeg运行命令示例：
+```shell
+ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -f alsa -ac 2 -ar 32000 -i hw:0 -idr_freq 25 -vcodec libk510_h264 -acodec aac -f rtsp rtsp://10.100.232.11:5544/live/test110
+```
+ffplay拉流命令与rtsp推视频流的命令相同。
+
+#### 3.3.1.3 audio3a
+##### 3.3.1.3.1 单独运行audio
+(1)  在cpu上运行audio3a
+ffmpeg运行命令示例：
+```shell
+ffmpeg -f alsa -ac 2 -ar 16000 -i hw:0 -af audio3a=sample_rate=16000:dsp_task=0 -f rtp rtp://10.100.232.11:1234
+```
+(2)  在dsp上运行audio3a
+运行两个telnet窗口，在两个窗口中分别运行dsp task scheduler和ffmpeg（先运行dsp task scheduler）
+dsp task scheduler运行命令实例：
+```shell
+cd /app/dsp_app_new/
+./dsp_app /app/dsp_scheduler/scheduler.bin
+```
+ffmpeg运行命令实例：
+```shell
+ffmpeg -f alsa -ac 2 -ar 16000 -i hw:0 -af audio3a=sample_rate=16000 -f rtp rtp://10.100.232.11:1234
+```
+##### 3.3.1.3.2 同时运行audio3a和video
+(1) 在cpu上运行audio3a
+运行两个telnet窗口，在两个窗口中分别运行audio3a和video。
+video命令示例：
+
+```shell
+ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_h264 -an -f rtp rtp://10.100.232.11:1234
+```
+audio3a命令示例：
+```shell
+ffmpeg -f alsa -ac 2 -ar 16000 -i hw:0 -af audio3a=sample_rate=16000:dsp_task=0 -acodec aac -vn -f rtp rtp://10.100.232.11:1236
+```
+在cpu上同时运行audio3a和video会出现overflow，建议在dsp上运行audio3a
+(2) 在dsp上运行audio3a
+运行三个telnet窗口，在三个窗口上分别运行audio3a调用、video和dsp scheduler（先运行dsp task scheduler）
+dsp task scheduler运行命令与单独运行audio3a相同。
+
+audio3a命令实例：
+```shell
+ffmpeg -f alsa -ac 2 -ar 16000 -i hw:0 -af audio3a=sample_rate=16000 -f rtp rtp://10.100.232.11:1236
+```
+video命令示例：
+```shell
+ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_h264 -an -f rtp rtp://10.100.232.11:1234
+```
+
+- 10.100.232.11为rtp接收端的ip地址。
+- 接收端ffplay的SDP文件内容，可以在运行上述ffmpeg命令后，从打印出来的log得到。
+
+#### 3.3.1.4 v4l2
+
+可以通过help命令查看可配置参数
+
+```shell
+ffmpeg -h demuxer=v4l2 #查看v4l2的配置参数
+```
+
+| 参数名   | 参数解释                                                     | 默认值 | 取值范围 |
+| :------- | :----------------------------------------------------------- | :----- | :------- |
+| s        | 图像分辨率，例如1920x1080                                    | NULL   |          |
+| r        | 帧率，目前只支持30fps                                        | 30     | 30       |
+| isp      | 打开k510 isp硬件                                             | 0      | 0-1      |
+| buf_type | v4l2 buffer`类型`  <br>1: V4L2_MEMORY_MMAP ：适合于-vcodec copy<br>2: V4L2_MEMORY_USERPTR：适合于-vcodec libk510_h264 | 1      | 1~4      |
+| conf | v4l2 config file | NULL |          |
+
+ffmpeg运行命令示例：其中10.100.232.11为接收端地址，根据实际修改。
+
+```shell
+ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_h264 -an -f rtp rtp://10.100.232.11:1234 -f alsa -ac 2 -ar 16000 -i hw:0 -acodec aac -vn -f rtp rtp://10.100.232.11:1236
+```
+
+```shell
+ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -i /dev/video3 -vcodec copy -y out.yuv
+```
+
+说明：运行时需要在运行目录中查找`video_sampe.conf`、`imx219_0.conf`和`imx219_1.conf`文件进行配置，这三个文件在`/encode_app/`目录下。
+#### 3.3.1.5 JPEG编码
+
+文件输出：
+
+```shell
+ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_jpeg -y test.mjpeg
+```
+
+说明：运行时需要在运行目录中查找`video_sampe.conf`、`imx219_0.conf`和`imx219_1.conf`文件进行配置，这三个文件在`/encode_app/`目录下。
+
+输出的文件test.mjpeg可在PC端用ffplay播放
+
+```shell
+ffplay -i test.mjpeg
+```
+
+推流：
+
+```shell
+ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_jpeg -an -f rtp rtp://10.100.232.11:1234
+```
+
+可用ffplay拉流
+
+#### 3.3.1.6 多路编码
+
+最多支持8路同时编码，可用每路的帧大小乘以帧率再相加，不要超过1080p60的数据量，-vcodec可选h264或者jpeg.
+
+```shell
+ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -filter_complex 'split=2[out1][out2]' -map '[out1]' -vcodec libk510_h264 -ch 0 -an -f rtp rtp://10.20.1.101:1234 -map '[out2]' -vcodec libk510_h264 -ch 1 -an -f rtp rtp://10.20.1.101:2236
+```
+
+```shell
+ffmpeg -f v4l2 -s 480x360 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -filter_complex 'split=8[out1][out2][out3][out4][out5][out6][out7][out8]' -map '[out1]' -vcodec libk510_h264 -b:v 300000 -ch 0 -an -f rtp rtp://10.20.1.101:1234 -map '[out2]' -vcodec libk510_h264 -b:v 300000 -ch 1 -an -f rtp rtp://10.20.1.101:2322 -map '[out3]' -vcodec libk510_h264 -b:v 300000 -ch 2 -an -f rtp rtp://10.20.1.101:3086 -map '[out4]' -vcodec libk510_h264 -b:v 300000 -ch 3 -an -f rtp rtp://10.20.1.101:4234 -map '[out5]' -vcodec libk510_h264 -b:v 300000 -ch 4 -an -f rtp rtp://10.20.1.101:5216 -map '[out6]' -vcodec libk510_h264 -b:v 300000 -ch 5 -an -f rtp rtp://10.20.1.101:6788 -map '[out7]' -vcodec libk510_h264 -b:v 300000 -ch 6 -an -f rtp rtp://10.20.1.101:7230 -map '[out8]' -vcodec libk510_h264 -b:v 300000 -ch 7 -an -f rtp rtp://10.20.1.101:8976
+```
+
+用ffplay拉流时，注意只能拉一路视频，通过改变SDP文件里的端口号切换其他路的视频，或者启动多个ffplay拉流。
+
+### 3.3.2 程序移植说明
+
+`ffmpeg`在`ffmpeg`开源代码4.4的版本上进行移植，`xxx.patch`为补丁包，增加了
+
+- `ff_libk510_h264_encoder`：控制h264硬件编码，引用了`libvenc.so`
+- `ff_libk510_jpeg_encoder`：控制jpeg硬件编码，引用了`libvenc.so`
+- v4l2：在v4l2.c里，加入了k510硬件相关代码，实现了v4l2 buffer类型V4L2_MEMORY_USERPTR，引用了`libmediactl.so`。
+
+#### 3.3.2.1 patch生成命令
+（1）
+
+```shell
+quilt new -p ab xxx.patch #在patches目录下生成xxx.patch文件
+quilt add <filename> #添加修改前的文件
+### 修改代码 ###
+quilt refresh #修改内容被添加到xxx.patch
+```
+
+（2）
+将xxx.patch复制到package/ffmpeg_canaan目录中，并按照当前路径修改patch文件中的文件路径。
+```shell
+mv ../../patches/xxx.patch ../../package/ffmpeg_canaan
+rm ../../patches/series
+sed -i "s/\/dl\/ffmpeg_canaan\/ffmpeg-4.4//g" ../../package/ffmpeg_canaan/xxx.patch
+```
+
+#### 3.3.2.2 ffmpeg配置
+在`package/ffmpeg_canaan/ffmpeg.mk`文件中，可以通过configure选项修改CPU核、编译工具链，使能`ff_k510_video_demuxer` `ff_libk510_jpeg_encoder`和`ff_libk510_h264_encoder`。
+
+```shell
+./configure \
+  --cross-prefix=riscv64-linux- \
+  --enable-cross-compile \
+  --target-os=linux \
+  --cc=riscv64-linux-gcc \
+  --arch=riscv64 \
+  --extra-ldflags="-L./" \
+  --extra-ldflags="-ldl" \
+  --extra-ldflags="-Wl,-rpath ." \
+  --enable-static \
+  --enable-libk510_video \
+  --enable-libk510_h264 \
+  --enable-libk510_jpeg \
+  --enable-alsa \
+  --disable-autodetect \
+  --disable-ffplay \
+  --disable-ffprobe \
+  --disable-doc \
+  --enalbe-audio3a \
+  --enable-indev=v4l2 \
+```
