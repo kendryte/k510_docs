@@ -1,6 +1,6 @@
 ![](images/canaan-cover.png)
 
-**<font face="黑体" size="6" style="float:right">K510 ISP Tuning Tool Documentation</font>**
+**<font face="黑体" size="6" style="float:right">K510 ISP Tuning Tool Guides</font>**
 
 
 
