@@ -446,8 +446,6 @@ K510的硬件框图如下，
 | o | 输出| NULL | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG |
 | w | 输出图像宽度 | 1920 | |
 | h | 输出图像高度 | 1080 | |
-| e | 设置摄像头的曝光率 | 64 | 1~128 |
-| ag | 设置摄像头的增益 | 0 | 0~232 |
 | fps | 摄像头采集帧率，目前只支持30pfs | 30 | 30 |
 | r | 编码输出帧率 | 30 | |
 | inframes | 输入yuv帧数 | NULL | |
@@ -585,7 +583,7 @@ ffmpeg放在/usr/local/bin目录下。
  idr_freq | IDR频率 | -1(没有IDR) | -1~256 
  qp | 用cqp编码时，配置qp值 | -1 | -1~100 
  maxrate | bitrate的最大值 | 0 | 100000000 
- profile | 支持的profile | 2(high) | 0 - baseline <br> 1 - mian <br> 2 - high 
+ profile | 支持的profile | 2(high) | 0 - baseline <br> 1 - main <br> 2 - high 
  level | 编码level | 42 | 10~42 
  ar | 屏幕宽高比 | 0（auto） | 0 - auto <br> 1 - 4:3 <br> 2 - 16:9 <br> 3 - none 
  ch | channel number | 0 | 0-7 
