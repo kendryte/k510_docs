@@ -107,19 +107,25 @@ pCfg：输入编码配置参数
 ```c
 typedef struct
 {
-  int channel;  //encode channel number
-  unsigned short width;
-  unsigned short height;
-  unsigned char FrameRate;
-  RateCtrlMode rcMode;
-  unsigned int BitRate;
-  unsigned int MaxBitRate;
-  int SliceQP; //auto: -1, or from 0 to 51
-  AVC_Profile profile;
-  unsigned int level; //1 .. 51, 51 is 5.1
-  AVC_AspectRatio AspectRatio;
-  int FreqIDR; //default value : -1
-  unsigned int gopLen; //GOP lengh
+    int                       channel;  //encode channel number
+    unsigned short            width;
+    unsigned short            height;
+    unsigned char             FrameRate;
+    RateCtrlMode              rcMode;
+    unsigned int              BitRate;
+    unsigned int              MaxBitRate;
+    int                       SliceQP;  //auto: -1, or from 0 to 51
+    int                       MinQP;//from 0 to SliceQP
+    int                       MaxQP;//from SliceQP to 51
+    AVC_Profile               profile;
+    unsigned int              level;  //1 .. 51, 51 is 5.1
+    AVC_AspectRatio           AspectRatio;
+    int                       FreqIDR; //default value  : -1,IDR:number of frames between two IDR pictures;GDR:refresh period
+    unsigned int              gopLen;  
+    bool                      bEnableGDR;//gdr
+    GDRCtrlMode               gdrMode;
+    bool                      bEnableLTR;//Long Term reference
+    ROICtrlMode               roiCtrlMode;
 }EncSettings;
 typedef enum
 {
@@ -141,6 +147,32 @@ typedef enum
   ASPECT_RATIO_16_9, 
   ASPECT_RATIO_NONE
 } AVC_AspectRatio;
+typedef struct
+{
+    unsigned int          s32X;
+    unsigned int          s32Y;
+    unsigned int          u32Width;
+    unsigned int          u32Height;
+}RECT_S;
+typedef struct 
+{
+    unsigned int          uIndex;//index[0-7]
+    bool                  bEnable;
+    int                   uQpValue;
+    RECT_S                stRect;
+}EncROICfg;
+typedef enum
+{
+    ROI_QP_TABLE_NONE,
+    ROI_QP_TABLE_RELATIVE,//[-32,31],6 LSBs effective
+    ROI_QP_TABLE_ABSOLUTE,//[0,51],6 LSBs effective
+} ROICtrlMode;
+typedef enum
+{
+  GDR_VERTICAL = 0,
+  GDR_HORIZONTAL ,
+  GDR_CTRLMAX,
+}GDRCtrlMode;
 ```
 
 【返回值】
@@ -148,7 +180,116 @@ typedef enum
  typedef void* EncoderHandle
 ```
 
-### 1.2.2    VideoEncoder_Destory
+### 1.2.2    VideoEncoder_SetRoiCfg
+
+【描述】
+
+roi设置，最多支持8个矩形区域，系统内部按照 0～7 的索引号对 ROI 区域进行管理，uIndex 表示的用户设置 ROI 的索引号。ROI 区域之间可以互相叠加，且当发生叠加时，ROI 区域之间的优先级按照索引号0～7 依次提高。
+
+在编码器创建后到销毁前均可使用。编码过程中可以动态调整roi区域。
+
+【语法】
+
+```c
+EncStatus VideoEncoder_SetRoiCfg(EncoderHandle *hEnc,const EncROICfg*pEncRoiCfg);
+```
+
+【参数】
+
+hEnc: 创建时返回的句柄
+
+pEncRoiCfg:roi 区域配置信息
+
+```
+typedef struct
+{
+    unsigned int          s32X;
+    unsigned int          s32Y;
+    unsigned int          u32Width;
+    unsigned int          u32Height;
+}RECT_S;
+
+typedef struct 
+{
+    unsigned int          uIndex;//index[0-7]
+    bool                  bEnable;
+    int                   uQpValue;
+    RECT_S                stRect;
+}EncROICfg;
+```
+
+参数说明
+
+```c
+uIndex     - 指定该roi区域索引号，范围0-7最多支持8个区域
+bEnable    - 指定该区域是否使能，只有使能的区域才有效
+uQpValue   - qp值，可以是相对qp或绝对qp，qp模式由EncSettings中roiCtrlMode属性决定。绝对qp范围                  [0,51]，相对qp范围[-32,31]
+stRect     - roi矩形区域，s32X矩形左上角x值，s32Y矩形左上角y值，u32Width矩形宽度，u32Height矩形高度
+```
+
+【返回值】
+
+```c
+typedef enum
+{
+  Enc_SUCCESS = 0, 
+  Enc_ERR = 1,
+}EncStatus;
+```
+
+### 1.2.3    VideoEncoder_SetLongTerm
+
+【描述】
+
+设置编码的下一帧为长期参考帧。在编码器创建后到销毁前均可使用。EncSettings中bEnableLTR属性决定该功能是否使能。
+
+【语法】
+
+```c
+EncStatus  VideoEncoder_SetLongTerm(EncoderHandle *hEnc);
+```
+
+【参数】
+
+hEnc: 创建时返回的句柄
+
+【返回值】
+
+```c
+typedef enum
+{
+  Enc_SUCCESS = 0, 
+  Enc_ERR = 1,
+}EncStatus;
+```
+
+### 1.2.4    VideoEncoder_UseLongTerm
+
+【描述】
+
+设置编码的下一帧使用长期参考帧。在编码器创建后到销毁前均可使用。EncSettings中bEnableLTR属性决定该功能是否使能。
+
+【语法】
+
+```c
+EncStatus VideoEncoder_UseLongTerm(EncoderHandle *hEnc);
+```
+
+【参数】
+
+hEnc: 创建时返回的句柄
+
+【返回值】
+
+```
+typedef enum
+{
+  Enc_SUCCESS = 0, 
+  Enc_ERR = 1,
+}EncStatus;
+```
+
+### 1.2.5    VideoEncoder_Destory
 
 【描述】
 
@@ -174,7 +315,7 @@ typedef enum
 }EncStatus;
 ```
 
-### 1.2.3    VideoEncoder_EncodeOneFrame
+### 1.2.6    VideoEncoder_EncodeOneFrame
 
 【描述】
 
@@ -209,7 +350,7 @@ Enc_SUCCESS = 0,
 Enc_ERR = 1
 ```
 
-### 1.2.4    VideoEncoder_GetStream
+### 1.2.7    VideoEncoder_GetStream
 
 【描述】
 
@@ -243,7 +384,7 @@ Enc_SUCCESS = 0,
 Enc_ERR = 1
 ```
 
-### 1.2.5    VideoEncoder_ReleaseStream
+### 1.2.8    VideoEncoder_ReleaseStream
 
 【描述】
 
@@ -267,71 +408,6 @@ EncStatus VideoEncoder_ReleaseStream
 Enc_SUCCESS = 0, 
 Enc_ERR = 1
 ```
-
-### 1.2.6    VideoStreamer_init
-
-【描述】
-
-Video Streamer (Live555)初始化
-
-【语法】
-
-```c
-int VideoStreamer_init(double framerate)
-```
-
-【参数】
-
-framerate: 帧率                
-
-【返回值】
-
-0：成功
-
--1：错误
-
-### 1.2.7    VideoStreamer
-
-【描述】
-
-通过rtsp传输视频编码流
-
-【语法】
-
-```c
-int VideoStreamer(long bufAddr, uint32_t bufSize, void *shared_vAddr)
-```
-
-【参数】
-
-- bufAddr：视频码流的buffer地址
-- datasize：传输数据长度
-- shared_vAddr：传送编码长度，仅用于调试目的
-
-【使用说明】
-
-rtsp server传输的端口号为8554，streamName为testStream，接收端使用vlc播放 时需要配置网络URL为：`rtsp://<ipaddr>:8554/testStream` ，其中ipaddr为开发板的ip地址，可以通过查看env参数得到，也就可以在启动是通过set ipaddr命令修改
-
-### 1.2.8    VideoStreamer_deinit
-
-【描述】
-
-销毁Video Streamer (Live555)
-
-【语法】
-
-```c
-int VideoStreamer_deinit()
-```
-
-【参数】
-
-无                            
-
-【返回值】
-
-- 0：成功
-- -1：错误
 
 # 2 硬件结构图及软件架构
 # 2.1 硬件结构图
@@ -360,7 +436,7 @@ K510的硬件框图如下，
 
 运行`encode_app`
 
-| 参数名      | 参数解释     |  默认值      | 取值范围  |           
+| 参数名      | 参数解释     |  默认值      | 取值范围  |
 |:-|:-|:-|:-|
 | help | 帮助信息| | |
 | split | 通道个数 | NULL | |
@@ -376,8 +452,20 @@ K510的硬件框图如下，
 | r | 编码输出帧率 | 30 | |
 | inframes | 输入yuv帧数 | NULL | |
 | outframes | 输出yuv帧数，如果比参数-inframes大，将会重复编码 | NULL | |
-| bitrate | 设置输出流的码率 | 4000000 | |
+| gop | Group Of Picture，即两个 I 帧之间的间隔 | 25 | |
+| rcmode | 表示码率控制模式 0:CONST_QP  1:CBR  2:VBR | CBR | [0,2] |
+| bitrate | CBR 模式下的目标码率或VBR模式下的最低码率,单位Kb | 4000 | |
+| maxbitrate | VBR模式下的最高码率,单位Kb | 4000 | |
+| profile | SPS 中的 profile_idc 参数:0: base  1:main 2:high 3:jpeg | AVC_HIGH | [0,3] |
+| level | SPS 中的 level_idc 参数 | 42 | [10,42] |
+| sliceqp | 初始 QP 值,-1表示auto | 25 | avc:-1,[0,51]<br/>jpeg:[1,100] |
+| minqp | 最小QP 值 | 0 | [0,sliceqp] |
+| maxqp | 最大QP值 | 54 | [sliceqp,54] |
+| enableLTR | 使能长期参考帧，参数指定刷新周期。0：不启用刷新周期。正数：周期性设置参考帧并且下一帧设置为使用长期参考帧 | 0 | [0,65535]                                      |
+| roi | roi配置文件，指定多个roi区域 | NULL |  |
 | conf | vl42配置文件,会指定的配置文件的基础上，根据命令行输入参数修改v4l2配置参数 | NULL | |
+
+
 
 
 ### 3.1.1 输入yuv文件，输出文件：
@@ -403,6 +491,47 @@ K510的硬件框图如下，
 ```shell
 ./encode_app -split 2 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1920 -h 1080 -ch 1 -i v4l2 -dev /dev/video7 -o rtsp -w 1920 -h 1080 -conf video_sample.conf
 ```
+
+#### 3.1.2.4 roi测试
+
+```shell
+./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1920 -h 1080 -sliceqp -1 -bitrate 2048 -roi roi_1920x1080.conf -conf video_sample.conf
+```
+
+roi文件格式
+
+```json
+{
+  "roiCtrMode": 1,
+  "roiRegion": [
+    {
+      "qpValue": -15,
+      "qpRegion": {
+        "left": 0,
+        "top": 0,
+        "width": 640,
+        "heigth": 1080
+      }
+    }
+  ]
+}
+
+```
+
+参数说明:
+
+```
+roiCtrMode - 1:相对qp  2:绝对qp
+roiRegion  - roi区域，为多个区域数组，最多支持8个区域。
+qpValue    - 指定该区域使用的qp值，相对qp范围:[-32,31]     绝对qp范围:[0,51]
+qpRegion   - roi矩形区域
+left       - 矩形区域的左上角X坐标
+top        - 矩形区域的左上角Y坐标
+width      - 矩形区域的宽度
+heigth     - 矩形区域的高度
+```
+
+
 
 - 运行环境：核心板sensor：IMX219_SENSOR
 - rtsp运行准备参见live555_canaan章节
