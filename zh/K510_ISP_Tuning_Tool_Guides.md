@@ -1,6 +1,6 @@
 ![](images/canaan-cover.png)
 
-**<font face="黑体" size="6" style="float:right">ISP Tuning Tool Documentation</font>**
+**<font face="黑体" size="6" style="float:right">K510 ISP Tuning Tool Guides</font>**
 
 
 
@@ -218,10 +218,6 @@ $$
 Gamma系数b为0.5时，曲线如下图所示
 
 ![](./images/sdk_application/clip_image025.png)
-
-标准的Gamma曲线在暗区对比度太大，会造成噪点明显增加，所以一般情况下会对暗区的对比度值做限制，该值即为配置文件的第二个参数，当该值为64时，修正后的gamma曲线如下图所示
-
-![](./images/sdk_application/clip_image027.png)
 
 ## LSC
 
