@@ -719,16 +719,62 @@ ffmpeg运行命令示例：
 ```shell
 ffmpeg -f alsa -ac 2 -ar 32000 -i hw:0 -acodec aac -f rtsp rtsp://10.100.232.11:5544/live/test110
 ```
-ffplay拉流命令与rtsp推视频流的命令相同。
+ffplay拉流命令与rtsp拉视频流的命令相同。
 ##### 3.3.1.2.3 rtsp推音视频流
 ffmpeg运行命令示例：
 ```shell
 ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -f alsa -ac 2 -ar 32000 -i hw:0 -idr_freq 25 -vcodec libk510_h264 -acodec aac -f rtsp rtsp://10.100.232.11:5544/live/test110
 ```
-ffplay拉流命令与rtsp推视频流的命令相同。
+ffplay拉流命令与rtsp拉视频流的命令相同。
 
-#### 3.3.1.3 audio3a
-##### 3.3.1.3.1 单独运行audio
+#### 3.3.1.3 rtmp推流
+
+rtmp推流前需要部署rtmp服务器，将数据流推送到服务器上。支持rtmp协议的服务器包括fms，nginx，srs等。
+
+##### 3.3.1.3.1 rtmp推视频流
+
+ffmpeg运行命令示例:
+
+```
+ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_h264 -an -f flv rtmp://10.100.232.11/live/1
+```
+
+- `rtmp://10.100.232.11/live/1`为向rtmp服务器推流的url地址  
+
+ffplay拉流命令示例：
+
+```
+ffplay rtmp://10.100.232.11/live/1
+```
+
+- `rtmp://10.100.232.11/live/1`为从rtmp服务器拉流的url地址 （推流和拉流的地址一样）
+
+##### 3.3.1.3.2 rtmp推视音频流
+
+ffmpeg运行命令示例:
+
+```
+ffmpeg -f alsa -ac 2 -ar 32000 -i hw:0 -acodec aac -f flv rtmp://10.100.232.11/live/1
+```
+
+- `rtmp://10.100.232.11/live/1`为向rtmp服务器推流的url地址 
+
+ffplay拉流命令与rtmp拉视频流的命令相同。
+
+##### 3.3.1.3.3 rtmp推视音视频流
+
+ffmpeg运行命令示例:
+
+```
+ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -f alsa -ac 2 -ar 32000 -i hw:0 -idr_freq 25 -vcodec libk510_h264 -acodec aac -f flv rtmp://10.100.232.11/live/1
+```
+
+- `rtmp://10.100.232.11/live/1`为向rtmp服务器推流的url地址 
+
+ffplay拉流命令与rtmp拉视频流的命令相同。
+
+#### 3.3.1.4 audio3a
+##### 3.3.1.4.1 单独运行audio
 (1)  在cpu上运行audio3a
 ffmpeg运行命令示例：
 ```shell
@@ -745,7 +791,7 @@ ffmpeg运行命令实例：
 ```shell
 ffmpeg -f alsa -ac 2 -ar 16000 -i hw:0 -af audio3a=sample_rate=16000 -f rtp rtp://10.100.232.11:1234
 ```
-##### 3.3.1.3.2 同时运行audio3a和video
+##### 3.3.1.4.2 同时运行audio3a和video
 (1) 在cpu上运行audio3a
 运行两个telnet窗口，在两个窗口中分别运行audio3a和video。
 video命令示例：
@@ -774,7 +820,7 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -
 - 10.100.232.11为rtp接收端的ip地址。
 - 接收端ffplay的SDP文件内容，可以在运行上述ffmpeg命令后，从打印出来的log得到。
 
-#### 3.3.1.4 v4l2
+#### 3.3.1.5 v4l2
 
 可以通过help命令查看可配置参数
 
@@ -801,7 +847,7 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -i /dev/video3 -vco
 ```
 
 说明：运行时需要在运行目录中查找`video_sampe.conf`、`imx219_0.conf`和`imx219_1.conf`文件进行配置，这三个文件在`/encode_app/`目录下。
-#### 3.3.1.5 JPEG编码
+#### 3.3.1.6 JPEG编码
 
 文件输出：
 
@@ -825,7 +871,7 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -
 
 可用ffplay拉流
 
-#### 3.3.1.6 多路编码
+#### 3.3.1.7 多路编码
 
 最多支持8路同时编码，可用每路的帧大小乘以帧率再相加，不要超过1080p60的数据量，-vcodec可选h264或者jpeg.
 
