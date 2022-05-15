@@ -542,6 +542,15 @@ heigth     - 矩形区域的高度
 ./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -r 60 -o rtsp -w 1920 -h 1080 -conf video_sample.conf
 ```
 
+### 3.1.4 多种输入帧率
+
+目前支持VGA@75fps和720p60
+
+```shell
+./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 640 -h 480 -fps 75 -r 75 -conf video_sample_vga480p75.conf
+./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1280 -h 720 -fps 60 -r 60 -conf video_sample_720p60.conf
+```
+
 ## 3.2 live555_canaan
 
 live555 demo程序放在`/app/live555_canaan`目录下：
