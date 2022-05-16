@@ -1,4 +1,5 @@
 # 文档概述
+
 k510 相关文档如下：
 
 | 文档名称                                                     | 文档概要                           |
@@ -18,3 +19,13 @@ k510 相关文档如下：
 | [K510_Multimedia_Developer_Guides.md](zh/K510_Multimedia_Developer_Guides.md) | K510 Multimedia 应用实例说明文档 |
 | [K510_Mailbox_Developer_Guides.md](zh/K510_Mailbox_Developer_Guides.md) | K510 多处理器通信说明文档 |
 | [K510_ISP_Tuning_Tool_Guides.md](zh/K510_ISP_Tuning_Tool_Guides.md) | K510 ISP Tuning Tool 说明文档 [下载地址](https://github.com/kendryte/k510_isp_tuning_tool/releases) |
+
+## 贡献指南
+
+如果您对本项目感兴趣，想要反馈问题或提交文档，请参考[CONTRIBUTING](.github/CONTRIBUTING.md)
+
+## 联系我们
+
+北京嘉楠捷思信息技术有限公司
+网址：[canaan-creative.com](canaan-creative.com)
+商务垂询：[salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)

@@ -2,27 +2,9 @@
 
 **<font face="黑体" size="6" style="float:right">K510 AI Application Guide</font>**
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <font face="黑体"  size=3>文档版本：V1.0.0</font>
 
 <font face="黑体"  size=3>发布日期：2022-03-07</font>
-
-
 
 <div style="page-break-after:always"></div>
 
@@ -30,36 +12,16 @@
 您购买的产品、服务或特性等应受北京嘉楠捷思信息技术有限公司（“本公司”，下同）商业合同和条款的约束，本文档中描述的全部或部分产品、服务或特性可能不在您的购买或使用范围之内。除非合同另有约定，本公司不对本文档的任何陈述、信息、内容的准确性、可靠性、完整性、营销型、特定目的性和非侵略性提供任何明示或默示的声明或保证。除非另有约定，本文档仅作为使用指导的推理。
 由于产品版本升级或其他原因，本文档内容将可能在未经任何通知的情况下，不定期进行更新或修改。
 
-
-
 **<font face="黑体"  size=3>商标声明</font>**
 
 “<img src="images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
 
-
-
 **<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
 本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
 
-
-
-
-
-
-
-
-
-
-
-
-
-**<font face="黑体"  size=3>北京嘉楠捷思信息技术有限公司</font>** 
+**<font face="黑体"  size=3>北京嘉楠捷思信息技术有限公司</font>**
 网址：canaan-creative.com
 商务垂询：salesAI@canaan-creative.com
-
-
-
-
 
 <div style="page-break-after:always"></div>
 # 前言
@@ -85,14 +47,10 @@
 |        |        |            |            |
 |        |        |            |            |
 
-
-
-
 <div style="page-break-after:always"></div>
 **<font face="黑体"  size=6>目 录</font>**
 
-[TOC] 
-
+[TOC]
 
 <div style="page-break-after:always"></div>
 
@@ -120,7 +78,7 @@
 
 # 2 模型准备
 
-用于推理的YOLOV5s的onnx模型位于/docs/utils/AI_Application/aidemo_sdk/models/onnx子目录(如果没有文件请下载 https://github.com/kendryte/k510_docs/releases/download/v1.5/models.tar.gz 并解压)，静态图片位于/docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC/data子目录，脚本位于/docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC子目录。
+用于推理的YOLOV5s的onnx模型位于/docs/utils/AI_Application/aidemo_sdk/models/onnx子目录(如果没有文件请下载 [models](https://github.com/kendryte/k510_docs/releases/download/v1.5/models.tar.gz) 并解压)，静态图片位于/docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC/data子目录，脚本位于/docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC子目录。
 
 按照脚本命令提示，运行yolov5_image.py脚本，得到静态图片的推理结果。通过验证输出图片的检测框正确与否来检测模型的正确性。
 
@@ -194,7 +152,7 @@ optional arguments:
 
 如有cosine similarity接近与1或者等于1，则可确保生成的kmodel的正确性。
 
-```
+```text
 output 0 cosine similarity : 0.9999450445175171
 output 1 cosine similarity : 0.9999403953552246
 output 2 cosine similarity : 0.9999019503593445
@@ -217,6 +175,7 @@ od.prepare_memory();  // memory allocation
 // padding offset is (valid_width - valid_height) / 2 * valid_width
 cv::Mat rgb24_img_for_ai(net_len, net_len, CV_8UC3, od.virtual_addr_input[0] + (valid_width - valid_height) / 2 * valid_width);
 ```
+
 配置ISP输出的宽高
 
 ```c++

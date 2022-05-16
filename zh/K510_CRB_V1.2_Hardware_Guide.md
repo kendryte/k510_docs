@@ -47,7 +47,7 @@
 
 | 版本号 | 修改者    | 修订日期   | 修订说明           |
 | :----- | --------- | ---------- | ------------------ |
-| V1.0.0 | AI 产品部 | 2022-03-15 | 第一次临时版本发布 |
+| V1.0.0 | AI 产品部 | 2022-03-15 | |
 |        |           |            |                    |
 |        |           |            |                    |
 |        |           |            |                    |
@@ -94,7 +94,6 @@
 
   <center>图 1-1 K510 CRB 渲染图</center>
 
-
     **禁止事项**
 
   1. 禁止带电插拔核心模组及外围模块！
@@ -124,8 +123,6 @@
 
 <center>图 1-2 K510 CRB组成</center>
 
-
-
 <div align="center">
     <img src="images/hw_crb_v1_2/image-hw_1_3.png">
 </div>
@@ -136,12 +133,14 @@
 
 &emsp;&emsp;K510 CRB开发套件主要包括以下部件：
 
--     K510 CRB主板                     				x1
--     USB type C线缆                    				x2
--     Micro USB OTG线缆                 				  x1
--     MIPI DSI显示屏,分辨率1920x1080                                     x1
--     MIPI CSI摄像头子板，板载Sony IMX219 image sensor 两颗              x1
--     亚克力保护外壳                        				 x1
+| 部件 | 数量 |
+| :-: | :-: |
+| K510 CRB主板 | 1 |
+| USB type C线缆 | 2 |
+| Micro USB OTG线缆 | 1 |
+| MIPI DSI显示屏,分辨率1920x1080 | 1 |
+| MIPI CSI摄像头子板，板载Sony IMX219 image sensor 两颗 | 1 |
+| 亚克力保护外壳 | 1 |
 
 <div style="page-break-after:always"></div>
 
@@ -182,7 +181,6 @@
 
 <div style="page-break-after:always"></div>
 
-
 <div align="center">
     <img src="images/hw_crb_v1_2/image-hw_2_2.png" width=80%>
 </div>
@@ -215,24 +213,17 @@
 
 <center>表2-1 I2C设备地址表</center>
 
-
-| 名称             | 管脚(SCL、SDA) | 地址       | 备注 |
-| ---------------- | ------------- | ---------- | ---- |
-| 触摸屏           | IO_103、IO_102 | 0x14或0x5D |      |
-| HDMI             | IO_117、IO_116 |            |      |
-| Audio Codec      | IO_117、IO_116 |            |      |
-| MIPI CSI Camera0 | IO_120、IO_121 |            |      |
-| MIPI CSI Camera1 | IO_47、IO_48   |            |      |
-
-
+| 名称 | 管脚(SCL、SDA) | 地址 | 备注 |
+| :-: | :-: | :-: | :-: |
+| 触摸屏 | IO_103、IO_102 | 0x14或0x5D | |
+| HDMI | IO_117、IO_116 | 0x3B | |
+| Audio Codec | IO_117、IO_116 | 0x1A | |
+| MIPI CSI Camera0 | IO_120、IO_121 | 0x10 | |
+| MIPI CSI Camera1 | IO_47、IO_48   | 0x10 | |
 
 ## 2.5 原理图
 
-&emsp;&emsp;K510 CRB开发板对应的参考原理图如下，如有需要，可向我司FAE索取。
-
-&emsp;&emsp;《K510_CRB_V1.2-B.2_Release.pdf》
-
-&emsp;&emsp;《K510_CRB_V1.2-B.2_Release.dsn》
+&emsp;&emsp;K510 CRB开发板对应的参考原理图请在[release](https://github.com/kendryte/k510_docs/releases)处下载。
 
 <div style="page-break-after:always"></div>
 
@@ -252,7 +243,7 @@
 
 ## 3.2 输入电源
 
-&emsp;&emsp;K510 CRB使用外部5V供电，板载了两个USB type C接口，都可以为开发板进行供电，其中UART接口用于连接电脑，电脑的USB接口只能提供500mA电流，在轻应用负载时，可以仅使用UART接口单线供电，在重负载情况下，请使用适配器在DC:5V处供电。接口如下图所示。
+&emsp;&emsp;K510 CRB使用外部5V供电，板载了两个USB type C接口，都可以为开发板进行供电，其中UART接口用于连接电脑，电脑的USB接口只能提供500mA电流，在遇到供电不足时，请同时使用适配器在DC:5V处供电。接口如下图所示。
 
 <div align="center">
     <img src="images/hw_crb_v1_2/image-hw_3_2.png" width=60%>
@@ -260,6 +251,7 @@
 
 <center> 图3-2 电源输入接口 </center>
 
+**注：限定使用5V电源，在使用快充适配器时，尽量不要同时连接手机等其它设备，以免造成快充适配器错误输出高于5V的电源，导致开发板电源部分损坏。**
 &emsp;&emsp;使用K2 拨动开关进行上电和掉电的操作，如下图所示。
 
 <div align="center">
@@ -333,6 +325,7 @@
 <div style="page-break-after:always"></div>
 
 ## 3.6 启动模式和复位
+
 &emsp;&emsp;K510 CRB板载了多种存储设备，通过配置启动时 BOOT0 和 BOOT1 两个管脚的电平来选择启动模式，0和1代表低电平和高电平。
 
 &emsp;&emsp;PCB上通过下图所示的拨码开关选择启动模式，核心模组设计时已对 BOOT0 和 BOOT1 做了上拉设计，拨码开光上标记ON的一侧代表相应位拉低有效，ON对应的另一侧OFF代表上拉有效。
@@ -347,8 +340,6 @@
 | 0(ON)   | 1(OFF)  | SD卡启动      |
 | 1(OFF)  | 0(ON)   | NANDFLASH启动 |
 | 1(OFF)  | 1(OFF)  | EMMC启动      |
-
-
 
 <div align="center">
     <img src="images/hw_crb_v1_2/clip_hw_3_9.jpg" width=60%>
@@ -473,7 +464,6 @@
 | 29   | 1V8              | 32   | 3V3          |
 | 30   | 1V8              | 31   | 3V3          |
 
-
 **注意**：外部连接时注意所连接管脚的电平范围，防止错误的电压输入永久性损坏K510芯片。
 
 <div style="page-break-after:always"></div>
@@ -552,7 +542,7 @@
 
 &emsp;&emsp;使用资料包中的驱动程序或者在如下地址进行下载安装即可。
 
-&emsp;&emsp;http://www.wch.cn/product/CH340.html
+&emsp;&emsp;<http://www.wch.cn/product/CH340.html>
 
 ## 4.2 固件烧录
 
@@ -579,4 +569,3 @@
 </div>
 
 <center>图4-1 驱动安装完成后的设备管理器</center>
-

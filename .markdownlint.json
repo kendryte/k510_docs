@@ -1,0 +1,19 @@
+{
+    "default": true,
+    "first-line-h1": false,
+    "no-alt-text": false,
+    "no-inline-html": false,
+    "header-style": {
+        "style": "consistent"
+    },
+    "ul-indent": {
+        "indent": 2
+    },
+    "line-length": false,
+    "no-duplicate-header": {
+        "allow_different_nesting": true
+    },
+    "ul-style": {
+        "style": "consistent"
+    }
+}
