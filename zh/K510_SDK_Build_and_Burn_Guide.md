@@ -2,27 +2,9 @@
 
 **<font face="黑体" size="6" style="float:right">K510 SDK Build and Burn Guide</font>**
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <font face="黑体"  size=3>文档版本：V1.0.0</font>
 
 <font face="黑体"  size=3>发布日期：2022-03-07</font>
-
-
 
 <div style="page-break-after:always"></div>
 
@@ -30,36 +12,16 @@
 您购买的产品、服务或特性等应受北京嘉楠捷思信息技术有限公司（“本公司”，下同）商业合同和条款的约束，本文档中描述的全部或部分产品、服务或特性可能不在您的购买或使用范围之内。除非合同另有约定，本公司不对本文档的任何陈述、信息、内容的准确性、可靠性、完整性、营销型、特定目的性和非侵略性提供任何明示或默示的声明或保证。除非另有约定，本文档仅作为使用指导的参考。
 由于产品版本升级或其他原因，本文档内容将可能在未经任何通知的情况下，不定期进行更新或修改。
 
-
-
 **<font face="黑体"  size=3>商标声明</font>**
 
 “<img src="images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
 
-
-
 **<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
 本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
-
-
-
-
-
-
-
-
-
-
-
-
 
 **<font face="黑体"  size=3>北京嘉楠捷思信息技术有限公司</font>**
 网址：canaan-creative.com
 商务垂询：salesAI@canaan-creative.com
-
-
-
-
 
 <div style="page-break-after:always"></div>
 # 前言
@@ -88,13 +50,10 @@
 |        |            |            |              |
 |        |            |            |              |
 
-
-
 <div style="page-break-after:always"></div>
 **<font face="黑体"  size=6>目 录</font>**
 
 [TOC]
-
 
 <div style="page-break-after:always"></div>
 
@@ -106,7 +65,7 @@
 
 ## 2.1 k510 sdk下载
 
-k510 SDK 项目地址: https://github.com/kendryte/k510_buildroot
+k510 SDK 项目地址: <https://github.com/kendryte/k510_buildroot>
 
 获取k510 SDK：
 
@@ -126,7 +85,7 @@ K510 SDK是以buildroot为基本框架，以K510 linux kernel（linux版本4.17.
 | --------------- | ------------------------------------------------------------ |
 | board           | 文件夹，其是K510各种配置文件和脚本，如生成镜像的配置文件（genimage-xxx.cfg），buildroot的post-image脚本，U-Boot默认环境变量等。 |
 | Config.in       | 其中内容指示了需要buildroot编译的package。 |
-| configs         | 文件夹，其中是开发板默认编译配置文件。当前保存有K510 CRB-V0.1、K510 CRB-V1.2和K510 EVB三块板的默认编译配置文件:  <br />- `k510_crb_lp3_v1_2_defconfig`  <br />- `k510_crb_lp3_v0_1_defconfig`  <br />- `k510_evb_lp3_v1_1_defconfig` |
+| configs         | 文件夹，其中是开发板默认编译配置文件。当前保存有K510 CRB-V0.1、K510 CRB-V1.2和K510 EVB三块板的默认编译配置文件:<br />- `k510_crb_lp3_v1_2_defconfig`<br />- `k510_crb_lp3_v0_1_defconfig`<br />- `k510_evb_lp3_v1_1_defconfig` |
 | external.desc   | buildroot的external机制配置文件。 |
 | external.mk     | |
 | Makefile        | k510 SDK的主Makefile。 |
@@ -142,7 +101,7 @@ K510 SDK是以buildroot为基本框架，以K510 linux kernel（linux版本4.17.
 
 把k510 sdk编译生成的镜像烧录到板上启动时，会打印版本信息，如下图所示：
 
-```
+```text
 #############SDK VERSION############################################
 MX2_DEV_0106-02e87077-20220428-153936CST-xxxxx-server
 ####################################################################
@@ -151,7 +110,7 @@ MX2_DEV_0106-02e87077-20220428-153936CST-xxxxx-server
 启动完成以后，在shell终端输入如下可以查看 sdk版本信息：
 
 ```shell
-#cat /etc/version/release_version
+cat /etc/version/release_version
 #############SDK VERSION############################################
 MX2_REL_0106-02e87077-20220428-153936CST-xxxx-server
 ####################################################################
@@ -177,13 +136,14 @@ sh k510_buildroot/tools/docker/run_k510_docker.sh
 ### 4.1.1下载源码包（可选，可以加速编译）
 
 执行以下命令下载源码包:
+
 ```shell
 make dl
 ```
 
 ## 4.2编译
 
-k510_buildroot/config 目录下有三个开发板的编译配置文件，分别是 k510_crb_lp3_v0_1_defconfig` 、`k510_crb_lp3_v1_2_defconfig 和 k510_evb_lp3_v1_1_defconfig， **本文档以选择 k510_crb_lp3_v1_2_defconfig 作为编译目标来说明**。
+k510_buildroot/config 目录下有三个开发板的编译配置文件，分别是`k510_crb_lp3_v0_1_defconfig` 、`k510_crb_lp3_v1_2_defconfig`和`k510_evb_lp3_v1_1_defconfig`， **本文档以选择 k510_crb_lp3_v1_2_defconfig 作为编译目标来说明**。
 
 在k510 docker环境下输入如下命令启动编译：
 
@@ -239,7 +199,7 @@ k510_crb_lp3_v1_2_defconfig/build 目录下是所有被编译对象的源码，�
 | riscv-pk-k510-xxx| 被编译的 bbl 源码目录         |
 | ...              |                               |
 
-注： xxx是版本号，目前为git commit ID。后面章节引用kernle，bbl和uboot的路径时，xxx均表示版本号。
+注： xxx是版本号。后面章节引用kernle，bbl和uboot的路径时，xxx均表示版本号。
 
 **需要特别注意：**当make clean 的时候，k510_crb_lp3_v1_2_defconfig文件夹下所有内容将被删除。所以，如果需要修改kernel、bbl或者uboot代码，不要直接在build目录下修改，可以参考第5章内容，使用override source的方式。
 
@@ -445,7 +405,7 @@ echo "${BINARIES_DIR}/all.dts"
 将 mkdtb-local.sh  放到 K510_buildroot 目录下，执行如下命令即可对 k510_crb_lp3_v1_2_defconfig板设备树进行编译：
 
 ```shell
- ./mkdtb-local.sh k510_crb_lp3_v1_2_defconfig
+./mkdtb-local.sh k510_crb_lp3_v1_2_defconfig
 ```
 
 执行结果如下：
@@ -471,7 +431,7 @@ echo "${BINARIES_DIR}/all.dts"
 在 k510 docker环境下输入配置 buildroot命令：
 
 ```shell
- make CONF=k510_crb_lp3_v1_2_defconfig menuconfig
+make CONF=k510_crb_lp3_v1_2_defconfig menuconfig
 ```
 
 执行结果如下：
@@ -485,7 +445,7 @@ echo "${BINARIES_DIR}/all.dts"
 在k510_buildroot目录下输入保存配置命令。
 
 ```shell
- make CONF=k510_crb_lp3_v1_2_defconfig savedefconfig
+make CONF=k510_crb_lp3_v1_2_defconfig savedefconfig
 ```
 
 执行结果如下：
@@ -497,7 +457,7 @@ echo "${BINARIES_DIR}/all.dts"
 在k510_buildroot目录下，输入如下命令编译整个项目程序，并将hello打包到emmc和sd卡镜像文件当中。
 
 ```shell
- make CONF=k510_crb_lp3_v1_2_defconfig
+make CONF=k510_crb_lp3_v1_2_defconfig
 ```
 
 执行结果如下：
@@ -513,7 +473,7 @@ echo "${BINARIES_DIR}/all.dts"
 进入到 k510_buildroot/k510_crb_lp3_v1_2_defconfig目录下，输入如下命令编译 hello应用程序。
 
 ```shell
- make hello_world-rebuild
+make hello_world-rebuild
 ```
 
 执行结果如下：
@@ -523,7 +483,7 @@ echo "${BINARIES_DIR}/all.dts"
 进入到 k510_buildroot/k510_crb_lp3_v1_2_defconfig目录下，输入make命令将hello打包到emmc和sd卡镜像文件当中。
 
 ```shell
- make
+make
 ```
 
 执行结果如下：
@@ -531,6 +491,7 @@ echo "${BINARIES_DIR}/all.dts"
 ![](images/sdk_build/image-app-build-2.png)
 
 # 5 使用K510 SDK进行开发
+
 ## 5.1 linux kernel/BBL/uboot源码
 
 本sdk使用的uboot版本是2020.01，uboot补丁目录是package/patches/uboot，打完补丁后的目录是k510_xxx_defconfig/build/uboot-2020.01。
@@ -538,7 +499,8 @@ echo "${BINARIES_DIR}/all.dts"
 本sdk使用的kernel版本是4.17，kernel补丁目录是package/patches/linux，打完补丁后的目录是k510_xxx_defconfig/build/linux-4.17。
 
 本sdk的 BBL作为一个target package，放在package/riscv-pk-k510/目录下，riscv-pk-k510.mk中指定了bbl的代码源和版本号：
-``` BBL
+
+```text
 RISCV_PK_K510_VERSION = 1e666d6c5dbab220d2ca57fbd9bec49702599b75
 RISCV_PK_K510_SITE = git@github.com:kendryte/k510_BBL.git
 RISCV_PK_K510_SITE_METHOD = git
@@ -554,7 +516,7 @@ Buildroot下编译的每一个pacakge，包括linux kernel/BBL/uboot，都是通
 
 简单来说就是可以在k510_crb_lp3_v1_2_defconfig目录下添加一个local.mk文件，在里面添加：
 
-``` local.mk
+```text
 <pkg1>_OVERRIDE_SRCDIR = /path/to/pkg1/sources
 ```
 
@@ -563,19 +525,19 @@ Buildroot下编译的每一个pacakge，包括linux kernel/BBL/uboot，都是通
 - RISCV_PK_K510 是bbl的package name
 
 我们以linux kernel为例，介绍如何使用。
-假设我已经在/data/yangguang/workspace/k510_linux_kernel目录下clone了kernel的代码，并做了修改，想要在buildroot下编译并在crb v1.2板子上测试，可以在k510_crb_lp3_v1_2_defconfig目录下创建一个local.mk并添加如下内容:
+假设我已经在/data/yourname/workspace/k510_linux_kernel目录下clone了kernel的代码，并做了修改，想要在buildroot下编译并在crb v1.2板子上测试，可以在k510_crb_lp3_v1_2_defconfig目录下创建一个local.mk并添加如下内容:
 
-``` local.mk
-LINUX_OVERRIDE_SRCDIR = /data/yangguang/workspace/k510_linux_kernel
+```text
+LINUX_OVERRIDE_SRCDIR = /data/yourname/workspace/k510_linux_kernel
 ```
 
 在k510_crb_lp3_v1_2_defconfig目录下执行
 
-```
+```shell
 make linux-rebuild
 ```
 
-就可以看到build/linux-custom目录下重新编译了kernel，用的就是/data/yangguang/workspace/k510_linux_kernel下修改过的代码。
+就可以看到build/linux-custom目录下重新编译了kernel，用的就是/data/yourname/workspace/k510_linux_kernel下修改过的代码。
 uboot和bbl也类似。这样就可以直接修改内核代码并在buildroot下重编内核，增量编译镜像去测试。
 注： override的源码在k510_crb_lp3_v1_2_defconfig/build目录下的目录名称会加上custom的后缀，来区分buildroot的默认配置中的每个package的代码源的不同。例如上述linux kernel的例子，编译会看到override指定的代码是在k510_crb_lp3_v1_2_defconfig/build/linux-custom目录下编译，而不是之前我们看到的k510_crb_lp3_v1_2_defconfig/build/linux-xxx目录。
 
@@ -601,7 +563,7 @@ K510 通过 BOOT0 和 BOOT1 两个硬件管脚的状态决定芯片启动方式�
 在sd卡插到宿主机之前，输入：
 
 ```shell
- ls -l /dev/sd*
+ls -l /dev/sd*
 ```
 
 查看当前的存储设备。
@@ -609,7 +571,7 @@ K510 通过 BOOT0 和 BOOT1 两个硬件管脚的状态决定芯片启动方式�
 将sd卡插入宿主机后，再次输入：
 
 ```shell
- ls -l /dev/sd*
+ls -l /dev/sd*
 ```
 
 查看此时的存储设备，新增加的就是 sd 卡设备节点。
@@ -618,7 +580,7 @@ K510 通过 BOOT0 和 BOOT1 两个硬件管脚的状态决定芯片启动方式�
 
 ![](images/sdk_build/image-dev_sd.png)
 
-/dev/sdc 就是 sd卡设备节点。**注意: 用户环境下生成的 sd卡设备节点可能不是 /dev/sdc，后续操作需要根据实际节点做相应修改。 **
+/dev/sdc 就是 sd卡设备节点。**注意: 用户环境下生成的 sd卡设备节点可能不是 /dev/sdc，后续操作需要根据实际节点做相应修改。**
 
 在宿主机下进入k510_buildroot/k510_crb_lp3_v1_2_defconfig/image目录，输入dd命令将sysimage-sdcard.img烧录到sdcard：
 
@@ -632,7 +594,7 @@ sudo dd if=sysimage-sdcard.img of=/dev/sdc bs=1M oflag=sync
 
 ### 6.1.2 Windows下烧录
 
-Windows下可通过balenaEtcher工具对sd卡进行烧录（balenaEtcher工具下载地址https://www.balena.io/etcher/）。
+Windows下可通过balenaEtcher工具对sd卡进行烧录（balenaEtcher工具下载地址<https://www.balena.io/etcher/>）。
 
 1）将TF卡插入PC，然后启动balenaEtcher工具，点击工具界面的"Flash from file”按钮，选择待烧写的固件，如下图。
 
@@ -680,7 +642,7 @@ mount | grep emmc
 最后进入sysimage-emmc.img镜像所在路径，输入如下命令烧录eMMC。
 
 ```shell
- dd if=sysimage-emmc.img of=/dev/mmcblk0 bs=1M
+dd if=sysimage-emmc.img of=/dev/mmcblk0 bs=1M
 ```
 
 执行结果如下图：
@@ -693,40 +655,40 @@ mount | grep emmc
 
 # 7 用户配置编译环境 <a id="env_set"> </a>
 
-若用户不使用上述的docker环境，可在ubuntu18.04/20.04参考如下命令配置自己的开发环境。
+若用户不使用上述的docker环境，可在ubuntu18.04/20.04参考如下命令配置自己的开发环境，如果没有权限请使用`sudo`。
 
 ```shell
-$ apt-get update
-$ apt-get upgrade
-$ apt-get install libc6-i386 libc6-dev-i386
+apt-get update
+apt-get upgrade
+apt-get install libc6-i386 libc6-dev-i386
 
-$ apt-get install mtools
-$ apt-get install dosfstools
-$ apt-get install python
-$ apt-get install python-pip
-$ python2 -m pip install pycrypto
+apt-get install mtools
+apt-get install dosfstools
+apt-get install python
+apt-get install python-pip
+python2 -m pip install pycrypto
 
-$ apt-get install python3.7
-$ apt-get install python3-pip
-$ python3.7 -m pip install --upgrade pip
-$ ln -sf /usr/bin/python3.7 /usr/bin/python3
-$ python3 -m pip install onnx==1.9.0 onnx-simplifier==0.3.6 onnxoptimizer==0.2.6 onnxruntime==1.8.0 -i https://pypi.tuna.tsinghua.edu.cn/simple
+apt-get install python3.7
+apt-get install python3-pip
+python3.7 -m pip install --upgrade pip
+ln -sf /usr/bin/python3.7 /usr/bin/python3
+python3 -m pip install onnx==1.9.0 onnx-simplifier==0.3.6 onnxoptimizer==0.2.6 onnxruntime==1.8.0 -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 #进行下一步，需进入k510_buildroot/nncase目录，将nncase_v1.4.0.tgz解压后进入k510_buildroot/nncase/nncase_v1.4.0目录，输入如下命令安装*.whl
-$ python3 -m pip install x86_64/*.whl
+python3 -m pip install x86_64/*.whl
 #运行python3 -m pip show nncase，若看到nncase版本信息则表示AI应用程序环境部署成功。
-$ python3 -m pip show nncase
+python3 -m pip show nncase
 
-$ python3 -m pip install xlrd==1.2.0
-$ python3 -m  pip install pystache
-$ dpkg --add-architecture i386
-$ apt update
-$ apt install libncurses5:i386
-$ apt-get install wget
-$ apt-get install cpio
-$ apt-get install unzip
-$ apt-get install rsync
-$ apt-get install bc
-$ apt-get install libssl-dev
-$ pip3 install pycryptodome
+python3 -m pip install xlrd==1.2.0
+python3 -m  pip install pystache
+dpkg --add-architecture i386
+apt update
+apt install libncurses5:i386
+apt-get install wget
+apt-get install cpio
+apt-get install unzip
+apt-get install rsync
+apt-get install bc
+apt-get install libssl-dev
+pip3 install pycryptodome
 ```
