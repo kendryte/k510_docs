@@ -2,27 +2,9 @@ git@g.b-bug.org:wangjianxin/k510_buildroot_docs.git![](images/canaan-cover.png)
 
 **<font face="黑体" size="6" style="float:right">K510 SDK Application Guide</font>**
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <font face="黑体"  size=3>文档版本：V1.0.0</font>
 
 <font face="黑体"  size=3>发布日期：2022-03-09</font>
-
-
 
 <div style="page-break-after:always"></div>
 
@@ -30,36 +12,16 @@ git@g.b-bug.org:wangjianxin/k510_buildroot_docs.git![](images/canaan-cover.png)
 您购买的产品、服务或特性等应受北京嘉楠捷思信息技术有限公司（“本公司”，下同）商业合同和条款的约束，本文档中描述的全部或部分产品、服务或特性可能不在您的购买或使用范围之内。除非合同另有约定，本公司不对本文档的任何陈述、信息、内容的准确性、可靠性、完整性、营销型、特定目的性和非侵略性提供任何明示或默示的声明或保证。除非另有约定，本文档仅作为使用指导的参考。
 由于产品版本升级或其他原因，本文档内容将可能在未经任何通知的情况下，不定期进行更新或修改。
 
-
-
 **<font face="黑体"  size=3>商标声明</font>**
 
 “<img src="images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
 
-
-
 **<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
 本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
 
-
-
-
-
-
-
-
-
-
-
-
-
-**<font face="黑体"  size=3>北京嘉楠捷思信息技术有限公司</font>** 
+**<font face="黑体"  size=3>北京嘉楠捷思信息技术有限公司</font>**
 网址：canaan-creative.com
 商务垂询：salesAI@canaan-creative.com
-
-
-
-
 
 <div style="page-break-after:always"></div>
 # 前言
@@ -72,7 +34,6 @@ git@g.b-bug.org:wangjianxin/k510_buildroot_docs.git![](images/canaan-cover.png)
 
 - 软件开发人员
 - 技术支持人员
-  
 
 **<font face="黑体"  size=5>修订记录</font>**
 <font face="宋体"  size=2>修订记录累积了每次文档更新的说明。最新版本的文档包含以前所有版本的更新内容。</font>
@@ -89,16 +50,12 @@ git@g.b-bug.org:wangjianxin/k510_buildroot_docs.git![](images/canaan-cover.png)
 |        |            |            |              |
 |        |            |            |              |
 
-
-
 <div style="page-break-after:always"></div>
 **<font face="黑体"  size=6>目 录</font>**
 
-[TOC] 
-
+[TOC]
 
 <div style="page-break-after:always"></div>
-
 
 # 1  Demo应用
 
@@ -150,14 +107,13 @@ ai
 
 模型的编译参见`nncase_demo.mk`里面定义的*POST_INSTALL_TARGET_HOOKS*：
 
-```
+```text
 NNCASE_DEMO_DEPENDENCIES += mediactl_lib nncase_linux_runtime opencv4 libdrm
 define NNCASE_DEMO_COMPILE_MODEL
 cd $(@D) && /usr/bin/python3 retinaface_mb_320_opencv/data/rf_onnx.py --quant_type uint8 --model retinaface_mb_320_opencv/data/retinaface_mobile0.25_320.onnx
 cp $(@D)/rf.kmodel $(TARGET_DIR)/app/nncase_demo/retinaface_mb_320_opencv/rf_uint8.kmodel
 
 NNCASE_DEMO_POST_INSTALL_TARGET_HOOKS += NNCASE_DEMO_COMPILE_MODEL
-
 ```
 
 模型的编译需要nncase环境，关于nncase环境的搭建，参考k510_nncase_Developer_Guides.md。以后nncase有更新，buildroot sdk会同步更新到nncase。
@@ -273,8 +229,6 @@ cd /app/twod_app
 将ouput.yuv 拷到yuv显示器上设置尺寸1080 x 1920，结果如下
 ![output.yuv](images/sdk_application/driver-twod-output-1080x1920.jpg)
 
-
-
 scaler 使用方法
 
 ```shell
@@ -286,6 +240,7 @@ cd /app/twod_app
 ![ouput.yuv](images/sdk_application/driver-twod-output-640x480.jpg)
 
 API:
+
 ```c
 /* 创建内存 */
 twod_create_fb()
@@ -477,15 +432,15 @@ cd /app/write_read_file
 
 ## 1.10 SHA/AES demo
 
-    SHA/AES demo 使用Linux 内核导出 AF_ALG 类型的 Netlink 接口，在用户空间使用内核加密 API。详细信息请参考https://www.kernel.org/doc/html/latest/crypto/userspace-if.html。
-    
-    参数：
-        -h 打印帮助信息
-        -t 算法类型：hash、skcipher
-        -n 算法名称：sha256、ecb(aes)、cbc(aes)
-        -x 解密操作
-        -k AES KEY（16进制字符串）
-        -v AES IV（16进制字符串）
+SHA/AES demo 使用Linux 内核导出 AF_ALG 类型的 Netlink 接口，在用户空间使用内核加密 API。详细信息请参考<https://www.kernel.org/doc/html/latest/crypto/userspace-if.html>。
+
+参数：
+-h 打印帮助信息
+-t 算法类型：hash、skcipher
+-n 算法名称：sha256、ecb(aes)、cbc(aes)
+-x 解密操作
+-k AES KEY（16进制字符串）
+-v AES IV（16进制字符串）
 
 ![](images/sdk_application/image_crypto_help.png)
 
