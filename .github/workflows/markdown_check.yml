@@ -1,11 +1,14 @@
 name: markdown check
 on:
-  push:
+  pull_request:
     branches:
       - main
       - dev
+  push:
+    branches:
+      - check
 jobs:
-  markdownlint:
+  markdown_check:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -15,3 +18,9 @@ jobs:
         with:
           config: ".markdownlint.json"
           args: "**/*.md"
+      - name: Check markdown link
+        uses: gaurav-nelson/github-action-markdown-link-check@1.0.13
+        with:
+          use-quiet-mode: "yes"
+          folder-path: "./"
+          config-file: '.github/config/markdownlink.json'

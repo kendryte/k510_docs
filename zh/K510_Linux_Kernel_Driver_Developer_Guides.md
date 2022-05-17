@@ -65,7 +65,7 @@
 
 下载并编译sdk，sdk编译的时候会下载并编译linux代码。
 
-sdk的下载编译方法请参考[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide)。
+sdk的下载编译方法请参考[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md)。
 
 ## 1.2开发环境需求
 

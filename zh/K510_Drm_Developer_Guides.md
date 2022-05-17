@@ -67,7 +67,7 @@ Direct Rendering Manager是[Linux 内核](https://en.wikipedia.org/wiki/Linux_ke
 
 下载并编译sdk，sdk编译的时候会下载并编译linux代码。
 
-sdk的下载编译方法请参考[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide)。
+sdk的下载编译方法请参考[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md)。
 
 ## 2.2驱动文件及目录
 
