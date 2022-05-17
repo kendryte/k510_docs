@@ -546,7 +546,7 @@
 
 ## 4.2 固件烧录
 
-&emsp;&emsp;请参考[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide)文档。
+&emsp;&emsp;请参考[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md)文档。
 
 ## 4.3 开关机
 

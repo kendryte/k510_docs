@@ -1,9 +1,11 @@
+![](https://github.com/wycwyhwyq/k510_docs/actions/workflows/markdown_check.yml/badge.svg)
+
 # 文档概述
 
 k510 相关文档如下：
 
-| 文档名称                                                     | 文档概要                           |
-| ------------------------------------------------------------ | ---------------------------------- |
+| 文档名称 | 文档概要 |
+| :-- | :-- |
 | [K510_CRB_V1.2_Hardware_Guide.md](zh/K510_CRB_V1.2_Hardware_Guide.md) | K510 CRB V1.2 硬件资源说明文档 |
 | [K510_SDK_Build_and_Burn_Guide.md](zh/K510_SDK_Build_and_Burn_Guide.md) | K510 SDK 编译和烧录说明文档 |
 | [K510_System_memory_map.md](zh/K510_System_memory_map.md) | K510 SDK 系统memory划分说明文档 |
@@ -27,5 +29,5 @@ k510 相关文档如下：
 ## 联系我们
 
 北京嘉楠捷思信息技术有限公司
-网址：[canaan-creative.com](canaan-creative.com)
+网址：[canaan-creative.com](https://canaan-creative.com/)
 商务垂询：[salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)

@@ -76,7 +76,7 @@ u-boot是sdk的一部分，sdk目前使用的u-boot版本是2020.01。Uboot是�
 
 # 3 获取方式
 
-下载并编译sdk，sdk编译的时候会下载uboot代码，并编译uboot代码。sdk的下载编译方法请参考[K510_SDK_Build_and_Burn_Guide.md](./K510_SDK_Build_and_Burn_Guide)
+下载并编译sdk，sdk编译的时候会下载uboot代码，并编译uboot代码。sdk的下载编译方法请参考[K510_SDK_Build_and_Burn_Guide.md](./K510_SDK_Build_and_Burn_Guide.md)
 
 # 4 重要目录和文件说明
 
