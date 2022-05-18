@@ -286,10 +286,9 @@ isp_modules:
 
 运行v4l2_drm.out
 
-
 - -e：0 关闭所有ae，1打开 f-2k ae，2打开r-2k ae，3打开所有ae。默认情况下可以不指定-e 就是关闭所有ae。
 - 该demo 需要video配置文件及对应的sensor配置文件在当前目录下。
 - 该demo通过更改配置文件，可以演示单双摄。
-- 该demo演示单摄全屏：./v4l2_drm.out -e 1 -f video_drm_1080x1920.conf 
+- 该demo演示单摄全屏：./v4l2_drm.out -e 1 -f video_drm_1080x1920.conf
 - 该demo演示双摄：./v4l2_drm.out -f video_drm_1920x1080.conf
 - 该demo必须保证video_drm_1920x1080.conf，imx219_0.conf及imx219_1.conf三个配置文件存在
