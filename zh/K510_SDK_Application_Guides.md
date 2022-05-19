@@ -548,7 +548,7 @@ v4l2_drm demo展示了摄像头输入和显示的功能。
 
 ```shell
 cd /app/mediactl_lib
-./v4l2_drm.out -f video_drm_1080x1920.conf
+./v4l2_drm.out -f video_drm_1080x1920.conf -e 1
 或者
 ./v4l2_drm.out -f video_drm_1920x1080.conf
 ```
