@@ -739,7 +739,7 @@ rtmp推流前需要部署rtmp服务器，将数据流推送到服务器上。支
 ffmpeg运行命令示例:
 
 ```shell
-ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_h264 -an -f flv rtmp://10.100.232.11/live/1
+ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_h264 -f flv rtmp://10.100.232.11/live/1
 ```
 
 - `rtmp://10.100.232.11/live/1`为向rtmp服务器推流的url地址  
