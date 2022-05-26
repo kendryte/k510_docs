@@ -1,4 +1,5 @@
-![](https://github.com/wycwyhwyq/k510_docs/actions/workflows/markdown_check.yml/badge.svg)
+[![Gitee repository](https://img.shields.io/badge/gitee-repository-blue?logo=gitee&style=plastic)](https://gitee.com/kendryte/k510_docs)
+[![GitHub release](https://img.shields.io/github/v/release/kendryte/k510_docs?color=brightgreen&display_name=tag&logo=github&style=plastic)](https://github.com/kendryte/k510_docs/releases)
 
 # 文档概述
 
@@ -28,6 +29,6 @@ k510 相关文档如下：
 
 ## 联系我们
 
-北京嘉楠捷思信息技术有限公司
-网址：[canaan-creative.com](https://canaan-creative.com/)
+北京嘉楠捷思信息技术有限公司  
+网址：[canaan-creative.com](https://canaan-creative.com/)  
 商务垂询：[salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
