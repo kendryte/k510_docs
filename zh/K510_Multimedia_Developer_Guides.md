@@ -68,6 +68,37 @@ EncoderHandle* VIdeoEncoder_Create(EncSettings *pCfg)
 
 pCfg：输入编码配置参数
 
+|            参数名             | 参数解释                                                     |                           取值范围                           | 适用编码模块 |
+| :---------------------------: | :----------------------------------------------------------- | :----------------------------------------------------------: | ------------ |
+|            channel            | 通道号,最多支持8个编码通道                                   |                            [0，7]                            | jpeg、avc    |
+|             width             | 编码图像宽度                                                 | avc: [128,2048], multiple of 8 <br/> jpeg: up to 8192, multiple of 16 | jpeg、avc    |
+|            height             | 编码图像高度                                                 | avc: [64,2048], multiple of 8 <br/> jpeg: up to 8192, multiple of 2 | jpeg、avc    |
+|           FrameRate           | 帧率,只能配置为固定几个值                                    |                       (25,30,50,60,75)                       | jpeg、avc    |
+|            rcMode             | 码率控制模式 0:CONST_QP 1:CBR 2:VBR<br />jpeg固定为CONST_QP  |                       参见RateCtrlMode                       | jpeg，avc    |
+|            BitRate            | CBR 模式下的目标码率或VBR模式下的最低码率                    |                        [10,20000000]                         | avc          |
+|          MaxBitRate           | VBR模式下的最高码率                                          |                        [10,20000000]                         | avc          |
+|            SliceQP            | 初始 QP 值,-1表示auto                                        |                avc:-1,[0,51]<br/>jpeg:[1,100]                | jpeg，avc    |
+|             MinQP             | 最小qp值                                                     |                         [0,sliceqp]                          | avc          |
+|             MaxQP             | 最大qp值                                                     |                         [sliceqp,54]                         | avc          |
+|            profile            | SPS 中的 profile_idc 参数:0: base 1:main 2:high 3:jpeg       |                            [0,3]                             | jpeg，avc    |
+|             level             | PS 中的 level_idc 参数                                       |                           [10,42]                            | avc          |
+|          AspectRatio          | 显示比例                                                     |                     参见AVC_AspectRatio                      | jpeg，avc    |
+|            FreqIDR            | 两个idr帧的间隔                                              |                           [1,1000]                           | avc          |
+|            gopLen             | Group Of Picture，即两个 I 帧之间的间隔                      |                           [1,1000]                           | avc          |
+|          bEnableGDR           | 是否启用帧内刷新                                             |                         [true,false]                         | avc          |
+|            gdrMode            | gdr 刷新模式:0，垂直刷新  1，水平刷新                        |                       参见GDRCtrlMode                        | avc          |
+|          bEnableLTR           | 是否启用长期参考帧                                           |                         [true,false]                         | avc          |
+|          roiCtrlMode          | roi控制模式:0:不使用roi 1：相对qp  2：绝对qp                 |                       参见ROICtrlMode                        | avc          |
+|       EncSliceSplitCfg        | slice 分割配置                                               |                                                              | avc          |
+|         bSplitEnable          | Slice 分割是否使能                                           |                         [true,false]                         | avc          |
+|         u32SplitMode          | Slice 分割模式:0：按 bit 数分割。<br />1:按宏块行分割        |                            [0,1]                             | avc          |
+|         u32SliceSize          | u32SplitMode=0，表示每个 slice 的 byte 数<br />u32SplitMode=1，表示每个 slice 占的宏块行数<br /> | u32SplitMode=0，[100,65535]<br />u32SplitMode=1，[1,(图像高+15)/16] | avc          |
+|          entropyMode          | 熵编码，0：CABAC     1：CAVLC                                |                      参见EncEntropyMode                      | avc          |
+|          encDblkCfg           | 区块滤波配置                                                 |                                                              | avc          |
+| disable_deblocking_filter_idc | 默认值0，具体含义请参见 H.264 协 议                          |                            [0，2]                            | avc          |
+|  slice_alpha_c0_offset_div2   | 默认值0，具体含义请参见 H.264 协 议                          |                           [-6，6]                            | avc          |
+|    slice_beta_offset_div2     | 默认值0，具体含义请参见 H.264 协 议                          |                          [-6,   6]                           | avc          |
+
 ```c
 typedef struct
 {
@@ -89,8 +120,12 @@ typedef struct
     bool                      bEnableGDR;//gdr
     GDRCtrlMode               gdrMode;
     bool                      bEnableLTR;//Long Term reference
+
     ROICtrlMode               roiCtrlMode;
-} EncSettings;
+    EncSliceSplitCfg          sliceSplitCfg;
+    EncEntropyMode            entropyMode;//Profile is set to AVC_MAIN or AVC_HIGH is valid
+    EncDblkCfg                encDblkCfg;
+}EncSettings;
 typedef enum
 {
     CONST_QP,
@@ -137,6 +172,25 @@ typedef enum
     GDR_HORIZONTAL,
     GDR_CTRLMAX,
 } GDRCtrlMode;
+typedef struct
+{
+    bool bSplitEnable;
+    unsigned int u32SplitMode; // 0:splite by byte; 1:splite by slice count
+    unsigned int u32SliceSize;
+}EncSliceSplitCfg;
+
+typedef enum
+{
+    ENTROPY_MODE_CABAC = 0,
+    ENTROPY_MODE_CAVLC,
+}EncEntropyMode;
+
+typedef struct
+{
+    unsigned int  disable_deblocking_filter_idc;//[0,2]
+    int  slice_alpha_c0_offset_div2;//[-6,6]
+    int  slice_beta_offset_div2;//[-6,6]
+}EncDblkCfg;
 ```
 
 【返回值】
@@ -188,7 +242,7 @@ typedef struct
 ```text
 uIndex     - 指定该roi区域索引号，范围0-7最多支持8个区域
 bEnable    - 指定该区域是否使能，只有使能的区域才有效
-uQpValue   - qp值，可以是相对qp或绝对qp，qp模式由EncSettings中roiCtrlMode属性决定。绝对qp范围                  [0,51]，相对qp范围[-32,31]
+uQpValue   - qp值，可以是相对qp或绝对qp，qp模式由EncSettings中roiCtrlMode属性决定。绝对qp范围                  [0,51]，相对qp范围[-31,31]
 stRect     - roi矩形区域，s32X矩形左上角x值，s32Y矩形左上角y值，u32Width矩形宽度，u32Height矩形高度
 ```
 
@@ -254,7 +308,39 @@ typedef enum
 }EncStatus;
 ```
 
-### 1.2.5 VideoEncoder_Destory
+### 1.2.5 VideoEncoder_InsertUserData
+
+【描述】
+
+插入用户数据。
+
+在编码器创建后到销毁前均可使用，编码过程中可以实时修改用户数据内容。用户数据将被插入到IDR帧的SEI数据区域。
+
+【语法】
+
+```c
+EncStatus      VideoEncoder_InsertUserData(EncoderHandle *hEnc,char*pUserData,unsigned int nlen);
+```
+
+【参数】
+
+hEnc: 创建时返回的句柄
+
+pUserData:用户数据指针
+
+nlen:用户数据长度(0, 1024]
+
+【返回值】
+
+```c
+typedef enum
+{
+    Enc_SUCCESS = 0,
+    Enc_ERR = 1,
+}EncStatus;
+```
+
+### 1.2.6 VideoEncoder_Destory
 
 【描述】
 
@@ -280,7 +366,7 @@ typedef enum
 }EncStatus;
 ```
 
-### 1.2.6 VideoEncoder_EncodeOneFrame
+### 1.2.7 VideoEncoder_EncodeOneFrame
 
 【描述】
 
@@ -315,7 +401,7 @@ Enc_SUCCESS = 0,
 Enc_ERR = 1
 ```
 
-### 1.2.7 VideoEncoder_GetStream
+### 1.2.8 VideoEncoder_GetStream
 
 【描述】
 
@@ -348,7 +434,7 @@ Enc_SUCCESS = 0,
 Enc_ERR = 1
 ```
 
-### 1.2.8 VideoEncoder_ReleaseStream
+### 1.2.9 VideoEncoder_ReleaseStream
 
 【描述】
 
@@ -405,32 +491,32 @@ K510的硬件框图如下：
 
 运行`encode_app`
 
-| 参数名 | 参数解释 | 默认值 | 取值范围 |
-|:-|:-|:-|:-|
-| help | 帮助信息| | |
-| split | 通道个数 | NULL | |
-| ch | 通道号（从0开始） | NULL | |
-| i | 输入yuv文件，只支持**nv12**格式 | NULL | v4l2 <br> xxx.yuv |
-| dev | v4l2 device name | NULL | |
-| o | 输出| NULL | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG |
-| w | 输出图像宽度 | 1920 | |
-| h | 输出图像高度 | 1080 | |
-| fps | 摄像头采集帧率，目前只支持30pfs | 30 | 30 |
-| r | 编码输出帧率 | 30 | |
-| inframes | 输入yuv帧数 | NULL | |
-| outframes | 输出yuv帧数，如果比参数-inframes大，将会重复编码 | NULL | |
-| gop | Group Of Picture，即两个 I 帧之间的间隔 | 25 | |
-| rcmode | 表示码率控制模式 0:CONST_QP 1:CBR 2:VBR | CBR | [0,2] |
-| bitrate | CBR 模式下的目标码率或VBR模式下的最低码率,单位Kb | 4000 | |
-| maxbitrate | VBR模式下的最高码率,单位Kb | 4000 | |
-| profile | SPS 中的 profile_idc 参数:0: base 1:main 2:high 3:jpeg | AVC_HIGH | [0,3] |
-| level | SPS 中的 level_idc 参数 | 42 | [10,42] |
-| sliceqp | 初始 QP 值,-1表示auto | 25 | avc:-1,[0,51]<br/>jpeg:[1,100] |
-| minqp | 最小QP 值 | 0 | [0,sliceqp] |
-| maxqp | 最大QP值 | 54 | [sliceqp,54] |
-| enableLTR | 使能长期参考帧，参数指定刷新周期。0：不启用刷新周期。正数：周期性设置参考帧并且下一帧设置为使用长期参考帧 | 0 | [0,65535] |
-| roi | roi配置文件，指定多个roi区域 | NULL | |
-| conf | vl42配置文件,会指定的配置文件的基础上，根据命令行输入参数修改v4l2配置参数 | NULL | |
+| 参数名 | 参数解释 | 默认值 | 取值范围 | 适用编码模块 |
+|:-|:-|:-|:-|:-|
+| help | 帮助信息| | ||
+| split | 通道个数 | NULL | [1,4] | jpeg、avc |
+| ch | 通道号（从0开始） | NULL | [0,3] | jpeg、avc |
+| i | 输入yuv文件，只支持**nv12**格式 | NULL | v4l2 <br> xxx.yuv | jpeg、avc |
+| dev | v4l2 device name | NULL | **sensor0:**<br> /dev/video3 <br> /dev/video4 <br> **sensor1:** <br> /dev/video7 <br> /dev/video8 | avc |
+| o | 输出| NULL | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG | jpeg、avc |
+| w | 输出图像宽度 | 1920 | avc: [128,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 16 | jpeg、avc |
+| h | 输出图像高度 | 1080 | avc: [64,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 2 | jpeg、avc |
+| fps | 摄像头采集帧率，目前只支持30pfs | 30 | 30 | avc |
+| r | 编码输出帧率 | 30 | 能整除fps或者被fps整除的数 | avc |
+| inframes | 输入yuv帧数 | 0 | [0,32767] | jpeg、avc |
+| outframes | 输出yuv帧数，如果比参数-inframes大，将会重复编码 | 0 | [0,32767] | jpeg、avc |
+| gop | Group Of Picture，即两个 I 帧之间的间隔 | 25 | [1,1000] | avc |
+| rcmode | 表示码率控制模式 0:CONST_QP 1:CBR 2:VBR | CBR | [0,2] | avc |
+| bitrate | CBR 模式下的目标码率或VBR模式下的最低码率,单位Kb | 4000 | [1,20000] | avc |
+| maxbitrate | VBR模式下的最高码率,单位Kb | 4000 | [1,20000] | avc |
+| profile | SPS 中的 profile_idc 参数:0: base 1:main 2:high 3:jpeg | AVC_HIGH | [0,3] | jpeg、avc |
+| level | SPS 中的 level_idc 参数 | 42 | [10,42] | avc |
+| sliceqp | 初始 QP 值,-1表示auto | 25 | avc:-1,[0,51]<br/>jpeg:[1,100] | jpeg、avc |
+| minqp | 最小QP 值 | 0 | [0,sliceqp] | avc |
+| maxqp | 最大QP值 | 54 | [sliceqp,54] | avc |
+| enableLTR | 使能长期参考帧，参数指定刷新周期。0：不启用刷新周期。正数：周期性设置参考帧并且下一帧设置为使用长期参考帧 | 0 | [0,65535] | avc |
+| roi | roi配置文件，指定多个roi区域 | NULL | xxx.conf | avc |
+| conf | vl42配置文件,会指定的配置文件的基础上，根据命令行输入参数修改v4l2配置参数 | NULL | xxx.conf | avc |
 
 ### 3.1.1 输入yuv文件，输出文件
 
@@ -489,7 +575,7 @@ roi文件格式
 ```text
 roiCtrMode - 1:相对qp  2:绝对qp
 roiRegion  - roi区域，为多个区域数组，最多支持8个区域。
-qpValue    - 指定该区域使用的qp值，相对qp范围:[-32,31]     绝对qp范围:[0,51]
+qpValue    - 指定该区域使用的qp值，相对qp范围:[-31,31]     绝对qp范围:[0,51]
 qpRegion   - roi矩形区域
 left       - 矩形区域的左上角X坐标
 top        - 矩形区域的左上角Y坐标
@@ -551,22 +637,38 @@ ffmpeg放在/usr/local/bin目录下。
 
 运行`ffmpeg`
 
-(1) encoder参数
+(1) encoder libk510_h264参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
-| g | gop size | 25 | 0~1000 |
-| b | bitrate | 4000000 | 0~100000000 |
+| g | gop size | 25 | 1~1000 |
+| b | bitrate | 4000000 | 0~20000000 |
 | r | 帧率,由于isp目前只支持30fps，故解码器应设置为30 | 30 | 30 |
 | idr_freq | IDR频率 | -1(没有IDR) | -1~256 |
-| qp | 用cqp编码时，配置qp值 | -1 | -1~100 |
-| maxrate | bitrate的最大值 | 0 | 100000000 |
+| qp | 用cqp编码时，配置qp值 | -1(auto) | -1~100 |
+| maxrate | bitrate的最大值 | 0 | 20000000 |
 | profile | 支持的profile | 2(high) | 0 - baseline <br> 1 - main <br> 2 - high |
 | level | 编码level | 42 | 10~42 |
 | ar | 屏幕宽高比 | 0（auto） | 0 - auto <br> 1 - 4:3 <br> 2 - 16:9 <br> 3 - none |
 | ch | channel number | 0 | 0-7 |
 | framesToEncode | 编码帧数 | -1(所有帧) | -1~16383 |
 
-(2) audio3a参数
+(2) encoder libk510_jpeg参数
+| 参数名 | 参数解释 | 默认值 | 取值范围 |
+|:-|:-|:-|:-|
+| qp | 用cqp编码时，配置qp值 | 25 | -1~100 |
+| r | framerate | 30 | 25~60 |
+| ch | encode channel | 0 | 0~7 |
+| maxrate | Maximum bitrate. (0=ignore) | 4000000 | 0~20000000 |
+| ar | aspect ratio | 0(auto) | 0 - auto <br> 1 - 4:3 <br> 2 - 16:9 <br> 3 - none |
+
+(3) device libk510_video参数
+| 参数名 | 参数解释 | 默认值 | 取值范围 |
+|:-|:-|:-|:-|
+| wh | frame size | NULL | **for encoder libk510_h264:**:<br>  up to 2048x2048 <br> width multiple of 8 <br> height multiple of 8 <br> min. width: 128 <br> min. height: 64 <br> **for encoder libk510_jpeg:** <br> up to 8192x8192 <br> width multiple of 16 <br> height multiple of 2 |
+| exp | exposure parameter | 0 | 0~128 |
+| agc | analog gain | 0 | 0~232 |
+
+(4) audio3a参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
 | sample_rate | 音频采样率 | 16000 | 1~65535 |
