@@ -340,8 +340,6 @@ typedef enum
 }EncStatus;
 ```
 
-
-
 ### 1.2.6 VideoEncoder_Destory
 
 【描述】
