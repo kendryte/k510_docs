@@ -405,7 +405,7 @@ Enc_ERR = 1
 
 【描述】
 
-获取视频编码流的buffer
+获取视频编码流的buffer，注：该buffer空间由编码器内部分配。
 
 【语法】
 
@@ -434,7 +434,40 @@ Enc_SUCCESS = 0,
 Enc_ERR = 1
 ```
 
-### 1.2.9 VideoEncoder_ReleaseStream
+### 1.2.9 VideoEncoder_GetStream_ByExtBuf
+
+【描述】
+
+获取视频编码流的buffer，注：该buffer空间需由使用者调用此函数前分配。
+
+【语法】
+
+```c
+EncStatus VideoEncoder_GetStream(EncoderHandle *hEnc, EncOutputStream *output)
+```
+
+【参数】
+
+hEnc: 创建时返回的句柄
+
+output：输出编码后的流数据buffer，bufSize大于0才有输出
+
+```c
+typedef struct
+{
+    unsigned char *bufAddr;
+    unsigned int bufSize; 
+}EncOutputStream;
+```
+
+【返回值】
+
+```c
+Enc_SUCCESS = 0,
+Enc_ERR = 1
+```
+
+### 1.3.0 VideoEncoder_ReleaseStream
 
 【描述】
 
@@ -562,8 +595,8 @@ roi文件格式
       "qpRegion": {
         "left": 0,
         "top": 0,
-        "width": 640,
-        "heigth": 1080
+        "width": 500,
+        "heigth": 500
       }
     }
   ]
@@ -582,11 +615,6 @@ top        - 矩形区域的左上角Y坐标
 width      - 矩形区域的宽度
 heigth     - 矩形区域的高度
 ```
-
-- 运行环境：核心板sensor：IMX219_SENSOR
-- rtsp运行准备参见live555_canaan章节
-- live555拉流的端口号为（8554 + <通道号>*2)
-- rtsp运行准备参见live555_canaan章节
 
 ### 3.1.3 帧率变换
 
@@ -609,31 +637,19 @@ heigth     - 矩形区域的高度
 ./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1920 -h 1080 -alsa 1 -ac 2 -ar 44100 -af 2 -ad hw:0 -conf video_sample.conf
 ```
 
-## 3.2 live555_canaan
+### 3.1.6 注意事项
 
-live555 demo程序放在`/app/live555_canaan`目录下：
+- 运行环境：核心板sensor：IMX219_SENSOR
 
-- `VideoStreamerFile` ：rtsp推流程序
+- live555拉流的端口号为（8554 + <通道号>*2)
 
-运行准备：
-（1）开发板需要与接收端pc连接到同一个局域网内，ip地址通过DHCP自动分配。
-（2）接收端PC VLC配置
+- 播放rtsp流方式:可通过vlc或ffplay来播放对应的rtsp流，数据流可以通过udp或tcp协议传输。
 
-媒体->打开网络流串->网络，配置网络URL，如下图所示(rtsp://10.100.226.130:8554/testStream)，其中10.100.226.21为开发板的ip地址，根据实际情况修改。点击下图红框按钮，打开循环单曲。
+  1)rtp over udp播放：ffplay -rtsp_transport  udp rtsp://192.168.137.11:8556/testStream
 
-![LIVE555 Demo](images/sdk_application/demo_rtsp.png)
+  2)rtp over tcp 播放:   ffplay -rtsp_transport   tcp  rtsp://192.168.137.11:8556/testStream
 
-运行live555 demo：
-
-```shell
-./VideoStreamerFile old_town_cross_1080p50.264
-```
-
-其中，
-
-- `old_town_cross_1080p50.264` ：用于测试的264文件
-
-运行结果： VLC上循环播放测试视频。
+  建议使用rtp over tcp方式播放，避免因udp丢包导致画面花屏。
 
 ## 3.3 ffmpeg
 
