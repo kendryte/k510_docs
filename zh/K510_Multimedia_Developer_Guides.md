@@ -405,7 +405,7 @@ Enc_ERR = 1
 
 【描述】
 
-获取视频编码流的buffer
+获取视频编码流的buffer，注：该buffer空间由编码器内部分配。
 
 【语法】
 
@@ -434,7 +434,40 @@ Enc_SUCCESS = 0,
 Enc_ERR = 1
 ```
 
-### 1.2.9 VideoEncoder_ReleaseStream
+### 1.2.9 VideoEncoder_GetStream_ByExtBuf
+
+【描述】
+
+获取视频编码流的buffer，注：该buffer空间需由使用者调用此函数前分配。
+
+【语法】
+
+```c
+EncStatus VideoEncoder_GetStream(EncoderHandle *hEnc, EncOutputStream *output)
+```
+
+【参数】
+
+hEnc: 创建时返回的句柄
+
+output：输出编码后的流数据buffer，bufSize大于0才有输出
+
+```c
+typedef struct
+{
+    unsigned char *bufAddr;
+    unsigned int bufSize; 
+}EncOutputStream;
+```
+
+【返回值】
+
+```c
+Enc_SUCCESS = 0,
+Enc_ERR = 1
+```
+
+### 1.3.0 VideoEncoder_ReleaseStream
 
 【描述】
 
@@ -533,17 +566,29 @@ K510的硬件框图如下：
 ./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1920 -h 1080 -conf video_sample.conf
 ```
 
+ffplay拉流命令示例：
+
+```shell
+ ffplay -rtsp_transport tcp rtsp://192.168.137.11:8554/testStream
+```
+
+- `rtsp://192.168.137.11:8554/testStream`为rtsp流url地址 ,-rtsp_transport tcp表示使用tcp传输音视频数据(默认使用udp)，可增加-fflags nobuffer选项来避免因播放器缓存而增加的延迟。
+
 #### 3.1.2.2 单摄像头双通道
 
 ```shell
 ./encode_app -split 2 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1920 -h 1080 -ch 1 -i v4l2 -dev /dev/video4 -o rtsp -w 1280 -h 720 -conf video_sample.conf
 ```
 
+ffplay拉流命令同上。
+
 #### 3.1.2.3 双摄像头
 
 ```shell
 ./encode_app -split 2 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1920 -h 1080 -ch 1 -i v4l2 -dev /dev/video7 -o rtsp -w 1920 -h 1080 -conf video_sample.conf
 ```
+
+ffplay拉流命令同上。
 
 #### 3.1.2.4 roi测试
 
@@ -562,8 +607,8 @@ roi文件格式
       "qpRegion": {
         "left": 0,
         "top": 0,
-        "width": 640,
-        "heigth": 1080
+        "width": 500,
+        "heigth": 500
       }
     }
   ]
@@ -583,16 +628,15 @@ width      - 矩形区域的宽度
 heigth     - 矩形区域的高度
 ```
 
-- 运行环境：核心板sensor：IMX219_SENSOR
-- rtsp运行准备参见live555_canaan章节
-- live555拉流的端口号为（8554 + <通道号>*2)
-- rtsp运行准备参见live555_canaan章节
+ffplay拉流命令同上。
 
 ### 3.1.3 帧率变换
 
 ```shell
 ./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -r 60 -o rtsp -w 1920 -h 1080 -conf video_sample.conf
 ```
+
+ffplay拉流命令同上。
 
 ### 3.1.4 多种输入帧率
 
@@ -603,37 +647,29 @@ heigth     - 矩形区域的高度
 ./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1280 -h 720 -fps 60 -r 60 -conf video_sample_720p60.conf
 ```
 
+ffplay拉流命令同上。
+
 ### 3.1.5 rtsp推送音视频流
 
 ```c
 ./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1920 -h 1080 -alsa 1 -ac 2 -ar 44100 -af 2 -ad hw:0 -conf video_sample.conf
 ```
 
-## 3.2 live555_canaan
+ffplay拉流命令同上。
 
-live555 demo程序放在`/app/live555_canaan`目录下：
+### 3.1.6 注意事项
 
-- `VideoStreamerFile` ：rtsp推流程序
+- 运行环境：核心板sensor：IMX219_SENSOR
 
-运行准备：
-（1）开发板需要与接收端pc连接到同一个局域网内，ip地址通过DHCP自动分配。
-（2）接收端PC VLC配置
+- live555拉流的端口号为（8554 + <通道号>*2)
 
-媒体->打开网络流串->网络，配置网络URL，如下图所示(rtsp://10.100.226.130:8554/testStream)，其中10.100.226.21为开发板的ip地址，根据实际情况修改。点击下图红框按钮，打开循环单曲。
+- 播放rtsp流方式:可通过vlc或ffplay来播放对应的rtsp流，数据流可以通过udp或tcp协议传输。
 
-![LIVE555 Demo](images/sdk_application/demo_rtsp.png)
+  1)rtp over udp播放：ffplay -rtsp_transport  udp rtsp://192.168.137.11:8556/testStream
 
-运行live555 demo：
+  2)rtp over tcp 播放:   ffplay -rtsp_transport   tcp  rtsp://192.168.137.11:8556/testStream
 
-```shell
-./VideoStreamerFile old_town_cross_1080p50.264
-```
-
-其中，
-
-- `old_town_cross_1080p50.264` ：用于测试的264文件
-
-运行结果： VLC上循环播放测试视频。
+  建议使用rtp over tcp方式播放，避免因udp丢包导致画面花屏。
 
 ## 3.3 ffmpeg
 
@@ -855,10 +891,10 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -
 ffplay拉流命令示例：
 
 ```shell
-ffplay rtmp://10.100.232.11/live/1
+ffplay -fflags nobuffer rtmp://10.100.232.11/live/1
 ```
 
-- `rtmp://10.100.232.11/live/1`为从rtmp服务器拉流的url地址 （推流和拉流的地址一样）
+- `rtmp://10.100.232.11/live/1`为从rtmp服务器拉流的url地址 （推流和拉流的地址一样）,-fflags nobuffer选项来避免因播放器缓存而增加的延迟。
 
 ##### 3.3.1.3.2 rtmp推视音频流
 
