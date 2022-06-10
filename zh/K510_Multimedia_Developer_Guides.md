@@ -871,10 +871,10 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -
 ffplay拉流命令示例：
 
 ```shell
-ffplay rtmp://10.100.232.11/live/1
+ffplay -fflags nobuffer rtmp://10.100.232.11/live/1
 ```
 
-- `rtmp://10.100.232.11/live/1`为从rtmp服务器拉流的url地址 （推流和拉流的地址一样）
+- `rtmp://10.100.232.11/live/1`为从rtmp服务器拉流的url地址 （推流和拉流的地址一样）,-fflags nobuffer选项来避免因播放器缓存而增加的延迟。
 
 ##### 3.3.1.3.2 rtmp推视音频流
 
