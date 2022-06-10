@@ -566,17 +566,29 @@ K510的硬件框图如下：
 ./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1920 -h 1080 -conf video_sample.conf
 ```
 
+ffplay拉流命令示例：
+
+```shell
+ ffplay -rtsp_transport tcp rtsp://192.168.137.11:8554/testStream
+```
+
+- `rtsp://192.168.137.11:8554/testStream`为rtsp流url地址 ,-rtsp_transport tcp表示使用tcp传输音视频数据(默认使用udp)，可增加-fflags nobuffer选项来避免因播放器缓存而增加的延迟。
+
 #### 3.1.2.2 单摄像头双通道
 
 ```shell
 ./encode_app -split 2 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1920 -h 1080 -ch 1 -i v4l2 -dev /dev/video4 -o rtsp -w 1280 -h 720 -conf video_sample.conf
 ```
 
+ffplay拉流命令同上。
+
 #### 3.1.2.3 双摄像头
 
 ```shell
 ./encode_app -split 2 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1920 -h 1080 -ch 1 -i v4l2 -dev /dev/video7 -o rtsp -w 1920 -h 1080 -conf video_sample.conf
 ```
+
+ffplay拉流命令同上。
 
 #### 3.1.2.4 roi测试
 
@@ -616,11 +628,15 @@ width      - 矩形区域的宽度
 heigth     - 矩形区域的高度
 ```
 
+ffplay拉流命令同上。
+
 ### 3.1.3 帧率变换
 
 ```shell
 ./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -r 60 -o rtsp -w 1920 -h 1080 -conf video_sample.conf
 ```
+
+ffplay拉流命令同上。
 
 ### 3.1.4 多种输入帧率
 
@@ -631,11 +647,15 @@ heigth     - 矩形区域的高度
 ./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1280 -h 720 -fps 60 -r 60 -conf video_sample_720p60.conf
 ```
 
+ffplay拉流命令同上。
+
 ### 3.1.5 rtsp推送音视频流
 
 ```c
 ./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1920 -h 1080 -alsa 1 -ac 2 -ar 44100 -af 2 -ad hw:0 -conf video_sample.conf
 ```
+
+ffplay拉流命令同上。
 
 ### 3.1.6 注意事项
 
