@@ -1012,6 +1012,7 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -i /dev/video3 -vco
 
 1. 运行时需要在运行目录中查找`video_sampe.conf`、`imx219_0.conf`和`imx219_1.conf`文件进行配置，这三个文件在`/encode_app/`目录下。
 2. 摄像头实时进来的视频写成yuv文件，由于yuv文件很大，本地ddr或者nfs的写速度跟不上，可能导致丢帧。
+
 #### 3.2.1.6 JPEG编码
 
 文件输出：
