@@ -269,7 +269,6 @@ cd /app/twod_app
 将ouput.yuv 拷到显示器上设置尺寸640x480，显示格式nv12，结果如下
 ![ouput.yuv](images/sdk_application/twod-scaler-overlay-osd-app.jpg)
 
-
 API:
 
 ```c
@@ -551,8 +550,6 @@ cd /app/drm_demo
 启动drm_demo应用程序， drm_demo显示效果：
 
 ![](images/sdk_application/image_drm_demo.png)
-
-
 
 ## 1.13 V4L2_DRM demo
 
