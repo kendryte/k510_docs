@@ -226,7 +226,7 @@ cd /app/twod_app
 ./twod-rotation-app
 ```
 
-将ouput.yuv 拷到yuv显示器上设置尺寸1080 x 1920，结果如下
+将ouput.yuv 拷到yuv显示器上设置尺寸1080 x 1920，显示格式nv12，结果如下
 ![output.yuv](images/sdk_application/driver-twod-output-1080x1920.jpg)
 
 scaler 使用方法
@@ -236,8 +236,39 @@ cd /app/twod_app
 ./twod-scaler-app
 ```
 
-将ouput.yuv 拷到yuv显示器上设置尺寸640x480，结果如下
+将ouput.yuv 拷到yuv显示器上设置尺寸640x480，显示格式nv12，结果如下
 ![ouput.yuv](images/sdk_application/driver-twod-output-640x480.jpg)
+
+运行 rgb2yuv 使用方法：
+
+```shell
+cd /app/twod_app
+./twod-osd2yuv-app
+```
+
+将ouput.yuv 拷到yuv 显示器上设置尺寸320x240,显示格式nv12，结果如下
+![ouput.yuv](images/sdk_application/twod-osd2yuv-app.jpg)
+
+运行 yuv2rgb 使用方法：
+
+```shell
+cd /app/twod_app
+./twod-scaler-output-rgb888-app
+```
+
+将ouput.yuv 拷到rgb888显示器上设置尺寸640x480，显示格式rgb24，结果如下
+![ouput.yuv](images/sdk_application/driver-twod-output-640x480.jpg)
+
+运行 输出yuv上叠加osd 使用方法：
+
+```shell
+cd /app/twod_app
+./twod-scaler-overlay-osd-app
+```
+
+将ouput.yuv 拷到显示器上设置尺寸640x480，显示格式nv12，结果如下
+![ouput.yuv](images/sdk_application/twod-scaler-overlay-osd-app.jpg)
+
 
 API:
 
@@ -521,26 +552,9 @@ cd /app/drm_demo
 
 ![](images/sdk_application/image_drm_demo.png)
 
-## 1.13 V4L2 demo
 
-v4l2 demo展示了摄像头输入的功能。
 
-VI支持3路摄像头同时输入，2路2lane-MIPI和一路DVP。
-
-ISP支持3路处理，F2K、R2K、TOF。每个处理核心又支持4路输出，1路原始大小输出和3路downsize输出，ds0-ds1输出支持YUV422和YUV420，ds2输出支持RGB和sRGB。
-
-开发板启动后进入/app/mediactl_lib目录，输入命令：
-
-```shell
-cd /app/mediactl_lib
-./v4l2-demo -f video_drm_1080x1920.conf
-或者
-./v4l2-demo -f video_drm_1920x1080.conf
-```
-
-启动v4l2_demo应用程序。
-
-## 1.14 V4L2_DRM demo
+## 1.13 V4L2_DRM demo
 
 v4l2_drm demo展示了摄像头输入和显示的功能。
 
@@ -557,7 +571,7 @@ cd /app/mediactl_lib
 
 ![](images/sdk_application/image_v4l2_drm_demo.png)
 
-## 1.15 LVGL demo
+## 1.14 LVGL demo
 
 进入/app/lvgl,运行以下命令：
 
@@ -569,7 +583,7 @@ cd /app/lvgl
 显示效果如下：
 ![](images/sdk_application/image_lvgl.png)
 
-## 1.16 PWM demo
+## 1.15 PWM demo
 
 PWM驱动会注册生成/sys/class/pwm/pwmchip0和/sys/class/pwm/pwmchip3设备节点。
 
@@ -586,7 +600,7 @@ cd /app/pwm
 
 通过示波器连接K510 CRB1.2开发板J15的28号引脚，可以示波器上观察到一个周期为1秒，占空比为50%的波形图。
 
-## 1.17 WIFI demo
+## 1.16 WIFI demo
 
 WiFi模块驱动加载后会生成无线网卡wlan0，遵循标准网口驱动，正常参考TCP/IP socket编程。
 
@@ -605,7 +619,7 @@ WiFi模块驱动加载后会生成无线网卡wlan0，遵循标准网口驱动�
 
 ![](images/sdk_application/image_wifi_2.png)
 
-## 1.18 GPIO_KEYS demo
+## 1.17 GPIO_KEYS demo
 
 按键驱动使用linux kernel自身集成的基于input子系统的通用gpio-keys驱动，驱动加载后在/dev/input目录下生成事件监控节点eventX，X为事件节点序号，可以通过cat /proc/bus/input/devices查看
 
