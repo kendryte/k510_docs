@@ -2,6 +2,10 @@
     "ignorePatterns": [
         {
             "pattern": "^https://docs.github.com"
+        },
+        {
+            "pattern": "^/",
+            "replacement": "{{BASEURL}}/"
         }
     ]
 }
