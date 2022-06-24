@@ -68,50 +68,53 @@ nncase 的demo程序源码位于SDK目录下的`package/ai`目录，目录结构
 ```shell
 $ tree -L 2 ai
 ai
-├── Config.in
 ├── ai.hash
 ├── ai.mk
-└── code
-    ├── CMakeLists.txt
-    ├── build.sh
-    ├── cmake
-    ├── face_alignment
-    ├── face_detect
-    ├── face_expression
-    ├── face_landmarks
-    ├── face_recog
-    ├── hand_image_classify
-    ├── head_pose_estimation
-    ├── imx219_0.conf
-    ├── imx219_1.conf
-    ├── license_plate_recog
-    ├── object_detect
-    ├── object_detect_opencv
-    ├── object_detect_v4l2
-    ├── openpose
-    ├── person_detect
-    ├── retinaface_mb_320_opencv
-    ├── retinaface_mb_320_v4l2
-    ├── self_learning
-    ├── shell
-    ├── simple_pose
-    ├── video_object_detect_320.conf
-    ├── video_object_detect_320x320.conf
-    ├── video_object_detect_432x368.conf
-    ├── video_object_detect_512.conf
-    ├── video_object_detect_640.conf
-    └── video_object_detect_640x480.conf
+├── code
+│   ├── build.sh
+│   ├── cmake
+│   ├── CMakeLists.txt
+│   ├── common
+│   ├── face_alignment
+│   ├── face_detect
+│   ├── face_expression
+│   ├── face_landmarks
+│   ├── face_recog
+│   ├── hand_image_classify
+│   ├── head_pose_estimation
+│   ├── imx219_0.conf
+│   ├── imx219_1.conf
+│   ├── license_plate_recog
+│   ├── object_detect
+│   ├── object_detect_demo
+│   ├── openpose
+│   ├── person_detect
+│   ├── retinaface_mb_320
+│   ├── self_learning
+│   ├── shell
+│   ├── simple_pose
+│   ├── video_192x320.conf
+│   ├── video_object_detect_320.conf
+│   ├── video_object_detect_320x320.conf
+│   ├── video_object_detect_432x368.conf
+│   ├── video_object_detect_512.conf
+│   ├── video_object_detect_640.conf
+│   └── video_object_detect_640x480.conf
+└── Config.in
 ```
 
-可以参考retinaface_mb_320_v4l2的源码和`CMakeLists.txt`添加新的nncase 的demo程序。
+可以参考retinaface_mb_320的源码和`CMakeLists.txt`添加新的nncase 的demo程序。
 
 模型的编译参见`nncase_demo.mk`里面定义的*POST_INSTALL_TARGET_HOOKS*：
 
 ```text
 NNCASE_DEMO_DEPENDENCIES += mediactl_lib nncase_linux_runtime opencv4 libdrm
 define NNCASE_DEMO_COMPILE_MODEL
-cd $(@D) && /usr/bin/python3 retinaface_mb_320_opencv/data/rf_onnx.py --quant_type uint8 --model retinaface_mb_320_opencv/data/retinaface_mobile0.25_320.onnx
-cp $(@D)/rf.kmodel $(TARGET_DIR)/app/nncase_demo/retinaface_mb_320_opencv/rf_uint8.kmodel
+    mkdir -p $(TARGET_DIR)/app/ai/kmodel/kmodel_compile/retinaface_mb_320
+    cd $(@D) && /usr/bin/python3 retinaface_mb_320/rf_onnx.py --quant_type uint8 --model ai_kmodel_data/model_file/retinaface/retinaface_mobile0.25_320.onnx
+    cp $(@D)/rf.kmodel $(TARGET_DIR)/app/ai/kmodel/kmodel_compile/retinaface_mb_320/rf_uint8.kmodel
+    cd $(@D) && /usr/bin/python3 retinaface_mb_320/rf_onnx.py --quant_type bf16 --model ai_kmodel_data/model_file/retinaface/retinaface_mobile0.25_320.onnx
+    cp $(@D)/rf.kmodel $(TARGET_DIR)/app/ai/kmodel/kmodel_compile/retinaface_mb_320/rf_bf16.kmodel
 
 NNCASE_DEMO_POST_INSTALL_TARGET_HOOKS += NNCASE_DEMO_COMPILE_MODEL
 ```
@@ -123,14 +126,10 @@ NNCASE_DEMO_POST_INSTALL_TARGET_HOOKS += NNCASE_DEMO_COMPILE_MODEL
 功能：人脸检测，人脸特征点检测
 
 程序路径：
-`/app/ai/retinaface_mb_320_v4l2`
-`/app/ai/retinaface_mb_320_opencv`
-分别是基于v4l2接口编程和基于opencv接口编程。
-基于v4l2接口编程，由用户自行管理内存，可以减少图像的拷贝操作，提升效率。
-基于opencv接口编程，opencv内部也是调用v4l2接口，并且增加了内存管理操作，所以用户不能管理内存，无法避免图像的拷贝。
+`/app/ai/shell`
 运行：
-执行非量化模型，`./bf16.sh`
-执行uint8量化模型，`./uint8.sh`
+执行非量化模型，`./retinaface_mb_320_bf16.sh`
+执行uint8量化模型，`./retinaface_mb_320_uint8.sh`
 
 脚本里面有关于QOS的设置，下面的两个demo的设置一样。
 
@@ -167,24 +166,23 @@ QOS 控制寄存器3(QOS_CTRL3) offset[0x0100]
 模型的编译安装详见文件package/ai/ai.mk：
 
 编译脚本路径：
-package/ai/code/retinaface_mb_320_opencv/data/rf_onnx.py
+package/ai/code/retinaface_mb_320/rf_onnx.py
 
 ### 1.1.3 object_detect
 
 功能：物体分类检测，80分类
 
 程序路径：
-`/app/ai/object_detect_v4l2`
-`/app/ai/object_detect_opencv`
+`/app/ai/shell`
 
 运行：
-执行非量化模型，`./bf16.sh`
-执行uint8量化模型，`./uint8.sh`
+执行非量化模型，`./object_detect_demo_bf16.sh`
+执行uint8量化模型，`./object_detect_demo_uint8.sh`
 
 模型的编译安装详见文件package/ai/ai.mk
 
 编译脚本路径：
-package/ai/code/object_detect_opencv/data/od_onnx.py
+package/ai/code/object_detect_demo/od_onnx.py
 
 ## 1.2 ffmpeg
 
