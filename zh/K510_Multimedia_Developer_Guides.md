@@ -68,6 +68,37 @@ EncoderHandle* VIdeoEncoder_Create(EncSettings *pCfg)
 
 pCfg：输入编码配置参数
 
+|            参数名             | 参数解释                                                     |                           取值范围                           | 适用编码模块 |
+| :---------------------------: | :----------------------------------------------------------- | :----------------------------------------------------------: | ------------ |
+|            channel            | 通道号,最多支持8个编码通道                                   |                            [0，7]                            | jpeg、avc    |
+|             width             | 编码图像宽度                                                 | avc: [128,2048], multiple of 8 <br/> jpeg: up to 8192, multiple of 16 | jpeg、avc    |
+|            height             | 编码图像高度                                                 | avc: [64,2048], multiple of 8 <br/> jpeg: up to 8192, multiple of 2 | jpeg、avc    |
+|           FrameRate           | 帧率,只能配置为固定几个值                                    |                       (25,30,50,60,75)                       | jpeg、avc    |
+|            rcMode             | 码率控制模式 0:CONST_QP 1:CBR 2:VBR<br />jpeg固定为CONST_QP  |                       参见RateCtrlMode                       | jpeg，avc    |
+|            BitRate            | CBR 模式下的目标码率或VBR模式下的最低码率                    |                        [10,20000000]                         | avc          |
+|          MaxBitRate           | VBR模式下的最高码率                                          |                        [10,20000000]                         | avc          |
+|            SliceQP            | 初始 QP 值,-1表示auto                                        |                avc:-1,[0,51]<br/>jpeg:[1,100]                | jpeg，avc    |
+|             MinQP             | 最小qp值                                                     |                         [0,sliceqp]                          | avc          |
+|             MaxQP             | 最大qp值                                                     |                         [sliceqp,54]                         | avc          |
+|            profile            | SPS 中的 profile_idc 参数:0: base 1:main 2:high 3:jpeg       |                            [0,3]                             | jpeg，avc    |
+|             level             | PS 中的 level_idc 参数                                       |                           [10,42]                            | avc          |
+|          AspectRatio          | 显示比例                                                     |                     参见AVC_AspectRatio                      | jpeg，avc    |
+|            FreqIDR            | 两个idr帧的间隔                                              |                           [1,1000]                           | avc          |
+|            gopLen             | Group Of Picture，即两个 I 帧之间的间隔                      |                           [1,1000]                           | avc          |
+|          bEnableGDR           | 是否启用帧内刷新                                             |                         [true,false]                         | avc          |
+|            gdrMode            | gdr 刷新模式:0，垂直刷新  1，水平刷新                        |                       参见GDRCtrlMode                        | avc          |
+|          bEnableLTR           | 是否启用长期参考帧                                           |                         [true,false]                         | avc          |
+|          roiCtrlMode          | roi控制模式:0:不使用roi 1：相对qp  2：绝对qp                 |                       参见ROICtrlMode                        | avc          |
+|       EncSliceSplitCfg        | slice 分割配置                                               |                                                              | avc          |
+|         bSplitEnable          | Slice 分割是否使能                                           |                         [true,false]                         | avc          |
+|         u32SplitMode          | Slice 分割模式:0：按 bit 数分割。<br />1:按宏块行分割        |                            [0,1]                             | avc          |
+|         u32SliceSize          | u32SplitMode=0，表示每个 slice 的 byte 数<br />u32SplitMode=1，表示每个 slice 占的宏块行数<br /> | u32SplitMode=0，[100,65535]<br />u32SplitMode=1，[1,(图像高+15)/16] | avc          |
+|          entropyMode          | 熵编码，0：CABAC     1：CAVLC                                |                      参见EncEntropyMode                      | avc          |
+|          encDblkCfg           | 区块滤波配置                                                 |                                                              | avc          |
+| disable_deblocking_filter_idc | 默认值0，具体含义请参见 H.264 协 议                          |                            [0，2]                            | avc          |
+|  slice_alpha_c0_offset_div2   | 默认值0，具体含义请参见 H.264 协 议                          |                           [-6，6]                            | avc          |
+|    slice_beta_offset_div2     | 默认值0，具体含义请参见 H.264 协 议                          |                          [-6,   6]                           | avc          |
+
 ```c
 typedef struct
 {
@@ -89,8 +120,12 @@ typedef struct
     bool                      bEnableGDR;//gdr
     GDRCtrlMode               gdrMode;
     bool                      bEnableLTR;//Long Term reference
+
     ROICtrlMode               roiCtrlMode;
-} EncSettings;
+    EncSliceSplitCfg          sliceSplitCfg;
+    EncEntropyMode            entropyMode;//Profile is set to AVC_MAIN or AVC_HIGH is valid
+    EncDblkCfg                encDblkCfg;
+}EncSettings;
 typedef enum
 {
     CONST_QP,
@@ -137,6 +172,25 @@ typedef enum
     GDR_HORIZONTAL,
     GDR_CTRLMAX,
 } GDRCtrlMode;
+typedef struct
+{
+    bool bSplitEnable;
+    unsigned int u32SplitMode; // 0:splite by byte; 1:splite by slice count
+    unsigned int u32SliceSize;
+}EncSliceSplitCfg;
+
+typedef enum
+{
+    ENTROPY_MODE_CABAC = 0,
+    ENTROPY_MODE_CAVLC,
+}EncEntropyMode;
+
+typedef struct
+{
+    unsigned int  disable_deblocking_filter_idc;//[0,2]
+    int  slice_alpha_c0_offset_div2;//[-6,6]
+    int  slice_beta_offset_div2;//[-6,6]
+}EncDblkCfg;
 ```
 
 【返回值】
@@ -188,7 +242,7 @@ typedef struct
 ```text
 uIndex     - 指定该roi区域索引号，范围0-7最多支持8个区域
 bEnable    - 指定该区域是否使能，只有使能的区域才有效
-uQpValue   - qp值，可以是相对qp或绝对qp，qp模式由EncSettings中roiCtrlMode属性决定。绝对qp范围                  [0,51]，相对qp范围[-32,31]
+uQpValue   - qp值，可以是相对qp或绝对qp，qp模式由EncSettings中roiCtrlMode属性决定。绝对qp范围                  [0,51]，相对qp范围[-31,31]
 stRect     - roi矩形区域，s32X矩形左上角x值，s32Y矩形左上角y值，u32Width矩形宽度，u32Height矩形高度
 ```
 
@@ -254,7 +308,39 @@ typedef enum
 }EncStatus;
 ```
 
-### 1.2.5 VideoEncoder_Destory
+### 1.2.5 VideoEncoder_InsertUserData
+
+【描述】
+
+插入用户数据。
+
+在编码器创建后到销毁前均可使用，编码过程中可以实时修改用户数据内容。用户数据将被插入到IDR帧的SEI数据区域。
+
+【语法】
+
+```c
+EncStatus      VideoEncoder_InsertUserData(EncoderHandle *hEnc,char*pUserData,unsigned int nlen);
+```
+
+【参数】
+
+hEnc: 创建时返回的句柄
+
+pUserData:用户数据指针
+
+nlen:用户数据长度(0, 1024]
+
+【返回值】
+
+```c
+typedef enum
+{
+    Enc_SUCCESS = 0,
+    Enc_ERR = 1,
+}EncStatus;
+```
+
+### 1.2.6 VideoEncoder_Destory
 
 【描述】
 
@@ -280,7 +366,7 @@ typedef enum
 }EncStatus;
 ```
 
-### 1.2.6 VideoEncoder_EncodeOneFrame
+### 1.2.7 VideoEncoder_EncodeOneFrame
 
 【描述】
 
@@ -315,11 +401,11 @@ Enc_SUCCESS = 0,
 Enc_ERR = 1
 ```
 
-### 1.2.7 VideoEncoder_GetStream
+### 1.2.8 VideoEncoder_GetStream
 
 【描述】
 
-获取视频编码流的buffer
+获取视频编码流的buffer，注：该buffer空间由编码器内部分配。
 
 【语法】
 
@@ -348,7 +434,40 @@ Enc_SUCCESS = 0,
 Enc_ERR = 1
 ```
 
-### 1.2.8 VideoEncoder_ReleaseStream
+### 1.2.9 VideoEncoder_GetStream_ByExtBuf
+
+【描述】
+
+获取视频编码流的buffer，注：该buffer空间需由使用者调用此函数前分配。
+
+【语法】
+
+```c
+EncStatus VideoEncoder_GetStream(EncoderHandle *hEnc, EncOutputStream *output)
+```
+
+【参数】
+
+hEnc: 创建时返回的句柄
+
+output：输出编码后的流数据buffer，bufSize大于0才有输出
+
+```c
+typedef struct
+{
+    unsigned char *bufAddr;
+    unsigned int bufSize; 
+}EncOutputStream;
+```
+
+【返回值】
+
+```c
+Enc_SUCCESS = 0,
+Enc_ERR = 1
+```
+
+### 1.3.0 VideoEncoder_ReleaseStream
 
 【描述】
 
@@ -405,32 +524,33 @@ K510的硬件框图如下：
 
 运行`encode_app`
 
-| 参数名 | 参数解释 | 默认值 | 取值范围 |
-|:-|:-|:-|:-|
-| help | 帮助信息| | |
-| split | 通道个数 | NULL | |
-| ch | 通道号（从0开始） | NULL | |
-| i | 输入yuv文件，只支持**nv12**格式 | NULL | v4l2 <br> xxx.yuv |
-| dev | v4l2 device name | NULL | |
-| o | 输出| NULL | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG |
-| w | 输出图像宽度 | 1920 | |
-| h | 输出图像高度 | 1080 | |
-| fps | 摄像头采集帧率，目前只支持30pfs | 30 | 30 |
-| r | 编码输出帧率 | 30 | |
-| inframes | 输入yuv帧数 | NULL | |
-| outframes | 输出yuv帧数，如果比参数-inframes大，将会重复编码 | NULL | |
-| gop | Group Of Picture，即两个 I 帧之间的间隔 | 25 | |
-| rcmode | 表示码率控制模式 0:CONST_QP 1:CBR 2:VBR | CBR | [0,2] |
-| bitrate | CBR 模式下的目标码率或VBR模式下的最低码率,单位Kb | 4000 | |
-| maxbitrate | VBR模式下的最高码率,单位Kb | 4000 | |
-| profile | SPS 中的 profile_idc 参数:0: base 1:main 2:high 3:jpeg | AVC_HIGH | [0,3] |
-| level | SPS 中的 level_idc 参数 | 42 | [10,42] |
-| sliceqp | 初始 QP 值,-1表示auto | 25 | avc:-1,[0,51]<br/>jpeg:[1,100] |
-| minqp | 最小QP 值 | 0 | [0,sliceqp] |
-| maxqp | 最大QP值 | 54 | [sliceqp,54] |
-| enableLTR | 使能长期参考帧，参数指定刷新周期。0：不启用刷新周期。正数：周期性设置参考帧并且下一帧设置为使用长期参考帧 | 0 | [0,65535] |
-| roi | roi配置文件，指定多个roi区域 | NULL | |
-| conf | vl42配置文件,会指定的配置文件的基础上，根据命令行输入参数修改v4l2配置参数 | NULL | |
+| 参数名 | 参数解释 | 默认值 | 取值范围 | 适用编码模块 |
+|:-|:-|:-|:-|:-|
+| help | 帮助信息| | ||
+| split | 通道个数 | NULL | [1,4] | jpeg、avc |
+| ch | 通道号（从0开始） | NULL | [0,3] | jpeg、avc |
+| i | 输入yuv文件，只支持**nv12**格式 | NULL | v4l2 <br> xxx.yuv | jpeg、avc |
+| dev | v4l2 device name | NULL | **sensor0:**<br> /dev/video3 <br> /dev/video4 <br> **sensor1:** <br> /dev/video7 <br> /dev/video8 | avc |
+| o | 输出| NULL | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG | jpeg、avc |
+| w | 输出图像宽度 | 1920 | avc: [128,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 16 | jpeg、avc |
+| h | 输出图像高度 | 1080 | avc: [64,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 2 | jpeg、avc |
+| fps | 摄像头采集帧率，目前只支持30pfs | 30 | 30 | avc |
+| r | 编码输出帧率 | 30 | 能整除fps或者被fps整除的数 | avc |
+| inframes | 输入yuv帧数 | 0 | [0,32767] | jpeg、avc |
+| outframes | 输出yuv帧数，如果比参数-inframes大，将会重复编码 | 0 | [0,32767] | jpeg、avc |
+| gop | Group Of Picture，即两个 I 帧之间的间隔 | 25 | [1,1000] | avc |
+| rcmode | 表示码率控制模式 0:CONST_QP 1:CBR 2:VBR | CBR | [0,2] | avc |
+| bitrate | CBR 模式下的目标码率或VBR模式下的最低码率,单位Kb | 4000 | [1,20000] | avc |
+| maxbitrate | VBR模式下的最高码率,单位Kb | 4000 | [1,20000] | avc |
+| profile | SPS 中的 profile_idc 参数:0: base 1:main 2:high 3:jpeg | AVC_HIGH | [0,3] | jpeg、avc |
+| level | SPS 中的 level_idc 参数 | 42 | [10,42] | avc |
+| sliceqp | 初始 QP 值,-1表示auto | 25 | avc:-1,[0,51]<br/>jpeg:[1,100] | jpeg、avc |
+| minqp | 最小QP 值 | 0 | [0,sliceqp] | avc |
+| maxqp | 最大QP值 | 54 | [sliceqp,54] | avc |
+| enableLTR | 使能长期参考帧，参数指定刷新周期。0：不启用刷新周期。正数：周期性设置参考帧并且下一帧设置为使用长期参考帧 | 0 | [0,65535] | avc |
+| roi | roi配置文件，指定多个roi区域 | NULL | xxx.conf | avc |
+| ae | 使能AE | 0 | 0-不使能AE<br>1-使能AE |
+| conf | vl42配置文件,会指定的配置文件的基础上，根据命令行输入参数修改v4l2配置参数 | NULL | xxx.conf | avc |
 
 ### 3.1.1 输入yuv文件，输出文件
 
@@ -447,17 +567,29 @@ K510的硬件框图如下：
 ./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1920 -h 1080 -conf video_sample.conf
 ```
 
+ffplay拉流命令示例：
+
+```shell
+ ffplay -rtsp_transport tcp rtsp://192.168.137.11:8554/testStream
+```
+
+- `rtsp://192.168.137.11:8554/testStream`为rtsp流url地址 ,-rtsp_transport tcp表示使用tcp传输音视频数据(默认使用udp)，可增加-fflags nobuffer选项来避免因播放器缓存而增加的延迟。
+
 #### 3.1.2.2 单摄像头双通道
 
 ```shell
 ./encode_app -split 2 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1920 -h 1080 -ch 1 -i v4l2 -dev /dev/video4 -o rtsp -w 1280 -h 720 -conf video_sample.conf
 ```
 
+ffplay拉流命令同上。
+
 #### 3.1.2.3 双摄像头
 
 ```shell
 ./encode_app -split 2 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1920 -h 1080 -ch 1 -i v4l2 -dev /dev/video7 -o rtsp -w 1920 -h 1080 -conf video_sample.conf
 ```
+
+ffplay拉流命令同上。
 
 #### 3.1.2.4 roi测试
 
@@ -476,8 +608,8 @@ roi文件格式
       "qpRegion": {
         "left": 0,
         "top": 0,
-        "width": 640,
-        "heigth": 1080
+        "width": 500,
+        "heigth": 500
       }
     }
   ]
@@ -489,7 +621,7 @@ roi文件格式
 ```text
 roiCtrMode - 1:相对qp  2:绝对qp
 roiRegion  - roi区域，为多个区域数组，最多支持8个区域。
-qpValue    - 指定该区域使用的qp值，相对qp范围:[-32,31]     绝对qp范围:[0,51]
+qpValue    - 指定该区域使用的qp值，相对qp范围:[-31,31]     绝对qp范围:[0,51]
 qpRegion   - roi矩形区域
 left       - 矩形区域的左上角X坐标
 top        - 矩形区域的左上角Y坐标
@@ -497,16 +629,15 @@ width      - 矩形区域的宽度
 heigth     - 矩形区域的高度
 ```
 
-- 运行环境：核心板sensor：IMX219_SENSOR
-- rtsp运行准备参见live555_canaan章节
-- live555拉流的端口号为（8554 + <通道号>*2)
-- rtsp运行准备参见live555_canaan章节
+ffplay拉流命令同上。
 
 ### 3.1.3 帧率变换
 
 ```shell
 ./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -r 60 -o rtsp -w 1920 -h 1080 -conf video_sample.conf
 ```
+
+ffplay拉流命令同上。
 
 ### 3.1.4 多种输入帧率
 
@@ -517,33 +648,31 @@ heigth     - 矩形区域的高度
 ./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1280 -h 720 -fps 60 -r 60 -conf video_sample_720p60.conf
 ```
 
-## 3.2 live555_canaan
+ffplay拉流命令同上。
 
-live555 demo程序放在`/app/live555_canaan`目录下：
+### 3.1.5 rtsp推送音视频流
 
-- `VideoStreamerFile` ：rtsp推流程序
-
-运行准备：
-（1）开发板需要与接收端pc连接到同一个局域网内，ip地址通过DHCP自动分配。
-（2）接收端PC VLC配置
-
-媒体->打开网络流串->网络，配置网络URL，如下图所示(rtsp://10.100.226.130:8554/testStream)，其中10.100.226.21为开发板的ip地址，根据实际情况修改。点击下图红框按钮，打开循环单曲。
-
-![LIVE555 Demo](images/sdk_application/demo_rtsp.png)
-
-运行live555 demo：
-
-```shell
-./VideoStreamerFile old_town_cross_1080p50.264
+```c
+./encode_app -split 1 -ch 0 -i v4l2 -dev /dev/video3 -o rtsp -w 1920 -h 1080 -alsa 1 -ac 2 -ar 44100 -af 2 -ad hw:0 -conf video_sample.conf
 ```
 
-其中，
+ffplay拉流命令同上。
 
-- `old_town_cross_1080p50.264` ：用于测试的264文件
+### 3.1.6 注意事项
 
-运行结果： VLC上循环播放测试视频。
+- 运行环境：核心板sensor：IMX219_SENSOR
 
-## 3.3 ffmpeg
+- live555拉流的端口号为（8554 + <通道号>*2)
+
+- 播放rtsp流方式:可通过vlc或ffplay来播放对应的rtsp流，数据流可以通过udp或tcp协议传输。
+
+  1)rtp over udp播放：ffplay -rtsp_transport  udp rtsp://192.168.137.11:8556/testStream
+
+  2)rtp over tcp 播放:   ffplay -rtsp_transport   tcp  rtsp://192.168.137.11:8556/testStream
+
+  建议使用rtp over tcp方式播放，避免因udp丢包导致画面花屏。
+
+## 3.2 ffmpeg
 
 ffmpeg放在/usr/local/bin目录下。
 
@@ -551,22 +680,38 @@ ffmpeg放在/usr/local/bin目录下。
 
 运行`ffmpeg`
 
-(1) encoder参数
+(1) encoder libk510_h264参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
-| g | gop size | 25 | 0~1000 |
-| b | bitrate | 4000000 | 0~100000000 |
+| g | gop size | 25 | 1~1000 |
+| b | bitrate | 4000000 | 0~20000000 |
 | r | 帧率,由于isp目前只支持30fps，故解码器应设置为30 | 30 | 30 |
 | idr_freq | IDR频率 | -1(没有IDR) | -1~256 |
-| qp | 用cqp编码时，配置qp值 | -1 | -1~100 |
-| maxrate | bitrate的最大值 | 0 | 100000000 |
+| qp | 用cqp编码时，配置qp值 | -1(auto) | -1~100 |
+| maxrate | bitrate的最大值 | 0 | 20000000 |
 | profile | 支持的profile | 2(high) | 0 - baseline <br> 1 - main <br> 2 - high |
 | level | 编码level | 42 | 10~42 |
 | ar | 屏幕宽高比 | 0（auto） | 0 - auto <br> 1 - 4:3 <br> 2 - 16:9 <br> 3 - none |
 | ch | channel number | 0 | 0-7 |
 | framesToEncode | 编码帧数 | -1(所有帧) | -1~16383 |
 
-(2) audio3a参数
+(2) encoder libk510_jpeg参数
+| 参数名 | 参数解释 | 默认值 | 取值范围 |
+|:-|:-|:-|:-|
+| qp | 用cqp编码时，配置qp值 | 25 | -1~100 |
+| r | framerate | 30 | 25~60 |
+| ch | encode channel | 0 | 0~7 |
+| maxrate | Maximum bitrate. (0=ignore) | 4000000 | 0~20000000 |
+| ar | aspect ratio | 0(auto) | 0 - auto <br> 1 - 4:3 <br> 2 - 16:9 <br> 3 - none |
+
+(3) device libk510_video参数
+| 参数名 | 参数解释 | 默认值 | 取值范围 |
+|:-|:-|:-|:-|
+| wh | frame size | NULL | **for encoder libk510_h264:**:<br>  up to 2048x2048 <br> width multiple of 8 <br> height multiple of 8 <br> min. width: 128 <br> min. height: 64 <br> **for encoder libk510_jpeg:** <br> up to 8192x8192 <br> width multiple of 16 <br> height multiple of 2 |
+| exp | exposure parameter | 0 | 0~128 |
+| agc | analog gain | 0 | 0~232 |
+
+(4) audio3a参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
 | sample_rate | 音频采样率 | 16000 | 1~65535 |
@@ -590,11 +735,11 @@ audio3a用于将接收到的音频进行3a运算并输出，其逻辑框图如�
 
 ![ffmpeg_canaan_audio3a](images/multimedia_guides/ffmpeg_canaan_audio3a.png)
 
-### 3.3.1 程序运行说明
+### 3.2.1 程序运行说明
 
-#### 3.3.1.1 rtp推流
+#### 3.2.1.1 rtp推流
 
-##### 3.3.1.1.1. rtp推送视频流
+##### 3.2.1.1.1. rtp推送视频流
 
 ffmpeg运行命令示例：
 
@@ -632,7 +777,7 @@ a=fmtp:96 packetization-mode=1
 - m=是媒体级会话的开始处，video：媒体类型；1234：端口号；RTP/AVP：传输协议；96：rtp头中的payload格式
 按照实际情况修改接收端IP地址和端口号，注意rtp的端口号需为偶数。
 
-##### 3.3.1.1.2. rtp推送音频流
+##### 3.2.1.1.2. rtp推送音频流
 
 ffmpeg运行命令示例：
 
@@ -661,7 +806,7 @@ a=rtpmap:97 MPEG4-GENERIC/32000/2
 a=fmtp:97 profile-level-id=1;mode=AAC-hbr;sizelength=13;indexlength=3;indexdeltalength=3; config=129056E500
 ```
 
-##### 3.3.1.1.3 rtp推送音视频流
+##### 3.2.1.1.3 rtp推送音视频流
 
 ffmpeg运行命令示例：
 
@@ -689,11 +834,11 @@ a=rtpmap:97 MPEG4-GENERIC/32000/2
 a=fmtp:97 profile-level-id=1;mode=AAC-hbr;sizelength=13;indexlength=3;indexdeltalength=3; config=129056E500
 ```
 
-#### 3.3.1.2 rtsp推流
+#### 3.2.1.2 rtsp推流
 
 rtsp推流前需要部署rtsp服务器，将数据流推送到服务器上。
 
-##### 3.3.1.2.1 rtsp推视频流
+##### 3.2.1.2.1 rtsp推视频流
 
 ffmpeg运行命令示例：
 
@@ -710,7 +855,7 @@ ffplay拉流命令示例：
 ffplay.exe -protocol_whitelist "file,udp,rtp,tcp" -i rtsp://10.100.232.11:5544/live/test110
 ```
 
-##### 3.3.1.2.2 rtsp推音频流
+##### 3.2.1.2.2 rtsp推音频流
 
 ffmpeg运行命令示例：
 
@@ -720,7 +865,7 @@ ffmpeg -f alsa -ac 2 -ar 32000 -i hw:0 -acodec aac -f rtsp rtsp://10.100.232.11:
 
 ffplay拉流命令与rtsp拉视频流的命令相同。
 
-##### 3.3.1.2.3 rtsp推音视频流
+##### 3.2.1.2.3 rtsp推音视频流
 
 ffmpeg运行命令示例：
 
@@ -730,11 +875,11 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -
 
 ffplay拉流命令与rtsp拉视频流的命令相同。
 
-#### 3.3.1.3 rtmp推流
+#### 3.2.1.3 rtmp推流
 
 rtmp推流前需要部署rtmp服务器，将数据流推送到服务器上。支持rtmp协议的服务器包括fms，nginx，srs等。
 
-##### 3.3.1.3.1 rtmp推视频流
+##### 3.2.1.3.1 rtmp推视频流
 
 ffmpeg运行命令示例:
 
@@ -747,12 +892,12 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -
 ffplay拉流命令示例：
 
 ```shell
-ffplay rtmp://10.100.232.11/live/1
+ffplay -fflags nobuffer rtmp://10.100.232.11/live/1
 ```
 
-- `rtmp://10.100.232.11/live/1`为从rtmp服务器拉流的url地址 （推流和拉流的地址一样）
+- `rtmp://10.100.232.11/live/1`为从rtmp服务器拉流的url地址 （推流和拉流的地址一样）,-fflags nobuffer选项来避免因播放器缓存而增加的延迟。
 
-##### 3.3.1.3.2 rtmp推视音频流
+##### 3.2.1.3.2 rtmp推视音频流
 
 ffmpeg运行命令示例:
 
@@ -764,7 +909,7 @@ ffmpeg -f alsa -ac 2 -ar 32000 -i hw:0 -acodec aac -f flv rtmp://10.100.232.11/l
 
 ffplay拉流命令与rtmp拉视频流的命令相同。
 
-##### 3.3.1.3.3 rtmp推视音视频流
+##### 3.2.1.3.3 rtmp推视音视频流
 
 ffmpeg运行命令示例:
 
@@ -776,9 +921,9 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -
 
 ffplay拉流命令与rtmp拉视频流的命令相同。
 
-#### 3.3.1.4 audio3a
+#### 3.2.1.4 audio3a
 
-##### 3.3.1.4.1 单独运行audio
+##### 3.2.1.4.1 单独运行audio
 
 (1)  在cpu上运行audio3a
 ffmpeg运行命令示例：
@@ -802,7 +947,7 @@ ffmpeg运行命令实例：
 ffmpeg -f alsa -ac 2 -ar 16000 -i hw:0 -af audio3a=sample_rate=16000 -f rtp rtp://10.100.232.11:1234
 ```
 
-##### 3.3.1.4.2 同时运行audio3a和video
+##### 3.2.1.4.2 同时运行audio3a和video
 
 (1) 在cpu上运行audio3a
 运行两个telnet窗口，在两个窗口中分别运行audio3a和video。
@@ -838,7 +983,7 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -
 - 10.100.232.11为rtp接收端的ip地址。
 - 接收端ffplay的SDP文件内容，可以在运行上述ffmpeg命令后，从打印出来的log得到。
 
-#### 3.3.1.5 v4l2
+#### 3.2.1.5 v4l2
 
 可以通过help命令查看可配置参数
 
@@ -864,9 +1009,12 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -
 ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -i /dev/video3 -vcodec copy -y out.yuv
 ```
 
-说明：运行时需要在运行目录中查找`video_sampe.conf`、`imx219_0.conf`和`imx219_1.conf`文件进行配置，这三个文件在`/encode_app/`目录下。
+说明：
 
-#### 3.3.1.6 JPEG编码
+1. 运行时需要在运行目录中查找`video_sampe.conf`、`imx219_0.conf`和`imx219_1.conf`文件进行配置，这三个文件在`/encode_app/`目录下。
+2. 摄像头实时进来的视频写成yuv文件，由于yuv文件很大，本地ddr或者nfs的写速度跟不上，可能导致丢帧。
+
+#### 3.2.1.6 JPEG编码
 
 文件输出：
 
@@ -890,7 +1038,7 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -
 
 可用ffplay拉流
 
-#### 3.3.1.7 多路编码
+#### 3.2.1.7 多路编码
 
 最多支持8路同时编码，可用每路的帧大小乘以帧率再相加，不要超过1080p60的数据量，-vcodec可选h264或者jpeg.
 
@@ -904,7 +1052,7 @@ ffmpeg -f v4l2 -s 480x360 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i 
 
 用ffplay拉流时，注意只能拉一路视频，通过改变SDP文件里的端口号切换其他路的视频，或者启动多个ffplay拉流。
 
-### 3.3.2 程序移植说明
+### 3.2.2 程序移植说明
 
 `ffmpeg`在`ffmpeg`开源代码4.4的版本上进行移植，`xxx.patch`为补丁包，增加了
 
@@ -912,7 +1060,7 @@ ffmpeg -f v4l2 -s 480x360 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i 
 - `ff_libk510_jpeg_encoder`：控制jpeg硬件编码，引用了`libvenc.so`
 - v4l2：在v4l2.c里，加入了k510硬件相关代码，实现了v4l2 buffer类型V4L2_MEMORY_USERPTR，引用了`libmediactl.so`。
 
-#### 3.3.2.1 patch生成命令
+#### 3.2.2.1 patch生成命令
 
 （1）
 
@@ -932,7 +1080,7 @@ rm ../../patches/series
 sed -i "s/\/dl\/ffmpeg_canaan\/ffmpeg-4.4//g" ../../package/ffmpeg_canaan/xxx.patch
 ```
 
-#### 3.3.2.2 ffmpeg配置
+#### 3.2.2.2 ffmpeg配置
 
 在`package/ffmpeg_canaan/ffmpeg.mk`文件中，可以通过configure选项修改CPU核、编译工具链，使能`ff_k510_video_demuxer` `ff_libk510_jpeg_encoder`和`ff_libk510_h264_encoder`。
 

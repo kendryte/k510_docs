@@ -261,24 +261,7 @@ isp_modules:
 
 # 2  Demo应用
 
-## 2.1 v4l2_test
-
-程序放在`/app/mediactl_lib`目录下：
-
-- `v4l2_test.out`：自动保存50张图片至/root/data/video.yuv文件。 添加了-O选项修改保存文件的路径和名字，-d 修改输入配置文件的名字。可以使用-h 查看帮助。
-- 该demo是在v4l2通用demo的基础上仅添加了media初始化代码。
-- 该demo 需要video配置文件及对应的sensor配置文件在当前目录下。
-- 该demo运行命令：v4l2_test.out -d video_test.conf
-- 该demo必须保证video_test.conf，imx219_0.conf及imx219_1.conf三个配置文件存在
-
-运行v4l2_test.out
-
-- -h 帮助信息，除下面三个其它的不要修改。
-- -c 保存图片的数量，默认为 50。
-- -v 打印调试信息。
-- -O 配置输出文件的全路径,默认为/root/data/video.yuv。
-
-## 2.2 v4l2_drm
+## 2.1 v4l2_drm
 
 程序放在`/app/mediactl_lib`目录下：
 
