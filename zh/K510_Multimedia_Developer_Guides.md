@@ -662,13 +662,19 @@ ffplay拉流命令同上。
 
 - 运行环境：核心板sensor：IMX219_SENSOR
 
-- live555拉流的端口号为（8554 + <通道号>*2)
+- rtsp流地址格式:rtsp://ip地址:端口号/testStream，其中ip地址和端口号可变，其余部分固定.
+
+  如：rtsp://192.168.137.11:8554/testStream，其中ip地址为192.168.137.11，端口号为8554.
+
+  ip地址：开发板的ip地址，在板子上输入ifconfig即可获取。
+
+  端口号：8554 + <通道号>*2，通道号一般从0开始(-ch 0,-ch 1...)。
 
 - 播放rtsp流方式:可通过vlc或ffplay来播放对应的rtsp流，数据流可以通过udp或tcp协议传输。
 
-  1)rtp over udp播放：ffplay -rtsp_transport  udp rtsp://192.168.137.11:8556/testStream
+  1)rtp over udp播放：ffplay -rtsp_transport  udp rtsp://192.168.137.11:8554/testStream
 
-  2)rtp over tcp 播放:   ffplay -rtsp_transport   tcp  rtsp://192.168.137.11:8556/testStream
+  2)rtp over tcp 播放:   ffplay -rtsp_transport   tcp  rtsp://192.168.137.11:8554/testStream
 
   建议使用rtp over tcp方式播放，避免因udp丢包导致画面花屏。
 
@@ -897,7 +903,7 @@ ffplay -fflags nobuffer rtmp://10.100.232.11/live/1
 
 - `rtmp://10.100.232.11/live/1`为从rtmp服务器拉流的url地址 （推流和拉流的地址一样）,-fflags nobuffer选项来避免因播放器缓存而增加的延迟。
 
-##### 3.2.1.3.2 rtmp推视音频流
+##### 3.2.1.3.2 rtmp推音频流
 
 ffmpeg运行命令示例:
 
@@ -909,7 +915,7 @@ ffmpeg -f alsa -ac 2 -ar 32000 -i hw:0 -acodec aac -f flv rtmp://10.100.232.11/l
 
 ffplay拉流命令与rtmp拉视频流的命令相同。
 
-##### 3.2.1.3.3 rtmp推视音视频流
+##### 3.2.1.3.3 rtmp推音视频流
 
 ffmpeg运行命令示例:
 
