@@ -68,50 +68,53 @@ nncase 的demo程序源码位于SDK目录下的`package/ai`目录，目录结构
 ```shell
 $ tree -L 2 ai
 ai
-├── Config.in
 ├── ai.hash
 ├── ai.mk
-└── code
-    ├── CMakeLists.txt
-    ├── build.sh
-    ├── cmake
-    ├── face_alignment
-    ├── face_detect
-    ├── face_expression
-    ├── face_landmarks
-    ├── face_recog
-    ├── hand_image_classify
-    ├── head_pose_estimation
-    ├── imx219_0.conf
-    ├── imx219_1.conf
-    ├── license_plate_recog
-    ├── object_detect
-    ├── object_detect_opencv
-    ├── object_detect_v4l2
-    ├── openpose
-    ├── person_detect
-    ├── retinaface_mb_320_opencv
-    ├── retinaface_mb_320_v4l2
-    ├── self_learning
-    ├── shell
-    ├── simple_pose
-    ├── video_object_detect_320.conf
-    ├── video_object_detect_320x320.conf
-    ├── video_object_detect_432x368.conf
-    ├── video_object_detect_512.conf
-    ├── video_object_detect_640.conf
-    └── video_object_detect_640x480.conf
+├── code
+│   ├── build.sh
+│   ├── cmake
+│   ├── CMakeLists.txt
+│   ├── common
+│   ├── face_alignment
+│   ├── face_detect
+│   ├── face_expression
+│   ├── face_landmarks
+│   ├── face_recog
+│   ├── hand_image_classify
+│   ├── head_pose_estimation
+│   ├── imx219_0.conf
+│   ├── imx219_1.conf
+│   ├── license_plate_recog
+│   ├── object_detect
+│   ├── object_detect_demo
+│   ├── openpose
+│   ├── person_detect
+│   ├── retinaface_mb_320
+│   ├── self_learning
+│   ├── shell
+│   ├── simple_pose
+│   ├── video_192x320.conf
+│   ├── video_object_detect_320.conf
+│   ├── video_object_detect_320x320.conf
+│   ├── video_object_detect_432x368.conf
+│   ├── video_object_detect_512.conf
+│   ├── video_object_detect_640.conf
+│   └── video_object_detect_640x480.conf
+└── Config.in
 ```
 
-可以参考retinaface_mb_320_v4l2的源码和`CMakeLists.txt`添加新的nncase 的demo程序。
+可以参考retinaface_mb_320的源码和`CMakeLists.txt`添加新的nncase 的demo程序。
 
 模型的编译参见`nncase_demo.mk`里面定义的*POST_INSTALL_TARGET_HOOKS*：
 
 ```text
 NNCASE_DEMO_DEPENDENCIES += mediactl_lib nncase_linux_runtime opencv4 libdrm
 define NNCASE_DEMO_COMPILE_MODEL
-cd $(@D) && /usr/bin/python3 retinaface_mb_320_opencv/data/rf_onnx.py --quant_type uint8 --model retinaface_mb_320_opencv/data/retinaface_mobile0.25_320.onnx
-cp $(@D)/rf.kmodel $(TARGET_DIR)/app/nncase_demo/retinaface_mb_320_opencv/rf_uint8.kmodel
+    mkdir -p $(TARGET_DIR)/app/ai/kmodel/kmodel_compile/retinaface_mb_320
+    cd $(@D) && /usr/bin/python3 retinaface_mb_320/rf_onnx.py --quant_type uint8 --model ai_kmodel_data/model_file/retinaface/retinaface_mobile0.25_320.onnx
+    cp $(@D)/rf.kmodel $(TARGET_DIR)/app/ai/kmodel/kmodel_compile/retinaface_mb_320/rf_uint8.kmodel
+    cd $(@D) && /usr/bin/python3 retinaface_mb_320/rf_onnx.py --quant_type bf16 --model ai_kmodel_data/model_file/retinaface/retinaface_mobile0.25_320.onnx
+    cp $(@D)/rf.kmodel $(TARGET_DIR)/app/ai/kmodel/kmodel_compile/retinaface_mb_320/rf_bf16.kmodel
 
 NNCASE_DEMO_POST_INSTALL_TARGET_HOOKS += NNCASE_DEMO_COMPILE_MODEL
 ```
@@ -123,14 +126,10 @@ NNCASE_DEMO_POST_INSTALL_TARGET_HOOKS += NNCASE_DEMO_COMPILE_MODEL
 功能：人脸检测，人脸特征点检测
 
 程序路径：
-`/app/ai/retinaface_mb_320_v4l2`
-`/app/ai/retinaface_mb_320_opencv`
-分别是基于v4l2接口编程和基于opencv接口编程。
-基于v4l2接口编程，由用户自行管理内存，可以减少图像的拷贝操作，提升效率。
-基于opencv接口编程，opencv内部也是调用v4l2接口，并且增加了内存管理操作，所以用户不能管理内存，无法避免图像的拷贝。
+`/app/ai/shell`
 运行：
-执行非量化模型，`./bf16.sh`
-执行uint8量化模型，`./uint8.sh`
+执行非量化模型，`./retinaface_mb_320_bf16.sh`
+执行uint8量化模型，`./retinaface_mb_320_uint8.sh`
 
 脚本里面有关于QOS的设置，下面的两个demo的设置一样。
 
@@ -167,24 +166,23 @@ QOS 控制寄存器3(QOS_CTRL3) offset[0x0100]
 模型的编译安装详见文件package/ai/ai.mk：
 
 编译脚本路径：
-package/ai/code/retinaface_mb_320_opencv/data/rf_onnx.py
+package/ai/code/retinaface_mb_320/rf_onnx.py
 
 ### 1.1.3 object_detect
 
 功能：物体分类检测，80分类
 
 程序路径：
-`/app/ai/object_detect_v4l2`
-`/app/ai/object_detect_opencv`
+`/app/ai/shell`
 
 运行：
-执行非量化模型，`./bf16.sh`
-执行uint8量化模型，`./uint8.sh`
+执行非量化模型，`./object_detect_demo_bf16.sh`
+执行uint8量化模型，`./object_detect_demo_uint8.sh`
 
 模型的编译安装详见文件package/ai/ai.mk
 
 编译脚本路径：
-package/ai/code/object_detect_opencv/data/od_onnx.py
+package/ai/code/object_detect_demo/od_onnx.py
 
 ## 1.2 ffmpeg
 
@@ -226,7 +224,7 @@ cd /app/twod_app
 ./twod-rotation-app
 ```
 
-将ouput.yuv 拷到yuv显示器上设置尺寸1080 x 1920，结果如下
+将ouput.yuv 拷到yuv显示器上设置尺寸1080 x 1920，显示格式nv12，结果如下
 ![output.yuv](images/sdk_application/driver-twod-output-1080x1920.jpg)
 
 scaler 使用方法
@@ -236,8 +234,38 @@ cd /app/twod_app
 ./twod-scaler-app
 ```
 
-将ouput.yuv 拷到yuv显示器上设置尺寸640x480，结果如下
+将ouput.yuv 拷到yuv显示器上设置尺寸640x480，显示格式nv12，结果如下
 ![ouput.yuv](images/sdk_application/driver-twod-output-640x480.jpg)
+
+运行 rgb2yuv 使用方法：
+
+```shell
+cd /app/twod_app
+./twod-osd2yuv-app
+```
+
+将ouput.yuv 拷到yuv 显示器上设置尺寸320x240,显示格式nv12，结果如下
+![ouput.yuv](images/sdk_application/twod-osd2yuv-app.jpg)
+
+运行 yuv2rgb 使用方法：
+
+```shell
+cd /app/twod_app
+./twod-scaler-output-rgb888-app
+```
+
+将ouput.yuv 拷到rgb888显示器上设置尺寸640x480，显示格式rgb24，结果如下
+![ouput.yuv](images/sdk_application/driver-twod-output-640x480.jpg)
+
+运行 输出yuv上叠加osd 使用方法：
+
+```shell
+cd /app/twod_app
+./twod-scaler-overlay-osd-app
+```
+
+将ouput.yuv 拷到显示器上设置尺寸640x480，显示格式nv12，结果如下
+![ouput.yuv](images/sdk_application/twod-scaler-overlay-osd-app.jpg)
 
 API:
 
@@ -521,26 +549,7 @@ cd /app/drm_demo
 
 ![](images/sdk_application/image_drm_demo.png)
 
-## 1.13 V4L2 demo
-
-v4l2 demo展示了摄像头输入的功能。
-
-VI支持3路摄像头同时输入，2路2lane-MIPI和一路DVP。
-
-ISP支持3路处理，F2K、R2K、TOF。每个处理核心又支持4路输出，1路原始大小输出和3路downsize输出，ds0-ds1输出支持YUV422和YUV420，ds2输出支持RGB和sRGB。
-
-开发板启动后进入/app/mediactl_lib目录，输入命令：
-
-```shell
-cd /app/mediactl_lib
-./v4l2-demo -f video_drm_1080x1920.conf
-或者
-./v4l2-demo -f video_drm_1920x1080.conf
-```
-
-启动v4l2_demo应用程序。
-
-## 1.14 V4L2_DRM demo
+## 1.13 V4L2_DRM demo
 
 v4l2_drm demo展示了摄像头输入和显示的功能。
 
@@ -557,7 +566,7 @@ cd /app/mediactl_lib
 
 ![](images/sdk_application/image_v4l2_drm_demo.png)
 
-## 1.15 LVGL demo
+## 1.14 LVGL demo
 
 进入/app/lvgl,运行以下命令：
 
@@ -569,7 +578,7 @@ cd /app/lvgl
 显示效果如下：
 ![](images/sdk_application/image_lvgl.png)
 
-## 1.16 PWM demo
+## 1.15 PWM demo
 
 PWM驱动会注册生成/sys/class/pwm/pwmchip0和/sys/class/pwm/pwmchip3设备节点。
 
@@ -586,7 +595,7 @@ cd /app/pwm
 
 通过示波器连接K510 CRB1.2开发板J15的28号引脚，可以示波器上观察到一个周期为1秒，占空比为50%的波形图。
 
-## 1.17 WIFI demo
+## 1.16 WIFI demo
 
 WiFi模块驱动加载后会生成无线网卡wlan0，遵循标准网口驱动，正常参考TCP/IP socket编程。
 
@@ -605,7 +614,7 @@ WiFi模块驱动加载后会生成无线网卡wlan0，遵循标准网口驱动�
 
 ![](images/sdk_application/image_wifi_2.png)
 
-## 1.18 GPIO_KEYS demo
+## 1.17 GPIO_KEYS demo
 
 按键驱动使用linux kernel自身集成的基于input子系统的通用gpio-keys驱动，驱动加载后在/dev/input目录下生成事件监控节点eventX，X为事件节点序号，可以通过cat /proc/bus/input/devices查看
 
