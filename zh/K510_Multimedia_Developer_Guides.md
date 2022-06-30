@@ -897,7 +897,7 @@ ffplay -fflags nobuffer rtmp://10.100.232.11/live/1
 
 - `rtmp://10.100.232.11/live/1`为从rtmp服务器拉流的url地址 （推流和拉流的地址一样）,-fflags nobuffer选项来避免因播放器缓存而增加的延迟。
 
-##### 3.2.1.3.2 rtmp推视音频流
+##### 3.2.1.3.2 rtmp推音频流
 
 ffmpeg运行命令示例:
 
@@ -909,7 +909,7 @@ ffmpeg -f alsa -ac 2 -ar 32000 -i hw:0 -acodec aac -f flv rtmp://10.100.232.11/l
 
 ffplay拉流命令与rtmp拉视频流的命令相同。
 
-##### 3.2.1.3.3 rtmp推视音视频流
+##### 3.2.1.3.3 rtmp推音视频流
 
 ffmpeg运行命令示例:
 
