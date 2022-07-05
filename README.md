@@ -8,6 +8,7 @@ k510 相关文档如下：
 | 文档名称 | 文档概要 |
 | :-- | :-- |
 | [K510_CRB_V1.2_Hardware_Guide.md](zh/K510_CRB_V1.2_Hardware_Guide.md) | K510 CRB V1.2 硬件资源说明文档 |
+| [K510_CRB_V1.2 Schematic](https://github.com/kendryte/k510_docs/releases/download/v1.5/K510_CRB_Schematic.zip) | K510 CRB V1.2 原理图|
 | [K510_SDK_Build_and_Burn_Guide.md](zh/K510_SDK_Build_and_Burn_Guide.md) | K510 SDK 编译和烧录说明文档 |
 | [K510_System_memory_map.md](zh/K510_System_memory_map.md) | K510 SDK 系统memory划分说明文档 |
 | [K510_SDK_Application_Guides.md](zh/K510_SDK_Application_Guides.md) | K510 参考示例程序说明文档 |
