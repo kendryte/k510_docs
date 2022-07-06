@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - dev
+      - feature*
   push:
     branches:
       - check
