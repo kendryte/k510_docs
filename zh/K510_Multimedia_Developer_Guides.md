@@ -1004,7 +1004,7 @@ ffmpeg -h demuxer=v4l2 #查看v4l2的配置参数
 | s | 图像分辨率，例如1920x1080 | NULL | |
 | r | 帧率，目前只支持30fps | 30 | 30 |
 | isp | 打开k510 isp硬件 | 0 | 0-1 |
-| buf_type | v4l2 buffer`类型` <br>1: V4L2_MEMORY_MMAP ：适合于-vcodec copy<br>2: V4L2_MEMORY_USERPTR：适合于-vcodec libk510_h264 | 1 | 1~4 |
+| buf_type | v4l2 buffer`类型` <br>1: V4L2_MEMORY_MMAP ：适合于-vcodec copy<br>2: V4L2_MEMORY_USERPTR：适合于-vcodec libk510_h264 | 1 | 1~2 |
 | conf | v4l2 config file | NULL | |
 
 ffmpeg运行命令示例：其中10.100.232.11为接收端地址，根据实际修改。
