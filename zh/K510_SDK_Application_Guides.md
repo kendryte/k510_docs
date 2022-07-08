@@ -1,4 +1,4 @@
-git@g.b-bug.org:wangjianxin/k510_buildroot_docs.git![](images/canaan-cover.png)
+![](../zh/images/canaan-cover.png)
 
 **<font face="黑体" size="6" style="float:right">K510 SDK Application Guide</font>**
 
@@ -14,7 +14,7 @@ git@g.b-bug.org:wangjianxin/k510_buildroot_docs.git![](images/canaan-cover.png)
 
 **<font face="黑体"  size=3>商标声明</font>**
 
-“<img src="images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
+“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
 
 **<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
 本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
@@ -152,16 +152,16 @@ QOS_CTRL3.display read QoS = 0xf
 QOS_CTRL3.display write QoS = 0xf
 
 QOS 控制寄存器0(QOS_CTRL0) offset[0x00f4]
-![qos ctrl0](images/sdk_application/demo_nncase_qos_ctrl0.png)
+![qos ctrl0](../zh/images/sdk_application/demo_nncase_qos_ctrl0.png)
 
 QOS 控制寄存器1(QOS_CTRL1) offset[0x00f8]
-![qos ctrl1](images/sdk_application/demo_nncase_qos_ctrl1.png)
+![qos ctrl1](../zh/images/sdk_application/demo_nncase_qos_ctrl1.png)
 
 QOS 控制寄存器2(QOS_CTRL2) offset[0x00fc]
-![qos ctrl2](images/sdk_application/demo_nncase_qos_ctrl2.png)
+![qos ctrl2](../zh/images/sdk_application/demo_nncase_qos_ctrl2.png)
 
 QOS 控制寄存器3(QOS_CTRL3) offset[0x0100]
-![qos ctrl3](images/sdk_application/demo_nncase_qos_ctrl3.png)
+![qos ctrl3](../zh/images/sdk_application/demo_nncase_qos_ctrl3.png)
 
 模型的编译安装详见文件package/ai/ai.mk：
 
@@ -225,7 +225,7 @@ cd /app/twod_app
 ```
 
 将ouput.yuv 拷到yuv显示器上设置尺寸1080 x 1920，显示格式nv12，结果如下
-![output.yuv](images/sdk_application/driver-twod-output-1080x1920.jpg)
+![output.yuv](../zh/images/sdk_application/driver-twod-output-1080x1920.jpg)
 
 scaler 使用方法
 
@@ -235,7 +235,7 @@ cd /app/twod_app
 ```
 
 将ouput.yuv 拷到yuv显示器上设置尺寸640x480，显示格式nv12，结果如下
-![ouput.yuv](images/sdk_application/driver-twod-output-640x480.jpg)
+![ouput.yuv](../zh/images/sdk_application/driver-twod-output-640x480.jpg)
 
 运行 rgb2yuv 使用方法：
 
@@ -245,7 +245,7 @@ cd /app/twod_app
 ```
 
 将ouput.yuv 拷到yuv 显示器上设置尺寸320x240,显示格式nv12，结果如下
-![ouput.yuv](images/sdk_application/twod-osd2yuv-app.jpg)
+![ouput.yuv](../zh/images/sdk_application/twod-osd2yuv-app.jpg)
 
 运行 yuv2rgb 使用方法：
 
@@ -255,7 +255,7 @@ cd /app/twod_app
 ```
 
 将ouput.yuv 拷到rgb888显示器上设置尺寸640x480，显示格式rgb24，结果如下
-![ouput.yuv](images/sdk_application/driver-twod-output-640x480.jpg)
+![ouput.yuv](../zh/images/sdk_application/driver-twod-output-640x480.jpg)
 
 运行 输出yuv上叠加osd 使用方法：
 
@@ -265,7 +265,7 @@ cd /app/twod_app
 ```
 
 将ouput.yuv 拷到显示器上设置尺寸640x480，显示格式nv12，结果如下
-![ouput.yuv](images/sdk_application/twod-scaler-overlay-osd-app.jpg)
+![ouput.yuv](../zh/images/sdk_application/twod-scaler-overlay-osd-app.jpg)
 
 API:
 
@@ -309,7 +309,7 @@ cd /app/rtc
 
 程序的执行结果为：
 
-![](images/sdk_application/image-rtc.png)
+![](../zh/images/sdk_application/image-rtc.png)
 
 RTC demo程序的主要代码片段如下，详细请参考package/rtc 文件夹下的代码。
 
@@ -369,7 +369,7 @@ cd /app/watchdog
 
 程序的执行结果为：
 
-![](images/sdk_application/image-watchdog.png)
+![](../zh/images/sdk_application/image-watchdog.png)
 
 **注意**：当前k510看门狗模块的工作时钟频率为757575Hz，以秒为单位的超时时间需要转换成看门狗实际的工作时钟频率的超时时间，计算公式是2^n/757575，因此实际的超时时间会大于等于输入的超时时间。
 
@@ -389,7 +389,7 @@ K510一共有4个串口，当前驱动中串口2、3没有使能，串口0驱动
 
 将开发板使用有线网连接到路由器，使得开发板和调试PC在一个网络中，当开发板上电后将自动获取IP，在开发板的shell串口终端中输入ifconfig命令获取IP地址，调试PC利用此IP通过telent连接开发板打开一个telent窗口。例如调试PC通过MobaXterm使用telent连接开发板的操作如下图。
 
-![](images/sdk_application/image-uart-mobaxterm.png)
+![](../zh/images/sdk_application/image-uart-mobaxterm.png)
 
 telent终端窗口中输入如下命令启动串口0工作。
 
@@ -401,11 +401,11 @@ cd /app/uart
 在telent窗口中输入要发送的内容，可以在shell串口终端窗口看到接收到的数据，详细请参考package/crb_demo/uart文件夹下的代码。
 例如，telent窗口的输入：
 
-![](images/sdk_application/image-uart-telent.png)
+![](../zh/images/sdk_application/image-uart-telent.png)
 
 对应的Shell串口终端窗口显示：
 
-![](images/sdk_application/image-uart-shell.png)
+![](../zh/images/sdk_application/image-uart-shell.png)
 
 ## 1.8 ETH demo
 
@@ -424,7 +424,7 @@ cd /app/client
 
 设备端显示日志：
 
-![](images/sdk_application/image-client.png)
+![](../zh/images/sdk_application/image-client.png)
 
 ### 1.8.2 Server
 
@@ -439,7 +439,7 @@ cd /app/server
 
 设备端显示日志：
 
- ![](images/sdk_application/image-server.png)
+ ![](../zh/images/sdk_application/image-server.png)
 
 ## 1.9 SDMMC demo
 
@@ -456,7 +456,7 @@ cd /app/write_read_file
 
 开启对SD卡进行1G数据的读写，代码请参考package/app/write_read_file文件夹下的内容。
 
-![](images/sdk_application/image-sdmmc.png)
+![](../zh/images/sdk_application/image-sdmmc.png)
 
 ## 1.10 SHA/AES demo
 
@@ -470,7 +470,7 @@ SHA/AES demo 使用Linux 内核导出 AF_ALG 类型的 Netlink 接口，在用�
 -k AES KEY（16进制字符串）
 -v AES IV（16进制字符串）
 
-![](images/sdk_application/image_crypto_help.png)
+![](../zh/images/sdk_application/image_crypto_help.png)
 
 sha256 test：
 
@@ -482,7 +482,7 @@ xxd -p -c 32 sha256.txt
 sha256sum plain.txt
 ```
 
-![](images/sdk_application/image_crypto_sha256.png)
+![](../zh/images/sdk_application/image_crypto_sha256.png)
 
 ecb(aes) 128 test：
 
@@ -495,7 +495,7 @@ cmp ecb_aes_de.bin plain.txt
 cat ecb_aes_de.bin
 ```
 
-![](images/sdk_application/image_crypto_ecb.png)
+![](../zh/images/sdk_application/image_crypto_ecb.png)
 
 cbc(aes) 128 test
 
@@ -508,7 +508,7 @@ cmp cbc_aes_de.bin plain.txt
 cat cbc_aes_de.bin
 ```
 
-![](images/sdk_application/image_crypto_cbc.png)
+![](../zh/images/sdk_application/image_crypto_cbc.png)
 
 aes-ecb-128和aes-cbc-128加密时要求明文要16字节对齐，不足会自动补0。
 
@@ -522,7 +522,7 @@ TRNG demo通过读取/dev/hwrng字符设备产生指定长度的随机数，按1
 
 -b 指定输出随机数长度，单位byte
 
-![](images/sdk_application/image_trng.png)
+![](../zh/images/sdk_application/image_trng.png)
 
 ## 1.12 DRM demo
 
@@ -547,7 +547,7 @@ cd /app/drm_demo
 
 启动drm_demo应用程序， drm_demo显示效果：
 
-![](images/sdk_application/image_drm_demo.png)
+![](../zh/images/sdk_application/image_drm_demo.png)
 
 ## 1.13 V4L2_DRM demo
 
@@ -564,7 +564,7 @@ cd /app/mediactl_lib
 
 启动v4l2_drm.out应用程序，v4l2_drm.out显示效果：
 
-![](images/sdk_application/image_v4l2_drm_demo.png)
+![](../zh/images/sdk_application/image_v4l2_drm_demo.png)
 
 ## 1.14 LVGL demo
 
@@ -576,7 +576,7 @@ cd /app/lvgl
 ```
 
 显示效果如下：
-![](images/sdk_application/image_lvgl.png)
+![](../zh/images/sdk_application/image_lvgl.png)
 
 ## 1.15 PWM demo
 
@@ -591,7 +591,7 @@ cd /app/pwm
 
 程序的执行结果为：
 
-![](images/sdk_application/image-pwm.png)
+![](../zh/images/sdk_application/image-pwm.png)
 
 通过示波器连接K510 CRB1.2开发板J15的28号引脚，可以示波器上观察到一个周期为1秒，占空比为50%的波形图。
 
@@ -602,7 +602,7 @@ WiFi模块驱动加载后会生成无线网卡wlan0，遵循标准网口驱动�
 1）在笔记本打开“移动热点”，然后设置热点的名称和密码
 2）在笔记本上启动NetAssist，配置协议类型、本地主机IP、本地主机端口、接收设置、发送设置及需要发送的数据，如下图：
 
-![](images/sdk_application/image_wifi_1.png)
+![](../zh/images/sdk_application/image_wifi_1.png)
 
 3）wifi测试程序的参数格式为：
 
@@ -612,7 +612,7 @@ WiFi模块驱动加载后会生成无线网卡wlan0，遵循标准网口驱动�
 
 例如进入/app/wifi目录，输入启动wifi测试程序命令，程序的执行结果如下图：
 
-![](images/sdk_application/image_wifi_2.png)
+![](../zh/images/sdk_application/image_wifi_2.png)
 
 ## 1.17 GPIO_KEYS demo
 
@@ -621,4 +621,4 @@ WiFi模块驱动加载后会生成无线网卡wlan0，遵循标准网口驱动�
 gpio-keys例程阻塞式读取按键上报事件并打印事件信息，其信息包括按键编码和按键动作，按键编码标识按键身份，按键动作分为pressed和released，在按键release时例程会计算按键按下的持续时间
 
 程序执行结果如下图所示:
-![](images/sdk_application/image-gpio-keys.png)
+![](../zh/images/sdk_application/image-gpio-keys.png)

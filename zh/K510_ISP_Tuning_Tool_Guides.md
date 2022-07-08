@@ -1,4 +1,4 @@
-![](images/canaan-cover.png)
+![](../zh/images/canaan-cover.png)
 
 **<font face="黑体" size="6" style="float:right">K510 ISP Tuning Tool Guides</font>**
 
@@ -14,7 +14,7 @@
 
 **<font face="黑体"  size=3>商标声明</font>**
 
-“<img src="images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
+“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
 
 **<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
 本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
@@ -119,7 +119,7 @@ K510 ISP中提供了许多寄存器和表以进行控制和调优。ISP硬件寄
 - 面板5是**调优参数设置面板**，它用于设置或从调优服务器获取参数值。
 - 面板6是**图像显示面板**，他会显示ISP输出的图像，当不需要一直播放时可以点击中间的暂停按钮。
 
-![图3-1 调优工具主窗口](./images/sdk_application/clip_image033.png)
+![图3-1 调优工具主窗口](../zh/images/sdk_application/clip_image033.png)
 
 ISP Tuning Tool在连接后**不会**自动获取所有寄存器值，如果需要获取所有的寄存器值可以点击**连接控制面板**右侧的读取按钮，即可拉取当前的所有寄存器值。
 
@@ -140,7 +140,7 @@ ISP Tuning Tool在连接后**不会**自动获取所有寄存器值，如果需�
 
 1. 相机对准24色卡，确保24色卡撑满整个画面，然后抓取图像，未保证准确可以点击暂停播放，如下图所示
 
-    ![图4-1 拍摄24色卡](./images/sdk_application/clip_image014.jpg)
+    ![图4-1 拍摄24色卡](../zh/images/sdk_application/clip_image014.jpg)
 
 2. 抓取的图像注意亮暗适中，太亮太暗都影响标定
 
@@ -148,11 +148,11 @@ ISP Tuning Tool在连接后**不会**自动获取所有寄存器值，如果需�
 
 点击菜单栏的“Calibration”，选择“AWB”即可执行标定，程序会自动框选色卡
 
-![图4-2 自动框选色卡](./images/sdk_application/clip_image016.jpg)
+![图4-2 自动框选色卡](../zh/images/sdk_application/clip_image016.jpg)
 
 此时按下任意键继续，弹出完成白平衡后的图像
 
-![图4-3 完成AWB标定](./images/sdk_application/clip_image018.jpg)
+![图4-3 完成AWB标定](../zh/images/sdk_application/clip_image018.jpg)
 
 如果没问题，则继续按下任意键，工具会弹出对话框询问参数是否合理，是则会将其填入主界面相关寄存器，否则放弃标定结果，如果是则工具会继续询问是否写入设备寄存器。
 
@@ -175,7 +175,7 @@ $$
 
 Gamma系数b为0.5时，曲线如下图所示
 
-![](./images/sdk_application/clip_image025.png)
+![](../zh/images/sdk_application/clip_image025.png)
 
 ## LSC
 
@@ -189,8 +189,8 @@ Gamma系数b为0.5时，曲线如下图所示
 
 矫正前如下图所示
 
-![校正前](./images/sdk_application/clip_image029.png)
+![校正前](../zh/images/sdk_application/clip_image029.png)
 
 矫正后如下图所示
 
-![校正后](./images/sdk_application/clip_image031.png)
+![校正后](../zh/images/sdk_application/clip_image031.png)

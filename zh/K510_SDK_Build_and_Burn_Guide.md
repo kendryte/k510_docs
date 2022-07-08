@@ -1,4 +1,4 @@
-![](images/canaan-cover.png)
+![](../zh/images/canaan-cover.png)
 
 **<font face="黑体" size="6" style="float:right">K510 SDK Build and Burn Guide</font>**
 
@@ -14,7 +14,7 @@
 
 **<font face="黑体"  size=3>商标声明</font>**
 
-“<img src="images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
+“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
 
 **<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
 本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
@@ -77,7 +77,7 @@ git clone https://github.com/kendryte/k510_buildroot.git
 
 K510 SDK是以buildroot为基本框架，以K510 linux kernel（linux版本4.17.0），u-boot（u-boot版本2020.01），riscv-pk-k510（BBL）源码包为基础构建的嵌入式Linux开发环境，K510 SDK目录结构如下图所示。
 
-![](images/sdk_build/image-buildroot.png)
+![](../zh/images/sdk_build/image-buildroot.png)
 
  K510 SDK各文件描述如下：
 
@@ -151,15 +151,15 @@ k510_buildroot/config 目录下有三个开发板的编译配置文件，分别�
 make CONF=k510_crb_lp3_v1_2_defconfig
 ```
 
-![](images/sdk_build/image-make.png)
+![](../zh/images/sdk_build/image-make.png)
 
 输出如下信息表示编译成功完成。
 
-![](images/sdk_build/image-uboot_r.png)
+![](../zh/images/sdk_build/image-uboot_r.png)
 
 在编译完成后，会生成`k510_crb_lp3_v1_2_defconfig`文件夹。
 
-![image-20220311121912711](images/sdk_build/image-makeout.png)
+![image-20220311121912711](../zh/images/sdk_build/image-makeout.png)
 
 其中各文件描述如下：
 
@@ -213,9 +213,9 @@ make CONF=k510_crb_lp3_v1_2_defconfig menuconfig
 
 执行结果如下：
 
-![](images/sdk_build/image-make_men.png)
+![](../zh/images/sdk_build/image-make_men.png)
 
-![](images/sdk_build/image-make_menu.png)
+![](../zh/images/sdk_build/image-make_menu.png)
 
 完成配置后保存并退出，还需要执行如下buildroot配置保存命令：
 
@@ -225,7 +225,7 @@ make CONF=k510_crb_lp3_v1_2_defconfig savedefconfig
 
 执行结果如下：
 
-![](images/sdk_build/image-make_savedef.png)
+![](../zh/images/sdk_build/image-make_savedef.png)
 
 以上操作完成后，用户可输入如下命令重新编译：
 
@@ -243,9 +243,9 @@ make uboot-menuconfig
 
 执行结果如下：
 
-![](images/sdk_build/image-uboot_men.png)
+![](../zh/images/sdk_build/image-uboot_men.png)
 
-![](images/sdk_build/image-uboot_menu.png)
+![](../zh/images/sdk_build/image-uboot_menu.png)
 
 完成配置后退出menuconfig时，选择保存配置，还需要执行如下配置保存命令：
 
@@ -255,7 +255,7 @@ make uboot-savedefconfig
 
 执行结果如下：
 
-![](images/sdk_build/image-uboot_savedefconfig.png)
+![](../zh/images/sdk_build/image-uboot_savedefconfig.png)
 
 最后在k510_crb_lp3_v1_2_defconfig目录，输入如下命令启动编译：
 
@@ -277,7 +277,7 @@ make uboot-rebuild
 
 执行结果如下：
 
-![](images/sdk_build/image-uboot-rebuild.png)
+![](../zh/images/sdk_build/image-uboot-rebuild.png)
 
 编译完成后，会在k510_crb_lp3_v1_2_defconfig/images目录下生成新的 u-boot.bin 文件。
 
@@ -289,11 +289,11 @@ make
 
 执行结果如下：
 
-![](images/sdk_build/image-make_u.png)
+![](../zh/images/sdk_build/image-make_u.png)
 
 编译完成会看到如下镜像文件生成的信息。
 
-![](images/sdk_build/image-uboot_r.png)
+![](../zh/images/sdk_build/image-uboot_r.png)
 
 ## 4.4 配置 Linux kernel
 
@@ -305,9 +305,9 @@ make linux-menuconfig
 
 执行结果如下：
 
-![](images/sdk_build/image-linux_men.png)
+![](../zh/images/sdk_build/image-linux_men.png)
 
-![](images/sdk_build/image-linux_menu.png)
+![](../zh/images/sdk_build/image-linux_menu.png)
 
 修改配置后退出menuconfig时，选择保存配置，最后还需要执行如下配置保存命令：
 
@@ -317,7 +317,7 @@ make linux-savedefconfig
 
 执行结果如下：
 
-![](images/sdk_build/image-linux_savedefconfig.png)
+![](../zh/images/sdk_build/image-linux_savedefconfig.png)
 
 最后在k510_crb_lp3_v1_2_defconfig目录，输入如下命令启动编译：
 
@@ -339,7 +339,7 @@ make linux-rebuild
 
 执行结果如下：
 
-![](images/sdk_build/image-linux_rebuild.png)
+![](../zh/images/sdk_build/image-linux_rebuild.png)
 
 编译完成后会在k510_crb_lp3_v1_2_defconfig/images目录下生成新的vmlinux。
 
@@ -352,7 +352,7 @@ make riscv-pk-k510
 
 执行结果如下：
 
-![](images/sdk_build/image-riscv.png)
+![](../zh/images/sdk_build/image-riscv.png)
 
 编译完成，会在`k510_crb_lp3_v1_2_defconfig/images`目录下生成新的`bootm-bbl.img`。
 
@@ -364,11 +364,11 @@ make
 
 执行结果如下：
 
-![](images/sdk_build/image-make_u.png)
+![](../zh/images/sdk_build/image-make_u.png)
 
 编译完成会看到如下镜像文件生成的信息。
 
-![](images/sdk_build/image-uboot_r.png)
+![](../zh/images/sdk_build/image-uboot_r.png)
 
 ## 4.6 编译 dts
 
@@ -410,7 +410,7 @@ echo "${BINARIES_DIR}/all.dts"
 
 执行结果如下：
 
-![](images/sdk_build/image-mdk_dts.png)
+![](../zh/images/sdk_build/image-mdk_dts.png)
 
 编译完成在k510_crb_lp3_v1_2_defconfig/images目录下的 k510.dtb是新生成的设备树数据库文件，all.dts是反编译后的设备树文件。
 
@@ -422,11 +422,11 @@ echo "${BINARIES_DIR}/all.dts"
 
 在宿主机环境下修改k510_buildroot目录下的Config.in文件。
 
-![](images/sdk_build/image-vi_config.png)
+![](../zh/images/sdk_build/image-vi_config.png)
 
 在Config.in 中添加package/hello_world/Config.in所在的路径并保存。
 
-![](images/sdk_build/image-config_list.png)
+![](../zh/images/sdk_build/image-config_list.png)
 
 在 k510 docker环境下输入配置 buildroot命令：
 
@@ -436,11 +436,11 @@ make CONF=k510_crb_lp3_v1_2_defconfig menuconfig
 
 执行结果如下：
 
-![](images/sdk_build/image-build_menu.png)
+![](../zh/images/sdk_build/image-build_menu.png)
 
 出现buildroot配置页面，选择External option，最后选中其中的hello_world后保存退出。
 
-![](images/sdk_build/image-extern_option.png)
+![](../zh/images/sdk_build/image-extern_option.png)
 
 在k510_buildroot目录下输入保存配置命令。
 
@@ -450,7 +450,7 @@ make CONF=k510_crb_lp3_v1_2_defconfig savedefconfig
 
 执行结果如下：
 
-![](images/sdk_build/image-build_savedef.png)
+![](../zh/images/sdk_build/image-build_savedef.png)
 
 1）若是第一次编译，执行步骤如下：
 
@@ -462,11 +462,11 @@ make CONF=k510_crb_lp3_v1_2_defconfig
 
 执行结果如下：
 
-![](images/sdk_build/image-build_make_def.png)
+![](../zh/images/sdk_build/image-build_make_def.png)
 
 在k510_buildroot/k510_crb_lp3_v1_2_defconfig/target 目录下，可以看到生成的hello应用程序，由此可判断应用程序是否被正确编译。
 
-![](images/sdk_build/image-hello.png)
+![](../zh/images/sdk_build/image-hello.png)
 
 2）若已经编译过，只是对app进行编译并打包到烧录镜像中，执行步骤如下：
 
@@ -478,7 +478,7 @@ make hello_world-rebuild
 
 执行结果如下：
 
-![](images/sdk_build/image-app_build-1.png)
+![](../zh/images/sdk_build/image-app_build-1.png)
 
 进入到 k510_buildroot/k510_crb_lp3_v1_2_defconfig目录下，输入make命令将hello打包到emmc和sd卡镜像文件当中。
 
@@ -488,7 +488,7 @@ make
 
 执行结果如下：
 
-![](images/sdk_build/image-app-build-2.png)
+![](../zh/images/sdk_build/image-app-build-2.png)
 
 # 5 使用K510 SDK进行开发
 
@@ -556,7 +556,7 @@ K510 通过 BOOT0 和 BOOT1 两个硬件管脚的状态决定芯片启动方式�
 | 1(OFF)  | 0(ON)   | NANDFLASH启动 |
 | 1(OFF)  | 1(OFF)  | EMMC启动      |
 
-![](images/hw_crb_v1_2/clip_hw_3_9.jpg)
+![](../zh/images/hw_crb_v1_2/clip_hw_3_9.jpg)
 
 ## 6.1 烧录镜像到sd卡
 
@@ -580,7 +580,7 @@ ls -l /dev/sd*
 
 将sd卡插入宿主机后，ls 命令执行结果如下：
 
-![](images/sdk_build/image-dev_sd.png)
+![](../zh/images/sdk_build/image-dev_sd.png)
 
 /dev/sdc 就是 sd卡设备节点。**注意: 用户环境下生成的 sd卡设备节点可能不是 /dev/sdc，后续操作需要根据实际节点做相应修改。**
 
@@ -592,7 +592,7 @@ sudo dd if=sysimage-sdcard.img of=/dev/sdc bs=1M oflag=sync
 
 宿主机下的执行结果如下：
 
-![](images/sdk_build/image-dd.png)
+![](../zh/images/sdk_build/image-dd.png)
 
 ### 6.1.2 Windows下烧录
 
@@ -600,15 +600,15 @@ Windows下可通过balenaEtcher工具对sd卡进行烧录（balenaEtcher工具�
 
 1）将TF卡插入PC，然后启动balenaEtcher工具，点击工具界面的"Flash from file”按钮，选择待烧写的固件，如下图。
 
-![](images/sdk_build/image-sd_pre0.png)
+![](../zh/images/sdk_build/image-sd_pre0.png)
 
 2）点击工具界面的“Select target”按钮，选择目标sdcard卡。
 
-![](images/sdk_build/image-pre1.png)
+![](../zh/images/sdk_build/image-pre1.png)
 
 3）点击“Flash”按钮开始烧写，烧写过程有进度条展示，烧写结束后会提示Flash Finish。
 
-| ![](images/sdk_build/clip_image_p1.jpg) | ![](images/sdk_build/clip_image_p2.jpg) |
+| ![](../zh/images/sdk_build/clip_image_p1.jpg) | ![](../zh/images/sdk_build/clip_image_p2.jpg) |
 | --------------------------------------- | --------------------------------------- |
 |                                         |                                         |
 
@@ -626,7 +626,7 @@ mount | grep emmc
 
 执行结果如下图：
 
-![](images/sdk_build/image-emmc_1.png)
+![](../zh/images/sdk_build/image-emmc_1.png)
 
 输入如下命令卸载和检查。
 
@@ -639,7 +639,7 @@ mount | grep emmc
 
 执行结果如下图：
 
-![](images/sdk_build/image-emmc_2.png)
+![](../zh/images/sdk_build/image-emmc_2.png)
 
 最后进入sysimage-emmc.img镜像所在路径，输入如下命令烧录eMMC。
 
@@ -649,7 +649,7 @@ dd if=sysimage-emmc.img of=/dev/mmcblk0 bs=1M
 
 执行结果如下图：
 
-![](images/sdk_build/image-emmc3.png)
+![](../zh/images/sdk_build/image-emmc3.png)
 
 **注：烧录过程较慢，大约需要30秒，请耐心等待。**
 
