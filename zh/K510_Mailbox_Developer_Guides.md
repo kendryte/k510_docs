@@ -563,3 +563,8 @@ static struct mbox_chan *canaan_mailbox_xlate(struct mbox_controller *controller
 # 6 已知问题
 
 &emsp;&emsp;偶尔会出现第一次执行命令`./dsp_app mailbox_demo.bin`时没有将 dsp 程序烧进 dsp 中的情况出现。此时执行 demo 会出现发送失败的情况。
+
+**翻译免责声明**  
+为方便客户，Canaan 使用 AI 翻译程序将文本翻译为多国语言，它可能包含错误。我们不保证提供的译文的准确性、可靠性或时效性。对于因依赖已翻译信息的准确性或可靠性而造成的任何损失或损害，Canaan 概不负责。如果不同语言翻译之间存在内容差异，以简体中文版本为准。
+
+如果您要报告翻译错误或不准确的问题，欢迎通过邮件与我们联系。
