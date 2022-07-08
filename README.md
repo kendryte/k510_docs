@@ -1,5 +1,6 @@
 [![Gitee repository](https://img.shields.io/badge/gitee-repository-blue?logo=gitee&style=plastic)](https://gitee.com/kendryte/k510_docs)
 [![GitHub release](https://img.shields.io/github/v/release/kendryte/k510_docs?color=brightgreen&display_name=tag&logo=github&style=plastic)](https://github.com/kendryte/k510_docs/releases)
+
 * [English](en/README.md)
 * [简体中文](zh/README.md)
 * [繁體中文](zh-Hant/README.md)
