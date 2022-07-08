@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Verzichtserklärung**</font>
 Die Produkte, Dienstleistungen oder Funktionen, die Sie erwerben, unterliegen den kommerziellen Verträgen und Bedingungen von Beijing Canaan Jiesi Information Technology Co., Ltd. ("das Unternehmen", dasselbe im Folgenden), und alle oder ein Teil der in diesem Dokument beschriebenen Produkte, Dienstleistungen oder Funktionen fallen möglicherweise nicht in den Rahmen Ihres Kaufs oder Ihrer Nutzung. Sofern im Vertrag nicht anders vereinbart, lehnt das Unternehmen alle ausdrücklichen oder stillschweigenden Zusicherungen oder Gewährleistungen hinsichtlich der Genauigkeit, Zuverlässigkeit, Vollständigkeit, des Marketings, des spezifischen Zwecks und der Nichtverletzung von Zusicherungen, Informationen oder Inhalten dieses Dokuments ab. Sofern nicht anders vereinbart, wird dieses Dokument nur als Leitfaden für die Verwendung zur Verfügung gestellt.
-Aufgrund von Produktversions-Upgrades oder anderen Gründen kann der Inhalt dieses Dokuments von Zeit zu Zeit ohne vorherige Ankündigung aktualisiert oder geändert werden. 
+Aufgrund von Produktversions-Upgrades oder anderen Gründen kann der Inhalt dieses Dokuments von Zeit zu Zeit ohne vorherige Ankündigung aktualisiert oder geändert werden.
 
 **<font face="黑体"  size=3>Markenhinweise</font>**
 
-"", "Canaan"-Symbol, Canaan und andere Marken von Canaan und andere Marken von Canaan <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />sind Marken von Beijing Canaan Jiesi Information Technology Co., Ltd. Alle anderen Marken oder eingetragenen Warenzeichen, die in diesem Dokument erwähnt werden können, sind Eigentum ihrer jeweiligen Inhaber. 
+"", "Canaan"-Symbol, Canaan und andere Marken von Canaan und andere Marken von Canaan <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />sind Marken von Beijing Canaan Jiesi Information Technology Co., Ltd. Alle anderen Marken oder eingetragenen Warenzeichen, die in diesem Dokument erwähnt werden können, sind Eigentum ihrer jeweiligen Inhaber.
 
 **<font face="黑体"  size=3>Copyright ©2022 Peking Canaan Jiesi Information Technology Co., Ltd</font>**
-Dieses Dokument gilt nur für die Entwicklung und das Design der K510-Plattform, ohne die schriftliche Genehmigung des Unternehmens darf keine Einheit oder Einzelperson einen Teil oder den gesamten Inhalt dieses Dokuments in irgendeiner Form verbreiten. 
+Dieses Dokument gilt nur für die Entwicklung und das Design der K510-Plattform, ohne die schriftliche Genehmigung des Unternehmens darf keine Einheit oder Einzelperson einen Teil oder den gesamten Inhalt dieses Dokuments in irgendeiner Form verbreiten.
 
 **<font face="黑体"  size=3>Peking Canaan Jiesi Informationstechnologie Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Geschäftliche Anfragen: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # Vorwort
 **<font face="黑体"  size=5>Zweck des Dokuments</font>**
-Dieses Dokument ist eine Anleitung zur Verwendung des K510 DSP-Kerns. 
+Dieses Dokument ist eine Anleitung zur Verwendung des K510 DSP-Kerns.
 
 **<font face="黑体"  size=5>Reader-Objekte</font>**
 
@@ -97,7 +97,7 @@ Nach dem Einschalten wird die dsp_log standardmäßig im Hintergrund ausgeführt
 ## 3,1 fft
 
 Das fft-Demoprogramm befindet sich`/app/dsp_app_new/fft.bin`.
-Der Quellcode des fft-Demoprogramms wird im Verzeichnis abgelegt`k510_buildroot/package/k510_evb_test/src/test/fft`. 
+Der Quellcode des fft-Demoprogramms wird im Verzeichnis abgelegt`k510_buildroot/package/k510_evb_test/src/test/fft`.
 
 Wechseln Sie zum Verzeichnis /app/dsp_app_new':
 
@@ -132,7 +132,7 @@ cd /app/dsp_app_new
 ./dsp_app simd_umul8_demo.bin
 ```
 
-Spezifische Anweisungen finden Sie in [ der Produktdokumentation - Andes-Technologie](http://www.andestech.com/en/products-solutions/product-documentation/) zum Herunterladen der AndeStar V5 DSP ISA Extension Specification .PDF (v1.0, 2019-03-25), siehe Abschnitt 3.172. 
+Spezifische Anweisungen finden Sie in [der Produktdokumentation - Andes-Technologie](http://www.andestech.com/en/products-solutions/product-documentation/) zum Herunterladen der AndeStar V5 DSP ISA Extension Specification .PDF (v1.0, 2019-03-25), siehe Abschnitt 3.172.
 
 ## 3.3 DSP-Scheduler-API
 
@@ -367,7 +367,7 @@ exit: task0 is disabled
 cpu2dsp_task_demo: exit successful
 ```
 
-**Haftungsausschluss **für Übersetzungen  
-Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend. 
+**Haftungsausschluss**für Übersetzungen  
+Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend.
 
 Wenn Sie einen Übersetzungsfehler oder eine Ungenauigkeit melden möchten, können Sie uns gerne per E-Mail kontaktieren.

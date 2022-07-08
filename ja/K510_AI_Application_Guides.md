@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**免責事項**</font>
 お客様が購入した製品、サービス、または機能は、北京Jiayuan Jetts情報技術有限公司(以下「当社」、以下同じ)の商業契約および条件の対象となり、本書に記載されている製品、サービス、または機能の全部または一部がお客様の購入または使用の範囲外となる場合があります。 契約に別段の定めがない限り、当社は、本書の記述、情報、内容の正確性、信頼性、完全性、マーケティング、特定目的、非攻撃性について、明示または黙示を問わず、いかなる表明または保証も行いません。 特に断りのない限り、このドキュメントは使用ガイダンスの推論としてのみ機能します。
-このドキュメントの内容は、製品バージョンのアップグレードまたはその他の理由により、予告なく随時更新または変更されることがあります。 
+このドキュメントの内容は、製品バージョンのアップグレードまたはその他の理由により、予告なく随時更新または変更されることがあります。
 
 **<font face="黑体"  size=3>商標表示</font>**
 
-「<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />」アイコン、カナン、その他の商標は、北京Jiayuan Jets情報技術有限公司の商標です。 本書で言及されるその他すべての商標または登録商標は、それぞれの所有者が所有しています。 
+「<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />」アイコン、カナン、その他の商標は、北京Jiayuan Jets情報技術有限公司の商標です。 本書で言及されるその他すべての商標または登録商標は、それぞれの所有者が所有しています。
 
 **<font face="黑体"  size=3>©著作権2022北京Jiayuan Jetth情報技術有限公司</font>**
-このドキュメントは、K510プラットフォーム開発設計にのみ適用され、当社の書面による許可なく、いかなるユニットまたは個人も、このドキュメントの一部または全部をいかなる形式でも配布することはできません。 
+このドキュメントは、K510プラットフォーム開発設計にのみ適用され、当社の書面による許可なく、いかなるユニットまたは個人も、このドキュメントの一部または全部をいかなる形式でも配布することはできません。
 
 **<font face="黑体"  size=3>北京Jiayuan Jetth情報技術有限公司</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ URL: canaan-creative.com
 <div style="page-break-after:always"></div>
 # 序文
 **<font face="黑体"  size=5>ドキュメントの目的</font>**
-このドキュメントは、K510 AI アプリケーションのコンパニオン ドキュメントであり、エンジニアが k510 AI アプリケーションの作成と適用を理解するのに役立ちます。 
+このドキュメントは、K510 AI アプリケーションのコンパニオン ドキュメントであり、エンジニアが k510 AI アプリケーションの作成と適用を理解するのに役立ちます。
 
 **<font face="黑体"  size=5>リーダー オブジェクト</font>**
 
@@ -78,7 +78,7 @@ K510 AIチップ上でのAIアプリケーション開発の全体的なアー�
 
 # 2 モデルの準備
 
-推論のためのYOLOV5sのonnxモデルは/docs/utils/AI_Application/aidemo_sdk/models/onnxサブディレクトリにあります(ファイルがない場合は [models をダウンロードしてください](https://github.com/kendryte/k510_docs/releases/download/v1.5/models.tar.gz))  解凍)、静的画像は/docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC/dataサブディレクトリにあり、スクリプトは/docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PCサブディレクトリにあります。 
+推論のためのYOLOV5sのonnxモデルは/docs/utils/AI_Application/aidemo_sdk/models/onnxサブディレクトリにあります(ファイルがない場合は [models をダウンロードしてください](https://github.com/kendryte/k510_docs/releases/download/v1.5/models.tar.gz))  解凍)、静的画像は/docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC/dataサブディレクトリにあり、スクリプトは/docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PCサブディレクトリにあります。
 
 スクリプト コマンドプロンプトに従って、yolov5_image.pyスクリプトを実行し、静止画の推論結果を取得します。 出力画像の検出ボックスが正しいことを確認することで、モデルの正確性を検出します。
 
@@ -107,7 +107,7 @@ optional arguments:
 
 # 3 モデル生成
 
-モデル生成はnncase compilerに依存しており,nncase compilerの具体的な使用規則については[K510_nncase_Developer_Guides.mdを参照](./K510_nncase_Developer_Guides.md)することができる. YOLOV5s を生成する kmodel のスクリプトは、/docs/utils/AI_Application/aidemo_sdk/scripts サブディレクトリにあります。 
+モデル生成はnncase compilerに依存しており,nncase compilerの具体的な使用規則については[K510_nncase_Developer_Guides.mdを参照](./K510_nncase_Developer_Guides.md)することができる. YOLOV5s を生成する kmodel のスクリプトは、/docs/utils/AI_Application/aidemo_sdk/scripts サブディレクトリにあります。
 
 スクリプト コマンドのプロンプトに従って、gen_yolov5s_320_with_sigmoid_bf16_with_preprocess_output_nhwc.pyを実行して、適切な kmodel を生成します。
 
@@ -137,7 +137,7 @@ compile_options.input_range = [0, 255]
 
 # 4 モデル検証
 
-モデル検証はnncase simulatorに依存しており,nncase simulatorの具体的な使用規則については[K510_nncase_Developer_Guides.mdを参照することができる](./K510_nncase_Developer_Guides.md). YOLOV5s の kmodel スクリプトが/docs/utils/AI_Application/aidemo_sdk/scripts サブディレクトリにあることを確認します。 
+モデル検証はnncase simulatorに依存しており,nncase simulatorの具体的な使用規則については[K510_nncase_Developer_Guides.mdを参照することができる](./K510_nncase_Developer_Guides.md). YOLOV5s の kmodel スクリプトが/docs/utils/AI_Application/aidemo_sdk/scripts サブディレクトリにあることを確認します。
 
 スクリプト コマンドプロンプトに従って、simu_yolov5s_320_with_sigmoid_bf16_with_preprocess_output_nhwc.pyを実行して、対応する kmodel が正しく生成されていることを確認します。
 
@@ -160,7 +160,7 @@ output 2 cosine similarity : 0.9999019503593445
 
 # 5 AI アプリケーションを作成します
 
-モデル検証はnncase runtimeに依存しており,nncase runtimeの具体的な使用規則については[K510_nncase_Developer_Guides.mdを参照できる](./K510_nncase_Developer_Guides.md). AI アプリケーション リファレンス `k510_buildroot/package/ai/code/object_detect`。 まず、ターゲットインストルメンテーションインスタンスを作成し、kmodel入出力用の領域を割り当てる必要があります。 
+モデル検証はnncase runtimeに依存しており,nncase runtimeの具体的な使用規則については[K510_nncase_Developer_Guides.mdを参照できる](./K510_nncase_Developer_Guides.md). AI アプリケーション リファレンス `k510_buildroot/package/ai/code/object_detect`。 まず、ターゲットインストルメンテーションインスタンスを作成し、kmodel入出力用の領域を割り当てる必要があります。
 
 ```c++
 objectDetect od(obj_thresh, nms_thresh, net_len, {valid_width, valid_height});
@@ -263,9 +263,9 @@ std::vector<BoxInfo> result;
 
 # 6 AI アプリケーションをコンパイルします
 
-クロスコンパイル ツール チェーンを使用すると、AI アプリケーションのコンパイルに関する特定の使用規則が[参照K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md)。 
+クロスコンパイル ツール チェーンを使用すると、AI アプリケーションのコンパイルに関する特定の使用規則が[参照K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md)。
 
 **免責事項を翻訳します**  
-お客様の便宜のために、カナアンはAI翻訳プログラムを使用してテキストを複数の言語に翻訳し、エラーが含まれている可能性があります。 当社は、提供される翻訳の正確性、信頼性、または適時性を保証するものではありません。 カナアンは、翻訳された情報の正確性または信頼性への依存に起因するいかなる損失または損害についても責任を負いません。 異なる言語翻訳間でコンテンツの違いがある場合は、簡体字中国語版が優先されます。 
+お客様の便宜のために、カナアンはAI翻訳プログラムを使用してテキストを複数の言語に翻訳し、エラーが含まれている可能性があります。 当社は、提供される翻訳の正確性、信頼性、または適時性を保証するものではありません。 カナアンは、翻訳された情報の正確性または信頼性への依存に起因するいかなる損失または損害についても責任を負いません。 異なる言語翻訳間でコンテンツの違いがある場合は、簡体字中国語版が優先されます。
 
 翻訳エラーや不正確な問題を報告する場合は、メールでお問い合わせください。

@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Zrzeczenie się**</font>
 Zakupione produkty, usługi lub funkcje podlegają umowom handlowym i warunkom Beijing Canaan Jiesi Information Technology Co., Ltd. ("Spółka", ta sama poniżej), a wszystkie lub część produktów, usług lub funkcji opisanych w niniejszym dokumencie może nie być objęta zakresem zakupu lub użytkowania. O ile nie uzgodniono inaczej w umowie, Firma zrzeka się wszelkich oświadczeń lub gwarancji, wyraźnych lub dorozumianych, co do dokładności, niezawodności, kompletności, marketingu, konkretnego celu i nieagresji jakichkolwiek oświadczeń, informacji lub treści tego dokumentu. O ile nie uzgodniono inaczej, niniejszy dokument jest dostarczany jako wskazówka wyłącznie do użytku.
-Ze względu na aktualizacje wersji produktu lub z innych powodów zawartość tego dokumentu może być od czasu do czasu aktualizowana lub modyfikowana bez powiadomienia. 
+Ze względu na aktualizacje wersji produktu lub z innych powodów zawartość tego dokumentu może być od czasu do czasu aktualizowana lub modyfikowana bez powiadomienia.
 
 **<font face="黑体"  size=3>Informacje o znakach towarowych</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, ikona "Canaan", Canaan i inne znaki towarowe Canaan oraz inne znaki towarowe Canaan są znakami towarowymi Beijing Canaan Jiesi Information Technology Co., Ltd. Wszystkie inne znaki towarowe lub zarejestrowane znaki towarowe, które mogą być wymienione w niniejszym dokumencie, są własnością ich odpowiednich właścicieli. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, ikona "Canaan", Canaan i inne znaki towarowe Canaan oraz inne znaki towarowe Canaan są znakami towarowymi Beijing Canaan Jiesi Information Technology Co., Ltd. Wszystkie inne znaki towarowe lub zarejestrowane znaki towarowe, które mogą być wymienione w niniejszym dokumencie, są własnością ich odpowiednich właścicieli.
 
 **<font face="黑体"  size=3>Prawa autorskie ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Niniejszy dokument ma zastosowanie wyłącznie do rozwoju i projektowania platformy K510, bez pisemnej zgody firmy, żadna jednostka ani osoba fizyczna nie może rozpowszechniać części lub całości treści tego dokumentu w jakiejkolwiek formie. 
+Niniejszy dokument ma zastosowanie wyłącznie do rozwoju i projektowania platformy K510, bez pisemnej zgody firmy, żadna jednostka ani osoba fizyczna nie może rozpowszechniać części lub całości treści tego dokumentu w jakiejkolwiek formie.
 
 **<font face="黑体"  size=3>Pekin Canaan Jiesi Information Technology Co Ltd</font>**
 Adres internetowy: canaan-creative.com
@@ -26,7 +26,7 @@ Zapytania biznesowe: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # przedmowa
 **<font face="黑体"  size=5>Przeznaczenie </font>**dokumentu
-Ten dokument jest dokumentacją narzędzia ISP Tuning Tool. 
+Ten dokument jest dokumentacją narzędzia ISP Tuning Tool.
 
 **<font face="黑体"  size=5>Obiekty programu Reader</font>**
 
@@ -112,16 +112,16 @@ W tej sekcji opisano funkcje tych paneli w oknie strojenia.
 
 Rysunek 3-1 pokazuje cały panel operatora w oknie strojenia
 
-- Panel 1 to** menu**, które może opcjonalnie załadować skonfigurowany plik ISP lub przeprowadzić kalibrację. 
-- Panel 2 to **panel sterowania połączeniem**, wypełnij adres IP i numer portu płytki rozwojowej (domyślny port 9982) i kliknij zielony przycisk połącz, aby się połączyć. 
-- Panel 3 to **panel rejestru**, jeśli chcesz ustawić lub odczytać rejestr nie znajduje się w tym, możesz użyć tego panelu do ustawienia i odczytu. 
-- Panel 4 jest **panelem wyboru parametrów strojenia**, użytkownik może wybrać różne parametry lub grupy parametrów zgodnie z tekstem monitu panelu, rejestry tych wyborów zostaną wyświetlone na panelu 5. 
-- Panel 5 to **panel Ustawienia parametrów strojenia**, który służy do ustawiania lub uzyskiwania wartości parametrów z serwera dostrajania. 
-- Panel 6 to **panel wyświetlania obrazu**, który wyświetla obraz wyjściowy przez dostawcę usług internetowych i może kliknąć przycisk pauzy w środku, gdy nie jest konieczne odtwarzanie przez cały czas. 
+- Panel 1 to**menu**, które może opcjonalnie załadować skonfigurowany plik ISP lub przeprowadzić kalibrację.
+- Panel 2 to **panel sterowania połączeniem**, wypełnij adres IP i numer portu płytki rozwojowej (domyślny port 9982) i kliknij zielony przycisk połącz, aby się połączyć.
+- Panel 3 to **panel rejestru**, jeśli chcesz ustawić lub odczytać rejestr nie znajduje się w tym, możesz użyć tego panelu do ustawienia i odczytu.
+- Panel 4 jest **panelem wyboru parametrów strojenia**, użytkownik może wybrać różne parametry lub grupy parametrów zgodnie z tekstem monitu panelu, rejestry tych wyborów zostaną wyświetlone na panelu 5.
+- Panel 5 to **panel Ustawienia parametrów strojenia**, który służy do ustawiania lub uzyskiwania wartości parametrów z serwera dostrajania.
+- Panel 6 to **panel wyświetlania obrazu**, który wyświetla obraz wyjściowy przez dostawcę usług internetowych i może kliknąć przycisk pauzy w środku, gdy nie jest konieczne odtwarzanie przez cały czas.
 
 ![Rysunek 3-1 Okno główne narzędzia tuningu](../zh/images/sdk_application/clip_image033.png)
 
-Narzędzie ISP Tuning Tool** nie **pobiera automatycznie wszystkich wartości rejestru po nawiązaniu połączenia, a jeśli chcesz uzyskać wszystkie wartości rejestru, możesz kliknąć** przycisk Odczyt po prawej stronie panelu sterowania połączeniem**, aby pobrać wszystkie bieżące wartości rejestru. 
+Narzędzie ISP Tuning Tool**nie**pobiera automatycznie wszystkich wartości rejestru po nawiązaniu połączenia, a jeśli chcesz uzyskać wszystkie wartości rejestru, możesz kliknąć**przycisk Odczyt po prawej stronie panelu sterowania połączeniem**, aby pobrać wszystkie bieżące wartości rejestru.
 
 # Kalibracja i kalibracja
 
@@ -195,7 +195,7 @@ Po korekcie pokazano to na poniższym rysunku
 
 ![Po korekcie](../zh/images/sdk_application/clip_image031.png)
 
-**Zrzeczenie się odpowiedzialności za **tłumaczenie  
-Dla wygody klientów Canaan używa tłumacza AI do tłumaczenia tekstu na wiele języków, które mogą zawierać błędy. Nie gwarantujemy dokładności, rzetelności ani terminowości dostarczonych tłumaczeń. Canaan nie ponosi odpowiedzialności za jakiekolwiek straty lub szkody spowodowane poleganiem na dokładności lub wiarygodności przetłumaczonych informacji. W przypadku różnic w treści tłumaczeń w różnych językach, pierwszeństwo ma chińska wersja uproszczona. 
+**Zrzeczenie się odpowiedzialności za**tłumaczenie  
+Dla wygody klientów Canaan używa tłumacza AI do tłumaczenia tekstu na wiele języków, które mogą zawierać błędy. Nie gwarantujemy dokładności, rzetelności ani terminowości dostarczonych tłumaczeń. Canaan nie ponosi odpowiedzialności za jakiekolwiek straty lub szkody spowodowane poleganiem na dokładności lub wiarygodności przetłumaczonych informacji. W przypadku różnic w treści tłumaczeń w różnych językach, pierwszeństwo ma chińska wersja uproszczona.
 
 Jeśli chcesz zgłosić błąd lub niedokładność tłumaczenia, skontaktuj się z nami pocztą.

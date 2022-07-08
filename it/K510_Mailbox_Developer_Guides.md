@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disconoscimento**</font>
 I prodotti, i servizi o le funzionalità acquistati saranno soggetti ai contratti e ai termini commerciali di Beijing Canaan Jiesi Information Technology Co., Ltd. ("la Società", la stessa di seguito), e tutti o parte dei prodotti, servizi o funzionalità descritti in questo documento potrebbero non rientrare nell'ambito dell'acquisto o dell'utilizzo. Salvo quanto diversamente concordato nel contratto, la Società declina ogni dichiarazione o garanzia, espressa o implicita, in merito all'accuratezza, affidabilità, completezza, marketing, scopo specifico e non aggressione di qualsiasi dichiarazione, informazione o contenuto di questo documento. Salvo diverso accordo, questo documento è fornito solo come guida per l'uso.
-A causa di aggiornamenti della versione del prodotto o altri motivi, il contenuto di questo documento può essere aggiornato o modificato di volta in volta senza alcun preavviso. 
+A causa di aggiornamenti della versione del prodotto o altri motivi, il contenuto di questo documento può essere aggiornato o modificato di volta in volta senza alcun preavviso.
 
 **<font face="黑体"  size=3>Avvisi sui marchi</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icona "Canaan", Canaan e altri marchi di Canaan e altri marchi di Canaan sono marchi di Beijing Canaan Jiesi Information Technology Co., Ltd. Tutti gli altri marchi o marchi registrati che possono essere menzionati in questo documento sono di proprietà dei rispettivi proprietari. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icona "Canaan", Canaan e altri marchi di Canaan e altri marchi di Canaan sono marchi di Beijing Canaan Jiesi Information Technology Co., Ltd. Tutti gli altri marchi o marchi registrati che possono essere menzionati in questo documento sono di proprietà dei rispettivi proprietari.
 
 **<font face="黑体"  size=3>Copyright ©2022 Pechino Canaan Jiesi Information Technology Co., Ltd</font>**
-Questo documento è applicabile solo allo sviluppo e alla progettazione della piattaforma K510, senza il permesso scritto della società, nessuna unità o individuo può diffondere parte o tutto il contenuto di questo documento in qualsiasi forma. 
+Questo documento è applicabile solo allo sviluppo e alla progettazione della piattaforma K510, senza il permesso scritto della società, nessuna unità o individuo può diffondere parte o tutto il contenuto di questo documento in qualsiasi forma.
 
 **<font face="黑体"  size=3>Pechino Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Richieste commerciali: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # prefazione
 **<font face="黑体"  size=5>Scopo </font>**del documento
-Questo documento è un documento di sviluppo per il driver della cassetta postale K510. 
+Questo documento è un documento di sviluppo per il driver della cassetta postale K510.
 
 **<font face="黑体"  size=5>Oggetti lettore</font>**
 
@@ -62,7 +62,7 @@ Le principali persone a cui si applica questo documento (questa guida):
 &emsp; &emsp; Controller è un driver che manipola direttamente la cassetta postale hardware. Gestisce i registri hardware direttamente verso il basso, completando la comunicazione con il telecomando inviando e ricevendo interrupt (se supportati dall'hardware); Fino all'interfaccia fornita dal framework per completare la comunicazione con il driver client.
 &emsp; &emsp; Il cliente è il consumatore del controller, comunica con il controller verso il basso, completa le applicazioni del canale, la preparazione dei dati e altre funzioni; Fornisce interfacce per la manipolazione dello spazio utente.  
 &emsp; &emsp; Il framework delle cassette postali è responsabile dell'interfaccia tra il controller e il client, la documentazione del kernel dice: "Il driver client e controller può essere molto dipendente dalla piattaforma specifica, quindi il driver client non può essere condiviso tra più piattaforme", quindi nella`/drivers/mailbox` directory, è possibile trovare solo il driver sul controller e non è possibile trovare il driver client, è possibile trovare un solo test Driver `mailbox-test.c`client del controller. Il modo in cui il driver client scambia i dati con lo spazio utente dipende anche dallo sviluppatore del driver stesso.  
-&emsp; &emsp; Il diagramma seguente è il framework di base per due registrazioni di driver: 
+&emsp; &emsp; Il diagramma seguente è il framework di base per due registrazioni di driver:
 
 <div align=center>
 <img src="../zh/images/mailbox/130101_frame_00.svg" width="1400">
@@ -75,7 +75,7 @@ Le principali persone a cui si applica questo documento (questa guida):
 </div>
 
 &emsp; &emsp; Il framework utilizza `struct mbox_controller`controller di cassette postali astratti, canali astratti`struct mbox_chan` e raccolte di funzioni `struct mbox_chan_ops`per modificare i canali. Le tre strutture di dati di cui sopra sono per i controllori. Il framework utilizza `struct mbox_client`client astratti, che sono specifici del cliente.  
-&emsp; &emsp; Oltre a questo, dobbiamo definire la nostra struttura del dispositivo per i nostri dispositivi e unità, come mostrato nella figura sopra. La connessione tra il client e il controller viene`mbox_request_channel` eseguita nella funzione quando si richiede un canale nel client e un canale è associato a una`struct mbox_client` struttura. 
+&emsp; &emsp; Oltre a questo, dobbiamo definire la nostra struttura del dispositivo per i nostri dispositivi e unità, come mostrato nella figura sopra. La connessione tra il client e il controller viene`mbox_request_channel` eseguita nella funzione quando si richiede un canale nel client e un canale è associato a una`struct mbox_client` struttura.
 
 ## 1.3 Flusso di chiamata di funzione
 
@@ -84,26 +84,26 @@ Le principali persone a cui si applica questo documento (questa guida):
 </div>  
 
 &emsp; &emsp; Lo spazio utente e il recapito dei dati basato sul client utilizzano ioctl più notifiche asincrone, che è determinato dagli stessi sviluppatori del driver e non appartiene al framework.  
-&emsp; &emsp; Abbiamo creato un nodo di dispositivo nel driver client`/dev/mailbox-client` attraverso il quale lo spazio utente legge e invia i dati. 8 canali di trasmissione, 8 canali di ricezione. 
+&emsp; &emsp; Abbiamo creato un nodo di dispositivo nel driver client`/dev/mailbox-client` attraverso il quale lo spazio utente legge e invia i dati. 8 canali di trasmissione, 8 canali di ricezione.
 
 ### 1.3.1 Invio del flusso di dati
 
 &emsp; &emsp; Come mostrato nella figura sopra:
 
 1. Maniglie dei file di manipolazione dello spazio utente per inviare dati;
-2. Immettere la funzione ioctl guidata dal client, che copia i dati dello spazio utente nello spazio del kernel e alla fine chiama la`mbox_send_message` funzione; 
-3. Il processo di elaborazione specifico di questa funzione può essere visto nell'analisi del codice dei capitoli successivi, che chiama principalmente due funzioni di callback: implementazione guidata dal client`tx_prepare` e implementazione guidata dal controller`send_data`. Guarda i nomi per sapere cosa fanno queste due funzioni. Va notato che alcune cassette postali hardware hanno registri di trasmissione dati hardware, quindi in questo momento la trasmissione dei dati può essere`send_data` completata nel mezzo; Alcuni hardware non dispongono di registri di trasmissione dati hardware, quindi è possibile completare anche la trasmissione dati effettiva`tx_prepare` e `send_data`il ruolo diventa una semplice **notifica di interrupt trigger al processore remoto**; 
+2. Immettere la funzione ioctl guidata dal client, che copia i dati dello spazio utente nello spazio del kernel e alla fine chiama la`mbox_send_message` funzione;
+3. Il processo di elaborazione specifico di questa funzione può essere visto nell'analisi del codice dei capitoli successivi, che chiama principalmente due funzioni di callback: implementazione guidata dal client`tx_prepare` e implementazione guidata dal controller`send_data`. Guarda i nomi per sapere cosa fanno queste due funzioni. Va notato che alcune cassette postali hardware hanno registri di trasmissione dati hardware, quindi in questo momento la trasmissione dei dati può essere`send_data` completata nel mezzo; Alcuni hardware non dispongono di registri di trasmissione dati hardware, quindi è possibile completare anche la trasmissione dati effettiva`tx_prepare` e `send_data`il ruolo diventa una semplice **notifica di interrupt trigger al processore remoto**;
 4. Quando il processore remoto riceve l'interrupt e riceve i dati, deve rispondere al controller con un interrupt che indica che Tx è stato completato;
-5. Dopo aver ricevuto l'ACK Tx, è necessario chiamare il gestore di interrupt registrato dal controller `mbox_chan_txdone`per notificare al livello superiore che il trasferimento è stato ricevuto in remoto; 
-6. `mbox_chan_txdone`Informare il cliente che il `tx_done`trasferimento è completato attraverso la registrazione del cliente. Il cliente decide per la successiva elaborazione e i`tx_done` parametri registrano lo stato del trasferimento dei dati. 
+5. Dopo aver ricevuto l'ACK Tx, è necessario chiamare il gestore di interrupt registrato dal controller `mbox_chan_txdone`per notificare al livello superiore che il trasferimento è stato ricevuto in remoto;
+6. `mbox_chan_txdone`Informare il cliente che il `tx_done`trasferimento è completato attraverso la registrazione del cliente. Il cliente decide per la successiva elaborazione e i`tx_done` parametri registrano lo stato del trasferimento dei dati.
 
 ### 1.3.1 Processo di ricezione dei dati
 
 &emsp; &emsp; Come mostrato nella figura sopra:
 
 1. Interruzioni del responsabile del trattamento remoto che invia i dati al titolare del trattamento;
-2. Dopo aver ricevuto l'interrupt, la chiamata del gestore di interrupt registrata dal controller `mbox_chan_received_data`informa il livello superiore di ricevere i dati provenienti dall'estremità più lontana e rispondere all'ACK Rx remoto. 
-3. `mbox_chan_received_data`Invocare il cliente registrato`rx_callback`; 
+2. Dopo aver ricevuto l'interrupt, la chiamata del gestore di interrupt registrata dal controller `mbox_chan_received_data`informa il livello superiore di ricevere i dati provenienti dall'estremità più lontana e rispondere all'ACK Rx remoto.
+3. `mbox_chan_received_data`Invocare il cliente registrato`rx_callback`;
 4. `rx_callback`legge i dati dall'indirizzo specificato nell'albero del dispositivo e quindi invia una notifica allo spazio utente utilizzando notifiche asincrone;
 5. Il gestore asincrono dello spazio utente che chiama ioctl legge i dati del canale di ricezione.
 
@@ -111,7 +111,7 @@ Le principali persone a cui si applica questo documento (questa guida):
 
 ## 2.1 mailbox_controller.h
 
-&emsp; &emsp; Definito `mbox_controller`(astrazione dell'hardware delle cassette postali)`mbox_chan` (astrazione del canale) `mbox_chan_ops`(raccolta di funzioni di callback che manipolano i canali). 
+&emsp; &emsp; Definito `mbox_controller`(astrazione dell'hardware delle cassette postali)`mbox_chan` (astrazione del canale) `mbox_chan_ops`(raccolta di funzioni di callback che manipolano i canali).
 
 ```c
 struct mbox_controller {
@@ -397,7 +397,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 }
 ```
 
-&emsp; &emsp; Questa funzione, tra l'altro, `of_parse_phandle_with_args`ottiene il canale dell'indice richiesto dall'albero del dispositivo. 
+&emsp; &emsp; Questa funzione, tra l'altro, `of_parse_phandle_with_args`ottiene il canale dell'indice richiesto dall'albero del dispositivo.
 
 - `mboxes`Punta al nome della proprietà dell'elenco phandle nel nodo;
 - `#mbox-cells`Indica il numero di celle contenute nel nodo a cui punta il phandle;
@@ -441,7 +441,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 
 ### 2.3.10 mbox_free_channel
 
-&emsp; &emsp; La funzione di rilascio del canale implementa una funzione di callback che svuoterà i membri del canale specificato e implementerà la funzione di callback se è necessario configurare il registro hardware corrispondente`shutdown`. 
+&emsp; &emsp; La funzione di rilascio del canale implementa una funzione di callback che svuoterà i membri del canale specificato e implementerà la funzione di callback se è necessario configurare il registro hardware corrispondente`shutdown`.
 
 ### 2.3.11 mbox_controller_register e mbox_controller_unregister
 
@@ -481,7 +481,7 @@ mailbox: mailbox@970e0000 {
 
 ## 3.1 Controllore
 
-&emsp; &emsp; Deve essere presente un attributo`#mbox-cells` con un valore di almeno 1. Indica il`mboxes` numero di celle per l'attributo client. 
+&emsp; &emsp; Deve essere presente un attributo`#mbox-cells` con un valore di almeno 1. Indica il`mboxes` numero di celle per l'attributo client.
 
 ## 3.2 cliente
 
@@ -491,7 +491,7 @@ mailbox: mailbox@970e0000 {
 
 ## 3.3 Come utilizzare la proprietà
 
-&emsp; &emsp; `mbox-cells`Le`mboxes` `mbox-names`tre proprietà vengono utilizzate quando si richiede per i canali. 
+&emsp; &emsp; `mbox-cells`Le`mboxes` `mbox-names`tre proprietà vengono utilizzate quando si richiede per i canali.
 
 ```c
 
@@ -545,20 +545,20 @@ Passare alla directory`/app/dsp_app_new` ed eseguire il comando `./dsp_app mailb
 2. Eseguire l'app di test dello spazio utente Linux
 Immettete la directory`/app/mailbox_demo` ed eseguite il comando`./mailbox_async`, come illustrato nella figura riportata di seguito.  
 ![](../zh/images/mailbox/130602_mailbox_async.png)mailbox_demo  
-Questa demo utilizza notifiche asincrone per ricevere i dati inviati dal dsp. 
+Questa demo utilizza notifiche asincrone per ricevere i dati inviati dal dsp.
 3. Nella directory`/app/mailbox_demo`, eseguire il comando`./mailbox_poll`, come illustrato nella figura riportata di seguito.  
 ![](../zh/images/mailbox/130602_mailbox_poll.png)mailbox_demo
-Questa demo utilizza il blocco del polling per 500ms per ricevere i dati inviati dal dsp. Inviamo i dati ogni 4 secondi e leggiamo i dati ogni 2 secondi, in modo da poter vedere che ogni 2 secondi, il successo della lettura è scaglionato con l'errore di lettura e la lettura di blocco ha successo. 
+Questa demo utilizza il blocco del polling per 500ms per ricevere i dati inviati dal dsp. Inviamo i dati ogni 4 secondi e leggiamo i dati ogni 2 secondi, in modo da poter vedere che ogni 2 secondi, il successo della lettura è scaglionato con l'errore di lettura e la lettura di blocco ha successo.
 
 ## 5.2 Test del codice
 
-&emsp; &emsp; Il programma bare metal dsp si trova `k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c`nel mezzo e il codice di test dello spazio utente si trova in`k510_buildroot/package/mailbox_demo/src/mailbox_async.c` e`k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`. 
+&emsp; &emsp; Il programma bare metal dsp si trova `k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c`nel mezzo e il codice di test dello spazio utente si trova in`k510_buildroot/package/mailbox_demo/src/mailbox_async.c` e`k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`.
 
 # 6 Problemi noti
 
-&emsp; &emsp; Occasionalmente, il `./dsp_app mailbox_demo.bin`programma dsp non viene masterizzato nel dsp la prima volta che il comando viene eseguito. L'esecuzione della demo a questo punto comporterà un errore di invio. 
+&emsp; &emsp; Occasionalmente, il `./dsp_app mailbox_demo.bin`programma dsp non viene masterizzato nel dsp la prima volta che il comando viene eseguito. L'esecuzione della demo a questo punto comporterà un errore di invio.
 
 **Traduzione Disclaimer**  
-Per la comodità dei clienti, Canaan utilizza un traduttore AI per tradurre il testo in più lingue, che possono contenere errori. Non garantiamo l'accuratezza, l'affidabilità o la tempestività delle traduzioni fornite. Canaan non sarà responsabile per eventuali perdite o danni causati dall'affidamento sull'accuratezza o sull'affidabilità delle informazioni tradotte. Se c'è una differenza di contenuto tra le traduzioni in lingue diverse, prevarrà la versione cinese semplificata. 
+Per la comodità dei clienti, Canaan utilizza un traduttore AI per tradurre il testo in più lingue, che possono contenere errori. Non garantiamo l'accuratezza, l'affidabilità o la tempestività delle traduzioni fornite. Canaan non sarà responsabile per eventuali perdite o danni causati dall'affidamento sull'accuratezza o sull'affidabilità delle informazioni tradotte. Se c'è una differenza di contenuto tra le traduzioni in lingue diverse, prevarrà la versione cinese semplificata.
 
 Se desideri segnalare un errore di traduzione o un'inesattezza, non esitare a contattarci via mail.

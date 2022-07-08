@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disclaimer**</font>
 The products, services or features you purchase shall be subject to the commercial contracts and terms of Beijing Canaan Jiesi Information Technology Co., Ltd. ("the Company", the same hereinafter), and all or part of the products, services or features described in this document may not be within the scope of your purchase or use. Except as otherwise agreed in the contract, the Company disclaims all representations or warranties, express or implied, as to the accuracy, reliability, completeness, marketing, specific purpose and non-aggression of any representations, information, or content of this document. Unless otherwise agreed, this document is provided as a guide for use only.
-Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice. 
+Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice.
 
 **<font face="黑体"  size=3>Trademark Notices</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form. 
+This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Business Enquiries: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # preface
 **<font face="黑体"  size=5>Document purpose</font>**
-This document is an ISP Tuning Tool documentation. 
+This document is an ISP Tuning Tool documentation.
 
 **<font face="黑体"  size=5>Reader Objects</font>**
 
@@ -112,16 +112,16 @@ This section describes the features of these panels on the tuning window.
 
 Figure 3-1 shows the entire operator panel on the tuning window
 
-- Panel 1 is the** menu **that can optionally load the configured ISP file or perform calibration. 
-- Panel 2 is the **connection control panel**, fill in the IP address and port number of the development board (default port 9982) and click the green connect button to connect. 
-- Panel 3 is the** register panel**, if you need to set or read the register is not in this one, you can use this panel to set and read. 
-- Panel 4 is a tuning **parameter selection panel**, the user can select various parameters or groups of parameters according to the panel prompt text, the registers of these selections will be displayed on panel 5. 
-- Panel 5 is the **Tuning Parameter Settings panel**, which is used to set or obtain parameter values from the tuning server. 
-- Panel 6 is an **image display panel**, which displays the image output by the ISP and can click the pause button in the middle when it is not necessary to play all the time. 
+- Panel 1 is the**menu**that can optionally load the configured ISP file or perform calibration.
+- Panel 2 is the **connection control panel**, fill in the IP address and port number of the development board (default port 9982) and click the green connect button to connect.
+- Panel 3 is the**register panel**, if you need to set or read the register is not in this one, you can use this panel to set and read.
+- Panel 4 is a tuning **parameter selection panel**, the user can select various parameters or groups of parameters according to the panel prompt text, the registers of these selections will be displayed on panel 5.
+- Panel 5 is the **Tuning Parameter Settings panel**, which is used to set or obtain parameter values from the tuning server.
+- Panel 6 is an **image display panel**, which displays the image output by the ISP and can click the pause button in the middle when it is not necessary to play all the time.
 
 ![Figure 3-1 Tuning tool main window](../zh/images/sdk_application/clip_image033.png)
 
-THE ISP Tuning Tool **does not **automatically acquire all register values after connecting, and if you need to get all register values, you can click the** Read button on the right side of the connection control panel** to pull all the current register values. 
+THE ISP Tuning Tool **does not**automatically acquire all register values after connecting, and if you need to get all register values, you can click the**Read button on the right side of the connection control panel** to pull all the current register values.
 
 # Calibration & Calibration
 
@@ -196,6 +196,6 @@ After correction, it is shown in the following figure
 ![After correction](../zh/images/sdk_application/clip_image031.png)
 
 **Translation Disclaimer**  
-For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail. 
+For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail.
 
 If you would like to report a translation error or inaccuracy, please feel free to contact us by mail.

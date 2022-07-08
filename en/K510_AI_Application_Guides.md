@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disclaimer**</font>
 The products, services or features you purchase shall be subject to the commercial contracts and terms of Beijing Canaan Jiesi Information Technology Co., Ltd. ("the Company", the same hereinafter), and all or part of the products, services or features described in this document may not be within the scope of your purchase or use. Except as otherwise agreed in the contract, the Company disclaims all representations or warranties, express or implied, as to the accuracy, reliability, completeness, marketing, specific purpose and non-aggression of any representations, information, or content of this document. Unless otherwise agreed, this document is provided solely as a guide to reasoning.
-Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice. 
+Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice.
 
 **<font face="黑体"  size=3>Trademark Notices</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form. 
+This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Business Enquiries: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # preface
 **<font face="黑体"  size=5>Document purpose</font>**
-This document is a companion document for the K510 AI application and is designed to help engineers understand the writing and application of k510 AI applications. 
+This document is a companion document for the K510 AI application and is designed to help engineers understand the writing and application of k510 AI applications.
 
 **<font face="黑体"  size=5>Reader Objects</font>**
 
@@ -78,7 +78,7 @@ This document will take the onnx model of 320x320 resolution YOLOV5s as an examp
 
 # 2 Model preparation
 
-The onnx model for YOLOV5s for inference is located in the /docs/utils/AI_Application/aidemo_sdk/models/onnx subdirectory (download models if no files are available[](https://github.com/kendryte/k510_docs/releases/download/v1.5/models.tar.gz).)  and unzip), the static image is located in the /docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC/data subdirectory, and the script is located in the /docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC subdirectory. 
+The onnx model for YOLOV5s for inference is located in the /docs/utils/AI_Application/aidemo_sdk/models/onnx subdirectory (download models if no files are available[](https://github.com/kendryte/k510_docs/releases/download/v1.5/models.tar.gz).)  and unzip), the static image is located in the /docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC/data subdirectory, and the script is located in the /docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC subdirectory.
 
 Follow the script command prompt to run the yolov5_image.py script to obtain the inference result of the static picture. Detect the correctness of the model by verifying that the detection box of the output picture is correct or not.
 
@@ -107,7 +107,7 @@ optional arguments:
 
 # 3 Model generation
 
-Model generation depends on the nncase compiler, and the specific rules for using the nncase compiler can be found[ K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). The script that generates the kmodel for YOLOV5s is located in the /docs/utils/AI_Application/aidemo_sdk/scripts subdirectory. 
+Model generation depends on the nncase compiler, and the specific rules for using the nncase compiler can be found[K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). The script that generates the kmodel for YOLOV5s is located in the /docs/utils/AI_Application/aidemo_sdk/scripts subdirectory.
 
 At the command prompt of the script, run the gen_yolov5s_320_with_sigmoid_bf16_with_preprocess_output_nhwc.py to generate the corresponding kmodel.
 
@@ -137,7 +137,7 @@ compile_options.input_range = [0, 255]
 
 # 4 Model validation
 
-Model validation depends on nncase simulator, and the specific rules for using nncase simulator can be found[ in K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). Verify that yolov5s' kmodel script is located in the /docs/utils/AI_Application/aidemo_sdk/scripts subdirectory. 
+Model validation depends on nncase simulator, and the specific rules for using nncase simulator can be found[in K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). Verify that yolov5s' kmodel script is located in the /docs/utils/AI_Application/aidemo_sdk/scripts subdirectory.
 
 At the script command prompt, run simu_yolov5s_320_with_sigmoid_bf16_with_preprocess_output_nhwc.py to verify that the corresponding kmodel is generated correctly.
 
@@ -160,7 +160,7 @@ output 2 cosine similarity : 0.9999019503593445
 
 # 5 Write AI applications
 
-Model validation depends on the nncase runtime, and the specific rules for using the nncase runtime can be found[ K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). AI Application Reference`k510_buildroot/package/ai/code/object_detect`. First, you need to create an object detection instance and allocate space for the kmodel input and output. 
+Model validation depends on the nncase runtime, and the specific rules for using the nncase runtime can be found[K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). AI Application Reference`k510_buildroot/package/ai/code/object_detect`. First, you need to create an object detection instance and allocate space for the kmodel input and output.
 
 ```c++
 objectDetect od(obj_thresh, nms_thresh, net_len, {valid_width, valid_height});
@@ -263,9 +263,9 @@ Finally, draw the detection box on the OSD to display the output
 
 # 6 Compile AI applications
 
-Using the cross-compilation toolchain, the specific rules for the compilation of AI applications can be referred to[ K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md). 
+Using the cross-compilation toolchain, the specific rules for the compilation of AI applications can be referred to[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md).
 
 **Translation Disclaimer**  
-For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail. 
+For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail.
 
 If you would like to report a translation error or inaccuracy, please feel free to contact us by mail.

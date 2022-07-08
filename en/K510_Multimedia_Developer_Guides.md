@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disclaimer**</font>
 The products, services or features you purchase shall be subject to the commercial contracts and terms of Beijing Canaan Jiesi Information Technology Co., Ltd. ("the Company", the same hereinafter), and all or part of the products, services or features described in this document may not be within the scope of your purchase or use. Except as otherwise agreed in the contract, the Company disclaims all representations or warranties, express or implied, as to the accuracy, reliability, completeness, marketing, specific purpose and non-aggression of any representations, information, or content of this document. Unless otherwise agreed, this document is provided as a guide for use only.
-Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice. 
+Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice.
 
 **<font face="黑体"  size=3>Trademark Notices</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form. 
+This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -529,8 +529,8 @@ run`encode_app`
 | help | Help information| | ||
 | split | The number of channels | NULL | [1,4] | jpeg、avc |
 | ch | Channel number (0-based) | NULL | [0,3] | jpeg、avc |
-| i | Enter the YUV file, only** support nv12** format | NULL | v4l2 <br> xxx.yuv | jpeg、avc |
-| dev | v4l2 device name | NULL | **sensor0:** /dev/video3 /dev/video4 <br> <br>sensor1:<br> ** /dev/video7 / ** dev/ <br> video8 <br> | stroke |
+| i | Enter the YUV file, only**support nv12** format | NULL | v4l2 <br> xxx.yuv | jpeg、avc |
+| dev | v4l2 device name | NULL | **sensor0:** /dev/video3 /dev/video4 <br> <br>sensor1:<br> **/dev/video7 /** dev/ <br> video8 <br> | stroke |
 | or | output| NULL | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG | jpeg、avc |
 | in | Output image width | 1920 | avc: [128,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 16 | jpeg、avc |
 | h | Output image height | 1080 | avc: [64,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 2 | jpeg、avc |
@@ -668,7 +668,7 @@ The ffplay pull stream command is the same as above.
 
   IP address: The IP address of the development board, enter ifconfig on the board to obtain.
 
-  Port number: 8554 + <通道号>*2, channel numbers generally start from 0 (-ch 0, -ch 1...). 
+  Port number: 8554 + <通道号>*2, channel numbers generally start from 0 (-ch 0, -ch 1...).
 
 - Play RTSP stream mode: the corresponding RTSP stream can be played through vlc or ffplay, and the data stream can be transmitted through the udp or TCP protocol.
 
@@ -1017,7 +1017,7 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -i /dev/video3 -vco
 
 Illustrate:
 
-1. The runtime needs to be found in the run directory`video_sampe.conf`, `imx219_0.conf`and the `imx219_1.conf`files are configured, and the three files are under`/encode_app/` the directory. 
+1. The runtime needs to be found in the run directory`video_sampe.conf`, `imx219_0.conf`and the `imx219_1.conf`files are configured, and the three files are under`/encode_app/` the directory.
 2. The video that comes in real time by the camera is written as a YUV file, and because the YUV file is very large, the local DDR or NFS writing speed cannot keep up, which may cause frame drop.
 
 #### 3.2.1.6 JPEG encoding
@@ -1028,7 +1028,7 @@ File Output:
 ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_jpeg -y test.mjpeg
 ```
 
-Description: The runtime needs to be located in the run directory`video_sampe.conf`, `imx219_0.conf`and `imx219_1.conf`the files are configured, and the three files are under`/encode_app/` the directory. 
+Description: The runtime needs to be located in the run directory`video_sampe.conf`, `imx219_0.conf`and `imx219_1.conf`the files are configured, and the three files are under`/encode_app/` the directory.
 
 The output file test.mjpeg can be played on the PC side with ffplay
 
@@ -1064,7 +1064,7 @@ When using ffplay to pull streams, be careful to pull only one video, switch the
 
 - `ff_libk510_h264_encoder`: Control h264 hardware encoding, referenced`libvenc.so`
 - `ff_libk510_jpeg_encoder`: Controls the jpeg hardware encoding, referenced`libvenc.so`
-- v4l2: In v4l2.c, k510 hardware-related code was added, and the v4l2 buffer type V4L2_MEMORY_USERPTR and referenced`libmediactl.so`. 
+- v4l2: In v4l2.c, k510 hardware-related code was added, and the v4l2 buffer type V4L2_MEMORY_USERPTR and referenced`libmediactl.so`.
 
 #### 3.2.2.1 patch generation command
 
@@ -1088,7 +1088,7 @@ sed -i "s/\/dl\/ffmpeg_canaan\/ffmpeg-4.4//g" ../../package/ffmpeg_canaan/xxx.pa
 
 #### 3.2.2.2 ffmpeg configuration
 
-In the `package/ffmpeg_canaan/ffmpeg.mk`file, the CPU core can be modified, the compilation toolchain, and the enable can be made through the configee option`ff_k510_video_demuxer`.`ff_libk510_jpeg_encoder` `ff_libk510_h264_encoder` 
+In the `package/ffmpeg_canaan/ffmpeg.mk`file, the CPU core can be modified, the compilation toolchain, and the enable can be made through the configee option`ff_k510_video_demuxer`.`ff_libk510_jpeg_encoder` `ff_libk510_h264_encoder`
 
 ```shell
 ./configure \
@@ -1114,6 +1114,6 @@ In the `package/ffmpeg_canaan/ffmpeg.mk`file, the CPU core can be modified, the 
 ```
 
 **Translation Disclaimer**  
-For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail. 
+For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail.
 
 If you would like to report a translation error or inaccuracy, please feel free to contact us by mail.

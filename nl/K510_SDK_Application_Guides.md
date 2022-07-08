@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disclaimer**</font>
 De producten, diensten of functies die u koopt, zijn onderworpen aan de commerciële contracten en voorwaarden van Beijing Canaan Jiesi Information Technology Co., Ltd. ("het Bedrijf", hierna hetzelfde), en alle of een deel van de producten, diensten of functies die in dit document worden beschreven, vallen mogelijk niet binnen het bereik van uw aankoop of gebruik. Tenzij anders overeengekomen in het contract, wijst het bedrijf alle verklaringen of garanties af, expliciet of impliciet, met betrekking tot de nauwkeurigheid, betrouwbaarheid, volledigheid, marketing, specifiek doel en niet-agressie van verklaringen, informatie of inhoud van dit document. Tenzij anders overeengekomen, wordt dit document uitsluitend verstrekt als leidraad voor gebruik.
-Vanwege upgrades van de productversie of andere redenen kan de inhoud van dit document van tijd tot tijd zonder enige kennisgeving worden bijgewerkt of gewijzigd. 
+Vanwege upgrades van de productversie of andere redenen kan de inhoud van dit document van tijd tot tijd zonder enige kennisgeving worden bijgewerkt of gewijzigd.
 
 **<font face="黑体"  size=3>Handelsmerkkennisgevingen</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icoon, Kanaän en andere handelsmerken van Kanaän en andere handelsmerken van Kanaän zijn handelsmerken van Beijing Canaan Jiesi Information Technology Co., Ltd. Alle andere handelsmerken of geregistreerde handelsmerken die in dit document kunnen worden genoemd, zijn eigendom van hun respectieve eigenaars. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icoon, Kanaän en andere handelsmerken van Kanaän en andere handelsmerken van Kanaän zijn handelsmerken van Beijing Canaan Jiesi Information Technology Co., Ltd. Alle andere handelsmerken of geregistreerde handelsmerken die in dit document kunnen worden genoemd, zijn eigendom van hun respectieve eigenaars.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co, Ltd</font>**
-Dit document is alleen van toepassing op de ontwikkeling en het ontwerp van het K510-platform, zonder de schriftelijke toestemming van het bedrijf mag geen enkele eenheid of persoon een deel of de inhoud van dit document in welke vorm dan ook verspreiden. 
+Dit document is alleen van toepassing op de ontwikkeling en het ontwerp van het K510-platform, zonder de schriftelijke toestemming van het bedrijf mag geen enkele eenheid of persoon een deel of de inhoud van dit document in welke vorm dan ook verspreiden.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co, Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Zakelijke vragen: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # inleiding
 **<font face="黑体"  size=5>Doel van het document</font>**
-Dit document is een beschrijvingsdocument voor het voorbeeld van de K510 SDK-toepassing. 
+Dit document is een beschrijvingsdocument voor het voorbeeld van de K510 SDK-toepassing.
 
 **<font face="黑体"  size=5>Reader Objecten</font>**
 
@@ -103,7 +103,7 @@ ai
 └── Config.in
 ```
 
-U kunt de broncode van de retinaface_mb_320 raadplegen en`CMakeLists.txt` een nieuw nncase-demoprogramma toevoegen. 
+U kunt de broncode van de retinaface_mb_320 raadplegen en`CMakeLists.txt` een nieuw nncase-demoprogramma toevoegen.
 
 Voor de samenstelling van het model, zie`nncase_demo.mk` de daarin *gedefinieerde POST_INSTALL_TARGET_HOOKS*:
 
@@ -197,7 +197,7 @@ ffmpeg -h encoder=libk510_h264 #查看k510编码器的参数
 ffmpeg -h demuxer=libk510_video #查看demuxer的配置参数
 ```
 
-Voor gedetailleerde uitvoeringsinstructies raadpleegt u[ K510_Multimedia_Developer_Guides.md](./K510_Multimedia_Developer_Guides.md)
+Voor gedetailleerde uitvoeringsinstructies raadpleegt u[K510_Multimedia_Developer_Guides.md](./K510_Multimedia_Developer_Guides.md)
 
 ## 1.3 alsa_demo
 
@@ -370,7 +370,7 @@ Het resultaat van de uitvoering van het programma is:
 
 ![](../zh/images/sdk_application/image-watchdog.png)
 
-**Opmerking**: De huidige k510-waakhondmodule heeft een werkende klokfrequentie van 757575Hz en de time-outtijd in seconden moet worden geconverteerd naar de time-out time-out van de werkelijke werkklokfrequentie van de waakhond, die wordt berekend als 2 ^ n / 757575, dus de werkelijke time-outtijd is groter dan of gelijk aan de time-out time-out voor invoer. 
+**Opmerking**: De huidige k510-waakhondmodule heeft een werkende klokfrequentie van 757575Hz en de time-outtijd in seconden moet worden geconverteerd naar de time-out time-out van de werkelijke werkklokfrequentie van de waakhond, die wordt berekend als 2 ^ n / 757575, dus de werkelijke time-outtijd is groter dan of gelijk aan de time-out time-out voor invoer.
 
 De werkelijke time-outperiode wordt als volgt berekend:
 
@@ -459,7 +459,7 @@ Om het lezen en schrijven van 1G-gegevens naar de SD-kaart mogelijk te maken, ra
 
 ## 1.10 SHA/AES-demo
 
-SHA/AES demo gebruikt de Linux kernel om AF_ALG type Netlink interface te exporteren en gebruikt de kernel encryptie API in de gebruikersruimte. Zie .<https://www.kernel.org/doc/html/latest/crypto/userspace-if.html> 
+SHA/AES demo gebruikt de Linux kernel om AF_ALG type Netlink interface te exporteren en gebruikt de kernel encryptie API in de gebruikersruimte. Zie .<https://www.kernel.org/doc/html/latest/crypto/userspace-if.html>
 
 Parameter:
 -h Drukt de helpinformatie af
@@ -600,17 +600,17 @@ Nadat het stuurprogramma van de WiFi-module is geladen, wordt de draadloze netwe
 1) Open "Mobile Hotspot" in het notitieblok en stel vervolgens de naam en het wachtwoord van de hotspot in
 2) Start NetAssist op de notebook, configureer het protocoltype, het lokale host-IP-adres, de lokale hostpoort, de ontvangstinstellingen, de verzendinstellingen en de gegevens die moeten worden verzonden, zoals weergegeven in de volgende afbeelding:
 
-![](../zh/images/sdk_application/image_wifi_1.png)
+    ![](../zh/images/sdk_application/image_wifi_1.png)
 
 3) Het parameterformaat van het wifi-testprogramma is:
 
-```shell
-./wifi <AP name> <password> <local ip> <server ip>
-```
+    ```shell
+    ./wifi <AP name> <password> <local ip> <server ip>
+    ```
 
-Voer bijvoorbeeld de map /app/wifi in, voer de opdracht in om het wifi-testprogramma te starten en het uitvoeringsresultaat van het programma is als volgt:
+    Voer bijvoorbeeld de map /app/wifi in, voer de opdracht in om het wifi-testprogramma te starten en het uitvoeringsresultaat van het programma is als volgt:
 
-![](../zh/images/sdk_application/image_wifi_2.png)
+    ![](../zh/images/sdk_application/image_wifi_2.png)
 
 ## 1,17 GPIO_KEYS demo
 
@@ -621,6 +621,6 @@ gpio-keys routine blokkeert het lezen van belangrijke rapportagegebeurtenissen e
 Het resultaat van de uitvoering van het programma wordt weergegeven in de volgende afbeelding:![](../zh/images/sdk_application/image-gpio-keys.png)
 
 **Vertaling Disclaimer**  
-Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie. 
+Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie.
 
 Als u een vertaalfout of onnauwkeurigheid wilt melden, neem dan gerust contact met ons op via e-mail.

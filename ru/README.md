@@ -1,5 +1,5 @@
 [![Репозиторий](https://img.shields.io/badge/gitee-repository-blue?logo=gitee&style=plastic)](https://gitee.com/kendryte/k510_docs)
-[![ Gitee Выпуск GitHub](https://img.shields.io/github/v/release/kendryte/k510_docs?color=brightgreen&display_name=tag&logo=github&style=plastic)](https://github.com/kendryte/k510_docs/releases)
+[![Gitee Выпуск GitHub](https://img.shields.io/github/v/release/kendryte/k510_docs?color=brightgreen&display_name=tag&logo=github&style=plastic)](https://github.com/kendryte/k510_docs/releases)
 
 # Обзор документации
 
@@ -22,19 +22,19 @@
 | [K510_Drm_Developer_Guides.md](K510_Drm_Developer_Guides.md) | Документация по интерфейсу K510 DRM API |
 | [K510_Multimedia_Developer_Guides.md](K510_Multimedia_Developer_Guides.md) | Документация по мультимедийному приложению K510 |
 | [K510_Mailbox_Developer_Guides.md](K510_Mailbox_Developer_Guides.md) | Документация по многопроцессорной связи K510 |
-| [K510_ISP_Tuning_Tool_Guides.md](K510_ISP_Tuning_Tool_Guides.md) | K510 IsP Tuning Tool Documentation [ Адрес  ](https://github.com/kendryte/k510_isp_tuning_tool/releases)для загрузки|
+| [K510_ISP_Tuning_Tool_Guides.md](K510_ISP_Tuning_Tool_Guides.md) | K510 IsP Tuning Tool Documentation [Адрес](https://github.com/kendryte/k510_isp_tuning_tool/releases)для загрузки|
 
 ## Руководство по вкладу
 
-Если вы заинтересованы в этом проекте и хотели бы получить обратную связь или представить документацию, пожалуйста, обратитесь к РАЗДЕЛУ[ КОНСОЛИДАЦИЯ](.github/CONTRIBUTING.md)
+Если вы заинтересованы в этом проекте и хотели бы получить обратную связь или представить документацию, пожалуйста, обратитесь к РАЗДЕЛУ[КОНСОЛИДАЦИЯ](.github/CONTRIBUTING.md)
 
 ## Свяжитесь с нами
 
 Пекин Ханаан Цзеси Информационные Технологии Co., Ltd  
-URL:[ canaan-creative.com](https://canaan-creative.com/)  
-Бизнес-запросы:[ salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
+URL:[canaan-creative.com](https://canaan-creative.com/)  
+Бизнес-запросы:[salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
 
-**Отказ от ответственности за **перевод  
-Для удобства клиентов Canaan использует переводчик AI для перевода текста на несколько языков, которые могут содержать ошибки. Мы не гарантируем точность, надежность или своевременность предоставленных переводов. Компания Canaan не несет ответственности за любые убытки или ущерб, вызванные доверием к точности или надежности переведенной информации. При наличии разницы в содержании переводов на разные языки преимущественную силу имеет упрощенная версия на китайском языке. 
+**Отказ от ответственности за**перевод  
+Для удобства клиентов Canaan использует переводчик AI для перевода текста на несколько языков, которые могут содержать ошибки. Мы не гарантируем точность, надежность или своевременность предоставленных переводов. Компания Canaan не несет ответственности за любые убытки или ущерб, вызванные доверием к точности или надежности переведенной информации. При наличии разницы в содержании переводов на разные языки преимущественную силу имеет упрощенная версия на китайском языке.
 
 Если вы хотите сообщить об ошибке или неточности перевода, пожалуйста, не стесняйтесь обращаться к нам по почте.

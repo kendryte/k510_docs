@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Renuncia**</font>
 Los productos, servicios o características que compre estarán sujetos a los contratos comerciales y términos de Beijing Canaan Jiesi Information Technology Co., Ltd. ("la Compañía", la misma en adelante), y todos o parte de los productos, servicios o características descritos en este documento pueden no estar dentro del alcance de su compra o uso. Salvo que se acuerde lo contrario en el contrato, la Compañía renuncia a todas las representaciones o garantías, expresas o implícitas, en cuanto a la precisión, confiabilidad, integridad, marketing, propósito específico y no agresión de cualquier representación, información o contenido de este documento. A menos que se acuerde lo contrario, este documento se proporciona únicamente como una guía para el razonamiento.
-Debido a actualizaciones de la versión del producto u otras razones, el contenido de este documento puede actualizarse o modificarse de vez en cuando sin previo aviso. 
+Debido a actualizaciones de la versión del producto u otras razones, el contenido de este documento puede actualizarse o modificarse de vez en cuando sin previo aviso.
 
 **<font face="黑体"  size=3>Avisos de marcas comerciales</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, el icono de "Canaan", Canaan y otras marcas comerciales de Canaan y otras marcas comerciales de Canaan son marcas comerciales de Beijing Canaan Jiesi Information Technology Co., Ltd. Todas las demás marcas comerciales o marcas registradas que puedan mencionarse en este documento son propiedad de sus respectivos propietarios. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, el icono de "Canaan", Canaan y otras marcas comerciales de Canaan y otras marcas comerciales de Canaan son marcas comerciales de Beijing Canaan Jiesi Information Technology Co., Ltd. Todas las demás marcas comerciales o marcas registradas que puedan mencionarse en este documento son propiedad de sus respectivos propietarios.
 
 **<font face="黑体"  size=3>Derechos de autor ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Este documento solo es aplicable al desarrollo y diseño de la plataforma K510, sin el permiso por escrito de la empresa, ninguna unidad o individuo puede difundir parte o la totalidad del contenido de este documento en ninguna forma. 
+Este documento solo es aplicable al desarrollo y diseño de la plataforma K510, sin el permiso por escrito de la empresa, ninguna unidad o individuo puede difundir parte o la totalidad del contenido de este documento en ninguna forma.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Información Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Consultas comerciales: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # prefacio
 **<font face="黑体"  size=5>Propósito del documento</font>**
-Este documento es un documento complementario para la aplicación K510 AI y está diseñado para ayudar a los ingenieros a comprender la escritura y la aplicación de las aplicaciones k510 AI. 
+Este documento es un documento complementario para la aplicación K510 AI y está diseñado para ayudar a los ingenieros a comprender la escritura y la aplicación de las aplicaciones k510 AI.
 
 **<font face="黑体"  size=5>Objetos reader</font>**
 
@@ -35,7 +35,7 @@ Las principales personas a las que se aplica este documento (esta guía):
 - Desarrolladores de software
 - Personal de soporte técnico
 
-**<font face="黑体"  size=5>Historial 
+**<font face="黑体"  size=5>Historial
  </font>**de revisiones <font face="宋体"  size=2>El historial de revisiones acumula una descripción de cada actualización del documento. La versión más reciente del documento contiene actualizaciones para todas las versiones anteriores. </font>
 
 | El número de versión   | Modificado por     | Fecha de revisión | Notas de revisión |
@@ -78,7 +78,7 @@ Este documento tomará como ejemplo el modelo onnx de resolución 320x320 YOLOV5
 
 # 2 Preparación del modelo
 
-El modelo onnx para YOLOV5s para inferencia se encuentra en el subdirectorio /docs/utils/AI_Application/aidemo_sdk/models/onnx (descargue modelos si no hay archivos disponibles[](https://github.com/kendryte/k510_docs/releases/download/v1.5/models.tar.gz)).  y descomprimir), la imagen estática se encuentra en el subdirectorio /docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC/data, y el script se encuentra en el subdirectorio /docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC. 
+El modelo onnx para YOLOV5s para inferencia se encuentra en el subdirectorio /docs/utils/AI_Application/aidemo_sdk/models/onnx (descargue modelos si no hay archivos disponibles[](https://github.com/kendryte/k510_docs/releases/download/v1.5/models.tar.gz)).  y descomprimir), la imagen estática se encuentra en el subdirectorio /docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC/data, y el script se encuentra en el subdirectorio /docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC.
 
 Siga el símbolo del sistema de secuencia de comandos para ejecutar la secuencia de comandos de yolov5_image.py para obtener el resultado de inferencia de la imagen estática. Detecte la corrección del modelo verificando que el cuadro de detección de la imagen de salida sea correcto o no.
 
@@ -107,7 +107,7 @@ optional arguments:
 
 # 3 Generación de modelos
 
-La generación del modelo depende del compilador nncase, y las reglas específicas para usar el compilador nncase se pueden encontrar[ K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). El script que genera el kmodel para YOLOV5s se encuentra en el subdirectorio /docs/utils/AI_Application/aidemo_sdk/scripts. 
+La generación del modelo depende del compilador nncase, y las reglas específicas para usar el compilador nncase se pueden encontrar[K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). El script que genera el kmodel para YOLOV5s se encuentra en el subdirectorio /docs/utils/AI_Application/aidemo_sdk/scripts.
 
 En el símbolo del sistema del script, ejecute el gen_yolov5s_320_with_sigmoid_bf16_with_preprocess_output_nhwc.py para generar el kmodel correspondiente.
 
@@ -137,7 +137,7 @@ compile_options.input_range = [0, 255]
 
 # 4 Validación del modelo
 
-La validación del modelo depende de nncase simulator, y las reglas específicas para usar nncase simulator se pueden encontrar[ en K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). Compruebe que el script kmodel de yolov5s se encuentra en el subdirectorio /docs/utils/AI_Application/aidemo_sdk/scripts. 
+La validación del modelo depende de nncase simulator, y las reglas específicas para usar nncase simulator se pueden encontrar[en K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). Compruebe que el script kmodel de yolov5s se encuentra en el subdirectorio /docs/utils/AI_Application/aidemo_sdk/scripts.
 
 En el símbolo del sistema de script, ejecute simu_yolov5s_320_with_sigmoid_bf16_with_preprocess_output_nhwc.py para comprobar que el kmodel correspondiente se genera correctamente.
 
@@ -160,7 +160,7 @@ output 2 cosine similarity : 0.9999019503593445
 
 # 5 Escribir aplicaciones de IA
 
-La validación del modelo depende del tiempo de ejecución de nncase, y las reglas específicas para usar el tiempo de ejecución de nncase se pueden encontrar[ K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). Referencia de aplicación de IA`k510_buildroot/package/ai/code/object_detect`. En primer lugar, debe crear una instancia de detección de objetos y asignar espacio para la entrada y salida del modelo kmodel. 
+La validación del modelo depende del tiempo de ejecución de nncase, y las reglas específicas para usar el tiempo de ejecución de nncase se pueden encontrar[K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). Referencia de aplicación de IA`k510_buildroot/package/ai/code/object_detect`. En primer lugar, debe crear una instancia de detección de objetos y asignar espacio para la entrada y salida del modelo kmodel.
 
 ```c++
 objectDetect od(obj_thresh, nms_thresh, net_len, {valid_width, valid_height});
@@ -263,9 +263,9 @@ Finalmente, dibuje el cuadro de detección en el OSD para mostrar la salida
 
 # 6 Compilar aplicaciones de IA
 
-Utilizando la cadena de herramientas de compilación cruzada, las reglas específicas para la compilación de aplicaciones de IA se pueden consultar[ K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md). 
+Utilizando la cadena de herramientas de compilación cruzada, las reglas específicas para la compilación de aplicaciones de IA se pueden consultar[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md).
 
-**Descargo de responsabilidad de **traducción  
-Para la comodidad de los clientes, Canaan utiliza un traductor de IA para traducir texto a varios idiomas, que pueden contener errores. No garantizamos la exactitud, fiabilidad o puntualidad de las traducciones proporcionadas. Canaan no será responsable de ninguna pérdida o daño causado por la confianza en la exactitud o fiabilidad de la información traducida. Si existe una diferencia de contenido entre las traducciones en diferentes idiomas, prevalecerá la versión en chino simplificado. 
+**Descargo de responsabilidad de**traducción  
+Para la comodidad de los clientes, Canaan utiliza un traductor de IA para traducir texto a varios idiomas, que pueden contener errores. No garantizamos la exactitud, fiabilidad o puntualidad de las traducciones proporcionadas. Canaan no será responsable de ninguna pérdida o daño causado por la confianza en la exactitud o fiabilidad de la información traducida. Si existe una diferencia de contenido entre las traducciones en diferentes idiomas, prevalecerá la versión en chino simplificado.
 
 Si desea informar de un error o inexactitud de traducción, no dude en ponerse en contacto con nosotros por correo.

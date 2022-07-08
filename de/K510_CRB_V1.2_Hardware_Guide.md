@@ -15,14 +15,14 @@
 
 <font face="黑体" size=3>**Verzichtserklärung**</font>
 Die Produkte, Dienstleistungen oder Funktionen, die Sie erwerben, unterliegen den kommerziellen Verträgen und Bedingungen von Beijing Canaan Jiesi Information Technology Co., Ltd. ("das Unternehmen", dasselbe im Folgenden), und alle oder ein Teil der in diesem Dokument beschriebenen Produkte, Dienstleistungen oder Funktionen fallen möglicherweise nicht in den Rahmen Ihres Kaufs oder Ihrer Nutzung. Sofern im Vertrag nicht anders vereinbart, lehnt das Unternehmen alle ausdrücklichen oder stillschweigenden Zusicherungen oder Gewährleistungen hinsichtlich der Genauigkeit, Zuverlässigkeit, Vollständigkeit, des Marketings, des spezifischen Zwecks und der Nichtverletzung von Zusicherungen, Informationen oder Inhalten dieses Dokuments ab. Sofern nicht anders vereinbart, wird dieses Dokument nur als Leitfaden für die Verwendung zur Verfügung gestellt.
-Aufgrund von Produktversions-Upgrades oder anderen Gründen kann der Inhalt dieses Dokuments von Zeit zu Zeit ohne vorherige Ankündigung aktualisiert oder geändert werden. 
+Aufgrund von Produktversions-Upgrades oder anderen Gründen kann der Inhalt dieses Dokuments von Zeit zu Zeit ohne vorherige Ankündigung aktualisiert oder geändert werden.
 
 **<font face="黑体"  size=3>Markenhinweise</font>**
 
-"", "Canaan"-Symbol, Canaan und andere Marken von Canaan und andere Marken von Canaan <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />sind Marken von Beijing Canaan Jiesi Information Technology Co., Ltd. Alle anderen Marken oder eingetragenen Warenzeichen, die in diesem Dokument erwähnt werden können, sind Eigentum ihrer jeweiligen Inhaber. 
+"", "Canaan"-Symbol, Canaan und andere Marken von Canaan und andere Marken von Canaan <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />sind Marken von Beijing Canaan Jiesi Information Technology Co., Ltd. Alle anderen Marken oder eingetragenen Warenzeichen, die in diesem Dokument erwähnt werden können, sind Eigentum ihrer jeweiligen Inhaber.
 
 **<font face="黑体"  size=3>Copyright ©2022 Peking Canaan Jiesi Information Technology Co., Ltd</font>**
-Dieses Dokument gilt nur für die Entwicklung und das Design der K510-Plattform, ohne die schriftliche Genehmigung des Unternehmens darf keine Einheit oder Einzelperson einen Teil oder den gesamten Inhalt dieses Dokuments in irgendeiner Form verbreiten. 
+Dieses Dokument gilt nur für die Entwicklung und das Design der K510-Plattform, ohne die schriftliche Genehmigung des Unternehmens darf keine Einheit oder Einzelperson einen Teil oder den gesamten Inhalt dieses Dokuments in irgendeiner Form verbreiten.
 
 **<font face="黑体"  size=3>Peking Canaan Jiesi Informationstechnologie Co., Ltd</font>**
 URL: canaan-creative.com
@@ -31,7 +31,7 @@ Geschäftliche Anfragen: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # Vorwort
 **<font face="黑体"  size=5>Zweck des Dokuments</font>**
-Dieses Dokument ist ein Begleitdokument zum K510 SDK und soll Ingenieuren helfen, die Kompilierung und das Brennen des K510 SDK zu verstehen. 
+Dieses Dokument ist ein Begleitdokument zum K510 SDK und soll Ingenieuren helfen, die Kompilierung und das Brennen des K510 SDK zu verstehen.
 
 **<font face="黑体"  size=5>Reader-Objekte</font>**
 
@@ -221,7 +221,7 @@ Die wichtigsten Personen, für die sich dieses Dokument (dieser Leitfaden) richt
 
 ## 2.5 Schaltpläne
 
-&emsp; &emsp; Der Referenzschaltplan für das K510 CRB-Entwicklungsboard sollte[ bei der Veröffentlichung heruntergeladen](https://github.com/kendryte/k510_docs/releases) werden. 
+&emsp; &emsp; Der Referenzschaltplan für das K510 CRB-Entwicklungsboard sollte[bei der Veröffentlichung heruntergeladen](https://github.com/kendryte/k510_docs/releases) werden.
 
 <div style="page-break-after:always"></div>
 
@@ -249,8 +249,8 @@ Die wichtigsten Personen, für die sich dieses Dokument (dieser Leitfaden) richt
 
 <center> Abbildung 3-2 Stromeingangsanschluss </center>
 
-**Hinweis: Beschränken Sie die Verwendung von 5V-Netzteilen, wenn Sie den Schnellladeadapter verwenden, versuchen Sie, andere Geräte wie Mobiltelefone nicht gleichzeitig anzuschließen, um nicht dazu zu führen, dass der Schnellladeadapter ein Netzteil mit einem höheren als 5 V falsch ausgibt, was zu einer Beschädigung des Stromversorgungsteils der Entwicklungsplatine führt. **
-&emsp; &emsp; Verwenden Sie den K2-Kippschalter zum Ein- und Ausschalten, wie in der folgenden Abbildung dargestellt. 
+**Hinweis: Beschränken Sie die Verwendung von 5V-Netzteilen, wenn Sie den Schnellladeadapter verwenden, versuchen Sie, andere Geräte wie Mobiltelefone nicht gleichzeitig anzuschließen, um nicht dazu zu führen, dass der Schnellladeadapter ein Netzteil mit einem höheren als 5 V falsch ausgibt, was zu einer Beschädigung des Stromversorgungsteils der Entwicklungsplatine führt.**
+&emsp; &emsp; Verwenden Sie den K2-Kippschalter zum Ein- und Ausschalten, wie in der folgenden Abbildung dargestellt.
 
 <div align="center">
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-3.jpg" width=50%>
@@ -413,7 +413,7 @@ Die wichtigsten Personen, für die sich dieses Dokument (dieser Leitfaden) richt
 
 <center>Abbildung 3-15 HDMI-Schnittstelle</center>
 
- **Hinweis**: Da sowohl die HDMI- als auch die 1080P-TFT-Displays mipi-dsi-Treiber verwenden, können sie nur eines der beiden Displays auswählen, können nicht gleichzeitig verwendet werden, schalten über den Steuerpin GPIO um, um einen der Ausgänge auszuwählen. 
+ **Hinweis**: Da sowohl die HDMI- als auch die 1080P-TFT-Displays mipi-dsi-Treiber verwenden, können sie nur eines der beiden Displays auswählen, können nicht gleichzeitig verwendet werden, schalten über den Steuerpin GPIO um, um einen der Ausgänge auszuwählen.
 
 <div style="page-break-after:always"></div>
 
@@ -462,7 +462,7 @@ Die wichtigsten Personen, für die sich dieses Dokument (dieser Leitfaden) richt
 | 29   | 1V8              | 32   | 3V3          |
 | 30   | 1V8              | 31   | 3V3          |
 
-**Hinweis**: Achten Sie beim externen Anschluss auf den Pegelbereich der angeschlossenen Pins, um zu verhindern, dass der falsche Spannungseingang den K510-Chip dauerhaft beschädigt. 
+**Hinweis**: Achten Sie beim externen Anschluss auf den Pegelbereich der angeschlossenen Pins, um zu verhindern, dass der falsche Spannungseingang den K510-Chip dauerhaft beschädigt.
 
 <div style="page-break-after:always"></div>
 
@@ -528,7 +528,7 @@ Die wichtigsten Personen, für die sich dieses Dokument (dieser Leitfaden) richt
 | 27   | GPIO_3V3_127 | 28   | GPIO_3V3_126 |
 | 29   | GND          | 30   | GND          |
 
-**Hinweis**: Achten Sie beim externen Anschluss auf den Pegelbereich der angeschlossenen Pins, um zu verhindern, dass der falsche Spannungseingang den K510-Chip dauerhaft beschädigt. 
+**Hinweis**: Achten Sie beim externen Anschluss auf den Pegelbereich der angeschlossenen Pins, um zu verhindern, dass der falsche Spannungseingang den K510-Chip dauerhaft beschädigt.
 
 <div style="page-break-after:always"></div>
 
@@ -544,7 +544,7 @@ Die wichtigsten Personen, für die sich dieses Dokument (dieser Leitfaden) richt
 
 ## 4.2 Firmware-Brennen
 
-&emsp; &emsp; Bitte beachten Sie[ die K510_SDK_Build_and_Burn_Guide ](./K510_SDK_Build_and_Burn_Guide.md)Dokumentation. 
+&emsp; &emsp; Bitte beachten Sie[die K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md)Dokumentation.
 
 ## 4.3 Ein- und Ausschalten
 
@@ -568,7 +568,7 @@ Die wichtigsten Personen, für die sich dieses Dokument (dieser Leitfaden) richt
 
 <center>Abbildung 4-1 Geräte-Manager nach Abschluss der Treiberinstallation</center>
 
-**Haftungsausschluss **für Übersetzungen  
-Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend. 
+**Haftungsausschluss**für Übersetzungen  
+Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend.
 
 Wenn Sie einen Übersetzungsfehler oder eine Ungenauigkeit melden möchten, können Sie uns gerne per E-Mail kontaktieren.

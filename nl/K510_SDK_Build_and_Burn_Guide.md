@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disclaimer**</font>
 De producten, diensten of functies die u koopt, zijn onderworpen aan de commerciële contracten en voorwaarden van Beijing Canaan Jiesi Information Technology Co., Ltd. ("het Bedrijf", hierna hetzelfde), en alle of een deel van de producten, diensten of functies die in dit document worden beschreven, vallen mogelijk niet binnen het bereik van uw aankoop of gebruik. Tenzij anders overeengekomen in het contract, wijst het bedrijf alle verklaringen of garanties af, expliciet of impliciet, met betrekking tot de nauwkeurigheid, betrouwbaarheid, volledigheid, marketing, specifiek doel en niet-agressie van verklaringen, informatie of inhoud van dit document. Tenzij anders overeengekomen, wordt dit document uitsluitend verstrekt als leidraad voor gebruik.
-Vanwege upgrades van de productversie of andere redenen kan de inhoud van dit document van tijd tot tijd zonder enige kennisgeving worden bijgewerkt of gewijzigd. 
+Vanwege upgrades van de productversie of andere redenen kan de inhoud van dit document van tijd tot tijd zonder enige kennisgeving worden bijgewerkt of gewijzigd.
 
 **<font face="黑体"  size=3>Handelsmerkkennisgevingen</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icoon, Kanaän en andere handelsmerken van Kanaän en andere handelsmerken van Kanaän zijn handelsmerken van Beijing Canaan Jiesi Information Technology Co., Ltd. Alle andere handelsmerken of geregistreerde handelsmerken die in dit document kunnen worden genoemd, zijn eigendom van hun respectieve eigenaars. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icoon, Kanaän en andere handelsmerken van Kanaän en andere handelsmerken van Kanaän zijn handelsmerken van Beijing Canaan Jiesi Information Technology Co., Ltd. Alle andere handelsmerken of geregistreerde handelsmerken die in dit document kunnen worden genoemd, zijn eigendom van hun respectieve eigenaars.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co, Ltd</font>**
-Dit document is alleen van toepassing op de ontwikkeling en het ontwerp van het K510-platform, zonder de schriftelijke toestemming van het bedrijf mag geen enkele eenheid of persoon een deel of de inhoud van dit document in welke vorm dan ook verspreiden. 
+Dit document is alleen van toepassing op de ontwikkeling en het ontwerp van het K510-platform, zonder de schriftelijke toestemming van het bedrijf mag geen enkele eenheid of persoon een deel of de inhoud van dit document in welke vorm dan ook verspreiden.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co, Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Zakelijke vragen: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # inleiding
 **<font face="黑体"  size=5>Doel van het document</font>**
-Dit document is een begeleidend document bij de K510 sdk en is bedoeld om ingenieurs te helpen de compilatie en het branden van de K510 sdk te begrijpen. 
+Dit document is een begeleidend document bij de K510 sdk en is bedoeld om ingenieurs te helpen de compilatie en het branden van de K510 sdk te begrijpen.
 
 **<font face="黑体"  size=5>Reader Objecten</font>**
 
@@ -116,7 +116,7 @@ MX2_REL_0106-02e87077-20220428-153936CST-xxxx-server
 ####################################################################
 ```
 
-**Opmerking: De bovenstaande informatie kan variëren, afhankelijk van de K510 SDK-versie**. 
+**Opmerking: De bovenstaande informatie kan variëren, afhankelijk van de K510 SDK-versie**.
 
 # 3 docker compilatie omgeving
 
@@ -127,7 +127,7 @@ sh k510_buildroot/tools/docker/run_k510_docker.sh
 ```
 
 Volgende compilatiebewerkingen worden standaard in docker uitgevoerd.
-Als u een lokale omgeving moet instellen, raadpleegt u[ Local Environment Setup](#env_set)
+Als u een lokale omgeving moet instellen, raadpleegt u[Local Environment Setup](#env_set)
 
 # 4 Compileren
 
@@ -143,7 +143,7 @@ make dl
 
 ## 4.2 Compilatie
 
-K510_buildroot/config directory heeft compilatie configuratiebestanden voor drie ontwikkelborden, namelijk`k510_crb_lp3_v0_1_defconfig` , ,`k510_crb_lp3_v1_2_defconfig` en `k510_evb_lp3_v1_1_defconfig`, dit document wordt geïllustreerd door k510_crb_lp3_v1_2_defconfig te selecteren als het compilatiedoel****. 
+K510_buildroot/config directory heeft compilatie configuratiebestanden voor drie ontwikkelborden, namelijk`k510_crb_lp3_v0_1_defconfig` , ,`k510_crb_lp3_v1_2_defconfig` en `k510_evb_lp3_v1_1_defconfig`, dit document wordt geïllustreerd door k510_crb_lp3_v1_2_defconfig te selecteren als het compilatiedoel****.
 
 Voer in de k510 docker-omgeving de volgende opdracht in om te beginnen met compileren:
 
@@ -157,7 +157,7 @@ Het volgende bericht geeft aan dat de compilatie is voltooid.
 
 ![](../zh/images/sdk_build/image-uboot_r.png)
 
-Nadat de compilatie is voltooid, wordt de map gegenereerd`k510_crb_lp3_v1_2_defconfig`. 
+Nadat de compilatie is voltooid, wordt de map gegenereerd`k510_crb_lp3_v1_2_defconfig`.
 
 ![afbeelding-20220311121912711](../zh/images/sdk_build/image-makeout.png)
 
@@ -201,7 +201,7 @@ K510_crb_lp3_v1_2_defconfig/build directory is de broncode voor alle gecompileer
 
 Opmerking: xxx is het versienummer. Wanneer verwijzingen naar de paden van kernle, bbl en uboot in latere secties, xxx allemaal versienummers vertegenwoordigen.
 
-** Speciale aandacht nodig:** Bij het schoonmaken wordt alles onder de map k510_crb_lp3_v1_2_defconfig verwijderd. Daarom, als u de kernel-, bbl- of uboot-code moet wijzigen, wijzig deze dan niet rechtstreeks in de build-map, u kunt hoofdstuk 5 raadplegen om de override source-methode te gebruiken.
+**Speciale aandacht nodig:** Bij het schoonmaken wordt alles onder de map k510_crb_lp3_v1_2_defconfig verwijderd. Daarom, als u de kernel-, bbl- of uboot-code moet wijzigen, wijzig deze dan niet rechtstreeks in de build-map, u kunt hoofdstuk 5 raadplegen om de override source-methode te gebruiken.
 
 ## 4.1 Buildroot configureren
 
@@ -354,7 +354,7 @@ De resultaten van de uitvoering zijn als volgt:
 
 ![](../zh/images/sdk_build/image-riscv.png)
 
-Wanneer de compilatie is voltooid, wordt er een`k510_crb_lp3_v1_2_defconfig/images` nieuwe gegenereerd in de directory`bootm-bbl.img`. 
+Wanneer de compilatie is voltooid, wordt er een`k510_crb_lp3_v1_2_defconfig/images` nieuwe gegenereerd in de directory`bootm-bbl.img`.
 
 Voer ten slotte make in de map k510_crb_lp3_v1_2_defconfig in en gebruik het nieuwe pakket bootm-bbl.img om emmc- en SD-kaartimagebestanden te genereren.
 
@@ -416,7 +416,7 @@ K510.dtb in de map k510_crb_lp3_v1_2_defconfig/images is het nieuw gegenereerde 
 
 ## 4.7 Compileer de app
 
-Gebruikers kunnen verwijzen naar `package/hello_world` de Config.in en makefile-bestand schrijven om hun eigen toepassingen te bouwen, en de gebruikerstoepassingen worden in de map k510_buildroot / pakket geplaatst. 
+Gebruikers kunnen verwijzen naar `package/hello_world` de Config.in en makefile-bestand schrijven om hun eigen toepassingen te bouwen, en de gebruikerstoepassingen worden in de map k510_buildroot / pakket geplaatst.
 
 Het proces van het samenstellen van een applicatie wordt geïllustreerd door hello_world projecten als voorbeeld in k510_buildroot/pakket te plaatsen.
 
@@ -454,41 +454,41 @@ De resultaten van de uitvoering zijn als volgt:
 
 1) Als het de eerste keer is om te compileren, zijn de stappen als volgt:
 
-Voer in de map k510_buildroot de volgende opdracht in om het volledige projectprogramma te compileren en hello te verpakken in emmc- en sd-kaartafbeeldingsbestanden.
+    Voer in de map k510_buildroot de volgende opdracht in om het volledige projectprogramma te compileren en hello te verpakken in emmc- en sd-kaartafbeeldingsbestanden.
 
-```shell
-make CONF=k510_crb_lp3_v1_2_defconfig
-```
+    ```shell
+    make CONF=k510_crb_lp3_v1_2_defconfig
+    ```
 
-De resultaten van de uitvoering zijn als volgt:
+    De resultaten van de uitvoering zijn als volgt:
 
-![](../zh/images/sdk_build/image-build_make_def.png)
+    ![](../zh/images/sdk_build/image-build_make_def.png)
 
-In de map k510_buildroot/k510_crb_lp3_v1_2_defconfig/target ziet u de resulterende hello-toepassing, die vertelt of de toepassing correct is gecompileerd.
+    In de map k510_buildroot/k510_crb_lp3_v1_2_defconfig/target ziet u de resulterende hello-toepassing, die vertelt of de toepassing correct is gecompileerd.
 
-![](../zh/images/sdk_build/image-hello.png)
+    ![](../zh/images/sdk_build/image-hello.png)
 
 2) Als het is gecompileerd, compileer dan gewoon de app en verpak deze in de brandafbeelding, volg deze stappen:
 
-Voer de map k510_buildroot/k510_crb_lp3_v1_2_defconfig in en voer de volgende opdracht in om de hello-toepassing te compileren.
+    Voer de map k510_buildroot/k510_crb_lp3_v1_2_defconfig in en voer de volgende opdracht in om de hello-toepassing te compileren.
 
-```shell
-make hello_world-rebuild
-```
+    ```shell
+    make hello_world-rebuild
+    ```
 
-De resultaten van de uitvoering zijn als volgt:
+    De resultaten van de uitvoering zijn als volgt:
 
-![](../zh/images/sdk_build/image-app_build-1.png)
+    ![](../zh/images/sdk_build/image-app_build-1.png)
 
-Ga naar de map k510_buildroot/k510_crb_lp3_v1_2_defconfig en voer de opdracht make in om hello te verpakken in de emmc- en sd-kaartimagebestanden.
+    Ga naar de map k510_buildroot/k510_crb_lp3_v1_2_defconfig en voer de opdracht make in om hello te verpakken in de emmc- en sd-kaartimagebestanden.
 
-```shell
-make
-```
+    ```shell
+    make
+    ```
 
-De resultaten van de uitvoering zijn als volgt:
+    De resultaten van de uitvoering zijn als volgt:
 
-![](../zh/images/sdk_build/image-app-build-2.png)
+    ![](../zh/images/sdk_build/image-app-build-2.png)
 
 # 5 Ontwikkelen met de K510 SDK
 
@@ -582,7 +582,7 @@ Na het plaatsen van de sD-kaart in de host is het uitvoeringsresultaat van de ls
 
 ![](../zh/images/sdk_build/image-dev_sd.png)
 
-/dev/sdc is het knooppunt van het SD-kaartapparaat. **Opmerking: Het sd-kaartapparaatknooppunt dat in de gebruikersomgeving wordt gegenereerd, is mogelijk niet /dev/sdc en latere bewerkingen moeten worden gewijzigd op basis van het werkelijke knooppunt. **
+/dev/sdc is het knooppunt van het SD-kaartapparaat. **Opmerking: Het sd-kaartapparaatknooppunt dat in de gebruikersomgeving wordt gegenereerd, is mogelijk niet /dev/sdc en latere bewerkingen moeten worden gewijzigd op basis van het werkelijke knooppunt.**
 
 Voer de map k510_buildroot/k510_crb_lp3_v1_2_defconfig/image in onder de host en voer de opdracht dd in om sysimage-sdcard.img op de sdk te branden:
 
@@ -596,21 +596,21 @@ Het uitvoeringsresultaat onder de host is als volgt:
 
 ### 6.1.2 Branden onder Windows
 
-Onder Windows kan de sD-kaart worden gebrand door de banana Etcher-tool (balena Etcher tool downloadadres<https://www.balena.io/etcher/>). 
+Onder Windows kan de sD-kaart worden gebrand door de banana Etcher-tool (balena Etcher tool downloadadres<https://www.balena.io/etcher/>).
 
 1) Plaats de TF-kaart in de pc, start vervolgens de ColumnEtcher-tool, klik op de knop "Flash uit bestand" van de toolinterface, selecteer de firmware die moet worden gebrand, zoals weergegeven in de volgende afbeelding.
 
-![](../zh/images/sdk_build/image-sd_pre0.png)
+    ![](../zh/images/sdk_build/image-sd_pre0.png)
 
 2) Klik op de knop "Doel selecteren" van de toolinterface en selecteer de doel sdcard-kaart.
 
-![](../zh/images/sdk_build/image-pre1.png)
+    ![](../zh/images/sdk_build/image-pre1.png)
 
 3) Klik op de knop "Flash" om te beginnen met knipperen, het knipperproces heeft een voortgangsbalkweergave, flash Finish wordt gevraagd na het einde van het knipperen.
 
-| ![](../zh/images/sdk_build/clip_image_p1.jpg) | ![](../zh/images/sdk_build/clip_image_p2.jpg) |
-| --------------------------------------- | --------------------------------------- |
-|                                         |                                         |
+    | ![](../zh/images/sdk_build/clip_image_p1.jpg) | ![](../zh/images/sdk_build/clip_image_p2.jpg) |
+    | --------------------------------------- | --------------------------------------- |
+    |                                         |                                         |
 
 4) Wanneer het knipperen is voltooid, plaatst u de SD-kaart in de sleuf van de ontwikkelingskaart, selecteert u BOOT om vanaf SD te starten en ten slotte kan het ontwikkelingsbord worden ingeschakeld om vanaf de SD-kaart te starten.
 
@@ -657,7 +657,7 @@ Wanneer het knipperen is voltooid, selecteert u BOOT to Boot from EMMC en schake
 
 # 7 Door de gebruiker geconfigureerde compilatieomgeving <a id="env_set"> </a>
 
-Als u de bovenstaande docker-omgeving niet gebruikt, kunt u uw eigen ontwikkelomgeving configureren door te verwijzen naar de volgende opdracht op ubuntu18.04 /20.04, als u geen toestemming hebt, gebruik deze dan`sudo`. 
+Als u de bovenstaande docker-omgeving niet gebruikt, kunt u uw eigen ontwikkelomgeving configureren door te verwijzen naar de volgende opdracht op ubuntu18.04 /20.04, als u geen toestemming hebt, gebruik deze dan`sudo`.
 
 ```shell
 apt-get update
@@ -696,6 +696,6 @@ pip3 install pycryptodome
 ```
 
 **Vertaling Disclaimer**  
-Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie. 
+Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie.
 
 Als u een vertaalfout of onnauwkeurigheid wilt melden, neem dan gerust contact met ons op via e-mail.

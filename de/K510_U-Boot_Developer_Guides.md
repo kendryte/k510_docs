@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Verzichtserklärung**</font>
 Die Produkte, Dienstleistungen oder Funktionen, die Sie erwerben, unterliegen den kommerziellen Verträgen und Bedingungen von Beijing Canaan Jiesi Information Technology Co., Ltd. ("das Unternehmen", dasselbe im Folgenden), und alle oder ein Teil der in diesem Dokument beschriebenen Produkte, Dienstleistungen oder Funktionen fallen möglicherweise nicht in den Rahmen Ihres Kaufs oder Ihrer Nutzung. Sofern im Vertrag nicht anders vereinbart, lehnt das Unternehmen alle ausdrücklichen oder stillschweigenden Zusicherungen oder Gewährleistungen hinsichtlich der Genauigkeit, Zuverlässigkeit, Vollständigkeit, des Marketings, des spezifischen Zwecks und der Nichtverletzung von Zusicherungen, Informationen oder Inhalten dieses Dokuments ab. Sofern nicht anders vereinbart, wird dieses Dokument nur als Leitfaden für die Verwendung zur Verfügung gestellt.
-Aufgrund von Produktversions-Upgrades oder anderen Gründen kann der Inhalt dieses Dokuments von Zeit zu Zeit ohne vorherige Ankündigung aktualisiert oder geändert werden. 
+Aufgrund von Produktversions-Upgrades oder anderen Gründen kann der Inhalt dieses Dokuments von Zeit zu Zeit ohne vorherige Ankündigung aktualisiert oder geändert werden.
 
 **<font face="黑体"  size=3>Markenhinweise</font>**
 
-"", "Canaan"-Symbol, Canaan und andere Marken von Canaan und andere Marken von Canaan <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />sind Marken von Beijing Canaan Jiesi Information Technology Co., Ltd. Alle anderen Marken oder eingetragenen Warenzeichen, die in diesem Dokument erwähnt werden können, sind Eigentum ihrer jeweiligen Inhaber. 
+"", "Canaan"-Symbol, Canaan und andere Marken von Canaan und andere Marken von Canaan <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />sind Marken von Beijing Canaan Jiesi Information Technology Co., Ltd. Alle anderen Marken oder eingetragenen Warenzeichen, die in diesem Dokument erwähnt werden können, sind Eigentum ihrer jeweiligen Inhaber.
 
 **<font face="黑体"  size=3>Copyright ©2022 Peking Canaan Jiesi Information Technology Co., Ltd</font>**
-Dieses Dokument gilt nur für die Entwicklung und das Design der K510-Plattform, ohne die schriftliche Genehmigung des Unternehmens darf keine Einheit oder Einzelperson einen Teil oder den gesamten Inhalt dieses Dokuments in irgendeiner Form verbreiten. 
+Dieses Dokument gilt nur für die Entwicklung und das Design der K510-Plattform, ohne die schriftliche Genehmigung des Unternehmens darf keine Einheit oder Einzelperson einen Teil oder den gesamten Inhalt dieses Dokuments in irgendeiner Form verbreiten.
 
 **<font face="黑体"  size=3>Peking Canaan Jiesi Informationstechnologie Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Geschäftliche Anfragen: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # Vorwort
 **<font face="黑体"  size=5>Zweck des Dokuments</font>**
-Dieses Dokument ist ein K510 Demo Board SDK unterstützendes Dokument, das hauptsächlich uboot-bezogene Inhalte wie die Konfigurationsdatei des K510-Demoboards, den Gerätebaum, den Treiberstandort und andere Informationen unter uboot vorstellt. 
+Dieses Dokument ist ein K510 Demo Board SDK unterstützendes Dokument, das hauptsächlich uboot-bezogene Inhalte wie die Konfigurationsdatei des K510-Demoboards, den Gerätebaum, den Treiberstandort und andere Informationen unter uboot vorstellt.
 
 **<font face="黑体"  size=5>Reader-Objekte</font>**
 
@@ -76,7 +76,7 @@ Die Anforderungen an die Softwareumgebung sind in der folgenden Tabelle aufgefü
 
 # 3 Wie bekomme ich es?
 
-Laden Sie das SDK herunter und kompilieren Sie es, das SDK lädt den uboot-Code beim Kompilieren herunter und kompiliert den uboot-Code. Weitere Informationen zum Herunterladen und Kompilieren des SDK finden Sie unter[ K510_SDK_Build_and_Burn_Guide.md](./K510_SDK_Build_and_Burn_Guide.md)
+Laden Sie das SDK herunter und kompilieren Sie es, das SDK lädt den uboot-Code beim Kompilieren herunter und kompiliert den uboot-Code. Weitere Informationen zum Herunterladen und Kompilieren des SDK finden Sie unter[K510_SDK_Build_and_Burn_Guide.md](./K510_SDK_Build_and_Burn_Guide.md)
 
 # 4 Wichtige Verzeichnisse und Dateibeschreibungen
 
@@ -349,7 +349,7 @@ Nach dem Festlegen von qos hat sich die Leistung der nncase-Demo verbessert
 *(uint32_t *)0x970E00F4 = (0x5 << 16) | (0x5 << 20);
 ```
 
-**Haftungsausschluss **für Übersetzungen  
-Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend. 
+**Haftungsausschluss**für Übersetzungen  
+Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend.
 
 Wenn Sie einen Übersetzungsfehler oder eine Ungenauigkeit melden möchten, können Sie uns gerne per E-Mail kontaktieren.

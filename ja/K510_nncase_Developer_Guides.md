@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**免責事項**</font>
 お客様が購入した製品、サービス、または機能は、北京Jiayuan Jetts情報技術有限公司(以下「当社」、以下同じ)の商業契約および条件の対象となり、本書に記載されている製品、サービス、または機能の全部または一部がお客様の購入または使用の範囲外となる場合があります。 契約に別段の定めがない限り、当社は、本書の記述、情報、内容の正確性、信頼性、完全性、マーケティング、特定目的、非攻撃性について、明示または黙示を問わず、いかなる表明または保証も行いません。 特に断りのない限り、このドキュメントは使用ガイダンスの参照としてのみ使用してください。
-このドキュメントの内容は、製品バージョンのアップグレードまたはその他の理由により、予告なく随時更新または変更されることがあります。 
+このドキュメントの内容は、製品バージョンのアップグレードまたはその他の理由により、予告なく随時更新または変更されることがあります。
 
 **<font face="黑体"  size=3>商標表示</font>**
 
-「<img src="http://s2.loli.net/2022/03/30/xN21jbhnwSFyGRD.png" style="zoom:33%;" />」アイコン、カナン、その他の商標は、北京Jiayuan Jets情報技術有限公司の商標です。 本書で言及されるその他すべての商標または登録商標は、それぞれの所有者が所有しています。 
+「<img src="http://s2.loli.net/2022/03/30/xN21jbhnwSFyGRD.png" style="zoom:33%;" />」アイコン、カナン、その他の商標は、北京Jiayuan Jets情報技術有限公司の商標です。 本書で言及されるその他すべての商標または登録商標は、それぞれの所有者が所有しています。
 
 **<font face="黑体"  size=3>©著作権2022北京Jiayuan Jetth情報技術有限公司</font>**
-このドキュメントは、K510プラットフォーム開発設計にのみ適用され、当社の書面による許可なく、いかなるユニットまたは個人も、このドキュメントの一部または全部をいかなる形式でも配布することはできません。 
+このドキュメントは、K510プラットフォーム開発設計にのみ適用され、当社の書面による許可なく、いかなるユニットまたは個人も、このドキュメントの一部または全部をいかなる形式でも配布することはできません。
 
 **<font face="黑体"  size=3>北京Jiayuan Jetth情報技術有限公司</font>**
 URL: canaan-creative.com
@@ -136,7 +136,7 @@ nncase がサポートするニューラル ネットワーク フレームワ�
 
 nnncase ソフトウェア スタックには、現在 compiler と runtime の 2 つの部分が含まれています。
 
-**Compiler:** PC でニューラル ネットワーク モデルをコンパイルし、最終的に kmodel ファイルを生成するために使用されます。 主にimporter, IR, Evaluator, Quantize, Transform最適化, Tiling, Partition, Schedule, Codegenなどのモジュールが含まれています. 
+**Compiler:** PC でニューラル ネットワーク モデルをコンパイルし、最終的に kmodel ファイルを生成するために使用されます。 主にimporter, IR, Evaluator, Quantize, Transform最適化, Tiling, Partition, Schedule, Codegenなどのモジュールが含まれています.
 
 - Importer: 他のニューラル ネットワーク フレームワークのモデルを nncase にインポートします
 - IR: 中間表現, importer によってインポートされた Neutral IR (デバイスに依存しない) と Neutral IR が lowering 変換によって生成された Target IR (デバイス関連) に分割されます。
@@ -154,7 +154,7 @@ nnncase ソフトウェア スタックには、現在 compiler と runtime の 
 
 nncase ツール チェーン compiler セクションには、nncase と K510 compiler が含まれています。
 
-- nncase wheel パッケージは[ nncase github で](https://github.com/kendryte/nncase/releases/tag/v1.6.0)リリースされ、Python 3.6/3.7/3.8/3.9/3.10 をサポートしており、オペレーティング システムと Python に応じて適切なバージョンを選択してダウンロードできます
+- nncase wheel パッケージは[nncase github で](https://github.com/kendryte/nncase/releases/tag/v1.6.0)リリースされ、Python 3.6/3.7/3.8/3.9/3.10 をサポートしており、オペレーティング システムと Python に応じて適切なバージョンを選択してダウンロードできます
 - K510 compiler wheel パッケージは、nncase sdk のx86_64ディレクトリの下にあり、Python バージョンに依存せず、直接インストールできます
 
 ユーザーは Ubuntu 環境を持っていない場合は、[nncase docker](https://github.com/kendryte/nncase/blob/master/docs/build.md#docker)(Ubuntu 20.04 + Python 3.8) を使用できます
@@ -451,7 +451,7 @@ py::class_<compile_options>(m, "CompileOptions")
 | 前処理       | ブール   | いいえ       | 前処理をオンにするかどうかは、デフォルトでは False です                                  |
 | スワップRB           | ブール   | いいえ       | RGB 入力データの赤と青の 2 つのチャネル (RGB - > BGR または BGR - > RGB) を交換するかどうかは、デフォルトで False です |
 | 意味する             | リスト   | いいえ       | 正規化されたパラメータ平均は、デフォルトで前処理されます[0, 0, 0]                        |
-| 標準              | リスト   | いいえ       | 正規化されたパラメータ分散を前処理します(デフォルト)[1, 1, 1]                        |
+| 標準              | リスト   | いいえ       | 正規化されたパラメータ分散を前処理します[デフォルト](1, 1, 1)                        |
 | input_range      | リスト   | いいえ       | 入力データの逆量子化後の対応する浮動小数点数の範囲。デフォルトは[0，1]               |
 | output_range     | リスト   | いいえ       | 固定小数点データを出力する前に浮動小数点数に対応する範囲で、デフォルトでは空です                     |
 | input_shape      | リスト   | いいえ       | 入力データのshapeを指定input_shape,input_shapeのlayoutはinput layoutと一致する必要があり,入力データのinput_shapeがモデルのinput shapeと一致しない場合にはletterbox操作(resize/padなど)を行う. |
@@ -469,14 +469,14 @@ py::class_<compile_options>(m, "CompileOptions")
 | benchmark_only   | ブール   | いいえ       | kmodel を benchmark にのみ使用するかどうかを指定し、デフォルトでは False です                   |
 
 > 1. input rangeは浮動小数点数の範囲、すなわち入力データ型がuint8である、input rangeは浮動小数点まで逆量子化された範囲(0~1でもよい)である、自由に指定することができる.
-> 2. input_shapeは、例えば、input_layout[1，224，224，3]がNCHWの場合、input_shapeとして指定する必要があるinput_layoutに従って指定する必要があります[1,3,224,224]。 input_layoutが NHWC の場合、input_shapeは指定する必要があります[1,224,224,3]。 
+> 2. input_shapeは、例えば、input_layout[1，224，224，3]がNCHWの場合、input_shapeとして指定する必要があるinput_layoutに従って指定する必要があります[1,3,224,224]。 input_layoutが NHWC の場合、input_shapeは指定する必要があります[1,224,224,3]。
 > 3. mean と std は浮動小数点数に対して normalize の引数を持ち,ユーザは自由に指定できる.
 > 4. letterbox 機能を使用する場合は、入力 size を 1.5 MB 以内に制限し、シングル channel の size を 0.75 MB 内に制限する必要があります。
 >
 > たとえば、次のようになります。
 >
 > 1. 入力データ型をuint8に設定し,input_rangeに設定[0,255]すれば,逆量子化の役割は型変換のみを行い,uint8のデータをfloat32に変換し,meanとstdパラメータは0〜255のデータで指定することができる
-> 2. 入力データ型を uint8 に設定input_range[0,1]、固定小数点数を範囲の浮動小数点数に逆量子化[0,1]し、mean と std を新しい浮動小数点数範囲で指定する必要があります。 
+> 2. 入力データ型を uint8 に設定input_range[0,1]、固定小数点数を範囲の浮動小数点数に逆量子化[0,1]し、mean と std を新しい浮動小数点数範囲で指定する必要があります。
 
 前処理の流れは次のとおりです (図の緑のノードはオプションです)。
 
@@ -874,7 +874,7 @@ python3 scripts/mobilenetv2_tflite_fp32_image.py --target k510 --model models/mo
 
 ### 4.3.2 float32 onnx モデルをコンパイルします
 
-- onnx モデルでは、[onNX Simplifier ](https://github.com/daquexian/onnx-simplifier)を使用して単純化し、次に nncase を使用してコンパイルすることをお勧めします
+- onnx モデルでは、[onNX Simplifier](https://github.com/daquexian/onnx-simplifier)を使用して単純化し、次に nncase を使用してコンパイルすることをお勧めします
 - mobilenetv2_onnx_fp32_image.py スクリプトは次のとおりです
 
 ```python
@@ -1037,7 +1037,7 @@ python3 scripts/conv2d_caffe_fp32.py --target k510 --caffemodel models/test.caff
 
 ### 4.3.4 コンパイルは、float32 onnx モデルを追加する前に処理します
 
-- onnx モデルでは、[onNX Simplifier ](https://github.com/daquexian/onnx-simplifier)を使用して単純化し、次に nncase を使用してコンパイルすることをお勧めします
+- onnx モデルでは、[onNX Simplifier](https://github.com/daquexian/onnx-simplifier)を使用して単純化し、次に nncase を使用してコンパイルすることをお勧めします
 - mobilenetv2_onnx_fp32_preprocess.pyスクリプトは次のとおりです
 
 ```python
@@ -2691,39 +2691,39 @@ auto output = F::pad(input, paddings, pad_constant, pad_value).unwrap_or_throw()
 
 # 8 よくある質問
 
-1.安装ホイール时报错: "xxx.whl はこのプラットフォームでサポートされているホイールではありません。**
+1. 安装ホイール时报错: "xxx.whl はこのプラットフォームでサポートされているホイールではありません。**
 
-Q: 安装nncase wheel包, 出现ERROR: nncase-1.0.0.20210830-cp37-cp37m-manylinux_2_24_x86_64.whl はこのプラットフォームでサポートされているホイールではありません。
+    Q: 安装nncase wheel包, 出现ERROR: nncase-1.0.0.20210830-cp37-cp37m-manylinux_2_24_x86_64.whl はこのプラットフォームでサポートされているホイールではありません。
 
-A: pip > = 20.3 をアップグレードします
+    A: pip > = 20.3 をアップグレードします
 
-```shell
-sudo pip3 install --upgrade pip
-```
+    ```shell
+    sudo pip3 install --upgrade pip
+    ```
 
-**2.CRBがApp推論プログラムを実行すると,誤りは"std::bad_alloc"**
+2. **CRBがApp推論プログラムを実行すると,誤りは"std::bad_alloc"**
 
-Q: CRB は App 推論プログラムを実行し、"std::bad_alloc" 例外をスローします
+    Q: CRB は App 推論プログラムを実行し、"std::bad_alloc" 例外をスローします
 
-```shell
-$ ./cpp.sh
-case ./yolov3_bfloat16 build at Sep 16 2021 18:12:03
-terminate called after throwing an instance of 'std::bad_alloc'
-  what():  std::bad_alloc
-```
+    ```shell
+    $ ./cpp.sh
+    case ./yolov3_bfloat16 build at Sep 16 2021 18:12:03
+    terminate called after throwing an instance of 'std::bad_alloc'
+    what():  std::bad_alloc
+    ```
 
-A: std:: bad_alloc例外は、通常、メモリ割り当ての失敗が原因で発生します。
+    A: std:: bad_alloc例外は、通常、メモリ割り当ての失敗が原因で発生します。
 
-- 生成されたkmodelが現在のシステム使用可能メモリを超えているかどうかを確認します(例えば、yolov3 bfloat16 kmodelサイズは121MB、現在のLinux空きメモリは70MBのみであり、例外がスローされます)。  超える場合は、トレーニング後のクオンタイズを使用して kmodel サイズを小さくしてみてください。
-- アプリにメモリ リークがないかどうかを確認します
+    - 生成されたkmodelが現在のシステム使用可能メモリを超えているかどうかを確認します(例えば、yolov3 bfloat16 kmodelサイズは121MB、現在のLinux空きメモリは70MBのみであり、例外がスローされます)。  超える場合は、トレーニング後のクオンタイズを使用して kmodel サイズを小さくしてみてください。
+    - アプリにメモリ リークがないかどうかを確認します
 
-3.App**推論プログラムを実行すると[..t_runtime_tensor.cpp:310 (作成)] data.size_bytes() = = size = false (bool) になります**
+3. App**推論プログラムを実行すると[..t_runtime_tensor.cpp:310 (作成)] data.size_bytes() = = size = false (bool) になります**
 
-Q: simulator は App 推論プログラムを実行し、"[..t_runtime_tensor.cpp:310 (作成)] data.size_bytes() == size = false (bool)" 例外をスローします
+    Q: simulator は App 推論プログラムを実行し、"[..t_runtime_tensor.cpp:310 (作成)] data.size_bytes() == size = false (bool)" 例外をスローします
 
-A: 入力シェープと各要素が占有するバイト数 (fp32/uint8) に焦点を当てて、入力 tensor 情報の設定を確認します。
+    A: 入力シェープと各要素が占有するバイト数 (fp32/uint8) に焦点を当てて、入力 tensor 情報の設定を確認します。
 
 **免責事項を翻訳します**  
-お客様の便宜のために、カナアンはAI翻訳プログラムを使用してテキストを複数の言語に翻訳し、エラーが含まれている可能性があります。 当社は、提供される翻訳の正確性、信頼性、または適時性を保証するものではありません。 カナアンは、翻訳された情報の正確性または信頼性への依存に起因するいかなる損失または損害についても責任を負いません。 異なる言語翻訳間でコンテンツの違いがある場合は、簡体字中国語版が優先されます。 
+お客様の便宜のために、カナアンはAI翻訳プログラムを使用してテキストを複数の言語に翻訳し、エラーが含まれている可能性があります。 当社は、提供される翻訳の正確性、信頼性、または適時性を保証するものではありません。 カナアンは、翻訳された情報の正確性または信頼性への依存に起因するいかなる損失または損害についても責任を負いません。 異なる言語翻訳間でコンテンツの違いがある場合は、簡体字中国語版が優先されます。
 
 翻訳エラーや不正確な問題を報告する場合は、メールでお問い合わせください。

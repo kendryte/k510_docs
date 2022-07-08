@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disclaimer**</font>
 De producten, diensten of functies die u koopt, zijn onderworpen aan de commerciële contracten en voorwaarden van Beijing Canaan Jiesi Information Technology Co., Ltd. ("het Bedrijf", hierna hetzelfde), en alle of een deel van de producten, diensten of functies die in dit document worden beschreven, vallen mogelijk niet binnen het bereik van uw aankoop of gebruik. Tenzij anders overeengekomen in het contract, wijst het bedrijf alle verklaringen of garanties af, expliciet of impliciet, met betrekking tot de nauwkeurigheid, betrouwbaarheid, volledigheid, marketing, specifiek doel en niet-agressie van verklaringen, informatie of inhoud van dit document. Tenzij anders overeengekomen, wordt dit document uitsluitend verstrekt als leidraad voor gebruik.
-Vanwege upgrades van de productversie of andere redenen kan de inhoud van dit document van tijd tot tijd zonder enige kennisgeving worden bijgewerkt of gewijzigd. 
+Vanwege upgrades van de productversie of andere redenen kan de inhoud van dit document van tijd tot tijd zonder enige kennisgeving worden bijgewerkt of gewijzigd.
 
 **<font face="黑体"  size=3>Handelsmerkkennisgevingen</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icoon, Kanaän en andere handelsmerken van Kanaän en andere handelsmerken van Kanaän zijn handelsmerken van Beijing Canaan Jiesi Information Technology Co., Ltd. Alle andere handelsmerken of geregistreerde handelsmerken die in dit document kunnen worden genoemd, zijn eigendom van hun respectieve eigenaars. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icoon, Kanaän en andere handelsmerken van Kanaän en andere handelsmerken van Kanaän zijn handelsmerken van Beijing Canaan Jiesi Information Technology Co., Ltd. Alle andere handelsmerken of geregistreerde handelsmerken die in dit document kunnen worden genoemd, zijn eigendom van hun respectieve eigenaars.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co, Ltd</font>**
-Dit document is alleen van toepassing op de ontwikkeling en het ontwerp van het K510-platform, zonder de schriftelijke toestemming van het bedrijf mag geen enkele eenheid of persoon een deel of de inhoud van dit document in welke vorm dan ook verspreiden. 
+Dit document is alleen van toepassing op de ontwikkeling en het ontwerp van het K510-platform, zonder de schriftelijke toestemming van het bedrijf mag geen enkele eenheid of persoon een deel of de inhoud van dit document in welke vorm dan ook verspreiden.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co, Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Zakelijke vragen: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # inleiding
 **<font face="黑体"  size=5>Doel van het document</font>**
-Dit document is een ontwikkelingsdocument voor de K510 mailbox driver. 
+Dit document is een ontwikkelingsdocument voor de K510 mailbox driver.
 
 **<font face="黑体"  size=5>Reader Objecten</font>**
 
@@ -62,7 +62,7 @@ De belangrijkste personen op wie dit document (deze gids) van toepassing is:
 &emsp; &emsp; Controller is een stuurprogramma dat de hardwarepostbus rechtstreeks manipuleert. Het bedient de hardwareregisters direct naar beneden en voltooit de communicatie met de afstandsbediening door interrupts te verzenden en te ontvangen (indien ondersteund door de hardware); Tot aan de interface die door het framework wordt geleverd om de communicatie met de clientdriver te voltooien.
 &emsp; &emsp; De klant is de consument van de controller, communiceert met de controller naar beneden, voltooit kanaaltoepassingen, gegevensvoorbereiding en andere functies; Biedt interfaces voor manipulatie van gebruikersruimte.  
 &emsp; &emsp; Het mailboxframework is verantwoordelijk voor de interface tussen de controller en de client, de kerneldocumentatie zegt: "De client- en controllerdriver kunnen erg afhankelijk zijn van het specifieke platform, daarom kan het clientstuurprogramma niet worden gedeeld tussen meerdere platforms", dus in`/drivers/mailbox` de directory kan alleen het stuurprogramma over de controller worden gevonden en kan het clientstuurprogramma niet worden gevonden, er is slechts één test te vinden De `mailbox-test.c`clientdriver van de controller. Hoe de clientdriver gegevens uitwisselt met de gebruikersruimte is ook aan de driverontwikkelaar zelf.  
-&emsp; &emsp; Het volgende diagram is het basiskader voor twee bestuurdersregistraties: 
+&emsp; &emsp; Het volgende diagram is het basiskader voor twee bestuurdersregistraties:
 
 <div align=center>
 <img src="../zh/images/mailbox/130101_frame_00.svg" width="1400">
@@ -75,7 +75,7 @@ De belangrijkste personen op wie dit document (deze gids) van toepassing is:
 </div>
 
 &emsp; &emsp; Het framework maakt gebruik`struct mbox_controller` van abstracte postvakcontrollers, abstracte`struct mbox_chan` kanalen en verzamelingen functies `struct mbox_chan_ops`om kanalen te manipuleren. De bovenstaande drie gegevensstructuren zijn voor verwerkingsverantwoordelijken. Het framework maakt gebruik `struct mbox_client`van abstracte clients, die klantspecifiek zijn.  
-&emsp; &emsp; Daarnaast moeten we onze eigen apparaatstructuur voor onze apparaten en schijven definiëren, zoals weergegeven in de bovenstaande afbeelding. De verbinding tussen de client en de controller wordt`mbox_request_channel` gedaan in de functie bij het aanvragen van een kanaal in de client en één kanaal is gebonden aan een`struct mbox_client` struct. 
+&emsp; &emsp; Daarnaast moeten we onze eigen apparaatstructuur voor onze apparaten en schijven definiëren, zoals weergegeven in de bovenstaande afbeelding. De verbinding tussen de client en de controller wordt`mbox_request_channel` gedaan in de functie bij het aanvragen van een kanaal in de client en één kanaal is gebonden aan een`struct mbox_client` struct.
 
 ## 1.3 Functie call flow
 
@@ -84,26 +84,26 @@ De belangrijkste personen op wie dit document (deze gids) van toepassing is:
 </div>  
 
 &emsp; &emsp; Gebruikersruimte en clientgestuurde gegevenslevering maakt gebruik van ioctl plus asynchrone meldingen, die door de ontwikkelaars van stuurprogramma's zelf worden bepaald en niet tot het framework behoren.  
-&emsp; &emsp; We hebben een apparaatknooppunt in het clientstuurprogramma gemaakt`/dev/mailbox-client` waarmee de gebruikersruimte gegevens leest en verzendt. 8 kanalen, 8 ontvangstkanalen. 
+&emsp; &emsp; We hebben een apparaatknooppunt in het clientstuurprogramma gemaakt`/dev/mailbox-client` waarmee de gebruikersruimte gegevens leest en verzendt. 8 kanalen, 8 ontvangstkanalen.
 
 ### 1.3.1 Gegevensstroom verzenden
 
 &emsp; &emsp; Zoals te zien is in de bovenstaande figuur:
 
 1. Gebruikersruimte manipulatie bestandshandgrepen om gegevens te verzenden;
-2. Voer de clientgestuurde ioctl-functie in, die gebruikersruimtegegevens naar de kernelruimte kopieert en uiteindelijk de functie aanroept`mbox_send_message`; 
-3. Het specifieke verwerkingsproces van deze functie is te zien in de code-analyse van de latere hoofdstukken, die voornamelijk twee callback-functies aanroept: clientgestuurde`tx_prepare` implementatie en controllergestuurde implementatie`send_data`. Kijk naar de namen om te weten wat deze twee functies doen. Opgemerkt moet worden dat sommige hardwarepostvakken hardwaregegevensoverdrachtsregisters hebben, dus op dit moment kan de gegevensoverdracht`send_data` in het midden worden voltooid; Sommige hardware heeft geen hardwaregegevensoverdrachtsregisters, dan kan de feitelijke gegevensoverdracht er ook in worden`tx_prepare` voltooid en `send_data`wordt de rol een eenvoudige **trigger interrupt-melding aan de externe processor**; 
+2. Voer de clientgestuurde ioctl-functie in, die gebruikersruimtegegevens naar de kernelruimte kopieert en uiteindelijk de functie aanroept`mbox_send_message`;
+3. Het specifieke verwerkingsproces van deze functie is te zien in de code-analyse van de latere hoofdstukken, die voornamelijk twee callback-functies aanroept: clientgestuurde`tx_prepare` implementatie en controllergestuurde implementatie`send_data`. Kijk naar de namen om te weten wat deze twee functies doen. Opgemerkt moet worden dat sommige hardwarepostvakken hardwaregegevensoverdrachtsregisters hebben, dus op dit moment kan de gegevensoverdracht`send_data` in het midden worden voltooid; Sommige hardware heeft geen hardwaregegevensoverdrachtsregisters, dan kan de feitelijke gegevensoverdracht er ook in worden`tx_prepare` voltooid en `send_data`wordt de rol een eenvoudige **trigger interrupt-melding aan de externe processor**;
 4. Wanneer de externe processor de interrupt ontvangt en de gegevens ontvangt, moet deze de controller antwoorden met een interrupt die aangeeft dat Tx is voltooid;
-5. Na ontvangst van de Tx ACK moet de controller-geregistreerde interrupt-handler worden aangeroepen `mbox_chan_txdone`om de bovenste laag te laten weten dat de overdracht op afstand is ontvangen; 
-6. `mbox_chan_txdone`Informeer de klant dat de `tx_done`overdracht is voltooid via de klantregistratie. De klant beslist voor de daaropvolgende verwerking en de`tx_done` parameters registreren de status van de gegevensoverdracht. 
+5. Na ontvangst van de Tx ACK moet de controller-geregistreerde interrupt-handler worden aangeroepen `mbox_chan_txdone`om de bovenste laag te laten weten dat de overdracht op afstand is ontvangen;
+6. `mbox_chan_txdone`Informeer de klant dat de `tx_done`overdracht is voltooid via de klantregistratie. De klant beslist voor de daaropvolgende verwerking en de`tx_done` parameters registreren de status van de gegevensoverdracht.
 
 ### 1.3.1 Proces van het ontvangen van gegevens
 
 &emsp; &emsp; Zoals te zien is in de bovenstaande figuur:
 
 1. Onderbrekingen van de externe processor die gegevens naar de controller verzendt;
-2. Na ontvangst van de interrupt informeert de door de controller geregistreerde interrupt handler-oproep `mbox_chan_received_data`de bovenste laag om gegevens te ontvangen die van het uiteinde komen en te antwoorden op de externe Rx ACK. 
-3. `mbox_chan_received_data`Beroep doen op de geregistreerde klant`rx_callback`; 
+2. Na ontvangst van de interrupt informeert de door de controller geregistreerde interrupt handler-oproep `mbox_chan_received_data`de bovenste laag om gegevens te ontvangen die van het uiteinde komen en te antwoorden op de externe Rx ACK.
+3. `mbox_chan_received_data`Beroep doen op de geregistreerde klant`rx_callback`;
 4. `rx_callback`leest gegevens van het adres dat is opgegeven in de apparaatstructuur en waarschuwt vervolgens de gebruikersruimte met behulp van asynchrone meldingen;
 5. De asynchrone handler voor gebruikersruimte die ioctl aanroept, leest de gegevens van het ontvangstkanaal.
 
@@ -111,7 +111,7 @@ De belangrijkste personen op wie dit document (deze gids) van toepassing is:
 
 ## 2.1 mailbox_controller.h
 
-&emsp; &emsp; Gedefinieerd `mbox_controller`(abstractie van postvakhardware),`mbox_chan` (abstractie van kanaal) `mbox_chan_ops`(verzameling callbackfuncties die kanalen manipuleren). 
+&emsp; &emsp; Gedefinieerd `mbox_controller`(abstractie van postvakhardware),`mbox_chan` (abstractie van kanaal) `mbox_chan_ops`(verzameling callbackfuncties die kanalen manipuleren).
 
 ```c
 struct mbox_controller {
@@ -397,7 +397,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 }
 ```
 
-&emsp; &emsp; Deze functie verkrijgt trouwens `of_parse_phandle_with_args`het kanaal van de gevraagde index uit de apparaatstructuur. 
+&emsp; &emsp; Deze functie verkrijgt trouwens `of_parse_phandle_with_args`het kanaal van de gevraagde index uit de apparaatstructuur.
 
 - `mboxes`Wijst naar de naam van de eigenschap phandle list in het knooppunt;
 - `#mbox-cells`Geeft het aantal cellen aan in het knooppunt waarnaar de phandle wijst;
@@ -441,7 +441,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 
 ### 2.3.10 mbox_free_channel
 
-&emsp; &emsp; De kanaalreleasefunctie implementeert een callbackfunctie die de leden van het opgegeven kanaal leegmaakt en de callback-functie implementeert als het bijbehorende hardwareregister moet worden geconfigureerd`shutdown`. 
+&emsp; &emsp; De kanaalreleasefunctie implementeert een callbackfunctie die de leden van het opgegeven kanaal leegmaakt en de callback-functie implementeert als het bijbehorende hardwareregister moet worden geconfigureerd`shutdown`.
 
 ### 2.3.11 mbox_controller_register en mbox_controller_unregister
 
@@ -481,7 +481,7 @@ mailbox: mailbox@970e0000 {
 
 ## 3.1 verantwoordelijke
 
-&emsp; &emsp; Er moet een attribuut zijn `#mbox-cells`met een waarde van ten minste 1. Het geeft het`mboxes` aantal cellen voor het kenmerk client aan. 
+&emsp; &emsp; Er moet een attribuut zijn `#mbox-cells`met een waarde van ten minste 1. Het geeft het`mboxes` aantal cellen voor het kenmerk client aan.
 
 ## 3.2 Klant
 
@@ -491,7 +491,7 @@ mailbox: mailbox@970e0000 {
 
 ## 3.3 Hoe de woning te gebruiken
 
-&emsp; &emsp; `mbox-cells`De`mboxes` `mbox-names`drie eigenschappen worden gebruikt bij het aanvragen van kanalen. 
+&emsp; &emsp; `mbox-cells`De`mboxes` `mbox-names`drie eigenschappen worden gebruikt bij het aanvragen van kanalen.
 
 ```c
 
@@ -545,20 +545,20 @@ Ga naar de map`/app/dsp_app_new` en voer de opdracht uit `./dsp_app mailbox_demo
 2. De Linux userspace-testapp uitvoeren
 Voer de map in`/app/mailbox_demo` en voer de opdracht uit`./mailbox_async`, zoals weergegeven in de volgende afbeelding:  
 ![](../zh/images/mailbox/130602_mailbox_async.png)mailbox_demo  
-Deze demo maakt gebruik van asynchrone meldingen om gegevens te ontvangen die door de dsp zijn verzonden. 
+Deze demo maakt gebruik van asynchrone meldingen om gegevens te ontvangen die door de dsp zijn verzonden.
 3. Voer in de map`/app/mailbox_demo` de opdracht uit`./mailbox_poll`, zoals weergegeven in de volgende afbeelding:  
 ![](../zh/images/mailbox/130602_mailbox_poll.png)mailbox_demo
-Deze demo maakt gebruik van poll-blokkering voor 500ms om gegevens te ontvangen die door de dsp zijn verzonden. We verzenden gegevens om de 4s en lezen de gegevens elke 2s, zodat we kunnen zien dat elke 2s, het leessucces wordt gespreid met de leesfout en het blokkeren van lezen succesvol is. 
+Deze demo maakt gebruik van poll-blokkering voor 500ms om gegevens te ontvangen die door de dsp zijn verzonden. We verzenden gegevens om de 4s en lezen de gegevens elke 2s, zodat we kunnen zien dat elke 2s, het leessucces wordt gespreid met de leesfout en het blokkeren van lezen succesvol is.
 
 ## 5.2 De Code testen
 
-&emsp; &emsp; Het dsp bare metal-programma bevindt zich `k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c`in het midden en de testcode voor gebruikersruimte bevindt zich in`k510_buildroot/package/mailbox_demo/src/mailbox_async.c` en`k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`. 
+&emsp; &emsp; Het dsp bare metal-programma bevindt zich `k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c`in het midden en de testcode voor gebruikersruimte bevindt zich in`k510_buildroot/package/mailbox_demo/src/mailbox_async.c` en`k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`.
 
 # 6 Bekende problemen
 
-&emsp; &emsp; Af en toe wordt het `./dsp_app mailbox_demo.bin`dsp-programma niet in de dsp gebrand wanneer de opdracht voor het eerst wordt uitgevoerd. Uitvoering van de demo op dit punt zal resulteren in een verzendfout. 
+&emsp; &emsp; Af en toe wordt het `./dsp_app mailbox_demo.bin`dsp-programma niet in de dsp gebrand wanneer de opdracht voor het eerst wordt uitgevoerd. Uitvoering van de demo op dit punt zal resulteren in een verzendfout.
 
 **Vertaling Disclaimer**  
-Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie. 
+Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie.
 
 Als u een vertaalfout of onnauwkeurigheid wilt melden, neem dan gerust contact met ons op via e-mail.

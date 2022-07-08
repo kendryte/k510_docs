@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**면책 조항**</font>
 귀하가 구매한 제품, 서비스 또는 기능은 베이징 Jiananges 정보 기술 유한 회사(이하 "회사")의 상업 계약 및 약관의 적용을 받으며, 이 문서에 설명된 제품, 서비스 또는 기능의 전부 또는 일부는 구매 또는 사용의 범위를 벗어납니다. 계약에 달리 합의하지 않는 한, 회사는 본 문서의 진술, 정보, 내용의 정확성, 신뢰성, 완전성, 마케팅, 특정 목적 및 비침략성에 대해 명시적 또는 묵시적으로 어떠한 진술이나 보증도 하지 않습니다. 달리 합의하지 않는 한, 이 문서는 사용 지침의 참조로만 사용됩니다.
-이 문서의 내용은 제품 버전 업그레이드 또는 기타 이유로 인해 예고 없이 수시로 업데이트되거나 수정될 수 있습니다. 
+이 문서의 내용은 제품 버전 업그레이드 또는 기타 이유로 인해 예고 없이 수시로 업데이트되거나 수정될 수 있습니다.
 
 **<font face="黑体"  size=3>상표 고지</font>**
 
-베이징 <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />Jianan Jets 정보 기술 유한 공사의 상표는 Jianan, Jianan 및 Jianan의 다른 상표입니다. 이 문서에 언급될 수 있는 기타 모든 상표 또는 등록 상표는 해당 소유자가 소유합니다. 
+베이징 <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />Jianan Jets 정보 기술 유한 공사의 상표는 Jianan, Jianan 및 Jianan의 다른 상표입니다. 이 문서에 언급될 수 있는 기타 모든 상표 또는 등록 상표는 해당 소유자가 소유합니다.
 
 **<font face="黑体"  size=3>저작권 ©2022 베이징 Jiananjets 정보 기술 유한 회사</font>**
-이 문서는 K510 플랫폼 개발 및 설계에만 적용되며, 어떠한 단위나 개인도 회사의 서면 허가 없이 이 문서의 일부 또는 전부를 어떤 형태로든 배포할 수 없습니다. 
+이 문서는 K510 플랫폼 개발 및 설계에만 적용되며, 어떠한 단위나 개인도 회사의 서면 허가 없이 이 문서의 일부 또는 전부를 어떤 형태로든 배포할 수 없습니다.
 
 **<font face="黑体"  size=3>베이징 Jiananjets 정보 기술 유한 회사</font>**
 웹 사이트: canaan-creative.com
@@ -26,7 +26,7 @@
 <div style="page-break-after:always"></div>
 # 서문
 **<font face="黑体"  size=5>문서의 목적</font>**
-이 문서는 K510 mailbox 기반 개발 문서입니다. 
+이 문서는 K510 mailbox 기반 개발 문서입니다.
 
 **<font face="黑体"  size=5>독자 개체입니다</font>**
 
@@ -62,7 +62,7 @@
 &emsp; &emsp; controller는 하드웨어 mailbox를 직접 조작하는 드라이버입니다. 하드웨어 레지스터를 직접 작동시키고 하드웨어가 지원하는 경우 전송 및 수신 인터럽트를 통해 remote와의 통신을 완료합니다. 프레임워크에서 제공하는 인터페이스를 통해 client 기반 통신을 수행합니다.
 &emsp; &emsp; client는 controller의 소비자이며, 컨트롤러와 통신하고 채널 응용 프로그램, 데이터 준비 등을 완료합니다. 사용자 공간에서 작동할 수 있는 인터페이스를 위쪽으로 제공합니다.  
 &emsp; &emsp; mailbox 프레임워크는 controller와 client 간의 인터페이스를 담당하며 커널 설명서는 "client 및 controller 드라이버는 특정 플랫폼에 크게 의존할 수 있으므로 client 드라이버의 큰 확률은 여러 플랫폼 간에 공유할 수 없으므로 디렉터리에서`/drivers/mailbox` 컨트롤러 드라이버만 찾을 수 있지만 client 드라이버는 찾을 수 없으며 하나의 테스트만 찾을 수 있습니다." controller의 `mailbox-test.c`client 드라이버입니다. 클라이언트 드라이버가 사용자 공간과 데이터를 교환하는 방법도 드라이버 개발자의 재량에 따라 결정됩니다.  
-&emsp; &emsp; 다음 그림은 등록을 구동하는 두 가지 기본 프레임워크입니다 
+&emsp; &emsp; 다음 그림은 등록을 구동하는 두 가지 기본 프레임워크입니다
 
 <div align=center>
 <img src="../zh/images/mailbox/130101_frame_00.svg" width="1400">
@@ -75,7 +75,7 @@
 </div>
 
 &emsp; &emsp; 프레임워크는 `struct mbox_controller`추상 mailbox 컨트롤러를 사용하고, `struct mbox_chan`추상 채널을 사용하고, 함수 컬렉션을 사용하여 `struct mbox_chan_ops`채널에서 작동합니다. 위의 세 가지 데이터 구조는 controller에 대한 것입니다. 프레임워크`struct mbox_client`는 client용 추상 클라이언트를 사용합니다.  
-&emsp; &emsp; 또한 위의 그림과 같이 장치 및 드라이버에 대한 자체 장치 구조를 정의해야 합니다. 클런트-컨트롤러 연결은 client에서 채널을 요청할 때 `mbox_request_channel`함수에서 수행되며 채널은 구조를 바인딩`struct mbox_client`합니다. 
+&emsp; &emsp; 또한 위의 그림과 같이 장치 및 드라이버에 대한 자체 장치 구조를 정의해야 합니다. 클런트-컨트롤러 연결은 client에서 채널을 요청할 때 `mbox_request_channel`함수에서 수행되며 채널은 구조를 바인딩`struct mbox_client`합니다.
 
 ## 1.3 함수는 프로세스를 호출합니다
 
@@ -84,26 +84,26 @@
 </div>  
 
 &emsp; &emsp; 사용자 공간 및 client 기반 데이터 전송은 ioctl 플러스 비동기 알림을 사용하며, 이 부분은 드라이버 개발자가 결정하며 프레임워크의 일부가 아닙니다.  
-&emsp; &emsp; 클라이언트 드라이버에서 `/dev/mailbox-client`사용자 공간이 데이터를 읽고 전송하는 장치 노드를 만들었습니다. 8개의 송신 채널과 8개의 수신 채널. 
+&emsp; &emsp; 클라이언트 드라이버에서 `/dev/mailbox-client`사용자 공간이 데이터를 읽고 전송하는 장치 노드를 만들었습니다. 8개의 송신 채널과 8개의 수신 채널.
 
 ### 1.3.1 데이터 전송 프로세스
 
 &emsp; &emsp; 위의 그림에서 볼 수 있듯이:
 
 1. 사용자 공간 작업 파일 핸들은 데이터를 보냅니다.
-2. 사용자 공간 데이터를 커널 공간에 복사하고 결국 함수를 호출하는 client 기반 ioctl 함수로 이동합니다`mbox_send_message`. 
-3. 이 함수의 특정 처리는 다음 장의 코드 분석을 볼 수 있으며, 주로 client 기반 구현과 controller 기반 구현이라는 두 개의 콜백 함수를 호출`tx_prepare`합니다`send_data`. 이름을 보면 두 함수가 무엇을 하는지 알 수 있습니다. 일부 하드웨어의 mailbox에는 하드웨어 데이터 전송 레지스터가 있으므로 데이터 전송을 수행할 수 있습니다`send_data`. 일부 하드웨어에는 하드웨어 데이터 전송 레지스터가 없으므로 `tx_prepare`실제 데이터 전송을 완료할 수 있으며,`send_data` 그 역할은 단순히 **인터럽트 알림 원격 프로세서를 트리거**하는 것입니다. 
+2. 사용자 공간 데이터를 커널 공간에 복사하고 결국 함수를 호출하는 client 기반 ioctl 함수로 이동합니다`mbox_send_message`.
+3. 이 함수의 특정 처리는 다음 장의 코드 분석을 볼 수 있으며, 주로 client 기반 구현과 controller 기반 구현이라는 두 개의 콜백 함수를 호출`tx_prepare`합니다`send_data`. 이름을 보면 두 함수가 무엇을 하는지 알 수 있습니다. 일부 하드웨어의 mailbox에는 하드웨어 데이터 전송 레지스터가 있으므로 데이터 전송을 수행할 수 있습니다`send_data`. 일부 하드웨어에는 하드웨어 데이터 전송 레지스터가 없으므로 `tx_prepare`실제 데이터 전송을 완료할 수 있으며,`send_data` 그 역할은 단순히 **인터럽트 알림 원격 프로세서를 트리거**하는 것입니다.
 4. 원격 프로세서가 인터럽트를 수신하고 데이터를 수신하면 Tx가 완료되었음을 나타내는 인터럽트가 controller에 반환되어야 합니다.
-5. Tx ACK를 받은 후 controller에 등록된 인터럽트 처리기는 `mbox_chan_txdone`이 전송이 원격으로 수신되었음을 상위 계층에 알리기 위해 호출되어야 합니다. 
-6. `mbox_chan_txdone`client를 통해 등록`tx_done`하여 이 전송이 완료되었음을 client에 알립니다. 후속 처리는 client에 의해 결정되며`tx_done` 매개 변수는 데이터 전송 상태를 기록합니다. 
+5. Tx ACK를 받은 후 controller에 등록된 인터럽트 처리기는 `mbox_chan_txdone`이 전송이 원격으로 수신되었음을 상위 계층에 알리기 위해 호출되어야 합니다.
+6. `mbox_chan_txdone`client를 통해 등록`tx_done`하여 이 전송이 완료되었음을 client에 알립니다. 후속 처리는 client에 의해 결정되며`tx_done` 매개 변수는 데이터 전송 상태를 기록합니다.
 
 ### 1.3.1 데이터 수신 프로세스
 
 &emsp; &emsp; 위의 그림에서 볼 수 있듯이:
 
 1. 원격 프로세서에서 controller로 전송된 데이터 전송의 중단;
-2. 인터럽트를 받은 후 controller에 등록된 인터럽트 처리기 호출`mbox_chan_received_data`은 상위 계층이 원격에서 데이터를 수신하고 원격 Rx ACK로 다시 응답하도록 알립니다. 
-3. `mbox_chan_received_data`클라이언트 등록을 호출`rx_callback`합니다. 
+2. 인터럽트를 받은 후 controller에 등록된 인터럽트 처리기 호출`mbox_chan_received_data`은 상위 계층이 원격에서 데이터를 수신하고 원격 Rx ACK로 다시 응답하도록 알립니다.
+3. `mbox_chan_received_data`클라이언트 등록을 호출`rx_callback`합니다.
 4. `rx_callback`에서 장치 트리에 지정된 주소에서 데이터를 읽은 다음 비동기 알림을 사용하여 사용자에게 공간을 알립니다.
 5. 사용자 공간의 비동기 처리기에서 ioctl을 호출하여 수신 채널의 데이터를 읽습니다.
 
@@ -111,7 +111,7 @@
 
 ## 2.1 mailbox_controller.h
 
-&emsp; &emsp; 정의`mbox_controller`(mailbox 하드웨어에 대한 추상화),`mbox_chan` (channel에 대한 추상화)`mbox_chan_ops`(channel을 조작하는 콜백 함수의 컬렉션). 
+&emsp; &emsp; 정의`mbox_controller`(mailbox 하드웨어에 대한 추상화),`mbox_chan` (channel에 대한 추상화)`mbox_chan_ops`(channel을 조작하는 콜백 함수의 컬렉션).
 
 ```c
 struct mbox_controller {
@@ -397,7 +397,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 }
 ```
 
-&emsp; &emsp; 이 함수는 `of_parse_phandle_with_args`장치 트리에서 index 해당 요청에 대한 channel을 가져옵니다. 
+&emsp; &emsp; 이 함수는 `of_parse_phandle_with_args`장치 트리에서 index 해당 요청에 대한 channel을 가져옵니다.
 
 - `mboxes`노드의 phandle 목록 속성 이름을 가리킵니다.
 - `#mbox-cells`phandle이 가리키는 노드 수를 나타냅니다.
@@ -441,7 +441,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 
 ### 2.3.10 mbox_free_channel
 
-&emsp; &emsp; 채널 해제 함수는 해당 하드웨어 레지스터를 구성해야 하는 경우 콜백 함수를 구현하기 위해 채널의 멤버를 비웁니다`shutdown`. 
+&emsp; &emsp; 채널 해제 함수는 해당 하드웨어 레지스터를 구성해야 하는 경우 콜백 함수를 구현하기 위해 채널의 멤버를 비웁니다`shutdown`.
 
 ### 2.3.11 mbox_controller_register 및 mbox_controller_unregister
 
@@ -481,7 +481,7 @@ mailbox: mailbox@970e0000 {
 
 ## 3.1 컨트롤러
 
-&emsp; &emsp; 속성이 있어야 `#mbox-cells`하며 값은 1 이상이어야 합니다. client 속성`mboxes` 셀 수를 나타냅니다. 
+&emsp; &emsp; 속성이 있어야 `#mbox-cells`하며 값은 1 이상이어야 합니다. client 속성`mboxes` 셀 수를 나타냅니다.
 
 ## 3.2 클라이언트
 
@@ -491,7 +491,7 @@ mailbox: mailbox@970e0000 {
 
 ## 3.3 이 속성을 사용하는 방법입니다
 
-&emsp; &emsp; `mbox-cells`, `mboxes`, `mbox-names`세 가지 속성은 채널을 신청할 때 사용됩니다. 
+&emsp; &emsp; `mbox-cells`, `mboxes`, `mbox-names`세 가지 속성은 채널을 신청할 때 사용됩니다.
 
 ```c
 
@@ -545,20 +545,20 @@ static struct mbox_chan *canaan_mailbox_xlate(struct mbox_controller *controller
 2. Linux 사용자 공간에 대한 테스트 앱을 실행합니다
 디렉토리로 이동하여`/app/mailbox_demo` `./mailbox_async`다음 그림과 같이 명령을 실행합니다.  
 ![mailbox_demo](../zh/images/mailbox/130602_mailbox_async.png)  
-이 데모는 비동기 알림을 사용하여 dsp에서 전송된 데이터를 수신합니다. 
+이 데모는 비동기 알림을 사용하여 dsp에서 전송된 데이터를 수신합니다.
 3. 카탈로그에서`/app/mailbox_demo` 다음 `./mailbox_poll`그림과 같이 명령을 실행합니다.  
 ![mailbox_demo](../zh/images/mailbox/130602_mailbox_poll.png)
-이 데모는 poll 차단 500ms를 사용하여 dsp에서 전송된 데이터를 수신합니다. 4s마다 데이터를 보내고 2s마다 데이터를 읽으므로 2s마다 읽기가 성공하고 읽기가 실패한 인터리브 인쇄가 성공하고 차단 읽기가 성공하는 것을 볼 수 있습니다. 
+이 데모는 poll 차단 500ms를 사용하여 dsp에서 전송된 데이터를 수신합니다. 4s마다 데이터를 보내고 2s마다 데이터를 읽으므로 2s마다 읽기가 성공하고 읽기가 실패한 인터리브 인쇄가 성공하고 차단 읽기가 성공하는 것을 볼 수 있습니다.
 
 ## 5.2 코드를 테스트합니다
 
-&emsp; &emsp; dsp 베어 메탈 프로그램은 사용자`k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c` 공간 테스트 코드가 있는 위치에 있습니다`k510_buildroot/package/mailbox_demo/src/mailbox_async.c``k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`. 
+&emsp; &emsp; dsp 베어 메탈 프로그램은 사용자`k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c` 공간 테스트 코드가 있는 위치에 있습니다`k510_buildroot/package/mailbox_demo/src/mailbox_async.c``k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`.
 
 # 6 알려진 문제
 
-&emsp; &emsp; 명령을 처음 실행할 `./dsp_app mailbox_demo.bin`때 dsp 프로그램이 dsp에 굽지 않는 경우가 있습니다. 이 시점에서 demo를 실행하면 전송이 실패합니다. 
+&emsp; &emsp; 명령을 처음 실행할 `./dsp_app mailbox_demo.bin`때 dsp 프로그램이 dsp에 굽지 않는 경우가 있습니다. 이 시점에서 demo를 실행하면 전송이 실패합니다.
 
 **번역 면책 조항**  
-고객의 편의를 위해 Canan은 AI 번역 프로그램을 사용하여 오류를 포함할 수 있는 여러 언어로 텍스트를 번역합니다. 당사는 제공된 번역의 정확성, 신뢰성 또는 적시성을 보장하지 않습니다. Canan은 번역된 정보의 정확성이나 신뢰성에 의존하여 발생하는 손실이나 손해에 대해 책임을 지지 않습니다. 언어 번역 간에 콘텐츠 차이가 있는 경우 중국어 간체 버전이 우선합니다. 
+고객의 편의를 위해 Canan은 AI 번역 프로그램을 사용하여 오류를 포함할 수 있는 여러 언어로 텍스트를 번역합니다. 당사는 제공된 번역의 정확성, 신뢰성 또는 적시성을 보장하지 않습니다. Canan은 번역된 정보의 정확성이나 신뢰성에 의존하여 발생하는 손실이나 손해에 대해 책임을 지지 않습니다. 언어 번역 간에 콘텐츠 차이가 있는 경우 중국어 간체 버전이 우선합니다.
 
 번역 오류 또는 부정확한 문제를 신고하려면 이메일로 문의하시기 바랍니다.

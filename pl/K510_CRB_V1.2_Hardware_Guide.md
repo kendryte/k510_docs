@@ -15,14 +15,14 @@
 
 <font face="黑体" size=3>**Zrzeczenie się**</font>
 Zakupione produkty, usługi lub funkcje podlegają umowom handlowym i warunkom Beijing Canaan Jiesi Information Technology Co., Ltd. ("Spółka", ta sama poniżej), a wszystkie lub część produktów, usług lub funkcji opisanych w niniejszym dokumencie może nie być objęta zakresem zakupu lub użytkowania. O ile nie uzgodniono inaczej w umowie, Firma zrzeka się wszelkich oświadczeń lub gwarancji, wyraźnych lub dorozumianych, co do dokładności, niezawodności, kompletności, marketingu, konkretnego celu i nieagresji jakichkolwiek oświadczeń, informacji lub treści tego dokumentu. O ile nie uzgodniono inaczej, niniejszy dokument jest dostarczany jako wskazówka wyłącznie do użytku.
-Ze względu na aktualizacje wersji produktu lub z innych powodów zawartość tego dokumentu może być od czasu do czasu aktualizowana lub modyfikowana bez powiadomienia. 
+Ze względu na aktualizacje wersji produktu lub z innych powodów zawartość tego dokumentu może być od czasu do czasu aktualizowana lub modyfikowana bez powiadomienia.
 
 **<font face="黑体"  size=3>Informacje o znakach towarowych</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, ikona "Canaan", Canaan i inne znaki towarowe Canaan oraz inne znaki towarowe Canaan są znakami towarowymi Beijing Canaan Jiesi Information Technology Co., Ltd. Wszystkie inne znaki towarowe lub zarejestrowane znaki towarowe, które mogą być wymienione w niniejszym dokumencie, są własnością ich odpowiednich właścicieli. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, ikona "Canaan", Canaan i inne znaki towarowe Canaan oraz inne znaki towarowe Canaan są znakami towarowymi Beijing Canaan Jiesi Information Technology Co., Ltd. Wszystkie inne znaki towarowe lub zarejestrowane znaki towarowe, które mogą być wymienione w niniejszym dokumencie, są własnością ich odpowiednich właścicieli.
 
 **<font face="黑体"  size=3>Prawa autorskie ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Niniejszy dokument ma zastosowanie wyłącznie do rozwoju i projektowania platformy K510, bez pisemnej zgody firmy, żadna jednostka ani osoba fizyczna nie może rozpowszechniać części lub całości treści tego dokumentu w jakiejkolwiek formie. 
+Niniejszy dokument ma zastosowanie wyłącznie do rozwoju i projektowania platformy K510, bez pisemnej zgody firmy, żadna jednostka ani osoba fizyczna nie może rozpowszechniać części lub całości treści tego dokumentu w jakiejkolwiek formie.
 
 **<font face="黑体"  size=3>Pekin Canaan Jiesi Information Technology Co Ltd</font>**
 Adres internetowy: canaan-creative.com
@@ -31,7 +31,7 @@ Zapytania biznesowe: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # przedmowa
 **<font face="黑体"  size=5>Przeznaczenie </font>**dokumentu
-Ten dokument jest dokumentem towarzyszącym zestawowi K510 SDK i ma na celu pomóc inżynierom w zrozumieniu kompilacji i nagrywania zestawu K510 SDK. 
+Ten dokument jest dokumentem towarzyszącym zestawowi K510 SDK i ma na celu pomóc inżynierom w zrozumieniu kompilacji i nagrywania zestawu K510 SDK.
 
 **<font face="黑体"  size=5>Obiekty programu Reader</font>**
 
@@ -221,7 +221,7 @@ Główne osoby, których dotyczy ten dokument (ten przewodnik):
 
 ## 2.5 Schematy
 
-&emsp; &emsp; Schemat referencyjny dla płytki rozwojowej K510 CRB należy pobrać[ w momencie wydania](https://github.com/kendryte/k510_docs/releases). 
+&emsp; &emsp; Schemat referencyjny dla płytki rozwojowej K510 CRB należy pobrać[w momencie wydania](https://github.com/kendryte/k510_docs/releases).
 
 <div style="page-break-after:always"></div>
 
@@ -249,8 +249,8 @@ Główne osoby, których dotyczy ten dokument (ten przewodnik):
 
 <center> Rysunek 3-2 Złącze wejściowe zasilania </center>
 
-**Uwaga: Ogranicz korzystanie z zasilacza 5V, podczas korzystania z adaptera szybkiego ładowania staraj się nie podłączać innych urządzeń, takich jak telefony komórkowe w tym samym czasie, aby nie spowodować nieprawidłowego wyjścia zasilacza przez adapter szybkiego ładowania wyższego niż 5V, co spowoduje uszkodzenie części zasilacza płytki rozwojowej. **
-&emsp; &emsp; Użyj przełącznika K2 do włączania i wyłączania zasilania, jak pokazano na poniższym rysunku. 
+**Uwaga: Ogranicz korzystanie z zasilacza 5V, podczas korzystania z adaptera szybkiego ładowania staraj się nie podłączać innych urządzeń, takich jak telefony komórkowe w tym samym czasie, aby nie spowodować nieprawidłowego wyjścia zasilacza przez adapter szybkiego ładowania wyższego niż 5V, co spowoduje uszkodzenie części zasilacza płytki rozwojowej.**
+&emsp; &emsp; Użyj przełącznika K2 do włączania i wyłączania zasilania, jak pokazano na poniższym rysunku.
 
 <div align="center">
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-3.jpg" width=50%>
@@ -413,7 +413,7 @@ Główne osoby, których dotyczy ten dokument (ten przewodnik):
 
 <center>Rysunek 3-15 Interfejs HDMI</center>
 
- **Uwaga**: Ponieważ zarówno wyświetlacze TFT HDMI, jak i 1080P używają sterowników mipi dsi, mogą wybrać tylko jeden z dwóch wyświetlaczy, nie mogą być używane w tym samym czasie, przełącz się przez pin sterujący GPIO, aby wybrać jedno z wyjść. 
+ **Uwaga**: Ponieważ zarówno wyświetlacze TFT HDMI, jak i 1080P używają sterowników mipi dsi, mogą wybrać tylko jeden z dwóch wyświetlaczy, nie mogą być używane w tym samym czasie, przełącz się przez pin sterujący GPIO, aby wybrać jedno z wyjść.
 
 <div style="page-break-after:always"></div>
 
@@ -462,7 +462,7 @@ Główne osoby, których dotyczy ten dokument (ten przewodnik):
 | 29   | 1 na 8              | 32   | 3V3          |
 | 30   | 1 na 8              | 31   | 3V3          |
 
-**Uwaga**: Zwróć uwagę na zakres poziomów podłączonych pinów podczas podłączania zewnętrznego, aby zapobiec trwałemu uszkodzeniu układu K510 przez niewłaściwe wejście napięciowe. 
+**Uwaga**: Zwróć uwagę na zakres poziomów podłączonych pinów podczas podłączania zewnętrznego, aby zapobiec trwałemu uszkodzeniu układu K510 przez niewłaściwe wejście napięciowe.
 
 <div style="page-break-after:always"></div>
 
@@ -528,7 +528,7 @@ Główne osoby, których dotyczy ten dokument (ten przewodnik):
 | 27   | GPIO_3V3_127 | 28   | GPIO_3V3_126 |
 | 29   | GND          | 30   | GND          |
 
-**Uwaga**: Zwróć uwagę na zakres poziomów podłączonych pinów podczas podłączania zewnętrznego, aby zapobiec trwałemu uszkodzeniu układu K510 przez niewłaściwe wejście napięciowe. 
+**Uwaga**: Zwróć uwagę na zakres poziomów podłączonych pinów podczas podłączania zewnętrznego, aby zapobiec trwałemu uszkodzeniu układu K510 przez niewłaściwe wejście napięciowe.
 
 <div style="page-break-after:always"></div>
 
@@ -544,7 +544,7 @@ Główne osoby, których dotyczy ten dokument (ten przewodnik):
 
 ## 4.2 Nagrywanie oprogramowania układowego
 
-&emsp; &emsp; Zapoznaj się [z dokumentacją K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md). 
+&emsp; &emsp; Zapoznaj się [z dokumentacją K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md).
 
 ## 4.3 Włączanie i wyłączanie
 
@@ -568,7 +568,7 @@ Główne osoby, których dotyczy ten dokument (ten przewodnik):
 
 <center>Rysunek 4-1 Menedżer urządzeń po zakończeniu instalacji sterownika</center>
 
-**Zrzeczenie się odpowiedzialności za **tłumaczenie  
-Dla wygody klientów Canaan używa tłumacza AI do tłumaczenia tekstu na wiele języków, które mogą zawierać błędy. Nie gwarantujemy dokładności, rzetelności ani terminowości dostarczonych tłumaczeń. Canaan nie ponosi odpowiedzialności za jakiekolwiek straty lub szkody spowodowane poleganiem na dokładności lub wiarygodności przetłumaczonych informacji. W przypadku różnic w treści tłumaczeń w różnych językach, pierwszeństwo ma chińska wersja uproszczona. 
+**Zrzeczenie się odpowiedzialności za**tłumaczenie  
+Dla wygody klientów Canaan używa tłumacza AI do tłumaczenia tekstu na wiele języków, które mogą zawierać błędy. Nie gwarantujemy dokładności, rzetelności ani terminowości dostarczonych tłumaczeń. Canaan nie ponosi odpowiedzialności za jakiekolwiek straty lub szkody spowodowane poleganiem na dokładności lub wiarygodności przetłumaczonych informacji. W przypadku różnic w treści tłumaczeń w różnych językach, pierwszeństwo ma chińska wersja uproszczona.
 
 Jeśli chcesz zgłosić błąd lub niedokładność tłumaczenia, skontaktuj się z nami pocztą.

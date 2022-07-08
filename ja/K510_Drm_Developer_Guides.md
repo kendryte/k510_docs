@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**免責事項**</font>
 お客様が購入した製品、サービス、または機能は、北京Jiayuan Jetts情報技術有限公司(以下「当社」、以下同じ)の商業契約および条件の対象となり、本書に記載されている製品、サービス、または機能の全部または一部がお客様の購入または使用の範囲外となる場合があります。 契約に別段の定めがない限り、当社は、本書の記述、情報、内容の正確性、信頼性、完全性、マーケティング、特定目的、非攻撃性について、明示または黙示を問わず、いかなる表明または保証も行いません。 特に断りのない限り、このドキュメントは使用ガイダンスの参照としてのみ使用してください。
-このドキュメントの内容は、製品バージョンのアップグレードまたはその他の理由により、予告なく随時更新または変更されることがあります。 
+このドキュメントの内容は、製品バージョンのアップグレードまたはその他の理由により、予告なく随時更新または変更されることがあります。
 
 **<font face="黑体"  size=3>商標表示</font>**
 
-「<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />」アイコン、カナン、その他の商標は、北京Jiayuan Jets情報技術有限公司の商標です。 本書で言及されるその他すべての商標または登録商標は、それぞれの所有者が所有しています。 
+「<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />」アイコン、カナン、その他の商標は、北京Jiayuan Jets情報技術有限公司の商標です。 本書で言及されるその他すべての商標または登録商標は、それぞれの所有者が所有しています。
 
 **<font face="黑体"  size=3>©著作権2022北京Jiayuan Jetth情報技術有限公司</font>**
-このドキュメントは、K510プラットフォーム開発設計にのみ適用され、当社の書面による許可なく、いかなるユニットまたは個人も、このドキュメントの一部または全部をいかなる形式でも配布することはできません。 
+このドキュメントは、K510プラットフォーム開発設計にのみ適用され、当社の書面による許可なく、いかなるユニットまたは個人も、このドキュメントの一部または全部をいかなる形式でも配布することはできません。
 
 **<font face="黑体"  size=3>北京Jiayuan Jetth情報技術有限公司</font>**
 URL: canaan-creative.com
@@ -57,9 +57,9 @@ URL: canaan-creative.com
 
 現在、sdk で使用されている Linux のバージョンは 4.17.0 です。 Linux は、すべて GNU/Linux と呼ばれ、1991 年 10 月 5 日に Linas Bennadkte Tovaz によって最初にリリースされたカーネルを持つ、POSIX ベースのマルチユーザー、マルチタスク、マルチスレッドおよびマルチ CPU 対応のオペレーティング システムである Miniix と Unix の思想に触発された、自由に使用および配布できるクラス UNIX オペレーティング システムです。 主要な Unix ツール ソフトウェア、アプリケーション、およびネットワーク プロトコルを実行できます。 32 ビット ハードウェアと 64 ビット ハードウェアの両方をサポートします。 Linux は、Unix のネットワーク中心の設計思想を継承し、安定したパフォーマンスを持つマルチユーザー ネットワーク オペレーティング システムです。 Linux には、コミュニティベースの debian、archlinux、商用開発に基づく Red Hat Enterprise Linux、SUSE、Oracle Linux など、数百の異なるディストリビューションがあります。
 
-Direct Rendering Manager は [Linux カーネル](https://en.wikipedia.org/wiki/Linux_kernel)のサブシステムであり、最新の[ビデオカードとの](https://en.wikipedia.org/wiki/Video_cards)[ GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit) 接続を担当しています。 DRM は[](https://en.wikipedia.org/wiki/Application_programming_interface)、[ユーザー空間](https://en.wikipedia.org/wiki/User-space)プログラムが GPU にコマンドとデータを送信し、ディスプレイ モード設定の構成などの操作を実行するために使用できる API[ を公開します。 ](https://en.wikipedia.org/wiki/Mode_setting)DRM は、もともと[ X Server](https://en.wikipedia.org/wiki/X.Org_Server)[Direct Rendering Infrastructure](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)[[1\] ](https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1)[のカーネル空間](https://en.wikipedia.org/wiki/Kernel-space)コンポーネントとして開発されましたが、それ以来、他のグラフィックス スタックの代替手段 (例:[ Wayland](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)) ) を使用します。 
+Direct Rendering Manager は [Linux カーネル](https://en.wikipedia.org/wiki/Linux_kernel)のサブシステムであり、最新の[ビデオカードとの](https://en.wikipedia.org/wiki/Video_cards)[GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit) 接続を担当しています。 DRM は[](https://en.wikipedia.org/wiki/Application_programming_interface)、[ユーザー空間](https://en.wikipedia.org/wiki/User-space)プログラムが GPU にコマンドとデータを送信し、ディスプレイ モード設定の構成などの操作を実行するために使用できる API[を公開します。](https://en.wikipedia.org/wiki/Mode_setting)DRM は、もともと[X Server](https://en.wikipedia.org/wiki/X.Org_Server)[Direct Rendering Infrastructure](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)[[1\]](https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1)[のカーネル空間](https://en.wikipedia.org/wiki/Kernel-space)コンポーネントとして開発されましたが、それ以来、他のグラフィックス スタックの代替手段 (例:[1](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol))) を使用します。
 
-ユーザー空間プログラムは、DRM API コマンド GPU を使用して、[ハードウェア アクセラレーション](https://en.wikipedia.org/wiki/Hardware_acceleration) [3D レンダリング](https://en.wikipedia.org/wiki/3D_rendering)と[ビデオ デコード](https://en.wikipedia.org/wiki/Video_decoding)、および [GPGPU 計算を実行できます](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units)。 
+ユーザー空間プログラムは、DRM API コマンド GPU を使用して、[ハードウェア アクセラレーション](https://en.wikipedia.org/wiki/Hardware_acceleration) [3D レンダリング](https://en.wikipedia.org/wiki/3D_rendering)と[ビデオ デコード](https://en.wikipedia.org/wiki/Video_decoding)、および [GPGPU 計算を実行できます](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units)。
 
 # 2 ハードウェアの概要
 
@@ -67,7 +67,7 @@ Direct Rendering Manager は [Linux カーネル](https://en.wikipedia.org/wiki/
 
 sdk をダウンロードしてコンパイルし、sdk がコンパイルされると linux コードをダウンロードしてコンパイルします。
 
-sdk のダウンロード コンパイル方法については、K510_SDK_Build_and_Burn_Guideを参照してください[](./K510_SDK_Build_and_Burn_Guide.md)。 
+sdk のダウンロード コンパイル方法については、K510_SDK_Build_and_Burn_Guideを参照してください[](./K510_SDK_Build_and_Burn_Guide.md)。
 
 ## 2.2 ドライブファイルとディレクトリ
 
@@ -994,6 +994,6 @@ static int draw_frame(struct vo_draw_frame *frame)
 ```
 
 **免責事項を翻訳します**  
-お客様の便宜のために、カナアンはAI翻訳プログラムを使用してテキストを複数の言語に翻訳し、エラーが含まれている可能性があります。 当社は、提供される翻訳の正確性、信頼性、または適時性を保証するものではありません。 カナアンは、翻訳された情報の正確性または信頼性への依存に起因するいかなる損失または損害についても責任を負いません。 異なる言語翻訳間でコンテンツの違いがある場合は、簡体字中国語版が優先されます。 
+お客様の便宜のために、カナアンはAI翻訳プログラムを使用してテキストを複数の言語に翻訳し、エラーが含まれている可能性があります。 当社は、提供される翻訳の正確性、信頼性、または適時性を保証するものではありません。 カナアンは、翻訳された情報の正確性または信頼性への依存に起因するいかなる損失または損害についても責任を負いません。 異なる言語翻訳間でコンテンツの違いがある場合は、簡体字中国語版が優先されます。
 
 翻訳エラーや不正確な問題を報告する場合は、メールでお問い合わせください。

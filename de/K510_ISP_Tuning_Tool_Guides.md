@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Verzichtserklärung**</font>
 Die Produkte, Dienstleistungen oder Funktionen, die Sie erwerben, unterliegen den kommerziellen Verträgen und Bedingungen von Beijing Canaan Jiesi Information Technology Co., Ltd. ("das Unternehmen", dasselbe im Folgenden), und alle oder ein Teil der in diesem Dokument beschriebenen Produkte, Dienstleistungen oder Funktionen fallen möglicherweise nicht in den Rahmen Ihres Kaufs oder Ihrer Nutzung. Sofern im Vertrag nicht anders vereinbart, lehnt das Unternehmen alle ausdrücklichen oder stillschweigenden Zusicherungen oder Gewährleistungen hinsichtlich der Genauigkeit, Zuverlässigkeit, Vollständigkeit, des Marketings, des spezifischen Zwecks und der Nichtverletzung von Zusicherungen, Informationen oder Inhalten dieses Dokuments ab. Sofern nicht anders vereinbart, wird dieses Dokument nur als Leitfaden für die Verwendung zur Verfügung gestellt.
-Aufgrund von Produktversions-Upgrades oder anderen Gründen kann der Inhalt dieses Dokuments von Zeit zu Zeit ohne vorherige Ankündigung aktualisiert oder geändert werden. 
+Aufgrund von Produktversions-Upgrades oder anderen Gründen kann der Inhalt dieses Dokuments von Zeit zu Zeit ohne vorherige Ankündigung aktualisiert oder geändert werden.
 
 **<font face="黑体"  size=3>Markenhinweise</font>**
 
-"", "Canaan"-Symbol, Canaan und andere Marken von Canaan und andere Marken von Canaan <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />sind Marken von Beijing Canaan Jiesi Information Technology Co., Ltd. Alle anderen Marken oder eingetragenen Warenzeichen, die in diesem Dokument erwähnt werden können, sind Eigentum ihrer jeweiligen Inhaber. 
+"", "Canaan"-Symbol, Canaan und andere Marken von Canaan und andere Marken von Canaan <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />sind Marken von Beijing Canaan Jiesi Information Technology Co., Ltd. Alle anderen Marken oder eingetragenen Warenzeichen, die in diesem Dokument erwähnt werden können, sind Eigentum ihrer jeweiligen Inhaber.
 
 **<font face="黑体"  size=3>Copyright ©2022 Peking Canaan Jiesi Information Technology Co., Ltd</font>**
-Dieses Dokument gilt nur für die Entwicklung und das Design der K510-Plattform, ohne die schriftliche Genehmigung des Unternehmens darf keine Einheit oder Einzelperson einen Teil oder den gesamten Inhalt dieses Dokuments in irgendeiner Form verbreiten. 
+Dieses Dokument gilt nur für die Entwicklung und das Design der K510-Plattform, ohne die schriftliche Genehmigung des Unternehmens darf keine Einheit oder Einzelperson einen Teil oder den gesamten Inhalt dieses Dokuments in irgendeiner Form verbreiten.
 
 **<font face="黑体"  size=3>Peking Canaan Jiesi Informationstechnologie Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Geschäftliche Anfragen: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # Vorwort
 **<font face="黑体"  size=5>Zweck des Dokuments</font>**
-Dieses Dokument ist eine Dokumentation des ISP-Tuning-Tools. 
+Dieses Dokument ist eine Dokumentation des ISP-Tuning-Tools.
 
 **<font face="黑体"  size=5>Reader-Objekte</font>**
 
@@ -112,16 +112,16 @@ In diesem Abschnitt werden die Funktionen dieser Bedienfelder im Optimierungsfen
 
 Abbildung 3-1 zeigt das gesamte Bedienfeld im Tuning-Fenster
 
-- Panel 1 ist das** Menü**, mit dem optional die konfigurierte ISP-Datei geladen oder eine Kalibrierung durchgeführt werden kann. 
-- Panel 2 ist das **Verbindungssteuerungsfeld**, geben Sie die IP-Adresse und Portnummer des Entwicklungsboards (Standardport 9982) ein und klicken Sie auf die grüne Verbindungsschaltfläche, um eine Verbindung herzustellen. 
-- Panel 3 ist das **Register-Bedienfeld, **wenn Sie das Register einstellen oder lesen müssen, ist nicht in diesem, können Sie dieses Panel zum Festlegen und Lesen verwenden. 
-- Panel 4 ist ein** Tuning-Parameter-Auswahl-Panel**, der Benutzer kann verschiedene Parameter oder Gruppen von Parametern entsprechend dem Panel-Eingabeaufforderungstext auswählen, die Register dieser Auswahlen werden auf Panel 5 angezeigt. 
-- Panel 5 ist das** Bedienfeld "Tuning Parameter Settings**", das zum Festlegen oder Abrufen von Parameterwerten vom Tuning-Server verwendet wird. 
-- Panel 6 ist ein** Bildanzeigefeld, **das die Bildausgabe des ISP anzeigt und auf die Pause-Taste in der Mitte klicken kann, wenn es nicht notwendig ist, die ganze Zeit zu spielen. 
+- Panel 1 ist das**Menü**, mit dem optional die konfigurierte ISP-Datei geladen oder eine Kalibrierung durchgeführt werden kann.
+- Panel 2 ist das **Verbindungssteuerungsfeld**, geben Sie die IP-Adresse und Portnummer des Entwicklungsboards (Standardport 9982) ein und klicken Sie auf die grüne Verbindungsschaltfläche, um eine Verbindung herzustellen.
+- Panel 3 ist das **Register-Bedienfeld,**wenn Sie das Register einstellen oder lesen müssen, ist nicht in diesem, können Sie dieses Panel zum Festlegen und Lesen verwenden.
+- Panel 4 ist ein**Tuning-Parameter-Auswahl-Panel**, der Benutzer kann verschiedene Parameter oder Gruppen von Parametern entsprechend dem Panel-Eingabeaufforderungstext auswählen, die Register dieser Auswahlen werden auf Panel 5 angezeigt.
+- Panel 5 ist das**Bedienfeld "Tuning Parameter Settings**", das zum Festlegen oder Abrufen von Parameterwerten vom Tuning-Server verwendet wird.
+- Panel 6 ist ein**Bildanzeigefeld,**das die Bildausgabe des ISP anzeigt und auf die Pause-Taste in der Mitte klicken kann, wenn es nicht notwendig ist, die ganze Zeit zu spielen.
 
 ![Abbildung 3-1 Hauptfenster des Tuning-Tools](../zh/images/sdk_application/clip_image033.png)
 
-DAS ISP Tuning Tool erfasst **nach dem Herstellen der Verbindung nicht automatisch alle Registerwerte, und wenn Sie alle Registerwerte **abrufen müssen, können Sie auf die Schaltfläche Lesen auf der rechten Seite des **Verbindungsbedienfelds **klicken, um alle aktuellen Registerwerte abzurufen. 
+DAS ISP Tuning Tool erfasst **nach dem Herstellen der Verbindung nicht automatisch alle Registerwerte, und wenn Sie alle Registerwerte**abrufen müssen, können Sie auf die Schaltfläche Lesen auf der rechten Seite des **Verbindungsbedienfelds**klicken, um alle aktuellen Registerwerte abzurufen.
 
 # Kalibrierung & Kalibrierung
 
@@ -195,7 +195,7 @@ Nach der Korrektur ist es in der folgenden Abbildung dargestellt
 
 ![Nach der Korrektur](../zh/images/sdk_application/clip_image031.png)
 
-**Haftungsausschluss **für Übersetzungen  
-Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend. 
+**Haftungsausschluss**für Übersetzungen  
+Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend.
 
 Wenn Sie einen Übersetzungsfehler oder eine Ungenauigkeit melden möchten, können Sie uns gerne per E-Mail kontaktieren.

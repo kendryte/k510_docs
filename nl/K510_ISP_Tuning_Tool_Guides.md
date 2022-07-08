@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disclaimer**</font>
 De producten, diensten of functies die u koopt, zijn onderworpen aan de commerciële contracten en voorwaarden van Beijing Canaan Jiesi Information Technology Co., Ltd. ("het Bedrijf", hierna hetzelfde), en alle of een deel van de producten, diensten of functies die in dit document worden beschreven, vallen mogelijk niet binnen het bereik van uw aankoop of gebruik. Tenzij anders overeengekomen in het contract, wijst het bedrijf alle verklaringen of garanties af, expliciet of impliciet, met betrekking tot de nauwkeurigheid, betrouwbaarheid, volledigheid, marketing, specifiek doel en niet-agressie van verklaringen, informatie of inhoud van dit document. Tenzij anders overeengekomen, wordt dit document uitsluitend verstrekt als leidraad voor gebruik.
-Vanwege upgrades van de productversie of andere redenen kan de inhoud van dit document van tijd tot tijd zonder enige kennisgeving worden bijgewerkt of gewijzigd. 
+Vanwege upgrades van de productversie of andere redenen kan de inhoud van dit document van tijd tot tijd zonder enige kennisgeving worden bijgewerkt of gewijzigd.
 
 **<font face="黑体"  size=3>Handelsmerkkennisgevingen</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icoon, Kanaän en andere handelsmerken van Kanaän en andere handelsmerken van Kanaän zijn handelsmerken van Beijing Canaan Jiesi Information Technology Co., Ltd. Alle andere handelsmerken of geregistreerde handelsmerken die in dit document kunnen worden genoemd, zijn eigendom van hun respectieve eigenaars. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icoon, Kanaän en andere handelsmerken van Kanaän en andere handelsmerken van Kanaän zijn handelsmerken van Beijing Canaan Jiesi Information Technology Co., Ltd. Alle andere handelsmerken of geregistreerde handelsmerken die in dit document kunnen worden genoemd, zijn eigendom van hun respectieve eigenaars.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co, Ltd</font>**
-Dit document is alleen van toepassing op de ontwikkeling en het ontwerp van het K510-platform, zonder de schriftelijke toestemming van het bedrijf mag geen enkele eenheid of persoon een deel of de inhoud van dit document in welke vorm dan ook verspreiden. 
+Dit document is alleen van toepassing op de ontwikkeling en het ontwerp van het K510-platform, zonder de schriftelijke toestemming van het bedrijf mag geen enkele eenheid of persoon een deel of de inhoud van dit document in welke vorm dan ook verspreiden.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co, Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Zakelijke vragen: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # inleiding
 **<font face="黑体"  size=5>Doel van het document</font>**
-Dit document is een isp Tuning Tool documentatie. 
+Dit document is een isp Tuning Tool documentatie.
 
 **<font face="黑体"  size=5>Reader Objecten</font>**
 
@@ -112,16 +112,16 @@ In dit gedeelte worden de functies van deze panelen in het afstemmingsvenster be
 
 Figuur 3-1 toont het volledige bedieningspaneel op het tuningvenster
 
-- Paneel 1 is het** menu **dat optioneel het geconfigureerde ISP-bestand kan laden of kalibratie kan uitvoeren. 
-- Paneel 2 is het **verbindingsbedieningspaneel**, vul het IP-adres en poortnummer van de ontwikkelkaart in (standaardpoort 9982) en klik op de groene verbindingsknop om verbinding te maken. 
-- Paneel 3 is het** registerpaneel**, als u het register moet instellen of lezen, staat het niet in deze, u kunt dit paneel gebruiken om in te stellen en te lezen. 
-- Paneel 4 is een **afstemmingsparameterselectiepaneel**, de gebruiker kan verschillende parameters of groepen parameters selecteren op basis van de paneelprompttekst, de registers van deze selecties worden weergegeven op paneel 5. 
-- Paneel 5 is het **deelvenster Instellingen voor afstemmingsparameters**, dat wordt gebruikt om parameterwaarden in te stellen of op te halen van de afstemmingsserver. 
-- Paneel 6 is een **beeldweergavepaneel**, dat de beelduitvoer van de ISP weergeeft en op de pauzeknop in het midden kan klikken wanneer het niet nodig is om de hele tijd te spelen. 
+- Paneel 1 is het**menu**dat optioneel het geconfigureerde ISP-bestand kan laden of kalibratie kan uitvoeren.
+- Paneel 2 is het **verbindingsbedieningspaneel**, vul het IP-adres en poortnummer van de ontwikkelkaart in (standaardpoort 9982) en klik op de groene verbindingsknop om verbinding te maken.
+- Paneel 3 is het**registerpaneel**, als u het register moet instellen of lezen, staat het niet in deze, u kunt dit paneel gebruiken om in te stellen en te lezen.
+- Paneel 4 is een **afstemmingsparameterselectiepaneel**, de gebruiker kan verschillende parameters of groepen parameters selecteren op basis van de paneelprompttekst, de registers van deze selecties worden weergegeven op paneel 5.
+- Paneel 5 is het **deelvenster Instellingen voor afstemmingsparameters**, dat wordt gebruikt om parameterwaarden in te stellen of op te halen van de afstemmingsserver.
+- Paneel 6 is een **beeldweergavepaneel**, dat de beelduitvoer van de ISP weergeeft en op de pauzeknop in het midden kan klikken wanneer het niet nodig is om de hele tijd te spelen.
 
 ![Figuur 3-1 Hoofdvenster van tuninggereedschap](../zh/images/sdk_application/clip_image033.png)
 
-DE ISP Tuning Tool**  **verkrijgt niet automatisch alle registerwaarden na het aansluiten, en als u alle registerwaarden wilt ophalen, kunt u op de** knop Lezen aan de rechterkant van het verbindingsbedieningspaneel** klikken om alle huidige registerwaarden op te halen. 
+DE ISP Tuning Tool****verkrijgt niet automatisch alle registerwaarden na het aansluiten, en als u alle registerwaarden wilt ophalen, kunt u op de**knop Lezen aan de rechterkant van het verbindingsbedieningspaneel** klikken om alle huidige registerwaarden op te halen.
 
 # Kalibratie & Kalibratie
 
@@ -196,6 +196,6 @@ Na correctie wordt het weergegeven in de volgende afbeelding
 ![Na correctie](../zh/images/sdk_application/clip_image031.png)
 
 **Vertaling Disclaimer**  
-Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie. 
+Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie.
 
 Als u een vertaalfout of onnauwkeurigheid wilt melden, neem dan gerust contact met ons op via e-mail.

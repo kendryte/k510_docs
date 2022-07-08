@@ -204,8 +204,9 @@ ffmpeg -h demuxer=libk510_video #查看demuxer的配置参数
 
 alsa demo程序放在`/app/alsa_demo`目录下：
 
-运行准备：
-（1）插上耳机
+运行准备:
+
+1. 插上耳机
 
 运行alsa demo：
 
@@ -375,11 +376,11 @@ cd /app/watchdog
 
 实际超时时间的计算过程是：
 
-1）输入40，2^25/757575=44 > 40，2^24/757575=22 < 40，因此设置为44秒；
+1. 输入40，2^25/757575=44 > 40，2^24/757575=22 < 40，因此设置为44秒；
 
-2）输入155，2^27/757575=177 > 155，因此设置为177秒；
+2. 输入155，2^27/757575=177 > 155，因此设置为177秒；
 
-3）输入2000，2^31/757575=2834 > 2000，因此设置为2834秒；
+3. 输入2000，2^31/757575=2834 > 2000，因此设置为2834秒；
 
 ## 1.7 UART demo
 
@@ -467,8 +468,8 @@ SHA/AES demo 使用Linux 内核导出 AF_ALG 类型的 Netlink 接口，在用�
 -t 算法类型：hash、skcipher
 -n 算法名称：sha256、ecb(aes)、cbc(aes)
 -x 解密操作
--k AES KEY（16进制字符串）
--v AES IV（16进制字符串）
+-k AES KEY(16进制字符串)
+-v AES IV(16进制字符串)
 
 ![](../zh/images/sdk_application/image_crypto_help.png)
 
@@ -530,13 +531,13 @@ drm demo展示了VO硬件多图层功能。
 
 VO共有8个layer：
 
-1）背景层，可配置背景色。
+1. 背景层，可配置背景色。
 
-2）layer0是video层，支持YUV422和YUV420，支持NV12和NV21格式，大小端可配，支持硬件scaling up和scaling down。
+2. layer0是video层，支持YUV422和YUV420，支持NV12和NV21格式，大小端可配，支持硬件scaling up和scaling down。
 
-3）layer1-layer3是video层，支持YUV422和YUV420，支持NV12和NV21格式，大小端可配。
+3. layer1-layer3是video层，支持YUV422和YUV420，支持NV12和NV21格式，大小端可配。
 
-4）layer4-layer6是OSD层，支持多种ARGB格式。
+4. layer4-layer6是OSD层，支持多种ARGB格式。
 
 开发板启动后进入/app/drm_demo目录，输入命令：
 
@@ -599,12 +600,12 @@ cd /app/pwm
 
 WiFi模块驱动加载后会生成无线网卡wlan0，遵循标准网口驱动，正常参考TCP/IP socket编程。
 
-1）在笔记本打开“移动热点”，然后设置热点的名称和密码
-2）在笔记本上启动NetAssist，配置协议类型、本地主机IP、本地主机端口、接收设置、发送设置及需要发送的数据，如下图：
+1. 在笔记本打开“移动热点”，然后设置热点的名称和密码
+2. 在笔记本上启动NetAssist，配置协议类型、本地主机IP、本地主机端口、接收设置、发送设置及需要发送的数据，如下图：
 
-![](../zh/images/sdk_application/image_wifi_1.png)
+    ![](../zh/images/sdk_application/image_wifi_1.png)
 
-3）wifi测试程序的参数格式为：
+3. wifi测试程序的参数格式为：
 
 ```shell
 ./wifi <AP name> <password> <local ip> <server ip>

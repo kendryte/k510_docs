@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Zrzeczenie się**</font>
 Zakupione produkty, usługi lub funkcje podlegają umowom handlowym i warunkom Beijing Canaan Jiesi Information Technology Co., Ltd. ("Spółka", ta sama poniżej), a wszystkie lub część produktów, usług lub funkcji opisanych w niniejszym dokumencie może nie być objęta zakresem zakupu lub użytkowania. O ile nie uzgodniono inaczej w umowie, Firma zrzeka się wszelkich oświadczeń lub gwarancji, wyraźnych lub dorozumianych, co do dokładności, niezawodności, kompletności, marketingu, konkretnego celu i nieagresji jakichkolwiek oświadczeń, informacji lub treści tego dokumentu. O ile nie uzgodniono inaczej, niniejszy dokument jest dostarczany jako wskazówka wyłącznie do użytku.
-Ze względu na aktualizacje wersji produktu lub z innych powodów zawartość tego dokumentu może być od czasu do czasu aktualizowana lub modyfikowana bez powiadomienia. 
+Ze względu na aktualizacje wersji produktu lub z innych powodów zawartość tego dokumentu może być od czasu do czasu aktualizowana lub modyfikowana bez powiadomienia.
 
 **<font face="黑体"  size=3>Informacje o znakach towarowych</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, ikona "Canaan", Canaan i inne znaki towarowe Canaan oraz inne znaki towarowe Canaan są znakami towarowymi Beijing Canaan Jiesi Information Technology Co., Ltd. Wszystkie inne znaki towarowe lub zarejestrowane znaki towarowe, które mogą być wymienione w niniejszym dokumencie, są własnością ich odpowiednich właścicieli. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, ikona "Canaan", Canaan i inne znaki towarowe Canaan oraz inne znaki towarowe Canaan są znakami towarowymi Beijing Canaan Jiesi Information Technology Co., Ltd. Wszystkie inne znaki towarowe lub zarejestrowane znaki towarowe, które mogą być wymienione w niniejszym dokumencie, są własnością ich odpowiednich właścicieli.
 
 **<font face="黑体"  size=3>Prawa autorskie ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Niniejszy dokument ma zastosowanie wyłącznie do rozwoju i projektowania platformy K510, bez pisemnej zgody firmy, żadna jednostka ani osoba fizyczna nie może rozpowszechniać części lub całości treści tego dokumentu w jakiejkolwiek formie. 
+Niniejszy dokument ma zastosowanie wyłącznie do rozwoju i projektowania platformy K510, bez pisemnej zgody firmy, żadna jednostka ani osoba fizyczna nie może rozpowszechniać części lub całości treści tego dokumentu w jakiejkolwiek formie.
 
 **<font face="黑体"  size=3>Pekin Canaan Jiesi Information Technology Co Ltd</font>**
 Adres internetowy: canaan-creative.com
@@ -26,7 +26,7 @@ Zapytania biznesowe: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # przedmowa
 **<font face="黑体"  size=5>Przeznaczenie </font>**dokumentu
-Ten dokument jest dokumentem rozwojowym sterownika skrzynki pocztowej K510. 
+Ten dokument jest dokumentem rozwojowym sterownika skrzynki pocztowej K510.
 
 **<font face="黑体"  size=5>Obiekty programu Reader</font>**
 
@@ -62,7 +62,7 @@ Główne osoby, których dotyczy ten dokument (ten przewodnik):
 &emsp; &emsp; Kontroler to sterownik, który bezpośrednio manipuluje sprzętową skrzynką pocztową. Obsługuje rejestry sprzętowe bezpośrednio w dół, kończąc komunikację ze zdalnym poprzez wysyłanie i odbieranie przerwań (jeśli są obsługiwane przez sprzęt); Aż do interfejsu dostarczonego przez framework, aby zakończyć komunikację ze sterownikiem klienta.
 &emsp; &emsp; Klient jest konsumentem administratora, komunikującym się z administratorem w dół, wypełniającym aplikacje kanałowe, przygotowującym dane i innymi funkcjami; Zapewnia interfejsy do manipulowania przestrzenią użytkownika.  
 &emsp; &emsp; Struktura skrzynki pocztowej jest odpowiedzialna za interfejs między kontrolerem a klientem, dokumentacja jądra mówi: "Sterownik klienta i kontrolera może być bardzo zależny od konkretnej platformy, dlatego sterownik klienta nie może być współdzielony między wieloma platformami", więc w`/drivers/mailbox` katalogu można znaleźć tylko sterownik dotyczący kontrolera i nie można znaleźć sterownika klienta, można znaleźć tylko jeden test Sterownik `mailbox-test.c`klienta kontrolera. To, w jaki sposób sterownik klienta wymienia dane z przestrzenią użytkownika, zależy również od samego programisty sterownika.  
-&emsp; &emsp; Poniższy diagram przedstawia podstawową strukturę dla dwóch rejestracji sterowników: 
+&emsp; &emsp; Poniższy diagram przedstawia podstawową strukturę dla dwóch rejestracji sterowników:
 
 <div align=center>
 <img src="../zh/images/mailbox/130101_frame_00.svg" width="1400">
@@ -75,7 +75,7 @@ Główne osoby, których dotyczy ten dokument (ten przewodnik):
 </div>
 
 &emsp; &emsp; Struktura wykorzystuje `struct mbox_controller`abstrakcyjne kontrolery skrzynek pocztowych, abstrakcyjne`struct mbox_chan` kanały i kolekcje funkcji `struct mbox_chan_ops`do manipulowania kanałami. Powyższe trzy struktury danych są przeznaczone dla kontrolerów. Struktura używa `struct mbox_client`abstrakcyjnych klientów, które są specyficzne dla klienta.  
-&emsp; &emsp; Oprócz tego musimy zdefiniować własną strukturę urządzeń dla naszych urządzeń i dysków, jak pokazano na powyższym rysunku. Połączenie między klientem a kontrolerem odbywa`mbox_request_channel` się w funkcji podczas ubiegania się o kanał w kliencie, a jeden kanał jest powiązany ze strukturą`struct mbox_client`. 
+&emsp; &emsp; Oprócz tego musimy zdefiniować własną strukturę urządzeń dla naszych urządzeń i dysków, jak pokazano na powyższym rysunku. Połączenie między klientem a kontrolerem odbywa`mbox_request_channel` się w funkcji podczas ubiegania się o kanał w kliencie, a jeden kanał jest powiązany ze strukturą`struct mbox_client`.
 
 ## 1.3 Przepływ wywołań funkcji
 
@@ -84,26 +84,26 @@ Główne osoby, których dotyczy ten dokument (ten przewodnik):
 </div>  
 
 &emsp; &emsp; Dostarczanie danych w przestrzeni użytkownika i na kliencie korzysta z ioctl plus powiadomienia asynchroniczne, które są określane przez samych programistów sterowników i nie należą do struktury.  
-&emsp; &emsp; Stworzyliśmy węzeł urządzenia w sterowniku klienta`/dev/mailbox-client`, przez który przestrzeń użytkownika odczytuje i wysyła dane. 8 kanałów nadawczych, 8 kanałów odbiorczych. 
+&emsp; &emsp; Stworzyliśmy węzeł urządzenia w sterowniku klienta`/dev/mailbox-client`, przez który przestrzeń użytkownika odczytuje i wysyła dane. 8 kanałów nadawczych, 8 kanałów odbiorczych.
 
 ### 1.3.1 Wysyłanie przepływu danych
 
 &emsp; &emsp; Jak pokazano na powyższym rysunku:
 
 1. Uchwyty plików manipulacji przestrzenią użytkownika w celu wysyłania danych;
-2. Wprowadź sterowaną przez klienta funkcję ioctl, która kopiuje dane przestrzeni użytkownika do przestrzeni jądra i ostatecznie wywołuje funkcję`mbox_send_message`; 
-3. Specyficzny proces przetwarzania tej funkcji można zobaczyć w analizie kodu późniejszych rozdziałów, która wywołuje głównie dwie funkcje wywołania zwrotnego: implementację opartą na kliencie`tx_prepare` i implementację opartą na kontrolerze`send_data`. Spójrz na nazwy, aby dowiedzieć się, co robią te dwie funkcje. Należy zauważyć, że niektóre skrzynki pocztowe sprzętu mają sprzętowe rejestry transmisji danych, więc w tej chwili transmisja danych może zostać`send_data` zakończona w środku; Niektóre urządzenia nie mają rejestrów transmisji danych sprzętowych, a następnie można w nim również zakończyć rzeczywistą transmisję danych`tx_prepare`, a `send_data`rola staje się prostym powiadomieniem **o przerwaniu wyzwalacza dla zdalnego procesora**; 
+2. Wprowadź sterowaną przez klienta funkcję ioctl, która kopiuje dane przestrzeni użytkownika do przestrzeni jądra i ostatecznie wywołuje funkcję`mbox_send_message`;
+3. Specyficzny proces przetwarzania tej funkcji można zobaczyć w analizie kodu późniejszych rozdziałów, która wywołuje głównie dwie funkcje wywołania zwrotnego: implementację opartą na kliencie`tx_prepare` i implementację opartą na kontrolerze`send_data`. Spójrz na nazwy, aby dowiedzieć się, co robią te dwie funkcje. Należy zauważyć, że niektóre skrzynki pocztowe sprzętu mają sprzętowe rejestry transmisji danych, więc w tej chwili transmisja danych może zostać`send_data` zakończona w środku; Niektóre urządzenia nie mają rejestrów transmisji danych sprzętowych, a następnie można w nim również zakończyć rzeczywistą transmisję danych`tx_prepare`, a `send_data`rola staje się prostym powiadomieniem **o przerwaniu wyzwalacza dla zdalnego procesora**;
 4. Gdy zdalny procesor otrzyma przerwanie i otrzyma dane, musi odpowiedzieć kontrolerowi przerwaniem wskazującym, że Tx zostało zakończone;
-5. Po otrzymaniu Tx ACK należy wywołać program obsługi przerwań zarejestrowany przez kontroler,`mbox_chan_txdone` aby powiadomić górną warstwę, że transfer został odebrany zdalnie; 
-6. `mbox_chan_txdone`Poinformuj klienta, że `tx_done`przelew jest realizowany poprzez rejestrację klienta. Klient decyduje się na późniejsze przetwarzanie, a`tx_done` parametry rejestrują stan przesyłania danych. 
+5. Po otrzymaniu Tx ACK należy wywołać program obsługi przerwań zarejestrowany przez kontroler,`mbox_chan_txdone` aby powiadomić górną warstwę, że transfer został odebrany zdalnie;
+6. `mbox_chan_txdone`Poinformuj klienta, że `tx_done`przelew jest realizowany poprzez rejestrację klienta. Klient decyduje się na późniejsze przetwarzanie, a`tx_done` parametry rejestrują stan przesyłania danych.
 
 ### 1.3.1 Proces otrzymywania danych
 
 &emsp; &emsp; Jak pokazano na powyższym rysunku:
 
 1. Przerwania zdalnego przetwarzania wysyłania danych do administratora;
-2. Po odebraniu przerwania zarejestrowane przez kontroler wywołanie obsługi przerwań `mbox_chan_received_data`informuje górną warstwę, aby odebrała dane pochodzące z dalekiego końca i odpowiedziała na zdalny Rx ACK. 
-3. `mbox_chan_received_data`Wywołaj zarejestrowanego klienta`rx_callback`; 
+2. Po odebraniu przerwania zarejestrowane przez kontroler wywołanie obsługi przerwań `mbox_chan_received_data`informuje górną warstwę, aby odebrała dane pochodzące z dalekiego końca i odpowiedziała na zdalny Rx ACK.
+3. `mbox_chan_received_data`Wywołaj zarejestrowanego klienta`rx_callback`;
 4. `rx_callback`odczytuje dane z adresu określonego w drzewie urządzeń, a następnie powiadamia przestrzeń użytkownika za pomocą powiadomień asynchronicznych;
 5. Asynchroniczny program obsługi przestrzeni użytkownika, który wywołuje ioctl, odczytuje dane kanału odbiorczego.
 
@@ -111,7 +111,7 @@ Główne osoby, których dotyczy ten dokument (ten przewodnik):
 
 ## 2.1 mailbox_controller.h
 
-&emsp; &emsp; Zdefiniowane `mbox_controller`(abstrakcja sprzętu skrzynki pocztowej),`mbox_chan` (abstrakcja kanału) `mbox_chan_ops`(zbiór funkcji wywołania zwrotnego, które manipulują kanałami). 
+&emsp; &emsp; Zdefiniowane `mbox_controller`(abstrakcja sprzętu skrzynki pocztowej),`mbox_chan` (abstrakcja kanału) `mbox_chan_ops`(zbiór funkcji wywołania zwrotnego, które manipulują kanałami).
 
 ```c
 struct mbox_controller {
@@ -397,7 +397,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 }
 ```
 
-&emsp; &emsp; Ta funkcja w ten sposób `of_parse_phandle_with_args`uzyskuje kanał żądanego indeksu z drzewa urządzeń. 
+&emsp; &emsp; Ta funkcja w ten sposób `of_parse_phandle_with_args`uzyskuje kanał żądanego indeksu z drzewa urządzeń.
 
 - `mboxes`Wskazuje nazwę właściwości listy obsługi w węźle;
 - `#mbox-cells`Wskazuje liczbę komórek zawartych w węźle wskazanym przez phandle;
@@ -441,7 +441,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 
 ### 2.3.10 mbox_free_channel
 
-&emsp; &emsp; Funkcja zwalniania kanału implementuje funkcję wywołania zwrotnego, która opróżni elementy członkowskie określonego kanału i zaimplementuje funkcję wywołania zwrotnego, jeśli trzeba skonfigurować odpowiedni rejestr sprzętu`shutdown`. 
+&emsp; &emsp; Funkcja zwalniania kanału implementuje funkcję wywołania zwrotnego, która opróżni elementy członkowskie określonego kanału i zaimplementuje funkcję wywołania zwrotnego, jeśli trzeba skonfigurować odpowiedni rejestr sprzętu`shutdown`.
 
 ### 2.3.11 mbox_controller_register i mbox_controller_unregister
 
@@ -481,7 +481,7 @@ mailbox: mailbox@970e0000 {
 
 ## 3.1 kontroler
 
-&emsp; &emsp; Musi istnieć atrybut `#mbox-cells`o wartości co najmniej 1. Wskazuje liczbę`mboxes` komórek atrybutu client. 
+&emsp; &emsp; Musi istnieć atrybut `#mbox-cells`o wartości co najmniej 1. Wskazuje liczbę`mboxes` komórek atrybutu client.
 
 ## 3.2 klient
 
@@ -491,7 +491,7 @@ mailbox: mailbox@970e0000 {
 
 ## 3.3 Jak korzystać z właściwości
 
-&emsp; &emsp; `mbox-cells`Te`mboxes` `mbox-names`trzy właściwości są używane podczas ubiegania się o kanały. 
+&emsp; &emsp; `mbox-cells`Te`mboxes` `mbox-names`trzy właściwości są używane podczas ubiegania się o kanały.
 
 ```c
 
@@ -545,20 +545,20 @@ Przejdź do katalogu`/app/dsp_app_new` i wykonaj polecenie, `./dsp_app mailbox_d
 2. Uruchamianie aplikacji testowej przestrzeni użytkownika systemu Linux
 Wprowadź katalog`/app/mailbox_demo` i wykonaj polecenie`./mailbox_async`, jak pokazano na poniższym rysunku:  
 ![](../zh/images/mailbox/130602_mailbox_async.png)mailbox_demo  
-Ten pokaz wykorzystuje asynchroniczne powiadomienia do odbierania danych wysyłanych przez dsp. 
+Ten pokaz wykorzystuje asynchroniczne powiadomienia do odbierania danych wysyłanych przez dsp.
 3. W katalogu `/app/mailbox_demo`wykonaj polecenie`./mailbox_poll`, jak pokazano na poniższym rysunku:  
 ![](../zh/images/mailbox/130602_mailbox_poll.png)mailbox_demo
-Ta demonstracja wykorzystuje blokowanie ankiet dla 500ms do odbierania danych wysyłanych przez dsp. Wysyłamy dane co 4s i odczytujemy dane co 2s, dzięki czemu widzimy, że co 2s sukces odczytu jest rozłożony w czasie z niepowodzeniem odczytu, a odczyt blokujący jest udany. 
+Ta demonstracja wykorzystuje blokowanie ankiet dla 500ms do odbierania danych wysyłanych przez dsp. Wysyłamy dane co 4s i odczytujemy dane co 2s, dzięki czemu widzimy, że co 2s sukces odczytu jest rozłożony w czasie z niepowodzeniem odczytu, a odczyt blokujący jest udany.
 
 ## 5.2 Testowanie Kodu
 
-&emsp; &emsp; Program dsp bare metal znajduje się `k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c`pośrodku, a kod testowy przestrzeni użytkownika znajduje się w`k510_buildroot/package/mailbox_demo/src/mailbox_async.c` i`k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`. 
+&emsp; &emsp; Program dsp bare metal znajduje się `k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c`pośrodku, a kod testowy przestrzeni użytkownika znajduje się w`k510_buildroot/package/mailbox_demo/src/mailbox_async.c` i`k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`.
 
 # 6 Znane problemy
 
-&emsp; &emsp; Czasami `./dsp_app mailbox_demo.bin`program dsp nie jest nagrywany do dsp przy pierwszym wykonaniu polecenia. Wykonanie wersji demonstracyjnej w tym momencie spowoduje niepowodzenie wysyłania. 
+&emsp; &emsp; Czasami `./dsp_app mailbox_demo.bin`program dsp nie jest nagrywany do dsp przy pierwszym wykonaniu polecenia. Wykonanie wersji demonstracyjnej w tym momencie spowoduje niepowodzenie wysyłania.
 
-**Zrzeczenie się odpowiedzialności za **tłumaczenie  
-Dla wygody klientów Canaan używa tłumacza AI do tłumaczenia tekstu na wiele języków, które mogą zawierać błędy. Nie gwarantujemy dokładności, rzetelności ani terminowości dostarczonych tłumaczeń. Canaan nie ponosi odpowiedzialności za jakiekolwiek straty lub szkody spowodowane poleganiem na dokładności lub wiarygodności przetłumaczonych informacji. W przypadku różnic w treści tłumaczeń w różnych językach, pierwszeństwo ma chińska wersja uproszczona. 
+**Zrzeczenie się odpowiedzialności za**tłumaczenie  
+Dla wygody klientów Canaan używa tłumacza AI do tłumaczenia tekstu na wiele języków, które mogą zawierać błędy. Nie gwarantujemy dokładności, rzetelności ani terminowości dostarczonych tłumaczeń. Canaan nie ponosi odpowiedzialności za jakiekolwiek straty lub szkody spowodowane poleganiem na dokładności lub wiarygodności przetłumaczonych informacji. W przypadku różnic w treści tłumaczeń w różnych językach, pierwszeństwo ma chińska wersja uproszczona.
 
 Jeśli chcesz zgłosić błąd lub niedokładność tłumaczenia, skontaktuj się z nami pocztą.

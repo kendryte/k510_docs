@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Renuncia**</font>
 Los productos, servicios o características que compre estarán sujetos a los contratos comerciales y términos de Beijing Canaan Jiesi Information Technology Co., Ltd. ("la Compañía", la misma en adelante), y todos o parte de los productos, servicios o características descritos en este documento pueden no estar dentro del alcance de su compra o uso. Salvo que se acuerde lo contrario en el contrato, la Compañía renuncia a todas las representaciones o garantías, expresas o implícitas, en cuanto a la precisión, confiabilidad, integridad, marketing, propósito específico y no agresión de cualquier representación, información o contenido de este documento. A menos que se acuerde lo contrario, este documento se proporciona como una guía para su uso solamente.
-Debido a actualizaciones de la versión del producto u otras razones, el contenido de este documento puede actualizarse o modificarse de vez en cuando sin previo aviso. 
+Debido a actualizaciones de la versión del producto u otras razones, el contenido de este documento puede actualizarse o modificarse de vez en cuando sin previo aviso.
 
 **<font face="黑体"  size=3>Avisos de marcas comerciales</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, el icono de "Canaan", Canaan y otras marcas comerciales de Canaan y otras marcas comerciales de Canaan son marcas comerciales de Beijing Canaan Jiesi Information Technology Co., Ltd. Todas las demás marcas comerciales o marcas registradas que puedan mencionarse en este documento son propiedad de sus respectivos propietarios. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, el icono de "Canaan", Canaan y otras marcas comerciales de Canaan y otras marcas comerciales de Canaan son marcas comerciales de Beijing Canaan Jiesi Information Technology Co., Ltd. Todas las demás marcas comerciales o marcas registradas que puedan mencionarse en este documento son propiedad de sus respectivos propietarios.
 
 **<font face="黑体"  size=3>Derechos de autor ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Este documento solo es aplicable al desarrollo y diseño de la plataforma K510, sin el permiso por escrito de la empresa, ninguna unidad o individuo puede difundir parte o la totalidad del contenido de este documento en ninguna forma. 
+Este documento solo es aplicable al desarrollo y diseño de la plataforma K510, sin el permiso por escrito de la empresa, ninguna unidad o individuo puede difundir parte o la totalidad del contenido de este documento en ninguna forma.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Información Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -529,8 +529,8 @@ correr`encode_app`
 | Ayuda | Información de ayuda| | ||
 | partir | El número de canales | NULO | [1,4] | jpeg、avc |
 | Ch | Número de canal (basado en 0) | NULO | [0,3] | jpeg、avc |
-| Yo | Ingrese el archivo YUV, solo** admite el formato ** nv12| NULO | v4l2 <br> xxx.yuv | jpeg、avc |
-| Dev | Nombre del dispositivo v4l2 | NULO | **sensor0:** /dev/video3 /dev/video4 <br> <br>sensor1:<br> ** /dev/video7 / ** dev/ <br> video8 <br> | Golpe |
+| Yo | Ingrese el archivo YUV, solo**admite el formato** nv12| NULO | v4l2 <br> xxx.yuv | jpeg、avc |
+| Dev | Nombre del dispositivo v4l2 | NULO | **sensor0:** /dev/video3 /dev/video4 <br> <br>sensor1:<br> **/dev/video7 /** dev/ <br> video8 <br> | Golpe |
 | o | salida| NULO | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG | jpeg、avc |
 | en | Ancho de imagen de salida | 1920 | avc: [128,2048], múltiplo de 8 <br> jpeg: hasta 8192, múltiplo de 16 | jpeg、avc |
 | h | Altura de la imagen de salida | 1080 | avc: [64,2048], múltiplo de 8 <br> jpeg: hasta 8192, múltiplo de 2 | jpeg、avc |
@@ -668,11 +668,11 @@ El comando ffplay pull stream es el mismo que el anterior.
 
   Dirección IP: La dirección IP de la placa de desarrollo, ingrese ifconfig en la placa para obtener.
 
-  Número de puerto: 8554 + <通道号>*2, los números de canal generalmente comienzan desde 0 (-ch 0, -ch 1...). 
+  Número de puerto: 8554 + <通道号>*2, los números de canal generalmente comienzan desde 0 (-ch 0, -ch 1...).
 
 - Modo de transmisión RTSP: la transmisión RTSP correspondiente se puede reproducir a través de vlc o ffplay, y la transmisión de datos se puede transmitir a través del protocolo udp o TCP.
 
-  1)rtp over udp播放:ffplay -rtsp_transport udp rtsp://192.168.137.11:8554/testStream
+  1) rtp over udp播放:ffplay -rtsp_transport udp rtsp://192.168.137.11:8554/testStream
 
   2) rtp sobre tcp 播放: ffplay -rtsp_transport tcp rtsp://192.168.137.11:8554/testStream
 
@@ -1017,7 +1017,7 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -i /dev/video3 -vco
 
 Ilustrar:
 
-1. El tiempo de ejecución debe encontrarse en el directorio de ejecución`video_sampe.conf`, `imx219_0.conf`y los `imx219_1.conf`archivos están configurados, y los tres archivos están bajo`/encode_app/` el directorio. 
+1. El tiempo de ejecución debe encontrarse en el directorio de ejecución`video_sampe.conf`, `imx219_0.conf`y los `imx219_1.conf`archivos están configurados, y los tres archivos están bajo`/encode_app/` el directorio.
 2. El video que viene en tiempo real por la cámara está escrito como un archivo YUV, y debido a que el archivo YUV es muy grande, la velocidad de escritura DDR o NFS local no puede mantenerse al día, lo que puede causar la caída de fotogramas.
 
 #### 3.2.1.6 Codificación JPEG
@@ -1028,7 +1028,7 @@ Salida de archivo:
 ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_jpeg -y test.mjpeg
 ```
 
-Descripción: El tiempo de ejecución debe estar ubicado en el directorio de ejecución`video_sampe.conf`, `imx219_0.conf`y `imx219_1.conf`los archivos están configurados, y los tres archivos están bajo`/encode_app/` el directorio. 
+Descripción: El tiempo de ejecución debe estar ubicado en el directorio de ejecución`video_sampe.conf`, `imx219_0.conf`y `imx219_1.conf`los archivos están configurados, y los tres archivos están bajo`/encode_app/` el directorio.
 
 El archivo de salida test.mjpeg se puede reproducir en el lado de la PC con ffplay
 
@@ -1064,7 +1064,7 @@ Cuando use ffplay para extraer transmisiones, tenga cuidado de extraer solo un v
 
 - `ff_libk510_h264_encoder`: Codificación de hardware h264 de control, referenciada`libvenc.so`
 - `ff_libk510_jpeg_encoder`: Controla la codificación de hardware jpeg, a la que se hace referencia`libvenc.so`
-- v4l2: En v4l2.c, se agregó código relacionado con el hardware k510 y se V4L2_MEMORY_USERPTR y referenciar el tipo de búfer v4l2`libmediactl.so`. 
+- v4l2: En v4l2.c, se agregó código relacionado con el hardware k510 y se V4L2_MEMORY_USERPTR y referenciar el tipo de búfer v4l2`libmediactl.so`.
 
 #### 3.2.2.1 Comando de generación de parches
 
@@ -1088,7 +1088,7 @@ sed -i "s/\/dl\/ffmpeg_canaan\/ffmpeg-4.4//g" ../../package/ffmpeg_canaan/xxx.pa
 
 #### 3.2.2.2 Configuración de ffmpeg
 
-En el `package/ffmpeg_canaan/ffmpeg.mk`archivo, el núcleo de la CPU se puede modificar, la cadena de herramientas de compilación y la habilitación se puede realizar a través de la opción`ff_k510_video_demuxer` configee.`ff_libk510_jpeg_encoder` `ff_libk510_h264_encoder` 
+En el `package/ffmpeg_canaan/ffmpeg.mk`archivo, el núcleo de la CPU se puede modificar, la cadena de herramientas de compilación y la habilitación se puede realizar a través de la opción`ff_k510_video_demuxer` configee.`ff_libk510_jpeg_encoder` `ff_libk510_h264_encoder`
 
 ```shell
 ./configure \
@@ -1113,7 +1113,7 @@ En el `package/ffmpeg_canaan/ffmpeg.mk`archivo, el núcleo de la CPU se puede mo
     --enable-indev=v4l2 \
 ```
 
-**Descargo de responsabilidad de **traducción  
-Para la comodidad de los clientes, Canaan utiliza un traductor de IA para traducir texto a varios idiomas, que pueden contener errores. No garantizamos la exactitud, fiabilidad o puntualidad de las traducciones proporcionadas. Canaan no será responsable de ninguna pérdida o daño causado por la confianza en la exactitud o fiabilidad de la información traducida. Si existe una diferencia de contenido entre las traducciones en diferentes idiomas, prevalecerá la versión en chino simplificado. 
+**Descargo de responsabilidad de**traducción  
+Para la comodidad de los clientes, Canaan utiliza un traductor de IA para traducir texto a varios idiomas, que pueden contener errores. No garantizamos la exactitud, fiabilidad o puntualidad de las traducciones proporcionadas. Canaan no será responsable de ninguna pérdida o daño causado por la confianza en la exactitud o fiabilidad de la información traducida. Si existe una diferencia de contenido entre las traducciones en diferentes idiomas, prevalecerá la versión en chino simplificado.
 
 Si desea informar de un error o inexactitud de traducción, no dude en ponerse en contacto con nosotros por correo.

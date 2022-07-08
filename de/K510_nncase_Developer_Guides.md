@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Verzichtserklärung**</font>
 Die Produkte, Dienstleistungen oder Funktionen, die Sie erwerben, unterliegen den kommerziellen Verträgen und Bedingungen von Beijing Canaan Jiesi Information Technology Co., Ltd. ("das Unternehmen", dasselbe im Folgenden), und alle oder ein Teil der in diesem Dokument beschriebenen Produkte, Dienstleistungen oder Funktionen fallen möglicherweise nicht in den Rahmen Ihres Kaufs oder Ihrer Nutzung. Sofern im Vertrag nicht anders vereinbart, lehnt das Unternehmen alle ausdrücklichen oder stillschweigenden Zusicherungen oder Gewährleistungen hinsichtlich der Genauigkeit, Zuverlässigkeit, Vollständigkeit, des Marketings, des spezifischen Zwecks und der Nichtverletzung von Zusicherungen, Informationen oder Inhalten dieses Dokuments ab. Sofern nicht anders vereinbart, wird dieses Dokument nur als Leitfaden für die Verwendung zur Verfügung gestellt.
-Aufgrund von Produktversions-Upgrades oder anderen Gründen kann der Inhalt dieses Dokuments von Zeit zu Zeit ohne vorherige Ankündigung aktualisiert oder geändert werden. 
+Aufgrund von Produktversions-Upgrades oder anderen Gründen kann der Inhalt dieses Dokuments von Zeit zu Zeit ohne vorherige Ankündigung aktualisiert oder geändert werden.
 
 **<font face="黑体"  size=3>Markenhinweise</font>**
 
-"", "Canaan"-Symbol, Canaan und andere Marken von Canaan und andere Marken von Canaan <img src="http://s2.loli.net/2022/03/30/xN21jbhnwSFyGRD.png" style="zoom:33%;" />sind Marken von Beijing Canaan Jiesi Information Technology Co., Ltd. Alle anderen Marken oder eingetragenen Warenzeichen, die in diesem Dokument erwähnt werden können, sind Eigentum ihrer jeweiligen Inhaber. 
+"", "Canaan"-Symbol, Canaan und andere Marken von Canaan und andere Marken von Canaan <img src="http://s2.loli.net/2022/03/30/xN21jbhnwSFyGRD.png" style="zoom:33%;" />sind Marken von Beijing Canaan Jiesi Information Technology Co., Ltd. Alle anderen Marken oder eingetragenen Warenzeichen, die in diesem Dokument erwähnt werden können, sind Eigentum ihrer jeweiligen Inhaber.
 
 **<font face="黑体"  size=3>Copyright ©2022 Peking Canaan Jiesi Information Technology Co., Ltd</font>**
-Dieses Dokument gilt nur für die Entwicklung und das Design der K510-Plattform, ohne die schriftliche Genehmigung des Unternehmens darf keine Einheit oder Einzelperson einen Teil oder den gesamten Inhalt dieses Dokuments in irgendeiner Form verbreiten. 
+Dieses Dokument gilt nur für die Entwicklung und das Design der K510-Plattform, ohne die schriftliche Genehmigung des Unternehmens darf keine Einheit oder Einzelperson einen Teil oder den gesamten Inhalt dieses Dokuments in irgendeiner Form verbreiten.
 
 **<font face="黑体"  size=3>Peking Canaan Jiesi Informationstechnologie Co., Ltd</font>**
 URL: canaan-creative.com
@@ -136,7 +136,7 @@ Von nncase unterstütztes neuronales Netzwerk-Framework
 
 Der nnncase-Software-Stack besteht derzeit aus zwei Teilen: Compiler und Runtime.
 
-**Compiler:** Wird verwendet, um neuronale Netzwerkmodelle auf einem PC zu kompilieren und schließlich eine kmodel-Datei zu generieren. Es umfasst hauptsächlich Importer, IR, Evaluator, Quantize, Transform Optimization, Tiling, Partition, Schedule, Codegen und andere Module. 
+**Compiler:** Wird verwendet, um neuronale Netzwerkmodelle auf einem PC zu kompilieren und schließlich eine kmodel-Datei zu generieren. Es umfasst hauptsächlich Importer, IR, Evaluator, Quantize, Transform Optimization, Tiling, Partition, Schedule, Codegen und andere Module.
 
 - Importer: Importiert Modelle aus anderen neuronalen Netzwerk-Frameworks in nncase
 - IR: Mittlere Darstellung, unterteilt in importimportierte Neutral-IR (geräteunabhängig) und Nutral-IR, die durch Absenken der Konvertierungs-Ziel-IR (geräteabhängig) erzeugt wird
@@ -154,10 +154,10 @@ Der nnncase-Software-Stack besteht derzeit aus zwei Teilen: Compiler und Runtime
 
 Der Compiler-Teil der nncase-Toolchain enthält den nncase- und K510-Compiler, die beide das entsprechende Radpaket installieren müssen.
 
-- Das nncase wheel-Paket wurde[ auf nncase github veröffentlicht und ](https://github.com/kendryte/nncase/releases/tag/v1.6.0)unterstützt Python 3.6 / 3.7 / 3.8 / 3.9 / 3.10, Benutzer können die entsprechende Version zum Herunterladen entsprechend dem Betriebssystem und Python auswählen
+- Das nncase wheel-Paket wurde[auf nncase github veröffentlicht und](https://github.com/kendryte/nncase/releases/tag/v1.6.0)unterstützt Python 3.6 / 3.7 / 3.8 / 3.9 / 3.10, Benutzer können die entsprechende Version zum Herunterladen entsprechend dem Betriebssystem und Python auswählen
 - Das K510-Compiler-Radpaket befindet sich im x86_64-Verzeichnis des nncase-SDK, ist nicht von der Python-Version abhängig und kann direkt installiert werden
 
-Wenn Sie keine Ubuntu-Umgebung haben, können Sie[ nncase docker ](https://github.com/kendryte/nncase/blob/master/docs/build.md#docker)(Ubuntu 20.04 + Python 3.8) verwenden.
+Wenn Sie keine Ubuntu-Umgebung haben, können Sie[nncase docker](https://github.com/kendryte/nncase/blob/master/docs/build.md#docker)(Ubuntu 20.04 + Python 3.8) verwenden.
 
 ```shell
 cd /path/to/nncase_sdk
@@ -174,7 +174,7 @@ pip3 install x86_64/*.whl
 <!-- markdownlint-disable no-emphasis-as-header -->
 # 4 Kompilierungs-/Inferenzmodell
 
-nncase bietet** Python-API**zum Kompilieren/Ableiten von Deep-Learning-Modellen auf einem PC
+nncase bietet**Python-API**zum Kompilieren/Ableiten von Deep-Learning-Modellen auf einem PC
 
 ## 4.1 Unterstützte Betreiber
 
@@ -469,14 +469,14 @@ Jede Eigenschaft wird im Folgenden beschrieben
 | benchmark_only   | Bool   | nicht       | Gibt an, ob kmodel nur für den Benchmark verwendet wird, der standardmäßig auf False festgelegt ist.                   |
 
 > 1. Der Eingabebereich ist der Bereich der Gleitkommazahlen, dh wenn der Eingabedatentyp uint8 ist, ist der Eingabebereich der Bereich nach der Dequantisierung zum Gleitkommawert (kann nicht 0 ~ 1 sein), der frei angegeben werden kann.
-> 2. input_shape müssen gemäß dem input_layout spezifiziert werden[1，224，224，3], z. B. wenn der input_layout NCHW ist, muss der input_shape wie folgt angegeben werden[1,3,224,224]: input_layout NHWC ist, muss das input_shape wie folgt angegeben werden[1,224,224,3]: 
+> 2. input_shape müssen gemäß dem input_layout spezifiziert werden[1，224，224，3], z. B. wenn der input_layout NCHW ist, muss der input_shape wie folgt angegeben werden[1,3,224,224]: input_layout NHWC ist, muss das input_shape wie folgt angegeben werden[1,224,224,3]:
 > 3. Mittelwert und STD sind Parameter zur Normalisierung von Gleitkommazahlen, die der Benutzer frei angeben kann;
 > 4. Wenn Sie die Letterbox-Funktion verwenden, müssen Sie die Eingabegröße auf 1,5 MB begrenzen, und die Größe eines einzelnen Kanals liegt innerhalb von 0,75 MB.
 >
 > Zum Beispiel:
 >
 > 1. Der Eingabedatentyp ist auf uint8 gesetzt, input_range auf gesetzt, die [0,255]Rolle der Dequantisierung besteht nur darin, den Typ zu konvertieren, die Daten von uint8 in float32 zu konvertieren, und die mittleren und std-Parameter können immer noch gemäß den Daten von 0 ~ 255 angegeben werden
-> 2. Der Eingabedatentyp wird auf uint8 gesetzt, input_range [0,1]auf festgelegt, die Festkommazahl wird zu einer Gleitkommazahl im Bereich dequantisiert,[0,1] und Mittelwert und std müssen entsprechend dem neuen Gleitkommazahlenbereich angegeben werden. 
+> 2. Der Eingabedatentyp wird auf uint8 gesetzt, input_range [0,1]auf festgelegt, die Festkommazahl wird zu einer Gleitkommazahl im Bereich dequantisiert,[0,1] und Mittelwert und std müssen entsprechend dem neuen Gleitkommazahlenbereich angegeben werden.
 
 Der Vorverarbeitungsprozess ist wie folgt (die grünen Knoten in der Abbildung sind optional):
 
@@ -874,7 +874,7 @@ python3 scripts/mobilenetv2_tflite_fp32_image.py --target k510 --model models/mo
 
 ### 4.3.2 Kompilieren des float32 onnx-Modells
 
-- Für onnx-Modelle wird empfohlen, die Verwendung von[ ONNX Simplifier ](https://github.com/daquexian/onnx-simplifier)zu vereinfachen, bevor Sie mit nncase kompilieren
+- Für onnx-Modelle wird empfohlen, die Verwendung von[ONNX Simplifier](https://github.com/daquexian/onnx-simplifier)zu vereinfachen, bevor Sie mit nncase kompilieren
 - mobilenetv2_onnx_fp32_image.py Skript lautet wie folgt
 
 ```python
@@ -977,7 +977,7 @@ python3 scripts/mobilenetv2_onnx_fp32_image.py --target k510 --model models/mobi
 
 ### 4.3.3 Kompilieren des float32 Caffe-Modells
 
-- Das Caffe Wheel Paket stammt[  von ](https://github.com/kendryte/caffe/releases)kendryte caffe
+- Das Caffe Wheel Paket stammt[von](https://github.com/kendryte/caffe/releases)kendryte caffe
 - conv2d_caffe_fp32.py Skript lautet wie folgt
 
 ```python
@@ -1037,7 +1037,7 @@ python3 scripts/conv2d_caffe_fp32.py --target k510 --caffemodel models/test.caff
 
 ### 4.3.4 Kompilieren und Hinzufügen des Vorverarbeitungsmodells float32 onnx
 
-- Für onnx-Modelle wird empfohlen, die Verwendung von[ ONNX Simplifier ](https://github.com/daquexian/onnx-simplifier)zu vereinfachen, bevor Sie mit nncase kompilieren
+- Für onnx-Modelle wird empfohlen, die Verwendung von[ONNX Simplifier](https://github.com/daquexian/onnx-simplifier)zu vereinfachen, bevor Sie mit nncase kompilieren
 - Mobilenetv2_onnx_fp32_preprocess.py Skript lautet wie folgt
 
 ```python
@@ -1660,7 +1660,7 @@ sim.run()
 
 ## 4.5 Beispiel eines Inferenzmodells
 
-**Voraussetzung: **mobilenetv2_onnx_fp32_image.py Skript wurde mit dem Modell MobileTV2-7.onnx kompiliert
+**Voraussetzung:**mobilenetv2_onnx_fp32_image.py Skript wurde mit dem Modell MobileTV2-7.onnx kompiliert
 
 mobilenetv2_onnx_simu.py befindet sich im Unterverzeichnis /path/to/nncase_sdk/examples/scripts, das wie folgt lautet:
 
@@ -1746,7 +1746,7 @@ output 0 cosine similarity : 0.9992437958717346
 
 Die nncase-Laufzeit wird verwendet, um kmodel auf AI-Geräten zu laden / Eingabedaten einzustellen / KPU-Berechnungen durchzuführen / Ausgabedaten zu erhalten usw.
 
-Derzeit sind nur** die C++-Version **von APIs, zugehörigen Headerdateien und statischen Bibliotheken im nncase sdk/riscv64-Verzeichnis verfügbar.
+Derzeit sind nur**die C++-Version**von APIs, zugehörigen Headerdateien und statischen Bibliotheken im nncase sdk/riscv64-Verzeichnis verfügbar.
 
 ```bash
 $ tree -L 3 riscv64/
@@ -2691,39 +2691,39 @@ auto output = F::pad(input, paddings, pad_constant, pad_value).unwrap_or_throw()
 
 # 8 Häufig gestellte Fragen
 
-1.安装wheel时报错: "xxx.whl ist kein unterstütztes Rad auf dieser Plattform." **
+1. 安装wheel时报错: "xxx.whl ist kein unterstütztes Rad auf dieser Plattform." **
 
-Q: 安装nncase wheel包, 出现ERROR: nncase-1.0.0.20210830-cp37-cp37m-manylinux_2_24_x86_64.whl ist kein unterstütztes Rad auf dieser Plattform.
+    Q: 安装nncase wheel包, 出现ERROR: nncase-1.0.0.20210830-cp37-cp37m-manylinux_2_24_x86_64.whl ist kein unterstütztes Rad auf dieser Plattform.
 
-A: Upgrade-Pip > = 20,3
+    A: Upgrade-Pip > = 20,3
 
-```shell
-sudo pip3 install --upgrade pip
-```
+    ```shell
+    sudo pip3 install --upgrade pip
+    ```
 
 2. **Wenn das CRB das App-Inferenzprogramm ausführt, meldet es den Fehler "std::bad_alloc"**
 
-F: Führen Sie das App-Inferenzprogramm auf dem CRB aus, und lösen Sie eine Ausnahme "std::bad_alloc" aus.
+    F: Führen Sie das App-Inferenzprogramm auf dem CRB aus, und lösen Sie eine Ausnahme "std::bad_alloc" aus.
 
-```shell
-$ ./cpp.sh
-case ./yolov3_bfloat16 build at Sep 16 2021 18:12:03
-terminate called after throwing an instance of 'std::bad_alloc'
-  what():  std::bad_alloc
-```
+    ```shell
+    $ ./cpp.sh
+    case ./yolov3_bfloat16 build at Sep 16 2021 18:12:03
+    terminate called after throwing an instance of 'std::bad_alloc'
+    what():  std::bad_alloc
+    ```
 
-A: std::bad_alloc Ausnahmen werden in der Regel durch Fehler bei der Speicherzuweisung verursacht, die wie folgt überprüft werden können.
+    A: std::bad_alloc Ausnahmen werden in der Regel durch Fehler bei der Speicherzuweisung verursacht, die wie folgt überprüft werden können.
 
-- Überprüfen Sie, ob das generierte kmodel den derzeit verfügbaren Systemspeicher überschreitet (z. B. yolov3 bfloat16 kmodel-Größe ist 121MB, der derzeit verfügbare Linux-Speicher ist nur 70MB, die Ausnahme wird ausgelöst).  Wenn dies überschreitet, versuchen Sie, die Quantisierung nach dem Training zu verwenden, um die kmodel-Größe zu reduzieren.
-- Überprüfen Sie die App auf Speicherlecks
+    - Überprüfen Sie, ob das generierte kmodel den derzeit verfügbaren Systemspeicher überschreitet (z. B. yolov3 bfloat16 kmodel-Größe ist 121MB, der derzeit verfügbare Linux-Speicher ist nur 70MB, die Ausnahme wird ausgelöst).  Wenn dies überschreitet, versuchen Sie, die Quantisierung nach dem Training zu verwenden, um die kmodel-Größe zu reduzieren.
+    - Überprüfen Sie die App auf Speicherlecks
 
 3. **Beim Ausführen des App-Inferenzprogramms[.. t_runtime_tensor.cpp:310 (erstellen)] data.size_bytes() == size = false (bool).**
 
-F: Simulator führt das App-Inferenzprogramm aus und löst eine Ausnahme "[.. t_runtime_tensor.cpp:310 (erstellen)] data.size_bytes() == size = false (bool)" aus
+    F: Simulator führt das App-Inferenzprogramm aus und löst eine Ausnahme "[.. t_runtime_tensor.cpp:310 (erstellen)] data.size_bytes() == size = false (bool)" aus
 
-A: Überprüfen Sie die Eingabetensorinformationen für die Einstellungen und konzentrieren Sie sich dabei auf die Eingabeform und die Anzahl der von jedem Element belegten Bytes (fp32/uint8)
+    A: Überprüfen Sie die Eingabetensorinformationen für die Einstellungen und konzentrieren Sie sich dabei auf die Eingabeform und die Anzahl der von jedem Element belegten Bytes (fp32/uint8)
 
-**Haftungsausschluss **für Übersetzungen  
-Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend. 
+**Haftungsausschluss**für Übersetzungen  
+Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend.
 
 Wenn Sie einen Übersetzungsfehler oder eine Ungenauigkeit melden möchten, können Sie uns gerne per E-Mail kontaktieren.

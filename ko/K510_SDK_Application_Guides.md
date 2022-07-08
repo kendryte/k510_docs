@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**면책 조항**</font>
 귀하가 구매한 제품, 서비스 또는 기능은 베이징 Jiananges 정보 기술 유한 회사(이하 "회사")의 상업 계약 및 약관의 적용을 받으며, 이 문서에 설명된 제품, 서비스 또는 기능의 전부 또는 일부는 구매 또는 사용의 범위를 벗어납니다. 계약에 달리 합의하지 않는 한, 회사는 본 문서의 진술, 정보, 내용의 정확성, 신뢰성, 완전성, 마케팅, 특정 목적 및 비침략성에 대해 명시적 또는 묵시적으로 어떠한 진술이나 보증도 하지 않습니다. 달리 합의하지 않는 한, 이 문서는 사용 지침의 참조로만 사용됩니다.
-이 문서의 내용은 제품 버전 업그레이드 또는 기타 이유로 인해 예고 없이 수시로 업데이트되거나 수정될 수 있습니다. 
+이 문서의 내용은 제품 버전 업그레이드 또는 기타 이유로 인해 예고 없이 수시로 업데이트되거나 수정될 수 있습니다.
 
 **<font face="黑体"  size=3>상표 고지</font>**
 
-베이징 <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />Jianan Jets 정보 기술 유한 공사의 상표는 Jianan, Jianan 및 Jianan의 다른 상표입니다. 이 문서에 언급될 수 있는 기타 모든 상표 또는 등록 상표는 해당 소유자가 소유합니다. 
+베이징 <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />Jianan Jets 정보 기술 유한 공사의 상표는 Jianan, Jianan 및 Jianan의 다른 상표입니다. 이 문서에 언급될 수 있는 기타 모든 상표 또는 등록 상표는 해당 소유자가 소유합니다.
 
 **<font face="黑体"  size=3>저작권 ©2022 베이징 Jiananjets 정보 기술 유한 회사</font>**
-이 문서는 K510 플랫폼 개발 및 설계에만 적용되며, 어떠한 단위나 개인도 회사의 서면 허가 없이 이 문서의 일부 또는 전부를 어떤 형태로든 배포할 수 없습니다. 
+이 문서는 K510 플랫폼 개발 및 설계에만 적용되며, 어떠한 단위나 개인도 회사의 서면 허가 없이 이 문서의 일부 또는 전부를 어떤 형태로든 배포할 수 없습니다.
 
 **<font face="黑体"  size=3>베이징 Jiananjets 정보 기술 유한 회사</font>**
 웹 사이트: canaan-creative.com
@@ -26,7 +26,7 @@
 <div style="page-break-after:always"></div>
 # 서문
 **<font face="黑体"  size=5>문서의 목적</font>**
-이 문서는 K510 SDK 앱 인스턴스에 대한 설명서입니다. 
+이 문서는 K510 SDK 앱 인스턴스에 대한 설명서입니다.
 
 **<font face="黑体"  size=5>독자 개체입니다</font>**
 
@@ -103,9 +103,9 @@ ai
 └── Config.in
 ```
 
-retinaface_mb_320 소스 코드를 참조하고 `CMakeLists.txt`새 nncase를 추가하는 데모 프로그램을 참조할 수 있습니다. 
+retinaface_mb_320 소스 코드를 참조하고 `CMakeLists.txt`새 nncase를 추가하는 데모 프로그램을 참조할 수 있습니다.
 
-모델 컴파일은 `nncase_demo.mk`여기에 정의된* POST_INSTALL_TARGET_HOOKS *참조하십시오
+모델 컴파일은 `nncase_demo.mk`여기에 정의된*POST_INSTALL_TARGET_HOOKS*참조하십시오
 
 ```text
 NNCASE_DEMO_DEPENDENCIES += mediactl_lib nncase_linux_runtime opencv4 libdrm
@@ -370,7 +370,7 @@ cd /app/watchdog
 
 ![](../zh/images/sdk_application/image-watchdog.png)
 
-**참고**: 현재 k510 워치독 모듈의 작동 클럭 주파수는 757575Hz이며, 초 단위의 시간 제한은 워치독의 실제 작동 클럭 주파수의 시간 제한으로 변환되어야 하며, 계산 공식은 2^n/757575, 따라서 실제 시간 제한 시간은 입력된 시간 초과 시간과 같거나 같을 수 있습니다. 
+**참고**: 현재 k510 워치독 모듈의 작동 클럭 주파수는 757575Hz이며, 초 단위의 시간 제한은 워치독의 실제 작동 클럭 주파수의 시간 제한으로 변환되어야 하며, 계산 공식은 2^n/757575, 따라서 실제 시간 제한 시간은 입력된 시간 초과 시간과 같거나 같을 수 있습니다.
 
 실제 시간 초과는 다음과 같이 계산됩니다.
 
@@ -459,7 +459,7 @@ SD 카드에 대한 1G 데이터 읽기 및 쓰기를 켜려면 패키지 /앱 /
 
 ## 1.10 SHA/AES 데모
 
-SHA/AES demo는 Linux 커널을 사용하여 AF_ALG 유형의 Netlink 인터페이스를 내보내고 사용자 공간에서 커널 암호화 API를 사용합니다. 자세한 내용은 을 참조하십시오<https://www.kernel.org/doc/html/latest/crypto/userspace-if.html>. 
+SHA/AES demo는 Linux 커널을 사용하여 AF_ALG 유형의 Netlink 인터페이스를 내보내고 사용자 공간에서 커널 암호화 API를 사용합니다. 자세한 내용은 을 참조하십시오<https://www.kernel.org/doc/html/latest/crypto/userspace-if.html>.
 
 매개 변수:
 -h 도움말 정보를 인쇄합니다
@@ -600,17 +600,17 @@ WiFi 모듈 드라이버가 로드되면 표준 네트워크 포트 드라이버
 1) 노트북에서 "핫스팟 이동"을 열고 핫스팟의 이름과 암호를 설정합니다
 2) 노트북에서 NetAssist를 시작하고 프로토콜 유형, 로컬 호스트 IP, 로컬 호스트 포트, 수신 설정, 전송 설정 및 전송해야 하는 데이터를 구성합니다.
 
-![](../zh/images/sdk_application/image_wifi_1.png)
+    ![](../zh/images/sdk_application/image_wifi_1.png)
 
 3) 와이파이 테스터의 매개 변수 형식은 다음과 같습니다.
 
-```shell
-./wifi <AP name> <password> <local ip> <server ip>
-```
+    ```shell
+    ./wifi <AP name> <password> <local ip> <server ip>
+    ```
 
-예를 들어/app/Wi-Fi 디렉터리를 입력하고 Wi-Fi 테스터 시작 명령을 입력하면 프로그램 실행 결과는 다음과 같습니다.
+    예를 들어/app/Wi-Fi 디렉터리를 입력하고 Wi-Fi 테스터 시작 명령을 입력하면 프로그램 실행 결과는 다음과 같습니다.
 
-![](../zh/images/sdk_application/image_wifi_2.png)
+    ![](../zh/images/sdk_application/image_wifi_2.png)
 
 ## 1.17 GPIO_KEYS 데모
 
@@ -621,6 +621,6 @@ gpio-keys 루틴은 키 입력을 읽고 이벤트를 보고하고 키 입력, �
 프로그램 실행 결과는 다음 그림과 같습니다.![](../zh/images/sdk_application/image-gpio-keys.png)
 
 **번역 면책 조항**  
-고객의 편의를 위해 Canan은 AI 번역 프로그램을 사용하여 오류를 포함할 수 있는 여러 언어로 텍스트를 번역합니다. 당사는 제공된 번역의 정확성, 신뢰성 또는 적시성을 보장하지 않습니다. Canan은 번역된 정보의 정확성이나 신뢰성에 의존하여 발생하는 손실이나 손해에 대해 책임을 지지 않습니다. 언어 번역 간에 콘텐츠 차이가 있는 경우 중국어 간체 버전이 우선합니다. 
+고객의 편의를 위해 Canan은 AI 번역 프로그램을 사용하여 오류를 포함할 수 있는 여러 언어로 텍스트를 번역합니다. 당사는 제공된 번역의 정확성, 신뢰성 또는 적시성을 보장하지 않습니다. Canan은 번역된 정보의 정확성이나 신뢰성에 의존하여 발생하는 손실이나 손해에 대해 책임을 지지 않습니다. 언어 번역 간에 콘텐츠 차이가 있는 경우 중국어 간체 버전이 우선합니다.
 
 번역 오류 또는 부정확한 문제를 신고하려면 이메일로 문의하시기 바랍니다.

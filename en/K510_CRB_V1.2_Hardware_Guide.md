@@ -15,14 +15,14 @@
 
 <font face="黑体" size=3>**Disclaimer**</font>
 The products, services or features you purchase shall be subject to the commercial contracts and terms of Beijing Canaan Jiesi Information Technology Co., Ltd. ("the Company", the same hereinafter), and all or part of the products, services or features described in this document may not be within the scope of your purchase or use. Except as otherwise agreed in the contract, the Company disclaims all representations or warranties, express or implied, as to the accuracy, reliability, completeness, marketing, specific purpose and non-aggression of any representations, information, or content of this document. Unless otherwise agreed, this document is provided as a guide for use only.
-Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice. 
+Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice.
 
 **<font face="黑体"  size=3>Trademark Notices</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form. 
+This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -31,7 +31,7 @@ Business Enquiries: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # preface
 **<font face="黑体"  size=5>Document purpose</font>**
-This document is a companion document to the K510 sdk and is intended to help engineers understand the compilation and burning of the K510 sdk. 
+This document is a companion document to the K510 sdk and is intended to help engineers understand the compilation and burning of the K510 sdk.
 
 **<font face="黑体"  size=5>Reader Objects</font>**
 
@@ -221,7 +221,7 @@ The main people to whom this document (this guide) applies:
 
 ## 2.5 Schematics
 
-&emsp; &emsp; The reference schematic for the K510 CRB development board should be[ downloaded at release](https://github.com/kendryte/k510_docs/releases). 
+&emsp; &emsp; The reference schematic for the K510 CRB development board should be[downloaded at release](https://github.com/kendryte/k510_docs/releases).
 
 <div style="page-break-after:always"></div>
 
@@ -249,8 +249,8 @@ The main people to whom this document (this guide) applies:
 
 <center> Figure 3-2 Power input connector </center>
 
-**Note: Limit the use of 5V power supply, when using the fast charge adapter, try not to connect other devices such as mobile phones at the same time, so as not to cause the fast charge adapter to incorrectly output a power supply higher than 5V, resulting in damage to the power supply part of the development board. **
-&emsp; &emsp; Use the K2 toggle switch for power-up and power-down operation, as shown in the following figure. 
+**Note: Limit the use of 5V power supply, when using the fast charge adapter, try not to connect other devices such as mobile phones at the same time, so as not to cause the fast charge adapter to incorrectly output a power supply higher than 5V, resulting in damage to the power supply part of the development board.**
+&emsp; &emsp; Use the K2 toggle switch for power-up and power-down operation, as shown in the following figure.
 
 <div align="center">
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-3.jpg" width=50%>
@@ -413,7 +413,7 @@ The main people to whom this document (this guide) applies:
 
 <center>Figure 3-15 HDMI interface</center>
 
- **Note**: Because both the HDMI and 1080P TFT displays use mipi dsi drivers, they can only choose one of the two displays, can not be used at the same time, switch through the control pin GPIO to select one of the outputs. 
+ **Note**: Because both the HDMI and 1080P TFT displays use mipi dsi drivers, they can only choose one of the two displays, can not be used at the same time, switch through the control pin GPIO to select one of the outputs.
 
 <div style="page-break-after:always"></div>
 
@@ -462,7 +462,7 @@ The main people to whom this document (this guide) applies:
 | 29   | 1V8              | 32   | 3V3          |
 | 30   | 1V8              | 31   | 3V3          |
 
-**Note**: Pay attention to the level range of the connected pins when connecting externally to prevent the wrong voltage input from permanently damaging the K510 chip. 
+**Note**: Pay attention to the level range of the connected pins when connecting externally to prevent the wrong voltage input from permanently damaging the K510 chip.
 
 <div style="page-break-after:always"></div>
 
@@ -528,7 +528,7 @@ The main people to whom this document (this guide) applies:
 | 27   | GPIO_3V3_127 | 28   | GPIO_3V3_126 |
 | 29   | GND          | 30   | GND          |
 
-**Note**: Pay attention to the level range of the connected pins when connecting externally to prevent the wrong voltage input from permanently damaging the K510 chip. 
+**Note**: Pay attention to the level range of the connected pins when connecting externally to prevent the wrong voltage input from permanently damaging the K510 chip.
 
 <div style="page-break-after:always"></div>
 
@@ -544,7 +544,7 @@ The main people to whom this document (this guide) applies:
 
 ## 4.2 Firmware burn
 
-&emsp; &emsp; Please refer to[ the K510_SDK_Build_and_Burn_Guide ](./K510_SDK_Build_and_Burn_Guide.md)documentation. 
+&emsp; &emsp; Please refer to[the K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md)documentation.
 
 ## 4.3 Switch on and off
 
@@ -569,6 +569,6 @@ The main people to whom this document (this guide) applies:
 <center>Figure 4-1 Device Manager after driver installation is complete</center>
 
 **Translation Disclaimer**  
-For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail. 
+For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail.
 
 If you would like to report a translation error or inaccuracy, please feel free to contact us by mail.

@@ -26,15 +26,15 @@ Dokumentacja związana z K510 jest następująca:
 
 ## Przewodnik po składkach
 
-Jeśli jesteś zainteresowany tym projektem i chciałbyś uzyskać opinię lub przesłać dokumentację, zapoznaj się z SEKCJĄ[ KONSOLIDACJA](.github/CONTRIBUTING.md)
+Jeśli jesteś zainteresowany tym projektem i chciałbyś uzyskać opinię lub przesłać dokumentację, zapoznaj się z SEKCJĄ[KONSOLIDACJA](.github/CONTRIBUTING.md)
 
 ## Skontaktuj się z nami
 
 Pekin Canaan Jiesi Information Technology Co Ltd  
-Adres internetowy:[ canaan-creative.com](https://canaan-creative.com/)  
-Zapytania biznesowe:[ salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
+Adres internetowy:[canaan-creative.com](https://canaan-creative.com/)  
+Zapytania biznesowe:[salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
 
-**Zrzeczenie się odpowiedzialności za **tłumaczenie  
-Dla wygody klientów Canaan używa tłumacza AI do tłumaczenia tekstu na wiele języków, które mogą zawierać błędy. Nie gwarantujemy dokładności, rzetelności ani terminowości dostarczonych tłumaczeń. Canaan nie ponosi odpowiedzialności za jakiekolwiek straty lub szkody spowodowane poleganiem na dokładności lub wiarygodności przetłumaczonych informacji. W przypadku różnic w treści tłumaczeń w różnych językach, pierwszeństwo ma chińska wersja uproszczona. 
+**Zrzeczenie się odpowiedzialności za**tłumaczenie  
+Dla wygody klientów Canaan używa tłumacza AI do tłumaczenia tekstu na wiele języków, które mogą zawierać błędy. Nie gwarantujemy dokładności, rzetelności ani terminowości dostarczonych tłumaczeń. Canaan nie ponosi odpowiedzialności za jakiekolwiek straty lub szkody spowodowane poleganiem na dokładności lub wiarygodności przetłumaczonych informacji. W przypadku różnic w treści tłumaczeń w różnych językach, pierwszeństwo ma chińska wersja uproszczona.
 
 Jeśli chcesz zgłosić błąd lub niedokładność tłumaczenia, skontaktuj się z nami pocztą.

@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Zrzeczenie się**</font>
 Zakupione produkty, usługi lub funkcje podlegają umowom handlowym i warunkom Beijing Canaan Jiesi Information Technology Co., Ltd. ("Spółka", ta sama poniżej), a wszystkie lub część produktów, usług lub funkcji opisanych w niniejszym dokumencie może nie być objęta zakresem zakupu lub użytkowania. O ile nie uzgodniono inaczej w umowie, Firma zrzeka się wszelkich oświadczeń lub gwarancji, wyraźnych lub dorozumianych, co do dokładności, niezawodności, kompletności, marketingu, konkretnego celu i nieagresji jakichkolwiek oświadczeń, informacji lub treści tego dokumentu. O ile nie uzgodniono inaczej, niniejszy dokument jest dostarczany jako wskazówka wyłącznie do użytku.
-Ze względu na aktualizacje wersji produktu lub z innych powodów zawartość tego dokumentu może być od czasu do czasu aktualizowana lub modyfikowana bez powiadomienia. 
+Ze względu na aktualizacje wersji produktu lub z innych powodów zawartość tego dokumentu może być od czasu do czasu aktualizowana lub modyfikowana bez powiadomienia.
 
 **<font face="黑体"  size=3>Informacje o znakach towarowych</font>**
 
-""<img src="http://s2.loli.net/2022/03/30/xN21jbhnwSFyGRD.png" style="zoom:33%;" />, ikona "Canaan", Canaan i inne znaki towarowe Canaan oraz inne znaki towarowe Canaan są znakami towarowymi Beijing Canaan Jiesi Information Technology Co., Ltd. Wszystkie inne znaki towarowe lub zarejestrowane znaki towarowe, które mogą być wymienione w niniejszym dokumencie, są własnością ich odpowiednich właścicieli. 
+""<img src="http://s2.loli.net/2022/03/30/xN21jbhnwSFyGRD.png" style="zoom:33%;" />, ikona "Canaan", Canaan i inne znaki towarowe Canaan oraz inne znaki towarowe Canaan są znakami towarowymi Beijing Canaan Jiesi Information Technology Co., Ltd. Wszystkie inne znaki towarowe lub zarejestrowane znaki towarowe, które mogą być wymienione w niniejszym dokumencie, są własnością ich odpowiednich właścicieli.
 
 **<font face="黑体"  size=3>Prawa autorskie ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Niniejszy dokument ma zastosowanie wyłącznie do rozwoju i projektowania platformy K510, bez pisemnej zgody firmy, żadna jednostka ani osoba fizyczna nie może rozpowszechniać części lub całości treści tego dokumentu w jakiejkolwiek formie. 
+Niniejszy dokument ma zastosowanie wyłącznie do rozwoju i projektowania platformy K510, bez pisemnej zgody firmy, żadna jednostka ani osoba fizyczna nie może rozpowszechniać części lub całości treści tego dokumentu w jakiejkolwiek formie.
 
 **<font face="黑体"  size=3>Pekin Canaan Jiesi Information Technology Co Ltd</font>**
 Adres internetowy: canaan-creative.com
@@ -136,7 +136,7 @@ Struktura sieci neuronowych obsługiwana przez nncase
 
 Stos oprogramowania nnncase składa się obecnie z dwóch części: kompilatora i środowiska wykonawczego.
 
-**Kompilator:** Służy do kompilowania modeli sieci neuronowych na komputerze i ostatecznie generowania pliku kmodel. Obejmuje głównie importera, IR, Evaluator, Quantize, Transform optimization, Tiling, Partition, Schedule, Codegen i inne moduły. 
+**Kompilator:** Służy do kompilowania modeli sieci neuronowych na komputerze i ostatecznie generowania pliku kmodel. Obejmuje głównie importera, IR, Evaluator, Quantize, Transform optimization, Tiling, Partition, Schedule, Codegen i inne moduły.
 
 - Importer: Importuje modele z innych struktur sieci neuronowych do nncase
 - IR: Środkowa reprezentacja, podzielona na importowaną przez importera neutralną IR (niezależną od urządzenia) i Nutral IR generowaną przez obniżenie konwersji Target IR (zależna od urządzenia)
@@ -154,10 +154,10 @@ Stos oprogramowania nnncase składa się obecnie z dwóch części: kompilatora 
 
 Część kompilatora łańcucha narzędzi nncase zawiera nncase i kompilator K510, z których oba muszą zainstalować odpowiedni pakiet kół.
 
-- Pakiet nncase wheel został[ wydany na github nncase](https://github.com/kendryte/nncase/releases/tag/v1.6.0), obsługując Python 3.6 / 3.7 / 3.8 / 3.9 / 3.10, użytkownicy mogą wybrać odpowiednią wersję do pobrania zgodnie z systemem operacyjnym i Pythonem
+- Pakiet nncase wheel został[wydany na github nncase](https://github.com/kendryte/nncase/releases/tag/v1.6.0), obsługując Python 3.6 / 3.7 / 3.8 / 3.9 / 3.10, użytkownicy mogą wybrać odpowiednią wersję do pobrania zgodnie z systemem operacyjnym i Pythonem
 - Pakiet koła kompilatora K510 znajduje się w katalogu x86_64 zestawu SDK nncase, nie zależy od wersji Pythona i można go zainstalować bezpośrednio
 
-Jeśli nie masz środowiska Ubuntu, możesz użyć[ dockera nncase](https://github.com/kendryte/nncase/blob/master/docs/build.md#docker) (Ubuntu 20.04 + Python 3.8).
+Jeśli nie masz środowiska Ubuntu, możesz użyć[dockera nncase](https://github.com/kendryte/nncase/blob/master/docs/build.md#docker) (Ubuntu 20.04 + Python 3.8).
 
 ```shell
 cd /path/to/nncase_sdk
@@ -174,7 +174,7 @@ pip3 install x86_64/*.whl
 <!-- markdownlint-disable no-emphasis-as-header -->
 # 4 Model kompilacji/wnioskowania
 
-nncase zapewnia** interfejs API języka Python **do kompilowania/wnioskowania modeli głębokiego uczenia na komputerze PC
+nncase zapewnia**interfejs API języka Python**do kompilowania/wnioskowania modeli głębokiego uczenia na komputerze PC
 
 ## 4.1 Obsługiwane podmioty
 
@@ -469,14 +469,14 @@ Każda właściwość jest opisana poniżej
 | benchmark_only   | Bool   | nie       | Określa, czy kmodel jest używany tylko do testu porównawczego, który domyślnie ma wartość False                   |
 
 > 1. Zakres wejściowy to zakres liczb zmiennoprzecinkowych, to znaczy, jeśli typem danych wejściowych jest uint8, to zakres wejściowy jest zakresem po dekwantacji do zmiennoprzecinkowego (nie może być 0 ~ 1), który można dowolnie określić.
-> 2. input_shape muszą być określone zgodnie z input_layout, [1，224，224，3]na przykład, jeśli input_layout jest NCHW, input_shape musi być określony jako[1,3,224,224]; input_layout jest NHWC, input_shape należy określić jako[1,224,224,3]; 
+> 2. input_shape muszą być określone zgodnie z input_layout, [1，224，224，3]na przykład, jeśli input_layout jest NCHW, input_shape musi być określony jako[1,3,224,224]; input_layout jest NHWC, input_shape należy określić jako[1,224,224,3];
 > 3. średnia i std są parametrami normalizującymi liczby zmiennoprzecinkowe, które użytkownik może dowolnie określić;
 > 4. Podczas korzystania z funkcji skrzynki na listy należy ograniczyć rozmiar wejściowy do 1,5 MB, a rozmiar pojedynczego kanału mieści się w granicach 0,75 MB;
 >
 > Na przykład:
 >
 > 1. Typ danych wejściowych jest ustawiony na uint8, input_range ustawiony na[0,255], rolą dekwantyzacji jest tylko konwersja typu, konwersja danych uint8 na float32, a parametry średniej i std można nadal określić zgodnie z danymi 0 ~ 255
-> 2. Typ danych wejściowych jest ustawiony na uint8, input_range ustawiony[0,1] na, liczba stała jest dekwantowana na liczbę [0,1]zmiennoprzecinkową w zakresie, a średnia i std muszą być określone zgodnie z nowym zakresem liczb zmiennoprzecinkowych. 
+> 2. Typ danych wejściowych jest ustawiony na uint8, input_range ustawiony[0,1] na, liczba stała jest dekwantowana na liczbę [0,1]zmiennoprzecinkową w zakresie, a średnia i std muszą być określone zgodnie z nowym zakresem liczb zmiennoprzecinkowych.
 
 Proces wstępnego przetwarzania jest następujący (zielone węzły na rysunku są opcjonalne):
 
@@ -874,7 +874,7 @@ python3 scripts/mobilenetv2_tflite_fp32_image.py --target k510 --model models/mo
 
 ### 4.3.2 Skompiluj model float32 onnx
 
-- W przypadku modeli onnx zaleca się uproszczenie korzystania z[ ONNX Simplifier ](https://github.com/daquexian/onnx-simplifier)przed skompilowaniem z nncase
+- W przypadku modeli onnx zaleca się uproszczenie korzystania z[ONNX Simplifier](https://github.com/daquexian/onnx-simplifier)przed skompilowaniem z nncase
 - mobilenetv2_onnx_fp32_image.py skrypt jest następujący:
 
 ```python
@@ -977,7 +977,7 @@ python3 scripts/mobilenetv2_onnx_fp32_image.py --target k510 --model models/mobi
 
 ### 4.3.3 Skompiluj model caffe float32
 
-- Pakiet kół caffe pochodzi[  z ](https://github.com/kendryte/caffe/releases)kendryte caffe
+- Pakiet kół caffe pochodzi[z](https://github.com/kendryte/caffe/releases)kendryte caffe
 - conv2d_caffe_fp32.py skrypt jest następujący:
 
 ```python
@@ -1037,7 +1037,7 @@ python3 scripts/conv2d_caffe_fp32.py --target k510 --caffemodel models/test.caff
 
 ### 4.3.4 Skompiluj i dodaj wstępny model float32 onnx
 
-- W przypadku modeli onnx zaleca się uproszczenie korzystania z[ ONNX Simplifier ](https://github.com/daquexian/onnx-simplifier)przed skompilowaniem z nncase
+- W przypadku modeli onnx zaleca się uproszczenie korzystania z[ONNX Simplifier](https://github.com/daquexian/onnx-simplifier)przed skompilowaniem z nncase
 - Mobilenetv2_onnx_fp32_preprocess.py skrypt jest następujący:
 
 ```python
@@ -1660,7 +1660,7 @@ sim.run()
 
 ## 4.5 Przykład modelu wnioskowania
 
-**Wymagane umiejętności: **mobilenetv2_onnx_fp32_image.py skrypt został skompilowany z modelem mobiletv2-7.onnx
+**Wymagane umiejętności:**mobilenetv2_onnx_fp32_image.py skrypt został skompilowany z modelem mobiletv2-7.onnx
 
 mobilenetv2_onnx_simu.py znajduje się w podkatalogu /path/to/nncase_sdk/examples/scripts, który brzmi następująco:
 
@@ -1746,7 +1746,7 @@ output 0 cosine similarity : 0.9992437958717346
 
 Środowisko uruchomieniowe nncase służy do ładowania kmodel na urządzeniach AI / ustawiania danych wejściowych / wykonywania obliczeń KPU / uzyskiwania danych wyjściowych itp.
 
-Obecnie tylko** wersja C++ **interfejsów API, powiązane pliki nagłówkowe i biblioteki statyczne są dostępne w katalogu nncase sdk/riscv64
+Obecnie tylko**wersja C++**interfejsów API, powiązane pliki nagłówkowe i biblioteki statyczne są dostępne w katalogu nncase sdk/riscv64
 
 ```bash
 $ tree -L 3 riscv64/
@@ -2691,39 +2691,39 @@ auto output = F::pad(input, paddings, pad_constant, pad_value).unwrap_or_throw()
 
 # 8 FAQ - najczęściej zadawane pytania
 
-1.安装wheel时报错: "xxx.whl nie jest obsługiwanym kołem na tej platformie." **
+1. 安装wheel时报错: "xxx.whl nie jest obsługiwanym kołem na tej platformie." **
 
-P: 安装nncase wheel包, 出现ERROR: nncase-1.0.0.20210830-cp37-cp37m-manylinux_2_24_x86_64.whl nie jest obsługiwanym kołem na tej platformie.
+    P: 安装nncase wheel包, 出现ERROR: nncase-1.0.0.20210830-cp37-cp37m-manylinux_2_24_x86_64.whl nie jest obsługiwanym kołem na tej platformie.
 
-Odp .: > pipsa aktualizacji = 20,3
+    Odp .: > pipsa aktualizacji = 20,3
 
-```shell
-sudo pip3 install --upgrade pip
-```
+    ```shell
+    sudo pip3 install --upgrade pip
+    ```
 
 2. **Gdy CRB uruchamia program do wnioskowania aplikacji, zgłasza błąd "std::bad_alloc"**
 
-P: Uruchom program wnioskowania aplikacji na CRB i zgłoś wyjątek "std::bad_alloc"
+    P: Uruchom program wnioskowania aplikacji na CRB i zgłoś wyjątek "std::bad_alloc"
 
-```shell
-$ ./cpp.sh
-case ./yolov3_bfloat16 build at Sep 16 2021 18:12:03
-terminate called after throwing an instance of 'std::bad_alloc'
-  what():  std::bad_alloc
-```
+    ```shell
+    $ ./cpp.sh
+    case ./yolov3_bfloat16 build at Sep 16 2021 18:12:03
+    terminate called after throwing an instance of 'std::bad_alloc'
+    what():  std::bad_alloc
+    ```
 
-Odp .: std::bad_alloc wyjątki są zwykle spowodowane błędami alokacji pamięci, które można sprawdzić w następujący sposób.
+    Odp .: std::bad_alloc wyjątki są zwykle spowodowane błędami alokacji pamięci, które można sprawdzić w następujący sposób.
 
-- Sprawdź, czy wygenerowany kmodel nie przekracza aktualnej dostępnej pamięci systemu (np. yolov3 bfloat16 kmodel rozmiar to 121MB, obecna dostępna pamięć Linuksa to tylko 70MB, wyjątek zostanie zgłoszony).  Jeśli przekroczy, spróbuj użyć kwantyzacji potreningowej, aby zmniejszyć rozmiar kmodel.
-- Sprawdź aplikację pod kątem wycieków pamięci
+    - Sprawdź, czy wygenerowany kmodel nie przekracza aktualnej dostępnej pamięci systemu (np. yolov3 bfloat16 kmodel rozmiar to 121MB, obecna dostępna pamięć Linuksa to tylko 70MB, wyjątek zostanie zgłoszony).  Jeśli przekroczy, spróbuj użyć kwantyzacji potreningowej, aby zmniejszyć rozmiar kmodel.
+    - Sprawdź aplikację pod kątem wycieków pamięci
 
 3. **Podczas uruchamiania programu do wnioskowania aplikacji[.. t_runtime_tensor.cpp:310 (utwórz)] data.size_bytes() == size = false (bool).**
 
-P: Symulator uruchamia program do wnioskowania aplikacji, rzucając[.. t_runtime_tensor.cpp:310 (utwórz)] wyjątek "data.size_bytes() == size = false (bool)"
+    P: Symulator uruchamia program do wnioskowania aplikacji, rzucając[.. t_runtime_tensor.cpp:310 (utwórz)] wyjątek "data.size_bytes() == size = false (bool)"
 
-Odp .: Sprawdź informacje o tensorze wejściowym dla ustawień, koncentrując się na kształcie wejściowym i liczbie bajtów zajętych przez każdy element (fp32/uint8)
+    Odp .: Sprawdź informacje o tensorze wejściowym dla ustawień, koncentrując się na kształcie wejściowym i liczbie bajtów zajętych przez każdy element (fp32/uint8)
 
-**Zrzeczenie się odpowiedzialności za **tłumaczenie  
-Dla wygody klientów Canaan używa tłumacza AI do tłumaczenia tekstu na wiele języków, które mogą zawierać błędy. Nie gwarantujemy dokładności, rzetelności ani terminowości dostarczonych tłumaczeń. Canaan nie ponosi odpowiedzialności za jakiekolwiek straty lub szkody spowodowane poleganiem na dokładności lub wiarygodności przetłumaczonych informacji. W przypadku różnic w treści tłumaczeń w różnych językach, pierwszeństwo ma chińska wersja uproszczona. 
+**Zrzeczenie się odpowiedzialności za**tłumaczenie  
+Dla wygody klientów Canaan używa tłumacza AI do tłumaczenia tekstu na wiele języków, które mogą zawierać błędy. Nie gwarantujemy dokładności, rzetelności ani terminowości dostarczonych tłumaczeń. Canaan nie ponosi odpowiedzialności za jakiekolwiek straty lub szkody spowodowane poleganiem na dokładności lub wiarygodności przetłumaczonych informacji. W przypadku różnic w treści tłumaczeń w różnych językach, pierwszeństwo ma chińska wersja uproszczona.
 
 Jeśli chcesz zgłosić błąd lub niedokładność tłumaczenia, skontaktuj się z nami pocztą.

@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**免責聲明**</font>
 您購買的產品、服務或特性等應受北京嘉楠捷思資訊技術有限公司（“本公司”，下同）商業合同和條款的約束，本文檔中描述的全部或部分產品、服務或特性可能不在您的購買或使用範圍之內。 除非合同另有約定，本公司不對本文檔的任何陳述、資訊、內容的準確性、可靠性、完整性、行銷型、特定目的性和非侵略性提供任何明示或默示的聲明或保證。 除非另有約定，本文檔僅作為使用指導的參考。
-由於產品版本升級或其他原因，本文檔內容將可能在未經任何通知的情況下，不定期進行更新或修改。 
+由於產品版本升級或其他原因，本文檔內容將可能在未經任何通知的情況下，不定期進行更新或修改。
 
 **<font face="黑体"  size=3>商標聲明</font>**
 
-“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”圖示、嘉楠和嘉楠其他商標均為北京嘉楠捷思資訊技術有限公司的商標。 本文檔可能提及的其他所有商標或註冊商標，由各自的所有人擁有。 
+“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”圖示、嘉楠和嘉楠其他商標均為北京嘉楠捷思資訊技術有限公司的商標。 本文檔可能提及的其他所有商標或註冊商標，由各自的所有人擁有。
 
 **<font face="黑体"  size=3>版權所有©2022北京嘉楠捷思資訊技術有限公司</font>**
-本文檔僅適用K510平台開發設計，非經本公司書面許可，任何單位和個人不得以任何形式對本文檔的部分或全部內容傳播。 
+本文檔僅適用K510平台開發設計，非經本公司書面許可，任何單位和個人不得以任何形式對本文檔的部分或全部內容傳播。
 
 **<font face="黑体"  size=3>北京嘉楠捷思資訊技術有限公司</font>**
 網址：canaan-creative.com
@@ -57,9 +57,9 @@
 
 目前sdk使用的linux版本是4.17.0。 Linux，全稱GNU/Linux，是一種免費使用和自由傳播的類UNIX操作系統，其內核由林納斯·本納第克特·托瓦茲於1991年10月5日首次發佈，它主要受到Minix和Unix思想的啟發，是一個基於POSIX的多使用者、多任務、支援多線程和多CPU的操作系統。 它能運行主要的Unix工具軟體、應用程式和網路協定。 它支援32位和64位硬體。 Linux繼承了Unix以網路為核心的設計思想，是一個性能穩定的多用戶網路操作系統。 Linux有上百種不同的發行版，如基於社區開發的debian、archlinux，和基於商業開發的Red Hat Enterprise Linux、SUSE、Oracle Linux等。
 
-Direct Rendering Manager是[Linux 內核](https://en.wikipedia.org/wiki/Linux_kernel)的一個子系統，負責與現代[視頻卡的](https://en.wikipedia.org/wiki/Video_cards)[GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit)連接。 DRM 公開了一個[API](https://en.wikipedia.org/wiki/Application_programming_interface)，[用戶空間](https://en.wikipedia.org/wiki/User-space)程式可以使用該 API 向 GPU 發送命令和數據，並執行諸如配置顯示器[模式設置等操作。 ](https://en.wikipedia.org/wiki/Mode_setting)DRM 最初是作為[X Server](https://en.wikipedia.org/wiki/X.Org_Server)[Direct Rendering Infrastructure](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)[[1\]](https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1)[的內核空間](https://en.wikipedia.org/wiki/Kernel-space)元件開發的，但從那時起它已被其他圖形堆棧替代方案（如 [Wayland](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)) ）使用。 
+Direct Rendering Manager是[Linux 內核](https://en.wikipedia.org/wiki/Linux_kernel)的一個子系統，負責與現代[視頻卡的](https://en.wikipedia.org/wiki/Video_cards)[GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit)連接。 DRM 公開了一個[API](https://en.wikipedia.org/wiki/Application_programming_interface)，[用戶空間](https://en.wikipedia.org/wiki/User-space)程式可以使用該 API 向 GPU 發送命令和數據，並執行諸如配置顯示器[模式設置等操作。](https://en.wikipedia.org/wiki/Mode_setting)DRM 最初是作為[X Server](https://en.wikipedia.org/wiki/X.Org_Server)[Direct Rendering Infrastructure](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)[[1\]](https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1)[的內核空間](https://en.wikipedia.org/wiki/Kernel-space)元件開發的，但從那時起它已被其他圖形堆棧替代方案（如 [Wayland](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)) ）使用。
 
-用戶空間程式可以使用DRM API命令 GPU 進行[硬體加速](https://en.wikipedia.org/wiki/Hardware_acceleration)[3D渲染](https://en.wikipedia.org/wiki/3D_rendering)和[視頻解碼](https://en.wikipedia.org/wiki/Video_decoding)，以及[GPGPU計算](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units)。 
+用戶空間程式可以使用DRM API命令 GPU 進行[硬體加速](https://en.wikipedia.org/wiki/Hardware_acceleration)[3D渲染](https://en.wikipedia.org/wiki/3D_rendering)和[視頻解碼](https://en.wikipedia.org/wiki/Video_decoding)，以及[GPGPU計算](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units)。
 
 # 2硬體介紹
 
@@ -67,7 +67,7 @@ Direct Rendering Manager是[Linux 內核](https://en.wikipedia.org/wiki/Linux_ke
 
 下載並編譯sdk，sdk編譯的時候會下載並編譯linux代碼。
 
-sdk的下載編譯方法請參考[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md)。 
+sdk的下載編譯方法請參考[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md)。
 
 ## 2.2驅動檔及目錄
 
@@ -994,6 +994,6 @@ static int draw_frame(struct vo_draw_frame *frame)
 ```
 
 **翻譯免責聲明**  
-為方便客戶，Canaan 使用 AI 翻譯程式將文字翻譯為多種語言，它可能包含錯誤。 我們不保證提供的譯文的準確性、可靠性或時效性。 對於因依賴已翻譯信息的準確性或可靠性而造成的任何損失或損害，Canaan 概不負責。 如果不同語言翻譯之間存在內容差異，以簡體中文版本為準。 
+為方便客戶，Canaan 使用 AI 翻譯程式將文字翻譯為多種語言，它可能包含錯誤。 我們不保證提供的譯文的準確性、可靠性或時效性。 對於因依賴已翻譯信息的準確性或可靠性而造成的任何損失或損害，Canaan 概不負責。 如果不同語言翻譯之間存在內容差異，以簡體中文版本為準。
 
 如果您要報告翻譯錯誤或不準確的問題，歡迎通過郵件與我們聯繫。

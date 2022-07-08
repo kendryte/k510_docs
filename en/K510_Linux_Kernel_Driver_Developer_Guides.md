@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disclaimer**</font>
 The products, services or features you purchase shall be subject to the commercial contracts and terms of Beijing Canaan Jiesi Information Technology Co., Ltd. ("the Company", the same hereinafter), and all or part of the products, services or features described in this document may not be within the scope of your purchase or use. Except as otherwise agreed in the contract, the Company disclaims all representations or warranties, express or implied, as to the accuracy, reliability, completeness, marketing, specific purpose and non-aggression of any representations, information, or content of this document. Unless otherwise agreed, this document is provided as a guide for use only.
-Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice. 
+Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice.
 
 **<font face="黑体"  size=3>Trademark Notices</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form. 
+This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -64,7 +64,7 @@ For more information about the Linux kernel, please visit:<https://docs.kernel.o
 
 Download and compile the SDK, the SDK will download and compile the Linux code when compiling.
 
-For more information about how to download and compile the SDK, see[ K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md). 
+For more information about how to download and compile the SDK, see[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md).
 
 ## 1.2 Development Environment Requirements
 
@@ -203,7 +203,7 @@ emac@93030000 {
 ```
 
 Device:`eth0`
-API description: Standard Ethernet port driver, please refer to tcp/ip socket programming; 
+API description: Standard Ethernet port driver, please refer to tcp/ip socket programming;
 
 Ethernet port IP configuration:
 
@@ -507,7 +507,7 @@ arch/riscv/boot/dts/canaan/k510_common/clock_provider.dtsi
 arch/riscv/boot/dts/canaan/k510_common/clock_consumer.dtsi
 ```
 
-- `clock_provider.dtsi`Define all clock nodes in 
+- `clock_provider.dtsi`Define all clock nodes in
 - `clock_consumer.dtsi`References in each driver dts node
 
 ## 4.10 POWER
@@ -542,7 +542,7 @@ sysctl_power@97003000 {
 ```
 
 - `power_provider.dtsi` The dts node of the provideder is defined
-- `include/dt-bindings/soc/canaan,k510_pm_domains.h` All power domains are defined in 
+- `include/dt-bindings/soc/canaan,k510_pm_domains.h` All power domains are defined in
 - `power_consumer.dtsi`The <a0> is referenced in the drivers' respective dts nodes
 
 ## 4.11 RESET
@@ -577,7 +577,7 @@ sysctl_reset@97002000 {
 ```
 
 - `reset_provider.dtsi` The dts node of the provideder is defined
-- `include/ dt-bindings/reset/canaan-k510-reset.h` All reset signals are defined in 
+- `include/ dt-bindings/reset/canaan-k510-reset.h` All reset signals are defined in
 - `reset_consumer.dtsi`The <a0> is referenced in the drivers' respective dts nodes
 
 ## 4.12 PINCTL
@@ -1039,6 +1039,6 @@ twod@92720000 {
 not
 
 **Translation Disclaimer**  
-For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail. 
+For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail.
 
 If you would like to report a translation error or inaccuracy, please feel free to contact us by mail.

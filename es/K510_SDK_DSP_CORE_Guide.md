@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Renuncia**</font>
 Los productos, servicios o características que compre estarán sujetos a los contratos comerciales y términos de Beijing Canaan Jiesi Information Technology Co., Ltd. ("la Compañía", la misma en adelante), y todos o parte de los productos, servicios o características descritos en este documento pueden no estar dentro del alcance de su compra o uso. Salvo que se acuerde lo contrario en el contrato, la Compañía renuncia a todas las representaciones o garantías, expresas o implícitas, en cuanto a la precisión, confiabilidad, integridad, marketing, propósito específico y no agresión de cualquier representación, información o contenido de este documento. A menos que se acuerde lo contrario, este documento se proporciona como una guía para su uso solamente.
-Debido a actualizaciones de la versión del producto u otras razones, el contenido de este documento puede actualizarse o modificarse de vez en cuando sin previo aviso. 
+Debido a actualizaciones de la versión del producto u otras razones, el contenido de este documento puede actualizarse o modificarse de vez en cuando sin previo aviso.
 
 **<font face="黑体"  size=3>Avisos de marcas comerciales</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, el icono de "Canaan", Canaan y otras marcas comerciales de Canaan y otras marcas comerciales de Canaan son marcas comerciales de Beijing Canaan Jiesi Information Technology Co., Ltd. Todas las demás marcas comerciales o marcas registradas que puedan mencionarse en este documento son propiedad de sus respectivos propietarios. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, el icono de "Canaan", Canaan y otras marcas comerciales de Canaan y otras marcas comerciales de Canaan son marcas comerciales de Beijing Canaan Jiesi Information Technology Co., Ltd. Todas las demás marcas comerciales o marcas registradas que puedan mencionarse en este documento son propiedad de sus respectivos propietarios.
 
 **<font face="黑体"  size=3>Derechos de autor ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Este documento solo es aplicable al desarrollo y diseño de la plataforma K510, sin el permiso por escrito de la empresa, ninguna unidad o individuo puede difundir parte o la totalidad del contenido de este documento en ninguna forma. 
+Este documento solo es aplicable al desarrollo y diseño de la plataforma K510, sin el permiso por escrito de la empresa, ninguna unidad o individuo puede difundir parte o la totalidad del contenido de este documento en ninguna forma.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Información Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Consultas comerciales: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # prefacio
 **<font face="黑体"  size=5>Propósito del documento</font>**
-Este documento es una guía para usar el núcleo DSP K510. 
+Este documento es una guía para usar el núcleo DSP K510.
 
 **<font face="黑体"  size=5>Objetos reader</font>**
 
@@ -35,7 +35,7 @@ Las principales personas a las que se aplica este documento (esta guía):
 - Desarrolladores de software
 - Personal de soporte técnico
 
-**<font face="黑体"  size=5>Historial 
+**<font face="黑体"  size=5>Historial
  </font>**de revisiones <font face="宋体"  size=2>El historial de revisiones acumula una descripción de cada actualización del documento. La versión más reciente del documento contiene actualizaciones para todas las versiones anteriores. </font>
 
 | El número de versión   | Modificado por     | Fecha de revisión | Notas de revisión |
@@ -97,7 +97,7 @@ Después de encenderse, el dsp_log se ejecutará en segundo plano de forma prede
 ## 3.1 fft
 
 Se encuentra el programa de demostración fft`/app/dsp_app_new/fft.bin`.
-El código fuente del programa de demostración fft se coloca en`k510_buildroot/package/k510_evb_test/src/test/fft` el directorio. 
+El código fuente del programa de demostración fft se coloca en`k510_buildroot/package/k510_evb_test/src/test/fft` el directorio.
 
 Vaya al directorio /app/dsp_app_new':
 
@@ -132,7 +132,7 @@ cd /app/dsp_app_new
 ./dsp_app simd_umul8_demo.bin
 ```
 
-Puede encontrar instrucciones específicas en [la Documentación del producto - Andes Technology](http://www.andestech.com/en/products-solutions/product-documentation/) para descargar la Especificación de extensión AndeStar V5 DSP ISA .PDF (v1.0, 2019-03-25), consulte la Sección 3.172. 
+Puede encontrar instrucciones específicas en [la Documentación del producto - Andes Technology](http://www.andestech.com/en/products-solutions/product-documentation/) para descargar la Especificación de extensión AndeStar V5 DSP ISA .PDF (v1.0, 2019-03-25), consulte la Sección 3.172.
 
 ## 3.3 API del programador DSP
 
@@ -367,7 +367,7 @@ exit: task0 is disabled
 cpu2dsp_task_demo: exit successful
 ```
 
-**Descargo de responsabilidad de **traducción  
-Para la comodidad de los clientes, Canaan utiliza un traductor de IA para traducir texto a varios idiomas, que pueden contener errores. No garantizamos la exactitud, fiabilidad o puntualidad de las traducciones proporcionadas. Canaan no será responsable de ninguna pérdida o daño causado por la confianza en la exactitud o fiabilidad de la información traducida. Si existe una diferencia de contenido entre las traducciones en diferentes idiomas, prevalecerá la versión en chino simplificado. 
+**Descargo de responsabilidad de**traducción  
+Para la comodidad de los clientes, Canaan utiliza un traductor de IA para traducir texto a varios idiomas, que pueden contener errores. No garantizamos la exactitud, fiabilidad o puntualidad de las traducciones proporcionadas. Canaan no será responsable de ninguna pérdida o daño causado por la confianza en la exactitud o fiabilidad de la información traducida. Si existe una diferencia de contenido entre las traducciones en diferentes idiomas, prevalecerá la versión en chino simplificado.
 
 Si desea informar de un error o inexactitud de traducción, no dude en ponerse en contacto con nosotros por correo.

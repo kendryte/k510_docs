@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Démenti**</font>
 Les produits, services ou fonctionnalités que vous achetez sont soumis aux contrats commerciaux et aux conditions de Beijing Canaan Jiesi Information Technology Co., Ltd. (« la Société », les mêmes ci-après), et tout ou partie des produits, services ou fonctionnalités décrits dans ce document peuvent ne pas être dans le cadre de votre achat ou de votre utilisation. Sauf accord contraire dans le contrat, la Société décline toute représentation ou garantie, expresse ou implicite, quant à l'exactitude, la fiabilité, l'exhaustivité, le marketing, l'objectif spécifique et la non-agression de toute représentation, information ou contenu de ce document. Sauf convention contraire, le présent document est fourni à titre indicatif à titre indicatif d'utilisation seulement.
-En raison de mises à niveau de la version du produit ou d'autres raisons, le contenu de ce document peut être mis à jour ou modifié de temps à autre sans préavis. 
+En raison de mises à niveau de la version du produit ou d'autres raisons, le contenu de ce document peut être mis à jour ou modifié de temps à autre sans préavis.
 
 **<font face="黑体"  size=3>Avis sur les marques de commerce</font>**
 
-«  »<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icône « Canaan », Canaan et d'autres marques de commerce de Canaan et d'autres marques de commerce de Canaan sont des marques de commerce de Beijing Canaan Jiesi Information Technology Co., Ltd. Toutes les autres marques de commerce ou marques déposées qui peuvent être mentionnées dans ce document sont la propriété de leurs propriétaires respectifs. 
+«  »<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icône « Canaan », Canaan et d'autres marques de commerce de Canaan et d'autres marques de commerce de Canaan sont des marques de commerce de Beijing Canaan Jiesi Information Technology Co., Ltd. Toutes les autres marques de commerce ou marques déposées qui peuvent être mentionnées dans ce document sont la propriété de leurs propriétaires respectifs.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Ce document ne s'applique qu'au développement et à la conception de la plate-forme K510, sans l'autorisation écrite de la société, aucune unité ou individu ne peut diffuser une partie ou la totalité du contenu de ce document sous quelque forme que ce soit. 
+Ce document ne s'applique qu'au développement et à la conception de la plate-forme K510, sans l'autorisation écrite de la société, aucune unité ou individu ne peut diffuser une partie ou la totalité du contenu de ce document sous quelque forme que ce soit.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Demandes de renseignements des entreprises : salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # préface
 **<font face="黑体"  size=5>Objet </font>**du document
-Ce document est un guide pour l'utilisation du noyau DSP K510. 
+Ce document est un guide pour l'utilisation du noyau DSP K510.
 
 **<font face="黑体"  size=5>Objets de lecture</font>**
 
@@ -97,7 +97,7 @@ Après la mise sous tension, le dsp_log sera exécuté en arrière-plan par déf
 ## 3,1 fft
 
 Le programme de démonstration fft est localisé`/app/dsp_app_new/fft.bin`.
-Le code source du programme de démonstration fft est placé dans`k510_buildroot/package/k510_evb_test/src/test/fft` le répertoire. 
+Le code source du programme de démonstration fft est placé dans`k510_buildroot/package/k510_evb_test/src/test/fft` le répertoire.
 
 Accédez au répertoire /app/dsp_app_new' :
 
@@ -132,7 +132,7 @@ cd /app/dsp_app_new
 ./dsp_app simd_umul8_demo.bin
 ```
 
-Vous trouverez des instructions spécifiques dans [la documentation produit - Andes Technology](http://www.andestech.com/en/products-solutions/product-documentation/) pour télécharger la spécification andeStar V5 DSP ISA Extension .PDF (v1.0, 2019-03-25), voir Section 3.172. 
+Vous trouverez des instructions spécifiques dans [la documentation produit - Andes Technology](http://www.andestech.com/en/products-solutions/product-documentation/) pour télécharger la spécification andeStar V5 DSP ISA Extension .PDF (v1.0, 2019-03-25), voir Section 3.172.
 
 ## 3.3 API du planificateur DSP
 
@@ -368,6 +368,6 @@ cpu2dsp_task_demo: exit successful
 ```
 
 **Clause de non-responsabilité en matière de**  
-Pour la commodité des clients, Canaan utilise un traducteur IA pour traduire du texte en plusieurs langues, ce qui peut contenir des erreurs. Nous ne garantissons pas l'exactitude, la fiabilité ou l'actualité des traductions fournies. Canaan ne sera pas responsable de toute perte ou dommage causé par la confiance accordée à l'exactitude ou à la fiabilité des informations traduites. S'il existe une différence de contenu entre les traductions dans différentes langues, la version simplifiée en chinois prévaudra. 
+Pour la commodité des clients, Canaan utilise un traducteur IA pour traduire du texte en plusieurs langues, ce qui peut contenir des erreurs. Nous ne garantissons pas l'exactitude, la fiabilité ou l'actualité des traductions fournies. Canaan ne sera pas responsable de toute perte ou dommage causé par la confiance accordée à l'exactitude ou à la fiabilité des informations traduites. S'il existe une différence de contenu entre les traductions dans différentes langues, la version simplifiée en chinois prévaudra.
 
 Si vous souhaitez signaler une erreur de traduction ou une inexactitude, n'hésitez pas à nous contacter par courrier.

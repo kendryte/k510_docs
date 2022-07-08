@@ -15,14 +15,14 @@
 
 <font face="黑体" size=3>**Disconoscimento**</font>
 I prodotti, i servizi o le funzionalità acquistati saranno soggetti ai contratti e ai termini commerciali di Beijing Canaan Jiesi Information Technology Co., Ltd. ("la Società", la stessa di seguito), e tutti o parte dei prodotti, servizi o funzionalità descritti in questo documento potrebbero non rientrare nell'ambito dell'acquisto o dell'utilizzo. Salvo quanto diversamente concordato nel contratto, la Società declina ogni dichiarazione o garanzia, espressa o implicita, in merito all'accuratezza, affidabilità, completezza, marketing, scopo specifico e non aggressione di qualsiasi dichiarazione, informazione o contenuto di questo documento. Salvo diverso accordo, questo documento è fornito solo come guida per l'uso.
-A causa di aggiornamenti della versione del prodotto o altri motivi, il contenuto di questo documento può essere aggiornato o modificato di volta in volta senza alcun preavviso. 
+A causa di aggiornamenti della versione del prodotto o altri motivi, il contenuto di questo documento può essere aggiornato o modificato di volta in volta senza alcun preavviso.
 
 **<font face="黑体"  size=3>Avvisi sui marchi</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icona "Canaan", Canaan e altri marchi di Canaan e altri marchi di Canaan sono marchi di Beijing Canaan Jiesi Information Technology Co., Ltd. Tutti gli altri marchi o marchi registrati che possono essere menzionati in questo documento sono di proprietà dei rispettivi proprietari. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icona "Canaan", Canaan e altri marchi di Canaan e altri marchi di Canaan sono marchi di Beijing Canaan Jiesi Information Technology Co., Ltd. Tutti gli altri marchi o marchi registrati che possono essere menzionati in questo documento sono di proprietà dei rispettivi proprietari.
 
 **<font face="黑体"  size=3>Copyright ©2022 Pechino Canaan Jiesi Information Technology Co., Ltd</font>**
-Questo documento è applicabile solo allo sviluppo e alla progettazione della piattaforma K510, senza il permesso scritto della società, nessuna unità o individuo può diffondere parte o tutto il contenuto di questo documento in qualsiasi forma. 
+Questo documento è applicabile solo allo sviluppo e alla progettazione della piattaforma K510, senza il permesso scritto della società, nessuna unità o individuo può diffondere parte o tutto il contenuto di questo documento in qualsiasi forma.
 
 **<font face="黑体"  size=3>Pechino Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -31,7 +31,7 @@ Richieste commerciali: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # prefazione
 **<font face="黑体"  size=5>Scopo </font>**del documento
-Questo documento è un documento complementare all'sdk K510 e ha lo scopo di aiutare gli ingegneri a comprendere la compilazione e la masterizzazione dell'sdk K510. 
+Questo documento è un documento complementare all'sdk K510 e ha lo scopo di aiutare gli ingegneri a comprendere la compilazione e la masterizzazione dell'sdk K510.
 
 **<font face="黑体"  size=5>Oggetti lettore</font>**
 
@@ -221,7 +221,7 @@ Le principali persone a cui si applica questo documento (questa guida):
 
 ## 2.5 Schemi
 
-&emsp; &emsp; Lo schema di riferimento per la scheda di sviluppo CRB K510 deve essere[ scaricato al momento del rilascio](https://github.com/kendryte/k510_docs/releases). 
+&emsp; &emsp; Lo schema di riferimento per la scheda di sviluppo CRB K510 deve essere[scaricato al momento del rilascio](https://github.com/kendryte/k510_docs/releases).
 
 <div style="page-break-after:always"></div>
 
@@ -249,8 +249,8 @@ Le principali persone a cui si applica questo documento (questa guida):
 
 <center> Figura 3-2 Connettore di alimentazione </center>
 
-**Nota: Limitare l'uso dell'alimentatore a 5 V, quando si utilizza l'adattatore di ricarica rapida, provare a non collegare contemporaneamente altri dispositivi come i telefoni cellulari, in modo da non causare l'uscita errata dell'adattatore di ricarica rapida da un alimentatore superiore a 5 V, con conseguente danno alla parte di alimentazione della scheda di sviluppo. **
-&emsp; &emsp; Utilizzate l'interruttore a levetta K2 per il funzionamento di accensione e spegnimento, come illustrato nella figura riportata di seguito. 
+**Nota: Limitare l'uso dell'alimentatore a 5 V, quando si utilizza l'adattatore di ricarica rapida, provare a non collegare contemporaneamente altri dispositivi come i telefoni cellulari, in modo da non causare l'uscita errata dell'adattatore di ricarica rapida da un alimentatore superiore a 5 V, con conseguente danno alla parte di alimentazione della scheda di sviluppo.**
+&emsp; &emsp; Utilizzate l'interruttore a levetta K2 per il funzionamento di accensione e spegnimento, come illustrato nella figura riportata di seguito.
 
 <div align="center">
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-3.jpg" width=50%>
@@ -413,7 +413,7 @@ Le principali persone a cui si applica questo documento (questa guida):
 
 <center>Figura 3-15 Interfaccia HDMI</center>
 
- **Nota**: Poiché entrambi i display HDMI e 1080P TFT utilizzano driver mipi dsi, possono scegliere solo uno dei due display, non possono essere utilizzati contemporaneamente, passare attraverso il pin di controllo GPIO per selezionare una delle uscite. 
+ **Nota**: Poiché entrambi i display HDMI e 1080P TFT utilizzano driver mipi dsi, possono scegliere solo uno dei due display, non possono essere utilizzati contemporaneamente, passare attraverso il pin di controllo GPIO per selezionare una delle uscite.
 
 <div style="page-break-after:always"></div>
 
@@ -462,7 +462,7 @@ Le principali persone a cui si applica questo documento (questa guida):
 | 29   | 1V8 ·              | 32   | 3V3 ·          |
 | 30   | 1V8 ·              | 31   | 3V3 ·          |
 
-**Nota**: Prestare attenzione all'intervallo di livello dei pin collegati quando si collegano esternamente per evitare che l'ingresso di tensione errato danneggi in modo permanente il chip K510. 
+**Nota**: Prestare attenzione all'intervallo di livello dei pin collegati quando si collegano esternamente per evitare che l'ingresso di tensione errato danneggi in modo permanente il chip K510.
 
 <div style="page-break-after:always"></div>
 
@@ -528,7 +528,7 @@ Le principali persone a cui si applica questo documento (questa guida):
 | 27   | GPIO_3V3_127 | 28   | GPIO_3V3_126 |
 | 29   | GND          | 30   | GND          |
 
-**Nota**: Prestare attenzione all'intervallo di livello dei pin collegati quando si collegano esternamente per evitare che l'ingresso di tensione errato danneggi in modo permanente il chip K510. 
+**Nota**: Prestare attenzione all'intervallo di livello dei pin collegati quando si collegano esternamente per evitare che l'ingresso di tensione errato danneggi in modo permanente il chip K510.
 
 <div style="page-break-after:always"></div>
 
@@ -544,7 +544,7 @@ Le principali persone a cui si applica questo documento (questa guida):
 
 ## 4.2 Masterizzazione firmware
 
-&emsp; &emsp; Fare riferimento alla[  ](./K510_SDK_Build_and_Burn_Guide.md)documentazione K510_SDK_Build_and_Burn_Guide. 
+&emsp; &emsp; Fare riferimento alla[](./K510_SDK_Build_and_Burn_Guide.md)documentazione K510_SDK_Build_and_Burn_Guide.
 
 ## 4.3 Accensione e spegnimento
 
@@ -569,6 +569,6 @@ Le principali persone a cui si applica questo documento (questa guida):
 <center>Figura 4-1 Gestione periferiche al termine dell'installazione del driver</center>
 
 **Traduzione Disclaimer**  
-Per la comodità dei clienti, Canaan utilizza un traduttore AI per tradurre il testo in più lingue, che possono contenere errori. Non garantiamo l'accuratezza, l'affidabilità o la tempestività delle traduzioni fornite. Canaan non sarà responsabile per eventuali perdite o danni causati dall'affidamento sull'accuratezza o sull'affidabilità delle informazioni tradotte. Se c'è una differenza di contenuto tra le traduzioni in lingue diverse, prevarrà la versione cinese semplificata. 
+Per la comodità dei clienti, Canaan utilizza un traduttore AI per tradurre il testo in più lingue, che possono contenere errori. Non garantiamo l'accuratezza, l'affidabilità o la tempestività delle traduzioni fornite. Canaan non sarà responsabile per eventuali perdite o danni causati dall'affidamento sull'accuratezza o sull'affidabilità delle informazioni tradotte. Se c'è una differenza di contenuto tra le traduzioni in lingue diverse, prevarrà la versione cinese semplificata.
 
 Se desideri segnalare un errore di traduzione o un'inesattezza, non esitare a contattarci via mail.

@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disclaimer**</font>
 The products, services or features you purchase shall be subject to the commercial contracts and terms of Beijing Canaan Jiesi Information Technology Co., Ltd. ("the Company", the same hereinafter), and all or part of the products, services or features described in this document may not be within the scope of your purchase or use. Except as otherwise agreed in the contract, the Company disclaims all representations or warranties, express or implied, as to the accuracy, reliability, completeness, marketing, specific purpose and non-aggression of any representations, information, or content of this document. Unless otherwise agreed, this document is provided as a guide for use only.
-Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice. 
+Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice.
 
 **<font face="黑体"  size=3>Trademark Notices</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form. 
+This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -57,9 +57,9 @@ The main people to whom this document (this guide) applies:
 
 The linux version currently used by sdk is 4.17.0. Linux, full name GNU/Linux, is a free-to-use and freely disseminated UNIX-like operating system with a kernel first released by Linus Bennadict Torvaz on October 5, 1991, it is mainly inspired by the ideas of Minix and Unix, and is a multi-user, multi-tasking, multi-threaded and multi-CPU-based operating system based on POSIX. It runs major Unix tool software, applications, and network protocols. It supports both 32-bit and 64-bit hardware. Linux inherits Unix's network-centric design philosophy and is a stable multi-user network operating system. Linux has hundreds of different distributions, such as community-based debian, archlinux, and commercially developed Red Hat Enterprise Linux, SUSE, Oracle Linux, etc.
 
-Direct Rendering Manager is a subsystem of the [Linux kernel ](https://en.wikipedia.org/wiki/Linux_kernel)that is responsible for[ GPU connection to modern ](https://en.wikipedia.org/wiki/Video_cards)[video cards](https://en.wikipedia.org/wiki/Graphics_processing_unit). The DRM exposes an[ API ](https://en.wikipedia.org/wiki/Application_programming_interface)that [user-space ](https://en.wikipedia.org/wiki/User-space)programs can use to send commands and data to the GPU and perform actions such as configuring display[ mode settings. ](https://en.wikipedia.org/wiki/Mode_setting)DRM was originally developed as a[ kernel-space component of](https://en.wikipedia.org/wiki/X.Org_Server)[ the X Server](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)Direct Rendering Infrastructure[[](https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1)[1]](https://en.wikipedia.org/wiki/Kernel-space), but since then it has been replaced by other graphics stack alternatives such as[ Wayland](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol))) uses. 
+Direct Rendering Manager is a subsystem of the [Linux kernel](https://en.wikipedia.org/wiki/Linux_kernel)that is responsible for[GPU connection to modern](https://en.wikipedia.org/wiki/Video_cards)[video cards](https://en.wikipedia.org/wiki/Graphics_processing_unit). The DRM exposes an[API](https://en.wikipedia.org/wiki/Application_programming_interface)that [user-space](https://en.wikipedia.org/wiki/User-space)programs can use to send commands and data to the GPU and perform actions such as configuring display[mode settings.](https://en.wikipedia.org/wiki/Mode_setting)DRM was originally developed as a[kernel-space component of](https://en.wikipedia.org/wiki/X.Org_Server)[the X Server](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)Direct Rendering Infrastructure[[][https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1](1)](<https://en.wikipedia.org/wiki/Kernel-space>), but since then it has been replaced by other graphics stack alternatives such as[Wayland](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol))) uses.
 
-User-space programs can use the DRM API to command the GPU for[ hardware-accelerated](https://en.wikipedia.org/wiki/Hardware_acceleration) [3D rendering](https://en.wikipedia.org/wiki/3D_rendering) and [video decoding](https://en.wikipedia.org/wiki/Video_decoding), as well as [GPGPU computation](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units). 
+User-space programs can use the DRM API to command the GPU for[hardware-accelerated](https://en.wikipedia.org/wiki/Hardware_acceleration) [3D rendering](https://en.wikipedia.org/wiki/3D_rendering) and [video decoding](https://en.wikipedia.org/wiki/Video_decoding), as well as [GPGPU computation](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units).
 
 # 2 Hardware introduction
 
@@ -67,7 +67,7 @@ User-space programs can use the DRM API to command the GPU for[ hardware-acceler
 
 Download and compile the SDK, the SDK will download and compile the Linux code when compiling.
 
-For more information about how to download and compile the SDK, see[ K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md). 
+For more information about how to download and compile the SDK, see[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md).
 
 ## 2.2 Driver files and directories
 
@@ -996,6 +996,6 @@ static int draw_frame(struct vo_draw_frame *frame)
 ```
 
 **Translation Disclaimer**  
-For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail. 
+For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail.
 
 If you would like to report a translation error or inaccuracy, please feel free to contact us by mail.

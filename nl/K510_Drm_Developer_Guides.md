@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disclaimer**</font>
 De producten, diensten of functies die u koopt, zijn onderworpen aan de commerciële contracten en voorwaarden van Beijing Canaan Jiesi Information Technology Co., Ltd. ("het Bedrijf", hierna hetzelfde), en alle of een deel van de producten, diensten of functies die in dit document worden beschreven, vallen mogelijk niet binnen het bereik van uw aankoop of gebruik. Tenzij anders overeengekomen in het contract, wijst het bedrijf alle verklaringen of garanties af, expliciet of impliciet, met betrekking tot de nauwkeurigheid, betrouwbaarheid, volledigheid, marketing, specifiek doel en niet-agressie van verklaringen, informatie of inhoud van dit document. Tenzij anders overeengekomen, wordt dit document uitsluitend verstrekt als leidraad voor gebruik.
-Vanwege upgrades van de productversie of andere redenen kan de inhoud van dit document van tijd tot tijd zonder enige kennisgeving worden bijgewerkt of gewijzigd. 
+Vanwege upgrades van de productversie of andere redenen kan de inhoud van dit document van tijd tot tijd zonder enige kennisgeving worden bijgewerkt of gewijzigd.
 
 **<font face="黑体"  size=3>Handelsmerkkennisgevingen</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icoon, Kanaän en andere handelsmerken van Kanaän en andere handelsmerken van Kanaän zijn handelsmerken van Beijing Canaan Jiesi Information Technology Co., Ltd. Alle andere handelsmerken of geregistreerde handelsmerken die in dit document kunnen worden genoemd, zijn eigendom van hun respectieve eigenaars. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icoon, Kanaän en andere handelsmerken van Kanaän en andere handelsmerken van Kanaän zijn handelsmerken van Beijing Canaan Jiesi Information Technology Co., Ltd. Alle andere handelsmerken of geregistreerde handelsmerken die in dit document kunnen worden genoemd, zijn eigendom van hun respectieve eigenaars.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co, Ltd</font>**
-Dit document is alleen van toepassing op de ontwikkeling en het ontwerp van het K510-platform, zonder de schriftelijke toestemming van het bedrijf mag geen enkele eenheid of persoon een deel of de inhoud van dit document in welke vorm dan ook verspreiden. 
+Dit document is alleen van toepassing op de ontwikkeling en het ontwerp van het K510-platform, zonder de schriftelijke toestemming van het bedrijf mag geen enkele eenheid of persoon een deel of de inhoud van dit document in welke vorm dan ook verspreiden.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co, Ltd</font>**
 URL: canaan-creative.com
@@ -57,9 +57,9 @@ De belangrijkste personen op wie dit document (deze gids) van toepassing is:
 
 De Linux-versie die momenteel door sdk wordt gebruikt, is 4.17.0. Linux, volledige naam GNU/Linux, is een vrij te gebruiken en vrij verspreid UNIX-achtig besturingssysteem met een kernel die voor het eerst werd uitgebracht door Linus Bennadict Torvaz op 5 oktober 1991, het is voornamelijk geïnspireerd door de ideeën van Minix en Unix, en is een multi-user, multi-tasking, multi-threaded en multi-CPU-gebaseerd besturingssysteem gebaseerd op POSIX. Het draait belangrijke Unix-toolsoftware, applicaties en netwerkprotocollen. Het ondersteunt zowel 32-bits als 64-bits hardware. Linux erft Unix's netwerkgerichte ontwerpfilosofie en is een stabiel multi-user netwerkbesturingssysteem. Linux heeft honderden verschillende distributies, zoals community-based debian, archlinux en commercieel ontwikkelde Red Hat Enterprise Linux, SUSE, Oracle Linux, enz.
 
-Direct Rendering Manager is een subsysteem van de [Linux-kernel ](https://en.wikipedia.org/wiki/Linux_kernel)dat verantwoordelijk is voor[ gpu-verbinding](https://en.wikipedia.org/wiki/Video_cards)[ met moderne videokaarten](https://en.wikipedia.org/wiki/Graphics_processing_unit). De DRM stelt een[ API bloot ](https://en.wikipedia.org/wiki/Application_programming_interface)die [gebruikersruimteprogramma](https://en.wikipedia.org/wiki/User-space)'s kunnen gebruiken om opdrachten en gegevens naar de GPU te verzenden en acties uit te voeren, zoals het configureren van instellingen voor de[ weergavemodus. ](https://en.wikipedia.org/wiki/Mode_setting)DRM werd oorspronkelijk ontwikkeld als een[ kernel-space component van](https://en.wikipedia.org/wiki/X.Org_Server)[ de X Server](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)Direct Rendering Infrastructure[[](https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1)[1]](https://en.wikipedia.org/wiki/Kernel-space), maar sindsdien is het vervangen door andere grafische stack alternatieven zoals[ Wayland](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol))) gebruikt. 
+Direct Rendering Manager is een subsysteem van de [Linux-kernel](https://en.wikipedia.org/wiki/Linux_kernel)dat verantwoordelijk is voor[gpu-verbinding](https://en.wikipedia.org/wiki/Video_cards)[met moderne videokaarten](https://en.wikipedia.org/wiki/Graphics_processing_unit). De DRM stelt een[API bloot](https://en.wikipedia.org/wiki/Application_programming_interface)die [gebruikersruimteprogramma](https://en.wikipedia.org/wiki/User-space)'s kunnen gebruiken om opdrachten en gegevens naar de GPU te verzenden en acties uit te voeren, zoals het configureren van instellingen voor de[weergavemodus.](https://en.wikipedia.org/wiki/Mode_setting)DRM werd oorspronkelijk ontwikkeld als een[kernel-space component van](https://en.wikipedia.org/wiki/X.Org_Server)[de X Server](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)Direct Rendering Infrastructure[[][https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1](1)](<https://en.wikipedia.org/wiki/Kernel-space>), maar sindsdien is het vervangen door andere grafische stack alternatieven zoals[Wayland](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol))) gebruikt.
 
-Gebruikersruimteprogramma's kunnen de DRM API gebruiken om de GPU te besturen voor[ hardware-versnelde](https://en.wikipedia.org/wiki/Hardware_acceleration) [3D-rendering](https://en.wikipedia.org/wiki/3D_rendering) en [videodecodering](https://en.wikipedia.org/wiki/Video_decoding), evenals [GPGPU-berekening](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units). 
+Gebruikersruimteprogramma's kunnen de DRM API gebruiken om de GPU te besturen voor[hardware-versnelde](https://en.wikipedia.org/wiki/Hardware_acceleration) [3D-rendering](https://en.wikipedia.org/wiki/3D_rendering) en [videodecodering](https://en.wikipedia.org/wiki/Video_decoding), evenals [GPGPU-berekening](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units).
 
 # 2 Hardware introductie
 
@@ -67,7 +67,7 @@ Gebruikersruimteprogramma's kunnen de DRM API gebruiken om de GPU te besturen vo
 
 Download en compileer de SDK, de SDK zal de Linux-code downloaden en compileren tijdens het compileren.
 
-Zie K510_SDK_Build_and_Burn_Guide voor meer informatie over het downloaden en compileren[ van de SDK](./K510_SDK_Build_and_Burn_Guide.md). 
+Zie K510_SDK_Build_and_Burn_Guide voor meer informatie over het downloaden en compileren[van de SDK](./K510_SDK_Build_and_Burn_Guide.md).
 
 ## 2.2 Stuurprogrammabestanden en mappen
 
@@ -994,6 +994,6 @@ static int draw_frame(struct vo_draw_frame *frame)
 ```
 
 **Vertaling Disclaimer**  
-Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie. 
+Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie.
 
 Als u een vertaalfout of onnauwkeurigheid wilt melden, neem dan gerust contact met ons op via e-mail.

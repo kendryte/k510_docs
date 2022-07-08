@@ -26,15 +26,15 @@ K510 gerelateerde documentatie is als volgt:
 
 ## Bijdrage gids
 
-Als u geïnteresseerd bent in dit project en feedback wilt of documentatie wilt indienen, raadpleegt u[ CONSOLIDEREN](.github/CONTRIBUTING.md)
+Als u geïnteresseerd bent in dit project en feedback wilt of documentatie wilt indienen, raadpleegt u[CONSOLIDEREN](.github/CONTRIBUTING.md)
 
 ## Neem contact met ons op
 
 Beijing Canaan Jiesi Information Technology Co, Ltd  
-URL:[ canaan-creative.com](https://canaan-creative.com/)  
-Zakelijke vragen:[ salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
+URL:[canaan-creative.com](https://canaan-creative.com/)  
+Zakelijke vragen:[salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
 
 **Vertaling Disclaimer**  
-Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie. 
+Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie.
 
 Als u een vertaalfout of onnauwkeurigheid wilt melden, neem dan gerust contact met ons op via e-mail.

@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**免責聲明**</font>
 您購買的產品、服務或特性等應受北京嘉楠捷思資訊技術有限公司（“本公司”，下同）商業合同和條款的約束，本文檔中描述的全部或部分產品、服務或特性可能不在您的購買或使用範圍之內。 除非合同另有約定，本公司不對本文檔的任何陳述、資訊、內容的準確性、可靠性、完整性、行銷型、特定目的性和非侵略性提供任何明示或默示的聲明或保證。 除非另有約定，本文檔僅作為使用指導的參考。
-由於產品版本升級或其他原因，本文檔內容將可能在未經任何通知的情況下，不定期進行更新或修改。 
+由於產品版本升級或其他原因，本文檔內容將可能在未經任何通知的情況下，不定期進行更新或修改。
 
 **<font face="黑体"  size=3>商標聲明</font>**
 
-“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”圖示、嘉楠和嘉楠其他商標均為北京嘉楠捷思資訊技術有限公司的商標。 本文檔可能提及的其他所有商標或註冊商標，由各自的所有人擁有。 
+“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”圖示、嘉楠和嘉楠其他商標均為北京嘉楠捷思資訊技術有限公司的商標。 本文檔可能提及的其他所有商標或註冊商標，由各自的所有人擁有。
 
 **<font face="黑体"  size=3>版權所有©2022北京嘉楠捷思資訊技術有限公司</font>**
-本文檔僅適用K510平台開發設計，非經本公司書面許可，任何單位和個人不得以任何形式對本文檔的部分或全部內容傳播。 
+本文檔僅適用K510平台開發設計，非經本公司書面許可，任何單位和個人不得以任何形式對本文檔的部分或全部內容傳播。
 
 **<font face="黑体"  size=3>北京嘉楠捷思資訊技術有限公司</font>**
 網址：canaan-creative.com
@@ -26,7 +26,7 @@
 <div style="page-break-after:always"></div>
 # 前言
 **<font face="黑体"  size=5>文件目的</font>**
-本文檔為K510 sdk的配套文檔，旨在幫助工程師瞭解 k510 sdk的編譯和燒錄。 
+本文檔為K510 sdk的配套文檔，旨在幫助工程師瞭解 k510 sdk的編譯和燒錄。
 
 **<font face="黑体"  size=5>讀者物件</font>**
 
@@ -116,7 +116,7 @@ MX2_REL_0106-02e87077-20220428-153936CST-xxxx-server
 ####################################################################
 ```
 
-**注： k510 sdk版本不同，上面的資訊可能不同**。 
+**注： k510 sdk版本不同，上面的資訊可能不同**。
 
 # 3 docker 編譯環境
 
@@ -143,7 +143,7 @@ make dl
 
 ## 4.2編譯
 
-k510_buildroot/config 目錄下有三個開發板的編譯配置檔，分別是`k510_crb_lp3_v0_1_defconfig` 、`k510_crb_lp3_v1_2_defconfig`和`k510_evb_lp3_v1_1_defconfig`， **本文檔以選擇 k510_crb_lp3_v1_2_defconfig 作為編譯目標來說明**。 
+k510_buildroot/config 目錄下有三個開發板的編譯配置檔，分別是`k510_crb_lp3_v0_1_defconfig` 、`k510_crb_lp3_v1_2_defconfig`和`k510_evb_lp3_v1_1_defconfig`， **本文檔以選擇 k510_crb_lp3_v1_2_defconfig 作為編譯目標來說明**。
 
 在k510 docker環境下輸入如下命令啟動編譯：
 
@@ -157,7 +157,7 @@ make CONF=k510_crb_lp3_v1_2_defconfig
 
 ![](../zh/images/sdk_build/image-uboot_r.png)
 
-在編譯完成後，會生成`k510_crb_lp3_v1_2_defconfig`資料夾。 
+在編譯完成後，會生成`k510_crb_lp3_v1_2_defconfig`資料夾。
 
 ![圖片-20220311121912711](../zh/images/sdk_build/image-makeout.png)
 
@@ -354,7 +354,7 @@ make riscv-pk-k510
 
 ![](../zh/images/sdk_build/image-riscv.png)
 
-編譯完成，會在`k510_crb_lp3_v1_2_defconfig/images`目錄下生成新的`bootm-bbl.img`。 
+編譯完成，會在`k510_crb_lp3_v1_2_defconfig/images`目錄下生成新的`bootm-bbl.img`。
 
 最後在k510_crb_lp3_v1_2_defconfig目錄下輸入make，用新的bootm-bbl.img打包生成emmc和sd卡鏡像檔。
 
@@ -416,7 +416,7 @@ echo "${BINARIES_DIR}/all.dts"
 
 ## 4.7 編譯 app
 
-用戶可參考 `package/hello_world` 中 Config.in 和makefile檔寫法，構建自己的應用程式，使用者應用程式放置到 k510_buildroot/package 目錄下。 
+用戶可參考 `package/hello_world` 中 Config.in 和makefile檔寫法，構建自己的應用程式，使用者應用程式放置到 k510_buildroot/package 目錄下。
 
 這裡以將 hello_world 工程放置到 k510_buildroot/package 為例，來說明編譯應用程式的過程。
 
@@ -582,7 +582,7 @@ ls -l /dev/sd*
 
 ![](../zh/images/sdk_build/image-dev_sd.png)
 
-/dev/sdc 就是 sd卡設備節點。 **注意： 用戶環境下生成的 sd卡設備節點可能不是 /dev/sdc，後續操作需要根據實際節點做相應修改。 **
+/dev/sdc 就是 sd卡設備節點。 **注意： 用戶環境下生成的 sd卡設備節點可能不是 /dev/sdc，後續操作需要根據實際節點做相應修改。**
 
 在宿主機下進入k510_buildroot/k510_crb_lp3_v1_2_defconfig/image目錄，輸入dd命令將sysimage-sdcard.img燒錄到sdcard：
 
@@ -596,7 +596,7 @@ sudo dd if=sysimage-sdcard.img of=/dev/sdc bs=1M oflag=sync
 
 ### 6.1.2 Windows下燒錄
 
-Windows下可通過balenaEtcher工具對sd卡進行燒錄（balenaEtcher工具下載位址<https://www.balena.io/etcher/>）。 
+Windows下可通過balenaEtcher工具對sd卡進行燒錄（balenaEtcher工具下載位址<https://www.balena.io/etcher/>）。
 
 1）將TF卡插入PC，然後啟動balenaEtcher工具，點擊工具介面的“Flash from file”按鈕，選擇待燒寫的固件，如下圖。
 
@@ -657,7 +657,7 @@ dd if=sysimage-emmc.img of=/dev/mmcblk0 bs=1M
 
 # 7 使用者設定編譯環境 <a id="env_set"> </a>
 
-若使用者不使用上述的docker環境，可在ubuntu18.04/20.04參考如下命令配置自己的開發環境，如果沒有許可權請使用`sudo`。 
+若使用者不使用上述的docker環境，可在ubuntu18.04/20.04參考如下命令配置自己的開發環境，如果沒有許可權請使用`sudo`。
 
 ```shell
 apt-get update
@@ -696,6 +696,6 @@ pip3 install pycryptodome
 ```
 
 **翻譯免責聲明**  
-為方便客戶，Canaan 使用 AI 翻譯程式將文字翻譯為多種語言，它可能包含錯誤。 我們不保證提供的譯文的準確性、可靠性或時效性。 對於因依賴已翻譯信息的準確性或可靠性而造成的任何損失或損害，Canaan 概不負責。 如果不同語言翻譯之間存在內容差異，以簡體中文版本為準。 
+為方便客戶，Canaan 使用 AI 翻譯程式將文字翻譯為多種語言，它可能包含錯誤。 我們不保證提供的譯文的準確性、可靠性或時效性。 對於因依賴已翻譯信息的準確性或可靠性而造成的任何損失或損害，Canaan 概不負責。 如果不同語言翻譯之間存在內容差異，以簡體中文版本為準。
 
 如果您要報告翻譯錯誤或不準確的問題，歡迎通過郵件與我們聯繫。

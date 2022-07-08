@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disclaimer**</font>
 De producten, diensten of functies die u koopt, zijn onderworpen aan de commerciële contracten en voorwaarden van Beijing Canaan Jiesi Information Technology Co., Ltd. ("het Bedrijf", hierna hetzelfde), en alle of een deel van de producten, diensten of functies die in dit document worden beschreven, vallen mogelijk niet binnen het bereik van uw aankoop of gebruik. Tenzij anders overeengekomen in het contract, wijst het bedrijf alle verklaringen of garanties af, expliciet of impliciet, met betrekking tot de nauwkeurigheid, betrouwbaarheid, volledigheid, marketing, specifiek doel en niet-agressie van verklaringen, informatie of inhoud van dit document. Tenzij anders overeengekomen, wordt dit document uitsluitend verstrekt als leidraad voor de redenering.
-Vanwege upgrades van de productversie of andere redenen kan de inhoud van dit document van tijd tot tijd zonder enige kennisgeving worden bijgewerkt of gewijzigd. 
+Vanwege upgrades van de productversie of andere redenen kan de inhoud van dit document van tijd tot tijd zonder enige kennisgeving worden bijgewerkt of gewijzigd.
 
 **<font face="黑体"  size=3>Handelsmerkkennisgevingen</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icoon, Kanaän en andere handelsmerken van Kanaän en andere handelsmerken van Kanaän zijn handelsmerken van Beijing Canaan Jiesi Information Technology Co., Ltd. Alle andere handelsmerken of geregistreerde handelsmerken die in dit document kunnen worden genoemd, zijn eigendom van hun respectieve eigenaars. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icoon, Kanaän en andere handelsmerken van Kanaän en andere handelsmerken van Kanaän zijn handelsmerken van Beijing Canaan Jiesi Information Technology Co., Ltd. Alle andere handelsmerken of geregistreerde handelsmerken die in dit document kunnen worden genoemd, zijn eigendom van hun respectieve eigenaars.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co, Ltd</font>**
-Dit document is alleen van toepassing op de ontwikkeling en het ontwerp van het K510-platform, zonder de schriftelijke toestemming van het bedrijf mag geen enkele eenheid of persoon een deel of de inhoud van dit document in welke vorm dan ook verspreiden. 
+Dit document is alleen van toepassing op de ontwikkeling en het ontwerp van het K510-platform, zonder de schriftelijke toestemming van het bedrijf mag geen enkele eenheid of persoon een deel of de inhoud van dit document in welke vorm dan ook verspreiden.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co, Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Zakelijke vragen: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # inleiding
 **<font face="黑体"  size=5>Doel van het document</font>**
-Dit document is een begeleidend document voor de K510 AI-toepassing en is ontworpen om ingenieurs te helpen het schrijven en de toepassing van k510 AI-toepassingen te begrijpen. 
+Dit document is een begeleidend document voor de K510 AI-toepassing en is ontworpen om ingenieurs te helpen het schrijven en de toepassing van k510 AI-toepassingen te begrijpen.
 
 **<font face="黑体"  size=5>Reader Objecten</font>**
 
@@ -78,7 +78,7 @@ Dit document neemt het onnx-model van 320x320 resolutie YOLOV5s als voorbeeld om
 
 # 2 Modelvoorbereiding
 
-Het onnx-model voor YOLOV5s voor inferentie bevindt zich in de submap /docs/utils/AI_Application/aidemo_sdk/models/onnx (download modellen als er geen bestanden beschikbaar[ zijn](https://github.com/kendryte/k510_docs/releases/download/v1.5/models.tar.gz).)  en unzip), bevindt de statische afbeelding zich in de submap /docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC/data en bevindt het script zich in de submap /docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC. 
+Het onnx-model voor YOLOV5s voor inferentie bevindt zich in de submap /docs/utils/AI_Application/aidemo_sdk/models/onnx (download modellen als er geen bestanden beschikbaar[zijn](https://github.com/kendryte/k510_docs/releases/download/v1.5/models.tar.gz).)  en unzip), bevindt de statische afbeelding zich in de submap /docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC/data en bevindt het script zich in de submap /docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC.
 
 Volg de scriptopdrachtprompt om het yolov5_image.py script uit te voeren om het gevolgtrekkingsresultaat van de statische afbeelding te verkrijgen. Detecteer de juistheid van het model door te controleren of het detectievak van de uitvoerafbeelding correct is of niet.
 
@@ -107,7 +107,7 @@ optional arguments:
 
 # 3 Model generatie
 
-Het genereren van modellen is afhankelijk van de nncase-compiler en de specifieke regels voor het gebruik van de nncase-compiler zijn te vinden[ K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). Het script dat het kmodel voor YOLOV5s genereert, bevindt zich in de submap /docs/utils/AI_Application/aidemo_sdk/scripts. 
+Het genereren van modellen is afhankelijk van de nncase-compiler en de specifieke regels voor het gebruik van de nncase-compiler zijn te vinden[K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). Het script dat het kmodel voor YOLOV5s genereert, bevindt zich in de submap /docs/utils/AI_Application/aidemo_sdk/scripts.
 
 Voer bij de opdrachtprompt van het script de gen_yolov5s_320_with_sigmoid_bf16_with_preprocess_output_nhwc.py uit om het bijbehorende kmodel te genereren.
 
@@ -137,7 +137,7 @@ compile_options.input_range = [0, 255]
 
 # 4 Model validatie
 
-Modelvalidatie is afhankelijk van nncase simulator, en de specifieke regels voor het gebruik van nncase simulator zijn te vinden[ in K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). Controleer of het kmodel-script van yolov5s zich in de submap /docs/utils/AI_Application/aidemo_sdk/scripts bevindt. 
+Modelvalidatie is afhankelijk van nncase simulator, en de specifieke regels voor het gebruik van nncase simulator zijn te vinden[in K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). Controleer of het kmodel-script van yolov5s zich in de submap /docs/utils/AI_Application/aidemo_sdk/scripts bevindt.
 
 Voer bij de scriptopdrachtprompt simu_yolov5s_320_with_sigmoid_bf16_with_preprocess_output_nhwc.py uit om te controleren of het bijbehorende kmodel correct is gegenereerd.
 
@@ -160,7 +160,7 @@ output 2 cosine similarity : 0.9999019503593445
 
 # 5 AI-toepassingen schrijven
 
-Modelvalidatie is afhankelijk van de nncase-runtime en de specifieke regels voor het gebruik van de nncase-runtime zijn te vinden[ K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). Referentie voor AI-toepassingen`k510_buildroot/package/ai/code/object_detect`. Eerst moet u een objectdetectie-instantie maken en ruimte toewijzen voor de invoer en uitvoer van het kmodel. 
+Modelvalidatie is afhankelijk van de nncase-runtime en de specifieke regels voor het gebruik van de nncase-runtime zijn te vinden[K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). Referentie voor AI-toepassingen`k510_buildroot/package/ai/code/object_detect`. Eerst moet u een objectdetectie-instantie maken en ruimte toewijzen voor de invoer en uitvoer van het kmodel.
 
 ```c++
 objectDetect od(obj_thresh, nms_thresh, net_len, {valid_width, valid_height});
@@ -263,9 +263,9 @@ Teken ten slotte het detectievak op het OSD om de uitvoer weer te geven
 
 # 6 AI-toepassingen compileren
 
-Met behulp van de cross-compilatie toolchain kunnen de specifieke regels voor de compilatie van AI-toepassingen worden verwezen K510_SDK_Build_and_Burn_Guide[](./K510_SDK_Build_and_Burn_Guide.md). 
+Met behulp van de cross-compilatie toolchain kunnen de specifieke regels voor de compilatie van AI-toepassingen worden verwezen K510_SDK_Build_and_Burn_Guide[](./K510_SDK_Build_and_Burn_Guide.md).
 
 **Vertaling Disclaimer**  
-Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie. 
+Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie.
 
 Als u een vertaalfout of onnauwkeurigheid wilt melden, neem dan gerust contact met ons op via e-mail.
