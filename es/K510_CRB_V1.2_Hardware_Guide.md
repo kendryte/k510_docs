@@ -15,14 +15,14 @@
 
 <font face="黑体" size=3>**Renuncia**</font>
 Los productos, servicios o características que compre estarán sujetos a los contratos comerciales y términos de Beijing Canaan Jiesi Information Technology Co., Ltd. ("la Compañía", la misma en adelante), y todos o parte de los productos, servicios o características descritos en este documento pueden no estar dentro del alcance de su compra o uso. Salvo que se acuerde lo contrario en el contrato, la Compañía renuncia a todas las representaciones o garantías, expresas o implícitas, en cuanto a la precisión, confiabilidad, integridad, marketing, propósito específico y no agresión de cualquier representación, información o contenido de este documento. A menos que se acuerde lo contrario, este documento se proporciona como una guía para su uso solamente.
-Debido a actualizaciones de la versión del producto u otras razones, el contenido de este documento puede actualizarse o modificarse de vez en cuando sin previo aviso. 
+Debido a actualizaciones de la versión del producto u otras razones, el contenido de este documento puede actualizarse o modificarse de vez en cuando sin previo aviso.
 
 **<font face="黑体"  size=3>Avisos de marcas comerciales</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, el icono de "Canaan", Canaan y otras marcas comerciales de Canaan y otras marcas comerciales de Canaan son marcas comerciales de Beijing Canaan Jiesi Information Technology Co., Ltd. Todas las demás marcas comerciales o marcas registradas que puedan mencionarse en este documento son propiedad de sus respectivos propietarios. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, el icono de "Canaan", Canaan y otras marcas comerciales de Canaan y otras marcas comerciales de Canaan son marcas comerciales de Beijing Canaan Jiesi Information Technology Co., Ltd. Todas las demás marcas comerciales o marcas registradas que puedan mencionarse en este documento son propiedad de sus respectivos propietarios.
 
 **<font face="黑体"  size=3>Derechos de autor ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Este documento solo es aplicable al desarrollo y diseño de la plataforma K510, sin el permiso por escrito de la empresa, ninguna unidad o individuo puede difundir parte o la totalidad del contenido de este documento en ninguna forma. 
+Este documento solo es aplicable al desarrollo y diseño de la plataforma K510, sin el permiso por escrito de la empresa, ninguna unidad o individuo puede difundir parte o la totalidad del contenido de este documento en ninguna forma.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Información Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -31,7 +31,7 @@ Consultas comerciales: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # prefacio
 **<font face="黑体"  size=5>Propósito del documento</font>**
-Este documento es un documento complementario al sdk de K510 y está destinado a ayudar a los ingenieros a comprender la compilación y grabación del sdk de K510. 
+Este documento es un documento complementario al sdk de K510 y está destinado a ayudar a los ingenieros a comprender la compilación y grabación del sdk de K510.
 
 **<font face="黑体"  size=5>Objetos reader</font>**
 
@@ -40,7 +40,7 @@ Las principales personas a las que se aplica este documento (esta guía):
 - Desarrolladores de software
 - Personal de soporte técnico
 
-**<font face="黑体"  size=5>Historial 
+**<font face="黑体"  size=5>Historial
  </font>**de revisiones <font face="宋体"  size=2>El historial de revisiones acumula una descripción de cada actualización del documento. La versión más reciente del documento contiene actualizaciones para todas las versiones anteriores. </font>
 
 | El número de versión | Modificado por    | Fecha de revisión   | Notas de revisión           |
@@ -221,7 +221,7 @@ Las principales personas a las que se aplica este documento (esta guía):
 
 ## 2.5 Esquemas
 
-&emsp; &emsp; El esquema de referencia para la placa de desarrollo K510 CRB debe descargarse[ en el lanzamiento](https://github.com/kendryte/k510_docs/releases). 
+&emsp; &emsp; El esquema de referencia para la placa de desarrollo K510 CRB debe descargarse[en el lanzamiento](https://github.com/kendryte/k510_docs/releases).
 
 <div style="page-break-after:always"></div>
 
@@ -249,8 +249,8 @@ Las principales personas a las que se aplica este documento (esta guía):
 
 <center> Figura 3-2 Conector de entrada de alimentación </center>
 
-**Nota: Limite el uso de la fuente de alimentación de 5V, cuando use el adaptador de carga rápida, intente no conectar otros dispositivos como teléfonos móviles al mismo tiempo, para no hacer que el adaptador de carga rápida emita incorrectamente una fuente de alimentación superior a 5V, lo que resulta en daños en la parte de la fuente de alimentación de la placa de desarrollo. **
-&emsp; &emsp; Utilice el interruptor de palanca K2 para el funcionamiento de encendido y apagado, como se muestra en la siguiente figura. 
+**Nota: Limite el uso de la fuente de alimentación de 5V, cuando use el adaptador de carga rápida, intente no conectar otros dispositivos como teléfonos móviles al mismo tiempo, para no hacer que el adaptador de carga rápida emita incorrectamente una fuente de alimentación superior a 5V, lo que resulta en daños en la parte de la fuente de alimentación de la placa de desarrollo.**
+&emsp; &emsp; Utilice el interruptor de palanca K2 para el funcionamiento de encendido y apagado, como se muestra en la siguiente figura.
 
 <div align="center">
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-3.jpg" width=50%>
@@ -413,7 +413,7 @@ Las principales personas a las que se aplica este documento (esta guía):
 
 <center>Figura 3-15 Interfaz HDMI</center>
 
- **Nota**: Debido a que tanto las pantallas HDMI como las TFT 1080P usan controladores mipi dsi, solo pueden elegir una de las dos pantallas, no se pueden usar al mismo tiempo, cambien a través del pin de control GPIO para seleccionar una de las salidas. 
+ **Nota**: Debido a que tanto las pantallas HDMI como las TFT 1080P usan controladores mipi dsi, solo pueden elegir una de las dos pantallas, no se pueden usar al mismo tiempo, cambien a través del pin de control GPIO para seleccionar una de las salidas.
 
 <div style="page-break-after:always"></div>
 
@@ -462,7 +462,7 @@ Las principales personas a las que se aplica este documento (esta guía):
 | 29   | 1V8              | 32   | 3V3          |
 | 30   | 1V8              | 31   | 3V3          |
 
-**Nota**: Preste atención al rango de nivel de los pines conectados cuando se conecte externamente para evitar que la entrada de voltaje incorrecta dañe permanentemente el chip K510. 
+**Nota**: Preste atención al rango de nivel de los pines conectados cuando se conecte externamente para evitar que la entrada de voltaje incorrecta dañe permanentemente el chip K510.
 
 <div style="page-break-after:always"></div>
 
@@ -528,7 +528,7 @@ Las principales personas a las que se aplica este documento (esta guía):
 | 27   | GPIO_3V3_127 | 28   | GPIO_3V3_126 |
 | 29   | GND          | 30   | GND          |
 
-**Nota**: Preste atención al rango de nivel de los pines conectados cuando se conecte externamente para evitar que la entrada de voltaje incorrecta dañe permanentemente el chip K510. 
+**Nota**: Preste atención al rango de nivel de los pines conectados cuando se conecte externamente para evitar que la entrada de voltaje incorrecta dañe permanentemente el chip K510.
 
 <div style="page-break-after:always"></div>
 
@@ -544,7 +544,7 @@ Las principales personas a las que se aplica este documento (esta guía):
 
 ## 4.2 Grabación de firmware
 
-&emsp; &emsp; Consulte [la documentación de K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md). 
+&emsp; &emsp; Consulte [la documentación de K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md).
 
 ## 4.3 Encender y apagar
 
@@ -568,7 +568,7 @@ Las principales personas a las que se aplica este documento (esta guía):
 
 <center>Figura 4-1 Administrador de dispositivos una vez completada la instalación del controlador</center>
 
-**Descargo de responsabilidad de **traducción  
-Para la comodidad de los clientes, Canaan utiliza un traductor de IA para traducir texto a varios idiomas, que pueden contener errores. No garantizamos la exactitud, fiabilidad o puntualidad de las traducciones proporcionadas. Canaan no será responsable de ninguna pérdida o daño causado por la confianza en la exactitud o fiabilidad de la información traducida. Si existe una diferencia de contenido entre las traducciones en diferentes idiomas, prevalecerá la versión en chino simplificado. 
+**Descargo de responsabilidad de**traducción  
+Para la comodidad de los clientes, Canaan utiliza un traductor de IA para traducir texto a varios idiomas, que pueden contener errores. No garantizamos la exactitud, fiabilidad o puntualidad de las traducciones proporcionadas. Canaan no será responsable de ninguna pérdida o daño causado por la confianza en la exactitud o fiabilidad de la información traducida. Si existe una diferencia de contenido entre las traducciones en diferentes idiomas, prevalecerá la versión en chino simplificado.
 
 Si desea informar de un error o inexactitud de traducción, no dude en ponerse en contacto con nosotros por correo.

@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Démenti**</font>
 Les produits, services ou fonctionnalités que vous achetez sont soumis aux contrats commerciaux et aux conditions de Beijing Canaan Jiesi Information Technology Co., Ltd. (« la Société », les mêmes ci-après), et tout ou partie des produits, services ou fonctionnalités décrits dans ce document peuvent ne pas être dans le cadre de votre achat ou de votre utilisation. Sauf accord contraire dans le contrat, la Société décline toute représentation ou garantie, expresse ou implicite, quant à l'exactitude, la fiabilité, l'exhaustivité, le marketing, l'objectif spécifique et la non-agression de toute représentation, information ou contenu de ce document. Sauf convention contraire, le présent document est fourni à titre indicatif à titre indicatif d'utilisation seulement.
-En raison de mises à niveau de la version du produit ou d'autres raisons, le contenu de ce document peut être mis à jour ou modifié de temps à autre sans préavis. 
+En raison de mises à niveau de la version du produit ou d'autres raisons, le contenu de ce document peut être mis à jour ou modifié de temps à autre sans préavis.
 
 **<font face="黑体"  size=3>Avis sur les marques de commerce</font>**
 
-«  »<img src="http://s2.loli.net/2022/03/30/xN21jbhnwSFyGRD.png" style="zoom:33%;" />, l'icône « Canaan », Canaan et d'autres marques de commerce de Canaan et d'autres marques de commerce de Canaan sont des marques de commerce de Beijing Canaan Jiesi Information Technology Co., Ltd. Toutes les autres marques de commerce ou marques déposées qui peuvent être mentionnées dans ce document sont la propriété de leurs propriétaires respectifs. 
+«  »<img src="http://s2.loli.net/2022/03/30/xN21jbhnwSFyGRD.png" style="zoom:33%;" />, l'icône « Canaan », Canaan et d'autres marques de commerce de Canaan et d'autres marques de commerce de Canaan sont des marques de commerce de Beijing Canaan Jiesi Information Technology Co., Ltd. Toutes les autres marques de commerce ou marques déposées qui peuvent être mentionnées dans ce document sont la propriété de leurs propriétaires respectifs.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Ce document ne s'applique qu'au développement et à la conception de la plate-forme K510, sans l'autorisation écrite de la société, aucune unité ou individu ne peut diffuser une partie ou la totalité du contenu de ce document sous quelque forme que ce soit. 
+Ce document ne s'applique qu'au développement et à la conception de la plate-forme K510, sans l'autorisation écrite de la société, aucune unité ou individu ne peut diffuser une partie ou la totalité du contenu de ce document sous quelque forme que ce soit.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -136,7 +136,7 @@ Framework de réseau neuronal pris en charge par nncase
 
 La pile logicielle nnncase se compose actuellement de deux parties : le compilateur et le runtime.
 
-**Compilateur :** Utilisé pour compiler des modèles de réseau neuronal sur un PC et éventuellement générer un fichier kmodel. Il comprend principalement importateur, IR, Evaluator, Quantize, Transform optimization, Tiling, Partition, Schedule, Codegen et d'autres modules. 
+**Compilateur :** Utilisé pour compiler des modèles de réseau neuronal sur un PC et éventuellement générer un fichier kmodel. Il comprend principalement importateur, IR, Evaluator, Quantize, Transform optimization, Tiling, Partition, Schedule, Codegen et d'autres modules.
 
 - Importateur : importe des modèles à partir d'autres infrastructures de réseaux neuronaux dans nncase
 - IR : Représentation intermédiaire, divisée en IR neutre importé par l'importateur (indépendant du périphérique) et IR nutral généré par l'abaissement de la conversion IR cible (dépendant du périphérique)
@@ -154,10 +154,10 @@ La pile logicielle nnncase se compose actuellement de deux parties : le compilat
 
 La partie compilateur de la chaîne d'outils nncase inclut le compilateur nncase et K510, qui doivent tous deux installer le package de roue correspondant.
 
-- Le paquet nncase wheel a été[ publié sur nncase github](https://github.com/kendryte/nncase/releases/tag/v1.6.0), prenant en charge Python 3.6 / 3.7 / 3.8 / 3.9 / 3.10, les utilisateurs peuvent choisir la version correspondante à télécharger en fonction du système d'exploitation et de Python
+- Le paquet nncase wheel a été[publié sur nncase github](https://github.com/kendryte/nncase/releases/tag/v1.6.0), prenant en charge Python 3.6 / 3.7 / 3.8 / 3.9 / 3.10, les utilisateurs peuvent choisir la version correspondante à télécharger en fonction du système d'exploitation et de Python
 - Le package de roue du compilateur K510 se trouve dans le répertoire x86_64 du SDK nncase, ne dépend pas de la version Python et peut être installé directement
 
-Si vous n'avez pas d'environnement Ubuntu, vous pouvez utiliser[ nncase docker ](https://github.com/kendryte/nncase/blob/master/docs/build.md#docker)(Ubuntu 20.04 + Python 3.8).
+Si vous n'avez pas d'environnement Ubuntu, vous pouvez utiliser[nncase docker](https://github.com/kendryte/nncase/blob/master/docs/build.md#docker)(Ubuntu 20.04 + Python 3.8).
 
 ```shell
 cd /path/to/nncase_sdk
@@ -174,7 +174,7 @@ pip3 install x86_64/*.whl
 <!-- markdownlint-disable no-emphasis-as-header -->
 # 4 Modèle de compilation/inférence
 
-nncase fournit une** API Python **pour compiler/déduire des modèles de deep learning sur un PC
+nncase fournit une**API Python**pour compiler/déduire des modèles de deep learning sur un PC
 
 ## 4.1 Opérateurs pris en charge
 
@@ -469,14 +469,14 @@ Chaque propriété est décrite ci-dessous
 | benchmark_only   | Bool   | non       | Spécifie si kmodel est utilisé uniquement pour le benchmark, dont la valeur par défaut est False                   |
 
 > 1. La plage d'entrée est la plage de nombres à virgule flottante, c'est-à-dire que si le type de données d'entrée est uint8, la plage d'entrée est la plage après déquantisation en virgule flottante (ne peut pas être 0 ~ 1), qui peut être spécifiée librement.
-> 2. input_shape doivent être spécifiés conformément à la input_layout, [1，224，224，3]par exemple, si le input_layout est NCHW, le input_shape doit être spécifié comme[1,3,224,224] suit: input_layout'est NHWC, le input_shape doit être spécifié comme[1,224,224,3] suit: 
+> 2. input_shape doivent être spécifiés conformément à la input_layout, [1，224，224，3]par exemple, si le input_layout est NCHW, le input_shape doit être spécifié comme[1,3,224,224] suit: input_layout'est NHWC, le input_shape doit être spécifié comme[1,224,224,3] suit:
 > 3. mean et std sont des paramètres permettant de normaliser les nombres à virgule flottante, que l'utilisateur est libre de spécifier ;
 > 4. Lorsque vous utilisez la fonction boîte aux lettres, vous devez limiter la taille d'entrée à 1,5 Mo et la taille d'un seul canal est inférieure à 0,75 Mo;
 >
 > Par exemple:
 >
 > 1. Le type de données d'entrée est défini sur uint8, input_range défini sur[0,255], le rôle de la déquantisation est uniquement de convertir le type, convertir les données de uint8 en float32, et les paramètres moyen et std peuvent toujours être spécifiés en fonction des données de 0 ~ 255
-> 2. Le type de données d'entrée est défini sur uint8, input_range défini sur[0,1], le nombre à virgule fixe est déquantisé en un nombre à [0,1]virgule flottante dans la plage, et la moyenne et la MST doivent être spécifiées en fonction de la nouvelle plage de nombres à virgule flottante. 
+> 2. Le type de données d'entrée est défini sur uint8, input_range défini sur[0,1], le nombre à virgule fixe est déquantisé en un nombre à [0,1]virgule flottante dans la plage, et la moyenne et la MST doivent être spécifiées en fonction de la nouvelle plage de nombres à virgule flottante.
 
 Le processus de prétraitement est le suivant (les nœuds verts de la figure sont facultatifs) :
 
@@ -874,7 +874,7 @@ python3 scripts/mobilenetv2_tflite_fp32_image.py --target k510 --model models/mo
 
 ### 4.3.2 Compiler le modèle onnx float32
 
-- Pour les modèles onnx, il est recommandé de simplifier l'utilisation d'[ONNX Simplifier ](https://github.com/daquexian/onnx-simplifier)avant de compiler avec nncase
+- Pour les modèles onnx, il est recommandé de simplifier l'utilisation d'[ONNX Simplifier](https://github.com/daquexian/onnx-simplifier)avant de compiler avec nncase
 - mobilenetv2_onnx_fp32_image.py script est le suivant
 
 ```python
@@ -977,7 +977,7 @@ python3 scripts/mobilenetv2_onnx_fp32_image.py --target k510 --model models/mobi
 
 ### 4.3.3 Compiler le modèle de café float32
 
-- L'ensemble de roues de café est[ tiré de ](https://github.com/kendryte/caffe/releases)kendryte caffe
+- L'ensemble de roues de café est[tiré de](https://github.com/kendryte/caffe/releases)kendryte caffe
 - conv2d_caffe_fp32.py script est le suivant
 
 ```python
@@ -1037,7 +1037,7 @@ python3 scripts/conv2d_caffe_fp32.py --target k510 --caffemodel models/test.caff
 
 ### 4.3.4 Compiler et ajouter un modèle onnx float32 pré-processus
 
-- Pour les modèles onnx, il est recommandé de simplifier l'utilisation d'[ONNX Simplifier ](https://github.com/daquexian/onnx-simplifier)avant de compiler avec nncase
+- Pour les modèles onnx, il est recommandé de simplifier l'utilisation d'[ONNX Simplifier](https://github.com/daquexian/onnx-simplifier)avant de compiler avec nncase
 - Mobilenetv2_onnx_fp32_preprocess.py script est le suivant
 
 ```python
@@ -1660,7 +1660,7 @@ sim.run()
 
 ## 4.5 Exemple de modèle d'inférence
 
-**Prérequis : **mobilenetv2_onnx_fp32_image.py script a été compilé avec le modèle mobiletv2-7.onnx
+**Prérequis :**mobilenetv2_onnx_fp32_image.py script a été compilé avec le modèle mobiletv2-7.onnx
 
 mobilenetv2_onnx_simu.py se trouve dans le sous-répertoire /path/to/nncase_sdk/examples/scripts, qui se lit comme suit :
 
@@ -1746,7 +1746,7 @@ output 0 cosine similarity : 0.9992437958717346
 
 nncase runtime est utilisé pour charger kmodel sur des périphériques d'IA / définir des données d'entrée / effectuer des calculs KPU / obtenir des données de sortie, etc.
 
-Actuellement, seule** la version C++ **des API, les fichiers d'en-tête associés et les bibliothèques statiques sont disponibles dans le répertoire nncase sdk/riscv64
+Actuellement, seule**la version C++**des API, les fichiers d'en-tête associés et les bibliothèques statiques sont disponibles dans le répertoire nncase sdk/riscv64
 
 ```bash
 $ tree -L 3 riscv64/
@@ -2691,39 +2691,39 @@ auto output = F::pad(input, paddings, pad_constant, pad_value).unwrap_or_throw()
 
 # 8 Foire aux questions (FAQ)
 
-1.安装wheel时报错: « xxx.whl n'est pas une roue supportée sur cette plate-forme. » **
+1. 安装wheel时报错: « xxx.whl n'est pas une roue supportée sur cette plate-forme. » **
 
-Q: 安装nncase wheel包, 出现ERROR: nncase-1.0.0.20210830-cp37-cp37m-manylinux_2_24_x86_64.whl n'est pas une roue prise en charge sur cette plate-forme.
+    Q: 安装nncase wheel包, 出现ERROR: nncase-1.0.0.20210830-cp37-cp37m-manylinux_2_24_x86_64.whl n'est pas une roue prise en charge sur cette plate-forme.
 
-R : Mise à niveau pip > = 20,3
+    R : Mise à niveau pip > = 20,3
 
-```shell
-sudo pip3 install --upgrade pip
-```
+    ```shell
+    sudo pip3 install --upgrade pip
+    ```
 
 2. **Lorsque le CRB exécute le programme d'inférence d'application, il signale l'erreur « std::bad_alloc »**
 
-Q : Exécutez le programme d'inférence d'application sur le CRB et lancez une exception « std::bad_alloc »
+    Q : Exécutez le programme d'inférence d'application sur le CRB et lancez une exception « std::bad_alloc »
 
-```shell
-$ ./cpp.sh
-case ./yolov3_bfloat16 build at Sep 16 2021 18:12:03
-terminate called after throwing an instance of 'std::bad_alloc'
-  what():  std::bad_alloc
-```
+    ```shell
+    $ ./cpp.sh
+    case ./yolov3_bfloat16 build at Sep 16 2021 18:12:03
+    terminate called after throwing an instance of 'std::bad_alloc'
+    what():  std::bad_alloc
+    ```
 
-R : std::bad_alloc exceptions sont généralement causées par des échecs d'allocation de mémoire, qui peuvent être vérifiés comme suit.
+    R : std::bad_alloc exceptions sont généralement causées par des échecs d'allocation de mémoire, qui peuvent être vérifiés comme suit.
 
-- Vérifiez si le kmodel généré dépasse la mémoire disponible actuelle du système (par exemple, la taille du modèle yolov3 bfloat16 est de 121 Mo, la mémoire disponible actuelle de Linux n'est que de 70 Mo, l'exception sera levée).  S'il dépasse, essayez d'utiliser la quantification post-formation pour réduire la taille du kmodel.
-- Vérifiez l'application pour les fuites de mémoire
+    - Vérifiez si le kmodel généré dépasse la mémoire disponible actuelle du système (par exemple, la taille du modèle yolov3 bfloat16 est de 121 Mo, la mémoire disponible actuelle de Linux n'est que de 70 Mo, l'exception sera levée).  S'il dépasse, essayez d'utiliser la quantification post-formation pour réduire la taille du kmodel.
+    - Vérifiez l'application pour les fuites de mémoire
 
 3. **Lors de l'exécution du programme d'inférence d'application[.. t_runtime_tensor.cpp:310 (créer)] data.size_bytes() == size = false (bool).**
 
-Q : Simulator exécute le programme d'inférence de l'application, en lançant une exception «[.. t_runtime_tensor.cpp:310 (créer)] data.size_bytes() == size = false (bool) »
+    Q : Simulator exécute le programme d'inférence de l'application, en lançant une exception «[.. t_runtime_tensor.cpp:310 (créer)] data.size_bytes() == size = false (bool) »
 
-R : Vérifiez les informations du tenseur d'entrée pour les paramètres, en vous concentrant sur la forme d'entrée et le nombre d'octets occupés par chaque élément (fp32/uint8)
+    R : Vérifiez les informations du tenseur d'entrée pour les paramètres, en vous concentrant sur la forme d'entrée et le nombre d'octets occupés par chaque élément (fp32/uint8)
 
 **Clause de non-responsabilité en matière de**  
-Pour la commodité des clients, Canaan utilise un traducteur IA pour traduire du texte en plusieurs langues, ce qui peut contenir des erreurs. Nous ne garantissons pas l'exactitude, la fiabilité ou l'actualité des traductions fournies. Canaan ne sera pas responsable de toute perte ou dommage causé par la confiance accordée à l'exactitude ou à la fiabilité des informations traduites. S'il existe une différence de contenu entre les traductions dans différentes langues, la version simplifiée en chinois prévaudra. 
+Pour la commodité des clients, Canaan utilise un traducteur IA pour traduire du texte en plusieurs langues, ce qui peut contenir des erreurs. Nous ne garantissons pas l'exactitude, la fiabilité ou l'actualité des traductions fournies. Canaan ne sera pas responsable de toute perte ou dommage causé par la confiance accordée à l'exactitude ou à la fiabilité des informations traduites. S'il existe une différence de contenu entre les traductions dans différentes langues, la version simplifiée en chinois prévaudra.
 
 Si vous souhaitez signaler une erreur de traduction ou une inexactitude, n'hésitez pas à nous contacter par courrier.

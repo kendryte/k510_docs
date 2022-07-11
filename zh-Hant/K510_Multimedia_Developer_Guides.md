@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**免責聲明**</font>
 您購買的產品、服務或特性等應受北京嘉楠捷思資訊技術有限公司（“本公司”，下同）商業合同和條款的約束，本文檔中描述的全部或部分產品、服務或特性可能不在您的購買或使用範圍之內。 除非合同另有約定，本公司不對本文檔的任何陳述、資訊、內容的準確性、可靠性、完整性、行銷型、特定目的性和非侵略性提供任何明示或默示的聲明或保證。 除非另有約定，本文檔僅作為使用指導的參考。
-由於產品版本升級或其他原因，本文檔內容將可能在未經任何通知的情況下，不定期進行更新或修改。 
+由於產品版本升級或其他原因，本文檔內容將可能在未經任何通知的情況下，不定期進行更新或修改。
 
 **<font face="黑体"  size=3>商標聲明</font>**
 
-“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”圖示、嘉楠和嘉楠其他商標均為北京嘉楠捷思資訊技術有限公司的商標。 本文檔可能提及的其他所有商標或註冊商標，由各自的所有人擁有。 
+“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”圖示、嘉楠和嘉楠其他商標均為北京嘉楠捷思資訊技術有限公司的商標。 本文檔可能提及的其他所有商標或註冊商標，由各自的所有人擁有。
 
 **<font face="黑体"  size=3>版權所有©2022北京嘉楠捷思資訊技術有限公司</font>**
-本文檔僅適用K510平台開發設計，非經本公司書面許可，任何單位和個人不得以任何形式對本文檔的部分或全部內容傳播。 
+本文檔僅適用K510平台開發設計，非經本公司書面許可，任何單位和個人不得以任何形式對本文檔的部分或全部內容傳播。
 
 **<font face="黑体"  size=3>北京嘉楠捷思資訊技術有限公司</font>**
 網址：canaan-creative.com
@@ -530,7 +530,7 @@ K510的硬體框圖如下：
 | 分裂 | 通道個數 | 零 | [1,4] | jpeg、avc |
 | 中文 | 通道號（從0開始） | 零 | [0,3] | jpeg、avc |
 | 我 | 輸入yuv檔，只支援**nv12**格式 | 零 | v4l2 <br> xxx.yuv | jpeg、avc |
-| 開發 | v4l2 設備名稱 | 零 | **sensor0：** /dev/video3 /dev/video4 <br> <br>sensor1：<br> ** /dev/video7 / ** dev/ <br> video8 <br> | 中風 |
+| 開發 | v4l2 設備名稱 | 零 | **sensor0：** /dev/video3 /dev/video4 <br> <br>sensor1：<br> **/dev/video7 /** dev/ <br> video8 <br> | 中風 |
 | 或 | 輸出| 零 | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG | jpeg、avc |
 | 在 | 輸出圖像寬度 | 1920 | avc： [128,2048]， 8 jpeg 的倍數 <br> ： 最多 8192， 16 的倍數 | jpeg、avc |
 | h | 輸出圖像高度 | 1080 | avc： [64,2048]， 8 jpeg 的倍數 <br> ： 最多 8192， 2 的倍數 | jpeg、avc |
@@ -668,7 +668,7 @@ ffplay拉流命令同上。
 
   ip地址：開發板的ip位址，在板子上輸入ifconfig即可獲取。
 
-  埠號：8554 + <通道号>*2，通道號一般從0開始（-ch 0，-ch 1...）。 
+  埠號：8554 + <通道号>*2，通道號一般從0開始（-ch 0，-ch 1...）。
 
 - 播放rtsp流方式：可通過vlc或ffplay來播放對應的rtsp流，數據流可以通過udp或tcp協定傳輸。
 
@@ -1017,7 +1017,7 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -i /dev/video3 -vco
 
 說明：
 
-1. 運行時需要在運行目錄中查找`video_sampe.conf`、`imx219_0.conf`和`imx219_1.conf`檔進行配置，這三個檔在`/encode_app/`目錄下。 
+1. 運行時需要在運行目錄中查找`video_sampe.conf`、`imx219_0.conf`和`imx219_1.conf`檔進行配置，這三個檔在`/encode_app/`目錄下。
 2. 攝像頭實時進來的視頻寫成yuv文件，由於yuv檔很大，本地ddr或者nfs的寫速度跟不上，可能導致丟幀。
 
 #### 3.2.1.6 JPEG編碼
@@ -1028,7 +1028,7 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -i /dev/video3 -vco
 ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_jpeg -y test.mjpeg
 ```
 
-說明：運行時需要在運行目錄中查找`video_sampe.conf`、`imx219_0.conf`和`imx219_1.conf`檔進行配置，這三個檔在`/encode_app/`目錄下。 
+說明：運行時需要在運行目錄中查找`video_sampe.conf`、`imx219_0.conf`和`imx219_1.conf`檔進行配置，這三個檔在`/encode_app/`目錄下。
 
 輸出的檔test.mjpeg可在PC端用ffplay播放
 
@@ -1064,7 +1064,7 @@ ffmpeg -f v4l2 -s 480x360 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i 
 
 - `ff_libk510_h264_encoder`：控制h264硬體編碼，引用了`libvenc.so`
 - `ff_libk510_jpeg_encoder`：控制jpeg硬體編碼，引用了`libvenc.so`
-- v4l2：在v4l2.c裡，加入了k510硬體相關代碼，實現了v4l2 buffer類型V4L2_MEMORY_USERPTR，引用了`libmediactl.so`。 
+- v4l2：在v4l2.c裡，加入了k510硬體相關代碼，實現了v4l2 buffer類型V4L2_MEMORY_USERPTR，引用了`libmediactl.so`。
 
 #### 3.2.2.1 patch生成命令
 
@@ -1088,7 +1088,7 @@ sed -i "s/\/dl\/ffmpeg_canaan\/ffmpeg-4.4//g" ../../package/ffmpeg_canaan/xxx.pa
 
 #### 3.2.2.2 ffmpeg配置
 
-在`package/ffmpeg_canaan/ffmpeg.mk`檔中，可以通過configure選項修改CPU核、編譯工具鏈，使能`ff_k510_video_demuxer` `ff_libk510_jpeg_encoder`和`ff_libk510_h264_encoder`。 
+在`package/ffmpeg_canaan/ffmpeg.mk`檔中，可以通過configure選項修改CPU核、編譯工具鏈，使能`ff_k510_video_demuxer` `ff_libk510_jpeg_encoder`和`ff_libk510_h264_encoder`。
 
 ```shell
 ./configure \
@@ -1114,6 +1114,6 @@ sed -i "s/\/dl\/ffmpeg_canaan\/ffmpeg-4.4//g" ../../package/ffmpeg_canaan/xxx.pa
 ```
 
 **翻譯免責聲明**  
-為方便客戶，Canaan 使用 AI 翻譯程式將文字翻譯為多種語言，它可能包含錯誤。 我們不保證提供的譯文的準確性、可靠性或時效性。 對於因依賴已翻譯信息的準確性或可靠性而造成的任何損失或損害，Canaan 概不負責。 如果不同語言翻譯之間存在內容差異，以簡體中文版本為準。 
+為方便客戶，Canaan 使用 AI 翻譯程式將文字翻譯為多種語言，它可能包含錯誤。 我們不保證提供的譯文的準確性、可靠性或時效性。 對於因依賴已翻譯信息的準確性或可靠性而造成的任何損失或損害，Canaan 概不負責。 如果不同語言翻譯之間存在內容差異，以簡體中文版本為準。
 
 如果您要報告翻譯錯誤或不準確的問題，歡迎通過郵件與我們聯繫。

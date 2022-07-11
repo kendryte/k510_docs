@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disconoscimento**</font>
 I prodotti, i servizi o le funzionalità acquistati saranno soggetti ai contratti e ai termini commerciali di Beijing Canaan Jiesi Information Technology Co., Ltd. ("la Società", la stessa di seguito), e tutti o parte dei prodotti, servizi o funzionalità descritti in questo documento potrebbero non rientrare nell'ambito dell'acquisto o dell'utilizzo. Salvo quanto diversamente concordato nel contratto, la Società declina ogni dichiarazione o garanzia, espressa o implicita, in merito all'accuratezza, affidabilità, completezza, marketing, scopo specifico e non aggressione di qualsiasi dichiarazione, informazione o contenuto di questo documento. Salvo diverso accordo, questo documento è fornito solo come guida per l'uso.
-A causa di aggiornamenti della versione del prodotto o altri motivi, il contenuto di questo documento può essere aggiornato o modificato di volta in volta senza alcun preavviso. 
+A causa di aggiornamenti della versione del prodotto o altri motivi, il contenuto di questo documento può essere aggiornato o modificato di volta in volta senza alcun preavviso.
 
 **<font face="黑体"  size=3>Avvisi sui marchi</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icona "Canaan", Canaan e altri marchi di Canaan e altri marchi di Canaan sono marchi di Beijing Canaan Jiesi Information Technology Co., Ltd. Tutti gli altri marchi o marchi registrati che possono essere menzionati in questo documento sono di proprietà dei rispettivi proprietari. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icona "Canaan", Canaan e altri marchi di Canaan e altri marchi di Canaan sono marchi di Beijing Canaan Jiesi Information Technology Co., Ltd. Tutti gli altri marchi o marchi registrati che possono essere menzionati in questo documento sono di proprietà dei rispettivi proprietari.
 
 **<font face="黑体"  size=3>Copyright ©2022 Pechino Canaan Jiesi Information Technology Co., Ltd</font>**
-Questo documento è applicabile solo allo sviluppo e alla progettazione della piattaforma K510, senza il permesso scritto della società, nessuna unità o individuo può diffondere parte o tutto il contenuto di questo documento in qualsiasi forma. 
+Questo documento è applicabile solo allo sviluppo e alla progettazione della piattaforma K510, senza il permesso scritto della società, nessuna unità o individuo può diffondere parte o tutto il contenuto di questo documento in qualsiasi forma.
 
 **<font face="黑体"  size=3>Pechino Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Richieste commerciali: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # prefazione
 **<font face="黑体"  size=5>Scopo </font>**del documento
-Questo documento è una documentazione di ISP Tuning Tool. 
+Questo documento è una documentazione di ISP Tuning Tool.
 
 **<font face="黑体"  size=5>Oggetti lettore</font>**
 
@@ -112,16 +112,16 @@ In questa sezione vengono descritte le funzionalità di questi pannelli nella fi
 
 La Figura 3-1 mostra l'intero pannello operatore nella finestra di sintonizzazione
 
-- Il pannello 1 è il** menu **che può facoltativamente caricare il file ISP configurato o eseguire la calibrazione. 
-- Il pannello 2 è il **pannello di controllo della connessione**, inserire l'indirizzo IP e il numero di porta della scheda di sviluppo (porta predefinita 9982) e fare clic sul pulsante verde di connessione per connettersi. 
-- Il pannello 3 è il **pannello del registro**, se è necessario impostare o leggere il registro non è in questo, è possibile utilizzare questo pannello per impostare e leggere. 
-- Il pannello 4 è un **pannello di selezione dei parametri di sintonizzazione**, l'utente può selezionare vari parametri o gruppi di parametri in base al testo del prompt del pannello, i registri di queste selezioni verranno visualizzati sul pannello 5. 
-- Il pannello 5 è il **pannello Impostazioni parametri di ottimizzazione**, che viene utilizzato per impostare o ottenere valori di parametro dal server di ottimizzazione. 
-- Il pannello 6 è un **pannello di visualizzazione **delle immagini, che visualizza l'output dell'immagine da parte dell'ISP e può fare clic sul pulsante di pausa al centro quando non è necessario riprodurre tutto il tempo. 
+- Il pannello 1 è il**menu**che può facoltativamente caricare il file ISP configurato o eseguire la calibrazione.
+- Il pannello 2 è il **pannello di controllo della connessione**, inserire l'indirizzo IP e il numero di porta della scheda di sviluppo (porta predefinita 9982) e fare clic sul pulsante verde di connessione per connettersi.
+- Il pannello 3 è il **pannello del registro**, se è necessario impostare o leggere il registro non è in questo, è possibile utilizzare questo pannello per impostare e leggere.
+- Il pannello 4 è un **pannello di selezione dei parametri di sintonizzazione**, l'utente può selezionare vari parametri o gruppi di parametri in base al testo del prompt del pannello, i registri di queste selezioni verranno visualizzati sul pannello 5.
+- Il pannello 5 è il **pannello Impostazioni parametri di ottimizzazione**, che viene utilizzato per impostare o ottenere valori di parametro dal server di ottimizzazione.
+- Il pannello 6 è un **pannello di visualizzazione**delle immagini, che visualizza l'output dell'immagine da parte dell'ISP e può fare clic sul pulsante di pausa al centro quando non è necessario riprodurre tutto il tempo.
 
 ![Figura 3-1 Finestra principale dello strumento di ottimizzazione](../zh/images/sdk_application/clip_image033.png)
 
-LO STRUMENTO DI OTTIMIZZAZIONE ISP** non **acquisisce automaticamente tutti i valori del registro dopo la connessione e, se è necessario ottenere tutti i valori del registro, è possibile fare clic** sul pulsante Leggi sul lato destro del pannello di controllo della connessione** per estrarre tutti i valori del registro corrente. 
+LO STRUMENTO DI OTTIMIZZAZIONE ISP**non**acquisisce automaticamente tutti i valori del registro dopo la connessione e, se è necessario ottenere tutti i valori del registro, è possibile fare clic**sul pulsante Leggi sul lato destro del pannello di controllo della connessione** per estrarre tutti i valori del registro corrente.
 
 # Calibrazione e calibrazione
 
@@ -196,6 +196,6 @@ Dopo la correzione, è mostrato nella figura riportata di seguito
 ![Dopo la correzione](../zh/images/sdk_application/clip_image031.png)
 
 **Traduzione Disclaimer**  
-Per la comodità dei clienti, Canaan utilizza un traduttore AI per tradurre il testo in più lingue, che possono contenere errori. Non garantiamo l'accuratezza, l'affidabilità o la tempestività delle traduzioni fornite. Canaan non sarà responsabile per eventuali perdite o danni causati dall'affidamento sull'accuratezza o sull'affidabilità delle informazioni tradotte. Se c'è una differenza di contenuto tra le traduzioni in lingue diverse, prevarrà la versione cinese semplificata. 
+Per la comodità dei clienti, Canaan utilizza un traduttore AI per tradurre il testo in più lingue, che possono contenere errori. Non garantiamo l'accuratezza, l'affidabilità o la tempestività delle traduzioni fornite. Canaan non sarà responsabile per eventuali perdite o danni causati dall'affidamento sull'accuratezza o sull'affidabilità delle informazioni tradotte. Se c'è una differenza di contenuto tra le traduzioni in lingue diverse, prevarrà la versione cinese semplificata.
 
 Se desideri segnalare un errore di traduzione o un'inesattezza, non esitare a contattarci via mail.

@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disconoscimento**</font>
 I prodotti, i servizi o le funzionalità acquistati saranno soggetti ai contratti e ai termini commerciali di Beijing Canaan Jiesi Information Technology Co., Ltd. ("la Società", la stessa di seguito), e tutti o parte dei prodotti, servizi o funzionalità descritti in questo documento potrebbero non rientrare nell'ambito dell'acquisto o dell'utilizzo. Salvo quanto diversamente concordato nel contratto, la Società declina ogni dichiarazione o garanzia, espressa o implicita, in merito all'accuratezza, affidabilità, completezza, marketing, scopo specifico e non aggressione di qualsiasi dichiarazione, informazione o contenuto di questo documento. Salvo diverso accordo, questo documento è fornito solo come guida per l'uso.
-A causa di aggiornamenti della versione del prodotto o altri motivi, il contenuto di questo documento può essere aggiornato o modificato di volta in volta senza alcun preavviso. 
+A causa di aggiornamenti della versione del prodotto o altri motivi, il contenuto di questo documento può essere aggiornato o modificato di volta in volta senza alcun preavviso.
 
 **<font face="黑体"  size=3>Avvisi sui marchi</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icona "Canaan", Canaan e altri marchi di Canaan e altri marchi di Canaan sono marchi di Beijing Canaan Jiesi Information Technology Co., Ltd. Tutti gli altri marchi o marchi registrati che possono essere menzionati in questo documento sono di proprietà dei rispettivi proprietari. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icona "Canaan", Canaan e altri marchi di Canaan e altri marchi di Canaan sono marchi di Beijing Canaan Jiesi Information Technology Co., Ltd. Tutti gli altri marchi o marchi registrati che possono essere menzionati in questo documento sono di proprietà dei rispettivi proprietari.
 
 **<font face="黑体"  size=3>Copyright ©2022 Pechino Canaan Jiesi Information Technology Co., Ltd</font>**
-Questo documento è applicabile solo allo sviluppo e alla progettazione della piattaforma K510, senza il permesso scritto della società, nessuna unità o individuo può diffondere parte o tutto il contenuto di questo documento in qualsiasi forma. 
+Questo documento è applicabile solo allo sviluppo e alla progettazione della piattaforma K510, senza il permesso scritto della società, nessuna unità o individuo può diffondere parte o tutto il contenuto di questo documento in qualsiasi forma.
 
 **<font face="黑体"  size=3>Pechino Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Richieste commerciali: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # prefazione
 **<font face="黑体"  size=5>Scopo </font>**del documento
-Questo documento è un documento di descrizione per l'esempio di applicazione K510 SDK. 
+Questo documento è un documento di descrizione per l'esempio di applicazione K510 SDK.
 
 **<font face="黑体"  size=5>Oggetti lettore</font>**
 
@@ -103,9 +103,9 @@ ai
 └── Config.in
 ```
 
-Puoi fare riferimento al codice sorgente del retinaface_mb_320 e`CMakeLists.txt` aggiungere un nuovo programma demo nncase. 
+Puoi fare riferimento al codice sorgente del retinaface_mb_320 e`CMakeLists.txt` aggiungere un nuovo programma demo nncase.
 
-Per la compilazione del modello, vedere`nncase_demo.mk` il POST_INSTALL_TARGET_HOOKS* ivi definito*:
+Per la compilazione del modello, vedere`nncase_demo.mk` il POST_INSTALL_TARGET_HOOKS*ivi definito*:
 
 ```text
 NNCASE_DEMO_DEPENDENCIES += mediactl_lib nncase_linux_runtime opencv4 libdrm
@@ -154,13 +154,13 @@ QOS_CTRL3.display write QoS = 0xf
 Registro di controllo QOS 0(QOS_CTRL0) offset[0x00f4]
  ![QOS CTRL0](../zh/images/sdk_application/demo_nncase_qos_ctrl0.png)
 
-Offset del registro di controllo QOS 1 (QOS_CTRL1)[0x00f8]
+Offset del registro di controllo QOS 1 [QOS_CTRL1](0x00f8)
  ![QOS CTRL1](../zh/images/sdk_application/demo_nncase_qos_ctrl1.png)
 
-Offset del registro di controllo QOS 2 (QOS_CTRL2)[0x00fc]
+Offset del registro di controllo QOS 2 [QOS_CTRL2](0x00fc)
  ![QOS CTRL2](../zh/images/sdk_application/demo_nncase_qos_ctrl2.png)
 
-Offset del registro di controllo QOS 3 (QOS_CTRL3)[0x0100]
+Offset del registro di controllo QOS 3 [QOS_CTRL3](0x0100)
  ![QOS CTRL3](../zh/images/sdk_application/demo_nncase_qos_ctrl3.png)
 
 La compilazione e l'installazione del modello è dettagliata nel pacchetto di file/ai/ai.mk:
@@ -197,7 +197,7 @@ ffmpeg -h encoder=libk510_h264 #查看k510编码器的参数
 ffmpeg -h demuxer=libk510_video #查看demuxer的配置参数
 ```
 
-Per istruzioni dettagliate sull'esecuzione, fare riferimento a[ K510_Multimedia_Developer_Guides.md](./K510_Multimedia_Developer_Guides.md)
+Per istruzioni dettagliate sull'esecuzione, fare riferimento a[K510_Multimedia_Developer_Guides.md](./K510_Multimedia_Developer_Guides.md)
 
 ## 1.3 alsa_demo
 
@@ -370,7 +370,7 @@ Il risultato dell'esecuzione del programma è:
 
 ![](../zh/images/sdk_application/image-watchdog.png)
 
-**Nota**: l'attuale modulo watchdog k510 ha una frequenza di clock funzionante di 757575Hz e il tempo di timeout in secondi deve essere convertito nel timeout timeout della frequenza di clock di lavoro effettiva del watchdog, che viene calcolata come 2^n/757575, quindi il timeout di timeout effettivo sarà maggiore o uguale al timeout del timeout di input. 
+**Nota**: l'attuale modulo watchdog k510 ha una frequenza di clock funzionante di 757575Hz e il tempo di timeout in secondi deve essere convertito nel timeout timeout della frequenza di clock di lavoro effettiva del watchdog, che viene calcolata come 2^n/757575, quindi il timeout di timeout effettivo sarà maggiore o uguale al timeout del timeout di input.
 
 Il periodo di timeout effettivo viene calcolato come segue:
 
@@ -459,7 +459,7 @@ Per abilitare la lettura e la scrittura dei dati 1G sulla scheda SD, fare riferi
 
 ## 1.10 Demo SHA/AES
 
-La demo SHA/AES utilizza il kernel Linux per esportare AF_ALG tipo di interfaccia Netlink e utilizza l'API di crittografia del kernel nello spazio utente. Si prega di fare riferimento a .<https://www.kernel.org/doc/html/latest/crypto/userspace-if.html> 
+La demo SHA/AES utilizza il kernel Linux per esportare AF_ALG tipo di interfaccia Netlink e utilizza l'API di crittografia del kernel nello spazio utente. Si prega di fare riferimento a .<https://www.kernel.org/doc/html/latest/crypto/userspace-if.html>
 
 Parametro:
 -h Stampa le informazioni di aiuto
@@ -600,17 +600,17 @@ Dopo aver caricato il driver del modulo WiFi, viene generata la scheda di rete w
 1) Aprire "Mobile Hotspot" nel notebook, quindi impostare il nome e la password dell'hotspot
 2) Avviare NetAssist sul notebook, configurare il tipo di protocollo, l'IP dell'host locale, la porta host locale, le impostazioni di ricezione, le impostazioni di invio e i dati che devono essere inviati, come mostrato nella figura seguente:
 
-![](../zh/images/sdk_application/image_wifi_1.png)
+    ![](../zh/images/sdk_application/image_wifi_1.png)
 
 3) Il formato dei parametri del programma di test wifi è:
 
-```shell
-./wifi <AP name> <password> <local ip> <server ip>
-```
+    ```shell
+    ./wifi <AP name> <password> <local ip> <server ip>
+    ```
 
-Ad esempio, immettere la directory /app/wifi, immettere il comando per avviare il programma di test wifi e il risultato dell'esecuzione del programma è il seguente:
+    Ad esempio, immettere la directory /app/wifi, immettere il comando per avviare il programma di test wifi e il risultato dell'esecuzione del programma è il seguente:
 
-![](../zh/images/sdk_application/image_wifi_2.png)
+    ![](../zh/images/sdk_application/image_wifi_2.png)
 
 ## 1.17 demo GPIO_KEYS
 
@@ -621,6 +621,6 @@ gpio-keys routine blocking reading key reporting events and printing event infor
 Il risultato dell'esecuzione del programma è illustrato nella figura seguente:![](../zh/images/sdk_application/image-gpio-keys.png)
 
 **Traduzione Disclaimer**  
-Per la comodità dei clienti, Canaan utilizza un traduttore AI per tradurre il testo in più lingue, che possono contenere errori. Non garantiamo l'accuratezza, l'affidabilità o la tempestività delle traduzioni fornite. Canaan non sarà responsabile per eventuali perdite o danni causati dall'affidamento sull'accuratezza o sull'affidabilità delle informazioni tradotte. Se c'è una differenza di contenuto tra le traduzioni in lingue diverse, prevarrà la versione cinese semplificata. 
+Per la comodità dei clienti, Canaan utilizza un traduttore AI per tradurre il testo in più lingue, che possono contenere errori. Non garantiamo l'accuratezza, l'affidabilità o la tempestività delle traduzioni fornite. Canaan non sarà responsabile per eventuali perdite o danni causati dall'affidamento sull'accuratezza o sull'affidabilità delle informazioni tradotte. Se c'è una differenza di contenuto tra le traduzioni in lingue diverse, prevarrà la versione cinese semplificata.
 
 Se desideri segnalare un errore di traduzione o un'inesattezza, non esitare a contattarci via mail.

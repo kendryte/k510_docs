@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Verzichtserklärung**</font>
 Die Produkte, Dienstleistungen oder Funktionen, die Sie erwerben, unterliegen den kommerziellen Verträgen und Bedingungen von Beijing Canaan Jiesi Information Technology Co., Ltd. ("das Unternehmen", dasselbe im Folgenden), und alle oder ein Teil der in diesem Dokument beschriebenen Produkte, Dienstleistungen oder Funktionen fallen möglicherweise nicht in den Rahmen Ihres Kaufs oder Ihrer Nutzung. Sofern im Vertrag nicht anders vereinbart, lehnt das Unternehmen alle ausdrücklichen oder stillschweigenden Zusicherungen oder Gewährleistungen hinsichtlich der Genauigkeit, Zuverlässigkeit, Vollständigkeit, des Marketings, des spezifischen Zwecks und der Nichtverletzung von Zusicherungen, Informationen oder Inhalten dieses Dokuments ab. Sofern nicht anders vereinbart, wird dieses Dokument nur als Leitfaden für die Verwendung zur Verfügung gestellt.
-Aufgrund von Produktversions-Upgrades oder anderen Gründen kann der Inhalt dieses Dokuments von Zeit zu Zeit ohne vorherige Ankündigung aktualisiert oder geändert werden. 
+Aufgrund von Produktversions-Upgrades oder anderen Gründen kann der Inhalt dieses Dokuments von Zeit zu Zeit ohne vorherige Ankündigung aktualisiert oder geändert werden.
 
 **<font face="黑体"  size=3>Markenhinweise</font>**
 
-"", "Canaan"-Symbol, Canaan und andere Marken von Canaan und andere Marken von Canaan <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />sind Marken von Beijing Canaan Jiesi Information Technology Co., Ltd. Alle anderen Marken oder eingetragenen Warenzeichen, die in diesem Dokument erwähnt werden können, sind Eigentum ihrer jeweiligen Inhaber. 
+"", "Canaan"-Symbol, Canaan und andere Marken von Canaan und andere Marken von Canaan <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />sind Marken von Beijing Canaan Jiesi Information Technology Co., Ltd. Alle anderen Marken oder eingetragenen Warenzeichen, die in diesem Dokument erwähnt werden können, sind Eigentum ihrer jeweiligen Inhaber.
 
 **<font face="黑体"  size=3>Copyright ©2022 Peking Canaan Jiesi Information Technology Co., Ltd</font>**
-Dieses Dokument gilt nur für die Entwicklung und das Design der K510-Plattform, ohne die schriftliche Genehmigung des Unternehmens darf keine Einheit oder Einzelperson einen Teil oder den gesamten Inhalt dieses Dokuments in irgendeiner Form verbreiten. 
+Dieses Dokument gilt nur für die Entwicklung und das Design der K510-Plattform, ohne die schriftliche Genehmigung des Unternehmens darf keine Einheit oder Einzelperson einen Teil oder den gesamten Inhalt dieses Dokuments in irgendeiner Form verbreiten.
 
 **<font face="黑体"  size=3>Peking Canaan Jiesi Informationstechnologie Co., Ltd</font>**
 URL: canaan-creative.com
@@ -529,8 +529,8 @@ laufen`encode_app`
 | Hilfe | Hilfe-Informationen| | ||
 | trennen | Die Anzahl der Kanäle | NULL | [1,4] | jpeg、avc |
 | Ch | Kanalnummer (0-basiert) | NULL | [0,3] | jpeg、avc |
-| Ich | Geben Sie die YUV-Datei ein, unterstützen Sie nur** das nv12-Format**  | NULL | V4L2 <br> xxx.yuv | jpeg、avc |
-| Dev | v4l2-Gerätename | NULL |**sensor0:** /dev/video3 /dev/video4 <br> <br>sensor1:<br> ** /dev/video7 /  dev/ ** video8 <br> <br> | Takt |
+| Ich | Geben Sie die YUV-Datei ein, unterstützen Sie nur**das nv12-Format**  | NULL | V4L2 <br> xxx.yuv | jpeg、avc |
+| Dev | v4l2-Gerätename | NULL |**sensor0:** /dev/video3 /dev/video4 <br> <br>sensor1:<br> **/dev/video7 /  dev/** video8 <br> <br> | Takt |
 | oder | Ausgabe| NULL | rtsp <br> xxx.264 <br> xxx.MJPEG xxx <br> .JPEG | jpeg、avc |
 | in | Breite des Ausgabebilds | 1920 | AVC: , Vielfaches von 8 [128,2048] JPEG: bis zu 8192, Vielfaches von 16 <br> | jpeg、avc |
 | h | Höhe des Ausgabebildes | 1080 | AVC: , Vielfaches von 8 [64,2048] JPEG: bis zu 8192, Vielfaches von 2 <br> | jpeg、avc |
@@ -668,7 +668,7 @@ Der ffplay-Pull-Stream-Befehl ist derselbe wie oben.
 
   IP-Adresse: Geben Sie ifconfig auf dem Board ein, um die IP-Adresse des Entwicklungsboards zu erhalten.
 
-  Portnummer: 8554 + <通道号>*2, Kanalnummern beginnen im Allgemeinen bei 0 (-ch 0, -ch 1...). 
+  Portnummer: 8554 + <通道号>*2, Kanalnummern beginnen im Allgemeinen bei 0 (-ch 0, -ch 1...).
 
 - RTSP-Stream-Modus abspielen: Der entsprechende RTSP-Stream kann über VLC oder FFPLAY abgespielt werden, und der Datenstrom kann über das UDP- oder TCP-Protokoll übertragen werden.
 
@@ -713,7 +713,7 @@ laufen`ffmpeg`
 (3) Das Gerät libk510_video Parameter
 | Der Parametername | Parameter-Interpretation | Der Standardwert | Der Wertebereich |
 |:-|:-|:-|:-|
-| Wh | Rahmengröße | NULL | ** Für Drehgeber libk510_h264:: bis  2048x2048 ** Breite Vielfaches von 8 Höhe Vielfaches von 8 min. Breite:  128 min. <br> Höhe:  64 <br> <br>für Drehgeber libk510_jpeg:<br> <br> bis zu 8192x8192 <br>**** Breite Vielfaches von 16 <br> Höhe Vielfaches <br> von 2 <br> |
+| Wh | Rahmengröße | NULL | **Für Drehgeber libk510_h264:: bis  2048x2048** Breite Vielfaches von 8 Höhe Vielfaches von 8 min. Breite:  128 min. <br> Höhe:  64 <br> <br>für Drehgeber libk510_jpeg:<br> <br> bis zu 8192x8192 <br>**** Breite Vielfaches von 16 <br> Höhe Vielfaches <br> von 2 <br> |
 | Exp | Belichtungsparameter | 0 | 0 ~ 128 |
 | Agc | Analogverstärkung | 0 | 0 ~ 232 |
 
@@ -1017,7 +1017,7 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -i /dev/video3 -vco
 
 Illustrieren:
 
-1. Die Laufzeit muss im Ausführungsverzeichnis gefunden werden`video_sampe.conf`, `imx219_0.conf`und die Dateien `imx219_1.conf`sind konfiguriert, und die drei Dateien befinden sich unter`/encode_app/` dem Verzeichnis. 
+1. Die Laufzeit muss im Ausführungsverzeichnis gefunden werden`video_sampe.conf`, `imx219_0.conf`und die Dateien `imx219_1.conf`sind konfiguriert, und die drei Dateien befinden sich unter`/encode_app/` dem Verzeichnis.
 2. Das Video, das in Echtzeit von der Kamera geliefert wird, wird als YUV-Datei geschrieben, und da die YUV-Datei sehr groß ist, kann die lokale DDR- oder NFS-Schreibgeschwindigkeit nicht mithalten, was zu einem Frame-Drop führen kann.
 
 #### 3.2.1.6 JPEG-Codierung
@@ -1028,7 +1028,7 @@ Dateiausgabe:
 ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_jpeg -y test.mjpeg
 ```
 
-Beschreibung: Die Laufzeit muss sich im Ausführungsverzeichnis`video_sampe.conf` befinden, und die Dateien `imx219_0.conf`sind konfiguriert, und die drei Dateien befinden sich unter`imx219_1.conf`  `/encode_app/`dem Verzeichnis. 
+Beschreibung: Die Laufzeit muss sich im Ausführungsverzeichnis`video_sampe.conf` befinden, und die Dateien `imx219_0.conf`sind konfiguriert, und die drei Dateien befinden sich unter`imx219_1.conf`  `/encode_app/`dem Verzeichnis.
 
 Die Ausgabedatei test.mjpeg kann auf der PC-Seite mit ffplay abgespielt werden
 
@@ -1064,7 +1064,7 @@ Wenn Sie ffplay zum Abrufen von Streams verwenden, achten Sie darauf, nur ein Vi
 
 - `ff_libk510_h264_encoder`: Steuerung der h264-Hardwarecodierung, referenziert`libvenc.so`
 - `ff_libk510_jpeg_encoder`: Steuert die JPEG-Hardwarecodierung, referenziert`libvenc.so`
-- v4l2: In v4l2.c wurde k510-Hardware-bezogener Code hinzugefügt, und der v4l2-Puffertyp V4L2_MEMORY_USERPTR und referenziert.`libmediactl.so` 
+- v4l2: In v4l2.c wurde k510-Hardware-bezogener Code hinzugefügt, und der v4l2-Puffertyp V4L2_MEMORY_USERPTR und referenziert.`libmediactl.so`
 
 #### 3.2.2.1 Befehl zur Patch-Generierung
 
@@ -1088,7 +1088,7 @@ sed -i "s/\/dl\/ffmpeg_canaan\/ffmpeg-4.4//g" ../../package/ffmpeg_canaan/xxx.pa
 
 #### 3.2.2.2. ffmpeg-Konfiguration
 
-In der `package/ffmpeg_canaan/ffmpeg.mk`Datei kann der CPU-Kern geändert werden, die Kompilierungs-Toolchain und die Aktivierung kann über die configee-Option`ff_k510_video_demuxer` erfolgen.`ff_libk510_jpeg_encoder` `ff_libk510_h264_encoder` 
+In der `package/ffmpeg_canaan/ffmpeg.mk`Datei kann der CPU-Kern geändert werden, die Kompilierungs-Toolchain und die Aktivierung kann über die configee-Option`ff_k510_video_demuxer` erfolgen.`ff_libk510_jpeg_encoder` `ff_libk510_h264_encoder`
 
 ```shell
 ./configure \
@@ -1113,7 +1113,7 @@ In der `package/ffmpeg_canaan/ffmpeg.mk`Datei kann der CPU-Kern geändert werden
     --enable-indev=v4l2 \
 ```
 
-**Haftungsausschluss **für Übersetzungen  
-Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend. 
+**Haftungsausschluss**für Übersetzungen  
+Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend.
 
 Wenn Sie einen Übersetzungsfehler oder eine Ungenauigkeit melden möchten, können Sie uns gerne per E-Mail kontaktieren.

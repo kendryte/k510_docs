@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disconoscimento**</font>
 I prodotti, i servizi o le funzionalità acquistati saranno soggetti ai contratti e ai termini commerciali di Beijing Canaan Jiesi Information Technology Co., Ltd. ("la Società", la stessa di seguito), e tutti o parte dei prodotti, servizi o funzionalità descritti in questo documento potrebbero non rientrare nell'ambito dell'acquisto o dell'utilizzo. Salvo quanto diversamente concordato nel contratto, la Società declina ogni dichiarazione o garanzia, espressa o implicita, in merito all'accuratezza, affidabilità, completezza, marketing, scopo specifico e non aggressione di qualsiasi dichiarazione, informazione o contenuto di questo documento. Salvo diverso accordo, questo documento è fornito solo come guida per l'uso.
-A causa di aggiornamenti della versione del prodotto o altri motivi, il contenuto di questo documento può essere aggiornato o modificato di volta in volta senza alcun preavviso. 
+A causa di aggiornamenti della versione del prodotto o altri motivi, il contenuto di questo documento può essere aggiornato o modificato di volta in volta senza alcun preavviso.
 
 **<font face="黑体"  size=3>Avvisi sui marchi</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icona "Canaan", Canaan e altri marchi di Canaan e altri marchi di Canaan sono marchi di Beijing Canaan Jiesi Information Technology Co., Ltd. Tutti gli altri marchi o marchi registrati che possono essere menzionati in questo documento sono di proprietà dei rispettivi proprietari. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icona "Canaan", Canaan e altri marchi di Canaan e altri marchi di Canaan sono marchi di Beijing Canaan Jiesi Information Technology Co., Ltd. Tutti gli altri marchi o marchi registrati che possono essere menzionati in questo documento sono di proprietà dei rispettivi proprietari.
 
 **<font face="黑体"  size=3>Copyright ©2022 Pechino Canaan Jiesi Information Technology Co., Ltd</font>**
-Questo documento è applicabile solo allo sviluppo e alla progettazione della piattaforma K510, senza il permesso scritto della società, nessuna unità o individuo può diffondere parte o tutto il contenuto di questo documento in qualsiasi forma. 
+Questo documento è applicabile solo allo sviluppo e alla progettazione della piattaforma K510, senza il permesso scritto della società, nessuna unità o individuo può diffondere parte o tutto il contenuto di questo documento in qualsiasi forma.
 
 **<font face="黑体"  size=3>Pechino Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -57,9 +57,9 @@ Le principali persone a cui si applica questo documento (questa guida):
 
 La versione linux attualmente utilizzata da sdk è 4.17.0. Linux, nome completo GNU/Linux, è un sistema operativo UNIX-to-use e liberamente diffuso con un kernel rilasciato per la prima volta da Linus Bennadict Torvaz il 5 ottobre 1991, è principalmente ispirato alle idee di Minix e Unix, ed è un sistema operativo multi-utente, multi-tasking, multi-threaded e multi-CPU-based basato su POSIX. Esegue i principali software, applicazioni e protocolli di rete degli strumenti Unix. Supporta hardware sia a 32 bit che a 64 bit. Linux eredita la filosofia di progettazione incentrata sulla rete di Unix ed è un sistema operativo di rete multiutente stabile. Linux ha centinaia di distribuzioni diverse, come debian basata sulla comunità, archlinux e Red Hat Enterprise Linux, SUSE, Oracle Linux, ecc.
 
-Direct Rendering Manager è un sottosistema del [kernel Linux ](https://en.wikipedia.org/wiki/Linux_kernel)che è responsabile della[ connessione GPU](https://en.wikipedia.org/wiki/Video_cards)[ alle moderne schede video](https://en.wikipedia.org/wiki/Graphics_processing_unit). Il DRM espone un['API ](https://en.wikipedia.org/wiki/Application_programming_interface)che i programmi [dello spazio utente ](https://en.wikipedia.org/wiki/User-space)possono utilizzare per inviare comandi e dati alla GPU ed eseguire azioni come la configurazione delle[ impostazioni della modalità di visualizzazione. ](https://en.wikipedia.org/wiki/Mode_setting)DRM è stato originariamente sviluppato come[ componente dello spazio kernel dell](https://en.wikipedia.org/wiki/X.Org_Server)['infrastruttura X Server](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)Direct Rendering[[](https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1)[1],](https://en.wikipedia.org/wiki/Kernel-space), ma da allora è stato sostituito da altre alternative allo stack grafico come[ Wayland](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol))) utilizza. 
+Direct Rendering Manager è un sottosistema del [kernel Linux](https://en.wikipedia.org/wiki/Linux_kernel)che è responsabile della[connessione GPU](https://en.wikipedia.org/wiki/Video_cards)[alle moderne schede video](https://en.wikipedia.org/wiki/Graphics_processing_unit). Il DRM espone un['API](https://en.wikipedia.org/wiki/Application_programming_interface)che i programmi [dello spazio utente](https://en.wikipedia.org/wiki/User-space)possono utilizzare per inviare comandi e dati alla GPU ed eseguire azioni come la configurazione delle[impostazioni della modalità di visualizzazione.](https://en.wikipedia.org/wiki/Mode_setting)DRM è stato originariamente sviluppato come[componente dello spazio kernel dell](https://en.wikipedia.org/wiki/X.Org_Server)['infrastruttura X Server](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)Direct Rendering[[][https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1](1),](<https://en.wikipedia.org/wiki/Kernel-space>), ma da allora è stato sostituito da altre alternative allo stack grafico come[Wayland](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol))) utilizza.
 
-I programmi dello spazio utente possono utilizzare l'API DRM per comandare la GPU per il[ rendering 3D](https://en.wikipedia.org/wiki/Hardware_acceleration)  con [ ](https://en.wikipedia.org/wiki/3D_rendering)accelerazione hardware[ e la decodifica video](https://en.wikipedia.org/wiki/Video_decoding), nonché [il calcolo GPGPU](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units). 
+I programmi dello spazio utente possono utilizzare l'API DRM per comandare la GPU per il[rendering 3D](https://en.wikipedia.org/wiki/Hardware_acceleration)  con [](https://en.wikipedia.org/wiki/3D_rendering)accelerazione hardware[e la decodifica video](https://en.wikipedia.org/wiki/Video_decoding), nonché [il calcolo GPGPU](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units).
 
 # 2 Introduzione all'hardware
 
@@ -67,7 +67,7 @@ I programmi dello spazio utente possono utilizzare l'API DRM per comandare la GP
 
 Scarica e compila l'SDK, l'SDK scaricherà e compilerà il codice Linux durante la compilazione.
 
-Per ulteriori informazioni su come scaricare e compilare l'SDK, vedere[ K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md). 
+Per ulteriori informazioni su come scaricare e compilare l'SDK, vedere[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md).
 
 ## 2.2 File e directory dei driver
 
@@ -994,6 +994,6 @@ static int draw_frame(struct vo_draw_frame *frame)
 ```
 
 **Traduzione Disclaimer**  
-Per la comodità dei clienti, Canaan utilizza un traduttore AI per tradurre il testo in più lingue, che possono contenere errori. Non garantiamo l'accuratezza, l'affidabilità o la tempestività delle traduzioni fornite. Canaan non sarà responsabile per eventuali perdite o danni causati dall'affidamento sull'accuratezza o sull'affidabilità delle informazioni tradotte. Se c'è una differenza di contenuto tra le traduzioni in lingue diverse, prevarrà la versione cinese semplificata. 
+Per la comodità dei clienti, Canaan utilizza un traduttore AI per tradurre il testo in più lingue, che possono contenere errori. Non garantiamo l'accuratezza, l'affidabilità o la tempestività delle traduzioni fornite. Canaan non sarà responsabile per eventuali perdite o danni causati dall'affidamento sull'accuratezza o sull'affidabilità delle informazioni tradotte. Se c'è una differenza di contenuto tra le traduzioni in lingue diverse, prevarrà la versione cinese semplificata.
 
 Se desideri segnalare un errore di traduzione o un'inesattezza, non esitare a contattarci via mail.

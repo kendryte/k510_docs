@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**면책 조항**</font>
 귀하가 구매한 제품, 서비스 또는 기능은 베이징 Jiananges 정보 기술 유한 회사(이하 "회사")의 상업 계약 및 약관의 적용을 받으며, 이 문서에 설명된 제품, 서비스 또는 기능의 전부 또는 일부는 구매 또는 사용의 범위를 벗어납니다. 계약에 달리 합의하지 않는 한, 회사는 본 문서의 진술, 정보, 내용의 정확성, 신뢰성, 완전성, 마케팅, 특정 목적 및 비침략성에 대해 명시적 또는 묵시적으로 어떠한 진술이나 보증도 하지 않습니다. 달리 합의하지 않는 한, 이 문서는 사용 지침의 참조로만 사용됩니다.
-이 문서의 내용은 제품 버전 업그레이드 또는 기타 이유로 인해 예고 없이 수시로 업데이트되거나 수정될 수 있습니다. 
+이 문서의 내용은 제품 버전 업그레이드 또는 기타 이유로 인해 예고 없이 수시로 업데이트되거나 수정될 수 있습니다.
 
 **<font face="黑体"  size=3>상표 고지</font>**
 
-베이징 <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />Jianan Jets 정보 기술 유한 공사의 상표는 Jianan, Jianan 및 Jianan의 다른 상표입니다. 이 문서에 언급될 수 있는 기타 모든 상표 또는 등록 상표는 해당 소유자가 소유합니다. 
+베이징 <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />Jianan Jets 정보 기술 유한 공사의 상표는 Jianan, Jianan 및 Jianan의 다른 상표입니다. 이 문서에 언급될 수 있는 기타 모든 상표 또는 등록 상표는 해당 소유자가 소유합니다.
 
 **<font face="黑体"  size=3>저작권 ©2022 베이징 Jiananjets 정보 기술 유한 회사</font>**
-이 문서는 K510 플랫폼 개발 및 설계에만 적용되며, 어떠한 단위나 개인도 회사의 서면 허가 없이 이 문서의 일부 또는 전부를 어떤 형태로든 배포할 수 없습니다. 
+이 문서는 K510 플랫폼 개발 및 설계에만 적용되며, 어떠한 단위나 개인도 회사의 서면 허가 없이 이 문서의 일부 또는 전부를 어떤 형태로든 배포할 수 없습니다.
 
 **<font face="黑体"  size=3>베이징 Jiananjets 정보 기술 유한 회사</font>**
 웹 사이트: canaan-creative.com
@@ -529,8 +529,8 @@ K510의 하드웨어 블록 다이어그램은 다음과 같습니다.
 | 도움말 | 도움말 정보입니다| | ||
 | 쪼개다 | 채널 수입니다 | 영 | [1,4] | jpeg、avc |
 | 채널 | 채널 번호(0부터 시작) | 영 | [0,3] | jpeg、avc |
-| 나는 |nv12 **형식 ** 만 지원하는 yuv 파일을 입력합니다| 영 | v4l2 <br> xxx.yuv | jpeg、avc |
-| 개발 | v4l2 장치 이름 | 영 | **센서0:** /dev/video3 /dev/video4 <br> <br>sensor1:<br> ** /dev/video7 /  dev/ ** video8 <br> <br> | 획 |
+| 나는 |nv12 **형식** 만 지원하는 yuv 파일을 입력합니다| 영 | v4l2 <br> xxx.yuv | jpeg、avc |
+| 개발 | v4l2 장치 이름 | 영 | **센서0:** /dev/video3 /dev/video4 <br> <br>sensor1:<br> **/dev/video7 /  dev/** video8 <br> <br> | 획 |
 | 또는 | 출력| 영 | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG | jpeg、avc |
 | 안으로 | 출력 이미지 너비입니다 | 1920 | avc[128,2048]: , 8 <br> jpeg의 배수: 최대 8192, 16의 배수 | jpeg、avc |
 | h | 출력 이미지 높이입니다 | 1080 | avc[64,2048]: , 8 <br> jpeg의 배수: 최대 8192, 2의 배수 | jpeg、avc |
@@ -668,7 +668,7 @@ ffplay 끌어 흐름 명령이 위와 동일합니다.
 
   ip 주소: 보드의 IP 주소이며 보드에 ifconfig를 입력하여 얻을 수 있습니다.
 
-  포트 번호: 8554 + <通道号>*2, 채널 번호는 일반적으로 0(-ch 0, -ch 1...)부터 시작합니다. 
+  포트 번호: 8554 + <通道号>*2, 채널 번호는 일반적으로 0(-ch 0, -ch 1...)부터 시작합니다.
 
 - rtsp 스트림 재생 방법: 해당 rtsp 스트림은 vlc 또는 ffplay를 통해 재생할 수 있으며, 스트림은 udp 또는 tcp 프로토콜을 통해 전송될 수 있습니다.
 
@@ -713,7 +713,7 @@ ffmpeg는 /usr/local/bin 디렉토리에 배치됩니다.
 (3) device libk510_video 매개 변수입니다
 | 매개 변수 이름입니다 | 매개 변수 설명입니다 | 기본값입니다 | 값 범위입니다 |
 |:-|:-|:-|:-|
-| 어 | 프레임 크기 | 영 | **인코더의 경우 libk510_h264:: 최대 2048x2048 폭 ** 8 <br> 높이  8 분의 배수: 128 분. 높이: <br>인코더 libk510_jpeg의 경우<br> 64 <br> <br>:<br> 최대 8192x8192 ** 폭 16 ** 높이 배수 2 <br> <br> <br> |
+| 어 | 프레임 크기 | 영 | **인코더의 경우 libk510_h264:: 최대 2048x2048 폭** 8 <br> 높이  8 분의 배수: 128 분. 높이: <br>인코더 libk510_jpeg의 경우<br> 64 <br> <br>:<br> 최대 8192x8192 **폭 16** 높이 배수 2 <br> <br> <br> |
 | 특급 | 노출 매개 변수 | 0 | 0~128명 |
 | agc | 아날로그 게인 | 0 | 0~232명 |
 
@@ -1017,7 +1017,7 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -i /dev/video3 -vco
 
 설명:
 
-1. 런타임은 실행 디렉터리에서 파일을 찾고`video_sampe.conf``imx219_0.conf``imx219_1.conf` 구성해야 합니다`/encode_app/`. 
+1. 런타임은 실행 디렉터리에서 파일을 찾고`video_sampe.conf``imx219_0.conf``imx219_1.conf` 구성해야 합니다`/encode_app/`.
 2. 카메라가 실시간으로 들어오는 비디오는 yuv 파일로 작성되며, yuv 파일이 크기 때문에 로컬 ddr 또는 nfs가 속도를 따라갈 수 없으므로 프레임이 손실될 수 있습니다.
 
 #### 3.2.1.6 JPEG 인코딩
@@ -1028,7 +1028,7 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -i /dev/video3 -vco
 ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_jpeg -y test.mjpeg
 ```
 
-설명: 런타임은 실행 디렉터리에서 파일을 찾고`video_sampe.conf``imx219_0.conf``imx219_1.conf` 구성해야 합니다`/encode_app/`. 
+설명: 런타임은 실행 디렉터리에서 파일을 찾고`video_sampe.conf``imx219_0.conf``imx219_1.conf` 구성해야 합니다`/encode_app/`.
 
 출력 파일 test.mjpeg는 PC 측에서 ffplay로 재생할 수 있습니다
 
@@ -1064,7 +1064,7 @@ ffplay로 스트리밍할 때 SDP 파일의 포트 번호를 변경하여 다른
 
 - `ff_libk510_h264_encoder`: h264 하드웨어 인코딩을 제어하고 참조합니다`libvenc.so`
 - `ff_libk510_jpeg_encoder`: jpeg 하드웨어 인코딩을 제어하고 참조합니다`libvenc.so`
-- v4l2: v4l2.c에서 k510 하드웨어 관련 코드가 추가되어 v4l2 buffer 형식 V4L2_MEMORY_USERPTR 구현되고 참조됩니다`libmediactl.so`. 
+- v4l2: v4l2.c에서 k510 하드웨어 관련 코드가 추가되어 v4l2 buffer 형식 V4L2_MEMORY_USERPTR 구현되고 참조됩니다`libmediactl.so`.
 
 #### 3.2.2.1 patch는 명령을 생성합니다
 
@@ -1088,7 +1088,7 @@ sed -i "s/\/dl\/ffmpeg_canaan\/ffmpeg-4.4//g" ../../package/ffmpeg_canaan/xxx.pa
 
 #### 3.2.2.2 ffmpeg 구성
 
-파일에서 `package/ffmpeg_canaan/ffmpeg.mk`configure 옵션을 사용하여 CPU 코어를 수정하고 도구 체인을 컴파일하여 및 을 사용할 수 있습니다`ff_k510_video_demuxer``ff_libk510_jpeg_encoder``ff_libk510_h264_encoder`. 
+파일에서 `package/ffmpeg_canaan/ffmpeg.mk`configure 옵션을 사용하여 CPU 코어를 수정하고 도구 체인을 컴파일하여 및 을 사용할 수 있습니다`ff_k510_video_demuxer``ff_libk510_jpeg_encoder``ff_libk510_h264_encoder`.
 
 ```shell
 ./configure \
@@ -1114,6 +1114,6 @@ sed -i "s/\/dl\/ffmpeg_canaan\/ffmpeg-4.4//g" ../../package/ffmpeg_canaan/xxx.pa
 ```
 
 **번역 면책 조항**  
-고객의 편의를 위해 Canan은 AI 번역 프로그램을 사용하여 오류를 포함할 수 있는 여러 언어로 텍스트를 번역합니다. 당사는 제공된 번역의 정확성, 신뢰성 또는 적시성을 보장하지 않습니다. Canan은 번역된 정보의 정확성이나 신뢰성에 의존하여 발생하는 손실이나 손해에 대해 책임을 지지 않습니다. 언어 번역 간에 콘텐츠 차이가 있는 경우 중국어 간체 버전이 우선합니다. 
+고객의 편의를 위해 Canan은 AI 번역 프로그램을 사용하여 오류를 포함할 수 있는 여러 언어로 텍스트를 번역합니다. 당사는 제공된 번역의 정확성, 신뢰성 또는 적시성을 보장하지 않습니다. Canan은 번역된 정보의 정확성이나 신뢰성에 의존하여 발생하는 손실이나 손해에 대해 책임을 지지 않습니다. 언어 번역 간에 콘텐츠 차이가 있는 경우 중국어 간체 버전이 우선합니다.
 
 번역 오류 또는 부정확한 문제를 신고하려면 이메일로 문의하시기 바랍니다.

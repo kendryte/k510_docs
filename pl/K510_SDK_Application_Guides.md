@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Zrzeczenie się**</font>
 Zakupione produkty, usługi lub funkcje podlegają umowom handlowym i warunkom Beijing Canaan Jiesi Information Technology Co., Ltd. ("Spółka", ta sama poniżej), a wszystkie lub część produktów, usług lub funkcji opisanych w niniejszym dokumencie może nie być objęta zakresem zakupu lub użytkowania. O ile nie uzgodniono inaczej w umowie, Firma zrzeka się wszelkich oświadczeń lub gwarancji, wyraźnych lub dorozumianych, co do dokładności, niezawodności, kompletności, marketingu, konkretnego celu i nieagresji jakichkolwiek oświadczeń, informacji lub treści tego dokumentu. O ile nie uzgodniono inaczej, niniejszy dokument jest dostarczany jako wskazówka wyłącznie do użytku.
-Ze względu na aktualizacje wersji produktu lub z innych powodów zawartość tego dokumentu może być od czasu do czasu aktualizowana lub modyfikowana bez powiadomienia. 
+Ze względu na aktualizacje wersji produktu lub z innych powodów zawartość tego dokumentu może być od czasu do czasu aktualizowana lub modyfikowana bez powiadomienia.
 
 **<font face="黑体"  size=3>Informacje o znakach towarowych</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, ikona "Canaan", Canaan i inne znaki towarowe Canaan oraz inne znaki towarowe Canaan są znakami towarowymi Beijing Canaan Jiesi Information Technology Co., Ltd. Wszystkie inne znaki towarowe lub zarejestrowane znaki towarowe, które mogą być wymienione w niniejszym dokumencie, są własnością ich odpowiednich właścicieli. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, ikona "Canaan", Canaan i inne znaki towarowe Canaan oraz inne znaki towarowe Canaan są znakami towarowymi Beijing Canaan Jiesi Information Technology Co., Ltd. Wszystkie inne znaki towarowe lub zarejestrowane znaki towarowe, które mogą być wymienione w niniejszym dokumencie, są własnością ich odpowiednich właścicieli.
 
 **<font face="黑体"  size=3>Prawa autorskie ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Niniejszy dokument ma zastosowanie wyłącznie do rozwoju i projektowania platformy K510, bez pisemnej zgody firmy, żadna jednostka ani osoba fizyczna nie może rozpowszechniać części lub całości treści tego dokumentu w jakiejkolwiek formie. 
+Niniejszy dokument ma zastosowanie wyłącznie do rozwoju i projektowania platformy K510, bez pisemnej zgody firmy, żadna jednostka ani osoba fizyczna nie może rozpowszechniać części lub całości treści tego dokumentu w jakiejkolwiek formie.
 
 **<font face="黑体"  size=3>Pekin Canaan Jiesi Information Technology Co Ltd</font>**
 Adres internetowy: canaan-creative.com
@@ -26,7 +26,7 @@ Zapytania biznesowe: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # przedmowa
 **<font face="黑体"  size=5>Przeznaczenie </font>**dokumentu
-Ten dokument jest dokumentem opisowym przykładowej aplikacji K510 SDK. 
+Ten dokument jest dokumentem opisowym przykładowej aplikacji K510 SDK.
 
 **<font face="黑体"  size=5>Obiekty programu Reader</font>**
 
@@ -103,9 +103,9 @@ ai
 └── Config.in
 ```
 
-Możesz odwołać się do kodu źródłowego retinaface_mb_320 i`CMakeLists.txt` dodać nowy program demonstracyjny nncase. 
+Możesz odwołać się do kodu źródłowego retinaface_mb_320 i`CMakeLists.txt` dodać nowy program demonstracyjny nncase.
 
-Aby zapoznać się z kompilacją modelu, zobacz`nncase_demo.mk` POST_INSTALL_TARGET_HOOKS* w nim zdefiniowane*:
+Aby zapoznać się z kompilacją modelu, zobacz`nncase_demo.mk` POST_INSTALL_TARGET_HOOKS*w nim zdefiniowane*:
 
 ```text
 NNCASE_DEMO_DEPENDENCIES += mediactl_lib nncase_linux_runtime opencv4 libdrm
@@ -151,16 +151,16 @@ QOS_CTRL2.isp3dtof zapisz QoS = 0xf
 QOS_CTRL3.display odczyt QoS = 0xf
 QOS_CTRL3.display zapisz QoS = 0xf
 
-Przesunięcie rejestru sterowania QOS 0(QOS_CTRL0)[0x00f4]
+Przesunięcie rejestru sterowania QOS 0[QOS_CTRL0](0x00f4)
  ![qos ctrl0](../zh/images/sdk_application/demo_nncase_qos_ctrl0.png)
 
-Przesunięcie 
+Przesunięcie
  [0x00f8]rejestru sterowania QOS 1 (QOS_CTRL1)![ qos ctrl1](../zh/images/sdk_application/demo_nncase_qos_ctrl1.png)
 
-Przesunięcie 
+Przesunięcie
  [0x00fc]rejestru sterowania QOS 2 (QOS_CTRL2)![ qos ctrl2](../zh/images/sdk_application/demo_nncase_qos_ctrl2.png)
 
-Przesunięcie 
+Przesunięcie
  [0x0100]rejestru sterowania QOS 3 (QOS_CTRL3)![ qos ctrl3](../zh/images/sdk_application/demo_nncase_qos_ctrl3.png)
 
 Kompilacja i instalacja modelu jest szczegółowo opisana w pliku package/ai/ai.mk:
@@ -197,7 +197,7 @@ ffmpeg -h encoder=libk510_h264 #查看k510编码器的参数
 ffmpeg -h demuxer=libk510_video #查看demuxer的配置参数
 ```
 
-Szczegółowe instrukcje dotyczące uruchamiania można znaleźć w[ K510_Multimedia_Developer_Guides.md](./K510_Multimedia_Developer_Guides.md)
+Szczegółowe instrukcje dotyczące uruchamiania można znaleźć w[K510_Multimedia_Developer_Guides.md](./K510_Multimedia_Developer_Guides.md)
 
 ## 1.3 alsa_demo
 
@@ -370,7 +370,7 @@ Wynikiem wykonania programu jest:
 
 ![](../zh/images/sdk_application/image-watchdog.png)
 
-**Uwaga**: Obecny moduł watchdog k510 ma częstotliwość zegara roboczego 757575 Hz, a czas limitu czasu w sekundach musi zostać przekonwertowany na limit czasu rzeczywistej częstotliwości zegara roboczego watchdoga, która jest obliczana jako 2 ^ n / 757575, więc rzeczywisty czas limitu czasu będzie większy lub równy limitowi czasu wejściowego. 
+**Uwaga**: Obecny moduł watchdog k510 ma częstotliwość zegara roboczego 757575 Hz, a czas limitu czasu w sekundach musi zostać przekonwertowany na limit czasu rzeczywistej częstotliwości zegara roboczego watchdoga, która jest obliczana jako 2 ^ n / 757575, więc rzeczywisty czas limitu czasu będzie większy lub równy limitowi czasu wejściowego.
 
 Rzeczywisty limit czasu jest obliczany w następujący sposób:
 
@@ -459,7 +459,7 @@ Aby włączyć odczyt i zapis danych 1G na karcie SD, zapoznaj się z folderem /
 
 ## 1.10 Demo SHA/AES
 
-Demo SHA/AES używa jądra Linuksa do eksportowania AF_ALG typu interfejsu Netlink i używa interfejsu API szyfrowania jądra w przestrzeni użytkownika. Proszę odnieść się do .<https://www.kernel.org/doc/html/latest/crypto/userspace-if.html> 
+Demo SHA/AES używa jądra Linuksa do eksportowania AF_ALG typu interfejsu Netlink i używa interfejsu API szyfrowania jądra w przestrzeni użytkownika. Proszę odnieść się do .<https://www.kernel.org/doc/html/latest/crypto/userspace-if.html>
 
 Parametr:
 -h Drukuje informacje pomocy
@@ -600,17 +600,17 @@ Po załadowaniu sterownika modułu WiFi generowana jest bezprzewodowa karta siec
 1) Otwórz "Mobilny hotspot" w notatniku, a następnie ustaw nazwę i hasło hotspotu
 2) Uruchom Program NetAssist na notebooku, skonfiguruj typ protokołu, adres IP hosta lokalnego, port hosta lokalnego, ustawienia odbierania, ustawienia wysyłania i dane, które mają zostać wysłane, jak pokazano na poniższym rysunku:
 
-![](../zh/images/sdk_application/image_wifi_1.png)
+    ![](../zh/images/sdk_application/image_wifi_1.png)
 
 3) Format parametru programu testowego wifi to:
 
-```shell
-./wifi <AP name> <password> <local ip> <server ip>
-```
+    ```shell
+    ./wifi <AP name> <password> <local ip> <server ip>
+    ```
 
-Na przykład wprowadź katalog /app/wifi, wprowadź polecenie, aby uruchomić program testowy Wi-Fi, a wynik wykonania programu jest następujący:
+    Na przykład wprowadź katalog /app/wifi, wprowadź polecenie, aby uruchomić program testowy Wi-Fi, a wynik wykonania programu jest następujący:
 
-![](../zh/images/sdk_application/image_wifi_2.png)
+    ![](../zh/images/sdk_application/image_wifi_2.png)
 
 ## 1.17 GPIO_KEYS demo
 
@@ -620,7 +620,7 @@ procedura gpio-keys blokująca odczytywanie zdarzeń raportowania kluczy i druko
 
 Wynik wykonania programu pokazano na poniższym rysunku:![](../zh/images/sdk_application/image-gpio-keys.png)
 
-**Zrzeczenie się odpowiedzialności za **tłumaczenie  
-Dla wygody klientów Canaan używa tłumacza AI do tłumaczenia tekstu na wiele języków, które mogą zawierać błędy. Nie gwarantujemy dokładności, rzetelności ani terminowości dostarczonych tłumaczeń. Canaan nie ponosi odpowiedzialności za jakiekolwiek straty lub szkody spowodowane poleganiem na dokładności lub wiarygodności przetłumaczonych informacji. W przypadku różnic w treści tłumaczeń w różnych językach, pierwszeństwo ma chińska wersja uproszczona. 
+**Zrzeczenie się odpowiedzialności za**tłumaczenie  
+Dla wygody klientów Canaan używa tłumacza AI do tłumaczenia tekstu na wiele języków, które mogą zawierać błędy. Nie gwarantujemy dokładności, rzetelności ani terminowości dostarczonych tłumaczeń. Canaan nie ponosi odpowiedzialności za jakiekolwiek straty lub szkody spowodowane poleganiem na dokładności lub wiarygodności przetłumaczonych informacji. W przypadku różnic w treści tłumaczeń w różnych językach, pierwszeństwo ma chińska wersja uproszczona.
 
 Jeśli chcesz zgłosić błąd lub niedokładność tłumaczenia, skontaktuj się z nami pocztą.

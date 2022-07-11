@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Renuncia**</font>
 Los productos, servicios o características que compre estarán sujetos a los contratos comerciales y términos de Beijing Canaan Jiesi Information Technology Co., Ltd. ("la Compañía", la misma en adelante), y todos o parte de los productos, servicios o características descritos en este documento pueden no estar dentro del alcance de su compra o uso. Salvo que se acuerde lo contrario en el contrato, la Compañía renuncia a todas las representaciones o garantías, expresas o implícitas, en cuanto a la precisión, confiabilidad, integridad, marketing, propósito específico y no agresión de cualquier representación, información o contenido de este documento. A menos que se acuerde lo contrario, este documento se proporciona como una guía para su uso solamente.
-Debido a actualizaciones de la versión del producto u otras razones, el contenido de este documento puede actualizarse o modificarse de vez en cuando sin previo aviso. 
+Debido a actualizaciones de la versión del producto u otras razones, el contenido de este documento puede actualizarse o modificarse de vez en cuando sin previo aviso.
 
 **<font face="黑体"  size=3>Avisos de marcas comerciales</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, el icono de "Canaan", Canaan y otras marcas comerciales de Canaan y otras marcas comerciales de Canaan son marcas comerciales de Beijing Canaan Jiesi Information Technology Co., Ltd. Todas las demás marcas comerciales o marcas registradas que puedan mencionarse en este documento son propiedad de sus respectivos propietarios. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, el icono de "Canaan", Canaan y otras marcas comerciales de Canaan y otras marcas comerciales de Canaan son marcas comerciales de Beijing Canaan Jiesi Information Technology Co., Ltd. Todas las demás marcas comerciales o marcas registradas que puedan mencionarse en este documento son propiedad de sus respectivos propietarios.
 
 **<font face="黑体"  size=3>Derechos de autor ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Este documento solo es aplicable al desarrollo y diseño de la plataforma K510, sin el permiso por escrito de la empresa, ninguna unidad o individuo puede difundir parte o la totalidad del contenido de este documento en ninguna forma. 
+Este documento solo es aplicable al desarrollo y diseño de la plataforma K510, sin el permiso por escrito de la empresa, ninguna unidad o individuo puede difundir parte o la totalidad del contenido de este documento en ninguna forma.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Información Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Consultas comerciales: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # prefacio
 **<font face="黑体"  size=5>Propósito del documento</font>**
-Este documento es un documento de descripción para el ejemplo de aplicación K510 SDK. 
+Este documento es un documento de descripción para el ejemplo de aplicación K510 SDK.
 
 **<font face="黑体"  size=5>Objetos reader</font>**
 
@@ -35,7 +35,7 @@ Las principales personas a las que se aplica este documento (esta guía):
 - Desarrolladores de software
 - Personal de soporte técnico
 
-**<font face="黑体"  size=5>Historial 
+**<font face="黑体"  size=5>Historial
  </font>**de revisiones <font face="宋体"  size=2>El historial de revisiones acumula una descripción de cada actualización del documento. La versión más reciente del documento contiene actualizaciones para todas las versiones anteriores. </font>
 
 | El número de versión | Modificado por     | Fecha de revisión   | Notas de revisión     |
@@ -103,9 +103,9 @@ ai
 └── Config.in
 ```
 
-Puede consultar el código fuente del retinaface_mb_320 y `CMakeLists.txt`agregar un nuevo programa de demostración de nncase. 
+Puede consultar el código fuente del retinaface_mb_320 y `CMakeLists.txt`agregar un nuevo programa de demostración de nncase.
 
-Para la compilación del modelo, véase`nncase_demo.mk` el POST_INSTALL_TARGET_HOOKS* definido en el mismo*:
+Para la compilación del modelo, véase`nncase_demo.mk` el POST_INSTALL_TARGET_HOOKS*definido en el mismo*:
 
 ```text
 NNCASE_DEMO_DEPENDENCIES += mediactl_lib nncase_linux_runtime opencv4 libdrm
@@ -151,16 +151,16 @@ QOS_CTRL2.isp3dtof escribir QoS = 0xf
 QOS_CTRL3.display leer QoS = 0xf
 QOS_CTRL3.display escribir QoS = 0xf
 
-Desplazamiento 
+Desplazamiento
  [0x00f4]del registro de control QOS 0(QOS_CTRL0)![ qos CTRL0](../zh/images/sdk_application/demo_nncase_qos_ctrl0.png)
 
-Desplazamiento 
+Desplazamiento
  [0x00f8]del registro de control QOS 1 (QOS_CTRL1)![ qos CTRL1](../zh/images/sdk_application/demo_nncase_qos_ctrl1.png)
 
-Desplazamiento 
+Desplazamiento
  [0x00fc]del registro de control QOS 2 (QOS_CTRL2)![ qos CTRL2](../zh/images/sdk_application/demo_nncase_qos_ctrl2.png)
 
-Desplazamiento 
+Desplazamiento
  [0x0100]del registro de control QOS 3 (QOS_CTRL3)![ qos CTRL3](../zh/images/sdk_application/demo_nncase_qos_ctrl3.png)
 
 La compilación e instalación del modelo se detalla en el archivo package/ai/ai.mk:
@@ -197,7 +197,7 @@ ffmpeg -h encoder=libk510_h264 #查看k510编码器的参数
 ffmpeg -h demuxer=libk510_video #查看demuxer的配置参数
 ```
 
-Para obtener instrucciones detalladas de ejecución, consulte[ K510_Multimedia_Developer_Guides.md](./K510_Multimedia_Developer_Guides.md)
+Para obtener instrucciones detalladas de ejecución, consulte[K510_Multimedia_Developer_Guides.md](./K510_Multimedia_Developer_Guides.md)
 
 ## 1.3 alsa_demo
 
@@ -370,7 +370,7 @@ El resultado de la ejecución del programa es:
 
 ![](../zh/images/sdk_application/image-watchdog.png)
 
-**Nota**: El módulo de vigilancia k510 actual tiene una frecuencia de reloj de trabajo de 757575Hz, y el tiempo de espera en segundos debe convertirse en el tiempo de espera de la frecuencia de reloj de trabajo real del perro guardián, que se calcula como 2^n / 757575, por lo que el tiempo de espera real será mayor o igual que el tiempo de espera de entrada. 
+**Nota**: El módulo de vigilancia k510 actual tiene una frecuencia de reloj de trabajo de 757575Hz, y el tiempo de espera en segundos debe convertirse en el tiempo de espera de la frecuencia de reloj de trabajo real del perro guardián, que se calcula como 2^n / 757575, por lo que el tiempo de espera real será mayor o igual que el tiempo de espera de entrada.
 
 El período de tiempo de espera real se calcula de la siguiente manera:
 
@@ -459,7 +459,7 @@ Para habilitar la lectura y escritura de datos 1G en la tarjeta SD, consulte la 
 
 ## 1.10 Demostración de SHA/AES
 
-La demostración de SHA/AES utiliza el kernel de Linux para exportar AF_ALG tipo de interfaz Netlink y utiliza la API de cifrado del kernel en el espacio de usuario. Consulte .<https://www.kernel.org/doc/html/latest/crypto/userspace-if.html> 
+La demostración de SHA/AES utiliza el kernel de Linux para exportar AF_ALG tipo de interfaz Netlink y utiliza la API de cifrado del kernel en el espacio de usuario. Consulte .<https://www.kernel.org/doc/html/latest/crypto/userspace-if.html>
 
 Parámetro:
 -h Imprime la información de ayuda
@@ -600,17 +600,17 @@ Después de cargar el controlador del módulo WiFi, se genera la tarjeta de red 
 1) Abra "Punto de acceso móvil" en el cuaderno y luego establezca el nombre y la contraseña del punto de acceso
 2) Inicie NetAssist en el bloc de notas, configure el tipo de protocolo, la IP del host local, el puerto del host local, la configuración de recepción, la configuración de envío y los datos que deben enviarse, como se muestra en la siguiente figura:
 
-![](../zh/images/sdk_application/image_wifi_1.png)
+    ![](../zh/images/sdk_application/image_wifi_1.png)
 
 3) El formato de parámetro del programa de prueba wifi es:
 
-```shell
-./wifi <AP name> <password> <local ip> <server ip>
-```
+    ```shell
+    ./wifi <AP name> <password> <local ip> <server ip>
+    ```
 
-Por ejemplo, ingrese el directorio /app/wifi, ingrese el comando para iniciar el programa de prueba wifi y el resultado de ejecución del programa es el siguiente:
+    Por ejemplo, ingrese el directorio /app/wifi, ingrese el comando para iniciar el programa de prueba wifi y el resultado de ejecución del programa es el siguiente:
 
-![](../zh/images/sdk_application/image_wifi_2.png)
+    ![](../zh/images/sdk_application/image_wifi_2.png)
 
 ## 1.17 GPIO_KEYS demo
 
@@ -620,7 +620,7 @@ gpio-keys rutina bloqueo de lectura de eventos de informes de claves e impresió
 
 El resultado de la ejecución del programa se muestra en la siguiente figura:![](../zh/images/sdk_application/image-gpio-keys.png)
 
-**Descargo de responsabilidad de **traducción  
-Para la comodidad de los clientes, Canaan utiliza un traductor de IA para traducir texto a varios idiomas, que pueden contener errores. No garantizamos la exactitud, fiabilidad o puntualidad de las traducciones proporcionadas. Canaan no será responsable de ninguna pérdida o daño causado por la confianza en la exactitud o fiabilidad de la información traducida. Si existe una diferencia de contenido entre las traducciones en diferentes idiomas, prevalecerá la versión en chino simplificado. 
+**Descargo de responsabilidad de**traducción  
+Para la comodidad de los clientes, Canaan utiliza un traductor de IA para traducir texto a varios idiomas, que pueden contener errores. No garantizamos la exactitud, fiabilidad o puntualidad de las traducciones proporcionadas. Canaan no será responsable de ninguna pérdida o daño causado por la confianza en la exactitud o fiabilidad de la información traducida. Si existe una diferencia de contenido entre las traducciones en diferentes idiomas, prevalecerá la versión en chino simplificado.
 
 Si desea informar de un error o inexactitud de traducción, no dude en ponerse en contacto con nosotros por correo.

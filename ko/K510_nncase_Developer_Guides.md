@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**면책 조항**</font>
 귀하가 구매한 제품, 서비스 또는 기능은 베이징 Jiananges 정보 기술 유한 회사(이하 "회사")의 상업 계약 및 약관의 적용을 받으며, 이 문서에 설명된 제품, 서비스 또는 기능의 전부 또는 일부는 구매 또는 사용의 범위를 벗어납니다. 계약에 달리 합의하지 않는 한, 회사는 본 문서의 진술, 정보, 내용의 정확성, 신뢰성, 완전성, 마케팅, 특정 목적 및 비침략성에 대해 명시적 또는 묵시적으로 어떠한 진술이나 보증도 하지 않습니다. 달리 합의하지 않는 한, 이 문서는 사용 지침의 참조로만 사용됩니다.
-이 문서의 내용은 제품 버전 업그레이드 또는 기타 이유로 인해 예고 없이 수시로 업데이트되거나 수정될 수 있습니다. 
+이 문서의 내용은 제품 버전 업그레이드 또는 기타 이유로 인해 예고 없이 수시로 업데이트되거나 수정될 수 있습니다.
 
 **<font face="黑体"  size=3>상표 고지</font>**
 
-베이징 <img src="http://s2.loli.net/2022/03/30/xN21jbhnwSFyGRD.png" style="zoom:33%;" />Jianan Jets 정보 기술 유한 공사의 상표는 Jianan, Jianan 및 Jianan의 다른 상표입니다. 이 문서에 언급될 수 있는 기타 모든 상표 또는 등록 상표는 해당 소유자가 소유합니다. 
+베이징 <img src="http://s2.loli.net/2022/03/30/xN21jbhnwSFyGRD.png" style="zoom:33%;" />Jianan Jets 정보 기술 유한 공사의 상표는 Jianan, Jianan 및 Jianan의 다른 상표입니다. 이 문서에 언급될 수 있는 기타 모든 상표 또는 등록 상표는 해당 소유자가 소유합니다.
 
 **<font face="黑体"  size=3>저작권 ©2022 베이징 Jiananjets 정보 기술 유한 회사</font>**
-이 문서는 K510 플랫폼 개발 및 설계에만 적용되며, 어떠한 단위나 개인도 회사의 서면 허가 없이 이 문서의 일부 또는 전부를 어떤 형태로든 배포할 수 없습니다. 
+이 문서는 K510 플랫폼 개발 및 설계에만 적용되며, 어떠한 단위나 개인도 회사의 서면 허가 없이 이 문서의 일부 또는 전부를 어떤 형태로든 배포할 수 없습니다.
 
 **<font face="黑体"  size=3>베이징 Jiananjets 정보 기술 유한 회사</font>**
 웹 사이트: canaan-creative.com
@@ -136,7 +136,7 @@ nncase에서 지원하는 신경망 프레임워크입니다
 
 nnncase 소프트웨어 스택은 현재 compiler 및 runtime 섹션으로 구성됩니다.
 
-**Compiler:** PC에서 신경망 모델을 컴파일하여 궁극적으로 kmodel 파일을 생성하는 데 사용됩니다. 주로 importer, IR, Evaluator, Quantize, Transform 최적화, Tiling, Partition, Schedule, Codegen 등의 모듈이 있습니다. 
+**Compiler:** PC에서 신경망 모델을 컴파일하여 궁극적으로 kmodel 파일을 생성하는 데 사용됩니다. 주로 importer, IR, Evaluator, Quantize, Transform 최적화, Tiling, Partition, Schedule, Codegen 등의 모듈이 있습니다.
 
 - Importer: 다른 신경망 프레임워크의 모델을 nncase로 가져옵니다
 - IR: 중간 표현은 importer에서 가져온 Neutral IR(장치 독립적)과 Neutral IR의 로버링 변환에 의해 생성된 Target IR(장치 종속)으로 나뉩니다.
@@ -154,7 +154,7 @@ nnncase 소프트웨어 스택은 현재 compiler 및 runtime 섹션으로 구�
 
 nncase 툴체인 compiler 섹션에는 nncase 및 K510 compiler가 포함되어 있으며, 모두 해당 wheel 패키지를 설치해야 합니다.
 
-- nncase wheel 패키지는[ nncase github에 ](https://github.com/kendryte/nncase/releases/tag/v1.6.0)출시되며 Python 3.6/3.7/3.8/3.9/3.10을 지원하며 사용자는 운영 체제 및 Python에 따라 적절한 버전을 선택하여 다운로드할 수 있습니다
+- nncase wheel 패키지는[nncase github에](https://github.com/kendryte/nncase/releases/tag/v1.6.0)출시되며 Python 3.6/3.7/3.8/3.9/3.10을 지원하며 사용자는 운영 체제 및 Python에 따라 적절한 버전을 선택하여 다운로드할 수 있습니다
 - K510 compiler wheel 패키지는 nncase sdk의 x86_64 디렉토리에 있으며 Python 버전에 의존하지 않고 직접 설치할 수 있습니다
 
 우분투 환경이 없는 사용자는 [nncase docker](https://github.com/kendryte/nncase/blob/master/docs/build.md#docker)(Ubuntu 20.04 + Python 3.8)를 사용할 수 있습니다
@@ -451,8 +451,8 @@ py::class_<compile_options>(m, "CompileOptions")
 | 전처리       | 부울   | 아니요, 그렇지 않습니다       | 전처리를 켤지 여부는 기본적으로 False로 설정됩니다                                  |
 | 스왑RB           | 부울   | 아니요, 그렇지 않습니다       | RGB 입력 데이터의 빨간색과 파란색 채널(RGB->BGR 또는 BGR->RGB)을 교환할지 여부는 기본적으로 False로 설정됩니다 |
 | 의미하다             | 목록   | 아니요, 그렇지 않습니다       | 선행 처리 정규화된 매개변수 평균( 기본값)입니다[0, 0, 0]                        |
-| 성병              | 목록   | 아니요, 그렇지 않습니다       | 정규화된 매개변수 분산을 선행 처리합니다( 기본값은 )[1, 1, 1]                        |
-| input_range      | 목록   | 아니요, 그렇지 않습니다       | 데이터 반전 후 해당 부동 소수점 숫자의 범위를 입력합니다(기본값)[0，1]               |
+| 성병              | 목록   | 아니요, 그렇지 않습니다       | 정규화된 매개변수 분산을 선행 처리합니다[ 기본값은 ](1, 1, 1)                        |
+| input_range      | 목록   | 아니요, 그렇지 않습니다       | 데이터 반전 후 해당 부동 소수점 숫자의 범위를 입력합니다[기본값](0，1)               |
 | output_range     | 목록   | 아니요, 그렇지 않습니다       | 고정 소수점 데이터를 내보내기 전에 부동 소수점 숫자의 범위에 해당하며 기본값은 비어 있습니다                     |
 | input_shape      | 목록   | 아니요, 그렇지 않습니다       | 입력 데이터의 shape를 지정하고, input_shape layout은 input layout과 일치해야 하며, 입력 데이터의 input_shape 모델의 input shape와 일치하지 않을 때 leterbox 작업(resize/pad 등)을 수행합니다. |
 | letterbox_value  | 뜨다  | 아니요, 그렇지 않습니다       | 선행 처리 letterbox의 채우기 값을 지정합니다                                  |
@@ -469,14 +469,14 @@ py::class_<compile_options>(m, "CompileOptions")
 | benchmark_only   | 부울   | 아니요, 그렇지 않습니다       | kmodel이 benchmark에만 사용할지 여부를 지정합니다( 기본값은 False)                   |
 
 > 1. input range는 부동 소수점 숫자의 범위, 즉 입력 데이터 형식이 uint8인 경우 input range는 부동 소수점 뒤에 역정량화된 범위입니다(0~1이 아님).
-> 2. input_shape input_layout 따라 지정해야 합니다([1，224，224，3]예: input_layout NCHW인 경우 input_shape 지정해야 함[1,3,224,224]). input_layout NHWC인 경우 input_shape 지정해야 합니다[1,224,224,3]. 
+> 2. input_shape input_layout 따라 지정해야 합니다([1，224，224，3]예: input_layout NCHW인 경우 input_shape 지정해야 함[1,3,224,224]). input_layout NHWC인 경우 input_shape 지정해야 합니다[1,224,224,3].
 > 3. mean 및 std는 부동 소수점 숫자에 대한 normalize 매개 변수를 수행하며 사용자는 자유롭게 지정할 수 있습니다.
 > 4. letterbox 기능을 사용하는 경우 1.5MB 이내의 입력 size, 0.75MB의 단일channel size를 제한해야 합니다.
 >
 > 예를 들면 다음과 같습니다.
 >
 > 1. 입력 데이터 형식은 uint8로 설정되고 input_range 설정되며[0,255], 반정량화의 역할은 형식 변환일 뿐이며, uint8의 데이터를 float32로 변환하고, mean 및 std 매개 변수는 여전히 0~255의 데이터에 따라 지정할 수 있습니다
-> 2. 입력 데이터 형식이 uint8로 설정되고 input_range 고정 [0,1]소수점 숫자가 범위의 부동 소수점 숫자로 역정량화되고[0,1] mean 및 std는 새 부동 소수점 숫자 범위에 따라 지정해야 합니다. 
+> 2. 입력 데이터 형식이 uint8로 설정되고 input_range 고정 [0,1]소수점 숫자가 범위의 부동 소수점 숫자로 역정량화되고[0,1] mean 및 std는 새 부동 소수점 숫자 범위에 따라 지정해야 합니다.
 
 선행 처리 프로세스는 다음과 같습니다(그림의 녹색 노드는 선택 사항임).
 
@@ -977,7 +977,7 @@ python3 scripts/mobilenetv2_onnx_fp32_image.py --target k510 --model models/mobi
 
 ### 4.3.3 float32 caffe 모델을 컴파일합니다
 
-- caffe wheel 패키지는[ kendryte caffe에서 ](https://github.com/kendryte/caffe/releases)가져옵니다
+- caffe wheel 패키지는[kendryte caffe에서](https://github.com/kendryte/caffe/releases)가져옵니다
 - conv2d_caffe_fp32.py 스크립트는 다음과 같습니다
 
 ```python
@@ -2691,31 +2691,31 @@ auto output = F::pad(input, paddings, pad_constant, pad_value).unwrap_or_throw()
 
 # 8 자주 묻는 질문
 
-1.安装wheel时报错: "xxx.whl은 이 플랫폼에서 지원되는 휠이 아닙니다." **
+1. 安装wheel时报错: "xxx.whl은 이 플랫폼에서 지원되는 휠이 아닙니다." **
 
-Q: 安装nncase wheel包, 出现ERROR: nncase-1.0.0.20210830-cp37-cp37m-manylinux_2_24_x86_64.whl은 이 플랫폼에서 지원되는 휠이 아닙니다.
+    Q: 安装nncase wheel包, 出现ERROR: nncase-1.0.0.20210830-cp37-cp37m-manylinux_2_24_x86_64.whl은 이 플랫폼에서 지원되는 휠이 아닙니다.
 
-A: 업그레이드 pip > = 20.3
+    A: 업그레이드 pip > = 20.3
 
-```shell
-sudo pip3 install --upgrade pip
-```
+    ```shell
+    sudo pip3 install --upgrade pip
+    ```
 
-2.CRB**가 앱 추론 프로그램을 실행할 때 오류 "std::bad_alloc"을 보고합니다**
+2. CRB**가 앱 추론 프로그램을 실행할 때 오류 "std::bad_alloc"을 보고합니다**
 
-Q: CRB에서 App 추론 프로그램을 실행 하 고 "std::bad_alloc" 예외를 throw 합니다
+    Q: CRB에서 App 추론 프로그램을 실행 하 고 "std::bad_alloc" 예외를 throw 합니다
 
-```shell
-$ ./cpp.sh
-case ./yolov3_bfloat16 build at Sep 16 2021 18:12:03
-terminate called after throwing an instance of 'std::bad_alloc'
-  what():  std::bad_alloc
-```
+    ```shell
+    $ ./cpp.sh
+    case ./yolov3_bfloat16 build at Sep 16 2021 18:12:03
+    terminate called after throwing an instance of 'std::bad_alloc'
+    what():  std::bad_alloc
+    ```
 
-A: std::bad_alloc 예외는 일반적으로 메모리 할당 실패로 인해 발생하며 다음과 같이 해결할 수 있습니다.
+    A: std::bad_alloc 예외는 일반적으로 메모리 할당 실패로 인해 발생하며 다음과 같이 해결할 수 있습니다.
 
-- 결과 kmodel이 현재 시스템에서 사용할 수있는 메모리를 초과하는지 확인하십시오 (예 : yolov3 bfloat16 kmodel 크기는 121MB이며 현재 linux에서 사용할 수있는 메모리는 70MB에 불과합니다. 예외가 throw됩니다).  그 이상, 훈련 후 양자화를 사용하여 kmodel 크기를 줄일 수 있습니다.
-- 앱에 메모리 누수가 있는지 확인합니다
+    - 결과 kmodel이 현재 시스템에서 사용할 수있는 메모리를 초과하는지 확인하십시오 (예 : yolov3 bfloat16 kmodel 크기는 121MB이며 현재 linux에서 사용할 수있는 메모리는 70MB에 불과합니다. 예외가 throw됩니다).  그 이상, 훈련 후 양자화를 사용하여 kmodel 크기를 줄일 수 있습니다.
+    - 앱에 메모리 누수가 있는지 확인합니다
 
 3. **App 추론 프로그램을 실행할 때[.. t_runtime_tensor.cpp:310 (만들기)] data.size_bytes() = = size = false (bool)**
 
@@ -2724,6 +2724,6 @@ Q: simulator는 app 추론 프로그램을 실행하여 "[.. t_runtime_tensor.cp
 A: 입력 셰이프 및 요소당 바이트 수(fp32/uint8)에 중점을 두고 설정된 입력 tensor 정보를 확인합니다.
 
 **번역 면책 조항**  
-고객의 편의를 위해 Canan은 AI 번역 프로그램을 사용하여 오류를 포함할 수 있는 여러 언어로 텍스트를 번역합니다. 당사는 제공된 번역의 정확성, 신뢰성 또는 적시성을 보장하지 않습니다. Canan은 번역된 정보의 정확성이나 신뢰성에 의존하여 발생하는 손실이나 손해에 대해 책임을 지지 않습니다. 언어 번역 간에 콘텐츠 차이가 있는 경우 중국어 간체 버전이 우선합니다. 
+고객의 편의를 위해 Canan은 AI 번역 프로그램을 사용하여 오류를 포함할 수 있는 여러 언어로 텍스트를 번역합니다. 당사는 제공된 번역의 정확성, 신뢰성 또는 적시성을 보장하지 않습니다. Canan은 번역된 정보의 정확성이나 신뢰성에 의존하여 발생하는 손실이나 손해에 대해 책임을 지지 않습니다. 언어 번역 간에 콘텐츠 차이가 있는 경우 중국어 간체 버전이 우선합니다.
 
 번역 오류 또는 부정확한 문제를 신고하려면 이메일로 문의하시기 바랍니다.

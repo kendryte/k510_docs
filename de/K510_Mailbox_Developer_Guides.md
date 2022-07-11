@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Verzichtserklärung**</font>
 Die Produkte, Dienstleistungen oder Funktionen, die Sie erwerben, unterliegen den kommerziellen Verträgen und Bedingungen von Beijing Canaan Jiesi Information Technology Co., Ltd. ("das Unternehmen", dasselbe im Folgenden), und alle oder ein Teil der in diesem Dokument beschriebenen Produkte, Dienstleistungen oder Funktionen fallen möglicherweise nicht in den Rahmen Ihres Kaufs oder Ihrer Nutzung. Sofern im Vertrag nicht anders vereinbart, lehnt das Unternehmen alle ausdrücklichen oder stillschweigenden Zusicherungen oder Gewährleistungen hinsichtlich der Genauigkeit, Zuverlässigkeit, Vollständigkeit, des Marketings, des spezifischen Zwecks und der Nichtverletzung von Zusicherungen, Informationen oder Inhalten dieses Dokuments ab. Sofern nicht anders vereinbart, wird dieses Dokument nur als Leitfaden für die Verwendung zur Verfügung gestellt.
-Aufgrund von Produktversions-Upgrades oder anderen Gründen kann der Inhalt dieses Dokuments von Zeit zu Zeit ohne vorherige Ankündigung aktualisiert oder geändert werden. 
+Aufgrund von Produktversions-Upgrades oder anderen Gründen kann der Inhalt dieses Dokuments von Zeit zu Zeit ohne vorherige Ankündigung aktualisiert oder geändert werden.
 
 **<font face="黑体"  size=3>Markenhinweise</font>**
 
-"", "Canaan"-Symbol, Canaan und andere Marken von Canaan und andere Marken von Canaan <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />sind Marken von Beijing Canaan Jiesi Information Technology Co., Ltd. Alle anderen Marken oder eingetragenen Warenzeichen, die in diesem Dokument erwähnt werden können, sind Eigentum ihrer jeweiligen Inhaber. 
+"", "Canaan"-Symbol, Canaan und andere Marken von Canaan und andere Marken von Canaan <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />sind Marken von Beijing Canaan Jiesi Information Technology Co., Ltd. Alle anderen Marken oder eingetragenen Warenzeichen, die in diesem Dokument erwähnt werden können, sind Eigentum ihrer jeweiligen Inhaber.
 
 **<font face="黑体"  size=3>Copyright ©2022 Peking Canaan Jiesi Information Technology Co., Ltd</font>**
-Dieses Dokument gilt nur für die Entwicklung und das Design der K510-Plattform, ohne die schriftliche Genehmigung des Unternehmens darf keine Einheit oder Einzelperson einen Teil oder den gesamten Inhalt dieses Dokuments in irgendeiner Form verbreiten. 
+Dieses Dokument gilt nur für die Entwicklung und das Design der K510-Plattform, ohne die schriftliche Genehmigung des Unternehmens darf keine Einheit oder Einzelperson einen Teil oder den gesamten Inhalt dieses Dokuments in irgendeiner Form verbreiten.
 
 **<font face="黑体"  size=3>Peking Canaan Jiesi Informationstechnologie Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Geschäftliche Anfragen: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # Vorwort
 **<font face="黑体"  size=5>Zweck des Dokuments</font>**
-Dieses Dokument ist ein Entwicklungsdokument für den K510-Postfachtreiber. 
+Dieses Dokument ist ein Entwicklungsdokument für den K510-Postfachtreiber.
 
 **<font face="黑体"  size=5>Reader-Objekte</font>**
 
@@ -62,7 +62,7 @@ Die wichtigsten Personen, für die sich dieses Dokument (dieser Leitfaden) richt
 &emsp; &emsp; Controller ist ein Treiber, der das Hardwarepostfach direkt manipuliert. Es betreibt die Hardware-Register direkt nach unten und schließt die Kommunikation mit der Fernbedienung durch Senden und Empfangen von Interrupts ab (sofern von der Hardware unterstützt); Bis zur Schnittstelle, die vom Framework bereitgestellt wird, um die Kommunikation mit dem Client-Treiber abzuschließen.
 &emsp; &emsp; Der Kunde ist der Verbraucher des Controllers, der mit dem Controller nach unten kommuniziert und Kanalanwendungen, Datenaufbereitung und andere Funktionen ausführt; Bietet Schnittstellen für die Manipulation des Benutzerbereichs.  
 &emsp; &emsp; Das Mailbox-Framework ist für die Schnittstelle zwischen dem Controller und dem Client verantwortlich, die Kernel-Dokumentation sagt: "Der Client und der Controller-Treiber können sehr von der spezifischen Plattform abhängig sein, daher kann der Client-Treiber nicht zwischen mehreren Plattformen gemeinsam genutzt werden", so dass im`/drivers/mailbox` Verzeichnis nur der Treiber über den Controller gefunden werden kann und der Client-Treiber nicht gefunden werden kann, nur ein Test kann gefunden werden Der `mailbox-test.c`Clienttreiber des Controllers. Wie der Clienttreiber Daten mit dem Benutzerraum austauscht, bleibt auch dem Treiberentwickler selbst überlassen.  
-&emsp; &emsp; Das folgende Diagramm bildet das Grundgerüst für zwei Treiberregistrierungen: 
+&emsp; &emsp; Das folgende Diagramm bildet das Grundgerüst für zwei Treiberregistrierungen:
 
 <div align=center>
 <img src="../zh/images/mailbox/130101_frame_00.svg" width="1400">
@@ -75,7 +75,7 @@ Die wichtigsten Personen, für die sich dieses Dokument (dieser Leitfaden) richt
 </div>
 
 &emsp; &emsp; Das Framework verwendet`struct mbox_controller` abstrakte Postfachcontroller, abstrakte`struct mbox_chan` Kanäle und Auflistungen von Funktionen, `struct mbox_chan_ops`um Kanäle zu bearbeiten. Die oben genannten drei Datenstrukturen sind für Controller bestimmt. Das Framework verwendet `struct mbox_client`abstrakte Clients, die clientspezifisch sind.  
-&emsp; &emsp; Darüber hinaus müssen wir unsere eigene Gerätestruktur für unsere Geräte und Laufwerke definieren, wie in der obigen Abbildung gezeigt. Die Verbindung zwischen dem`mbox_request_channel` Client und der Steuerung erfolgt in der Funktion bei der Beantragung eines Kanals im Client, und ein Kanal ist an eine Struktur gebunden`struct mbox_client`. 
+&emsp; &emsp; Darüber hinaus müssen wir unsere eigene Gerätestruktur für unsere Geräte und Laufwerke definieren, wie in der obigen Abbildung gezeigt. Die Verbindung zwischen dem`mbox_request_channel` Client und der Steuerung erfolgt in der Funktion bei der Beantragung eines Kanals im Client, und ein Kanal ist an eine Struktur gebunden`struct mbox_client`.
 
 ## 1.3 Ablauf von Funktionsaufrufen
 
@@ -84,26 +84,26 @@ Die wichtigsten Personen, für die sich dieses Dokument (dieser Leitfaden) richt
 </div>  
 
 &emsp; &emsp; User-Space und clientgesteuerte Datenbereitstellung verwenden ioctl plus asynchrone Benachrichtigungen, die von den Treiberentwicklern selbst festgelegt werden und nicht zum Framework gehören.  
-&emsp; &emsp; Wir haben einen Geräteknoten im Clienttreiber erstellt`/dev/mailbox-client`, über den der Benutzerbereich Daten liest und sendet. 8 Sendekanäle, 8 Empfangskanäle. 
+&emsp; &emsp; Wir haben einen Geräteknoten im Clienttreiber erstellt`/dev/mailbox-client`, über den der Benutzerbereich Daten liest und sendet. 8 Sendekanäle, 8 Empfangskanäle.
 
 ### 1.3.1 Senden von Datenfluss
 
 &emsp; &emsp; Wie in der Abbildung oben gezeigt:
 
 1. Dateihandles zur Manipulation des Benutzerbereichs zum Senden von Daten;
-2. Geben Sie die clientgesteuerte ioctl-Funktion ein, die User-Space-Daten in den Kernel-Space kopiert und schließlich die Funktion aufruft`mbox_send_message`. 
-3. Der spezifische Verarbeitungsprozess dieser Funktion zeigt sich in der Codeanalyse der späteren Kapitel, die hauptsächlich zwei Callback-Funktionen aufruft: die clientgesteuerte`tx_prepare` Implementierung und die controllergesteuerte Implementierung.`send_data` Schauen Sie sich die Namen an, um zu wissen, was diese beiden Funktionen tun. Es sollte beachtet werden, dass einige Hardwarepostfächer Hardware-Datenübertragungsregister haben, so dass zu diesem Zeitpunkt die Datenübertragung`send_data` in der Mitte abgeschlossen werden kann; Einige Hardware verfügt nicht über Hardware-Datenübertragungsregister, dann kann die eigentliche Datenübertragung auch`tx_prepare` darin abgeschlossen werden, und `send_data`die Rolle wird zu einer einfachen **Trigger-Interrupt-Benachrichtigung an den Remoteprozessor**. 
+2. Geben Sie die clientgesteuerte ioctl-Funktion ein, die User-Space-Daten in den Kernel-Space kopiert und schließlich die Funktion aufruft`mbox_send_message`.
+3. Der spezifische Verarbeitungsprozess dieser Funktion zeigt sich in der Codeanalyse der späteren Kapitel, die hauptsächlich zwei Callback-Funktionen aufruft: die clientgesteuerte`tx_prepare` Implementierung und die controllergesteuerte Implementierung.`send_data` Schauen Sie sich die Namen an, um zu wissen, was diese beiden Funktionen tun. Es sollte beachtet werden, dass einige Hardwarepostfächer Hardware-Datenübertragungsregister haben, so dass zu diesem Zeitpunkt die Datenübertragung`send_data` in der Mitte abgeschlossen werden kann; Einige Hardware verfügt nicht über Hardware-Datenübertragungsregister, dann kann die eigentliche Datenübertragung auch`tx_prepare` darin abgeschlossen werden, und `send_data`die Rolle wird zu einer einfachen **Trigger-Interrupt-Benachrichtigung an den Remoteprozessor**.
 4. Wenn der Remote-Prozessor den Interrupt empfängt und die Daten empfängt, muss er dem Controller mit einem Interrupt antworten, der anzeigt, dass Tx abgeschlossen ist.
-5. Nach dem Empfang des Tx ACK muss der Controller registrierte Interrupt-Handler aufgerufen werden, `mbox_chan_txdone`um die obere Schicht darüber zu informieren, dass die Übertragung remote empfangen wurde. 
-6. `mbox_chan_txdone`Informieren Sie den Kunden, dass die `tx_done`Übertragung durch die Kundenregistrierung abgeschlossen ist. Der Kunde entscheidet sich für die weitere Verarbeitung, und die`tx_done` Parameter erfassen den Status der Datenübertragung. 
+5. Nach dem Empfang des Tx ACK muss der Controller registrierte Interrupt-Handler aufgerufen werden, `mbox_chan_txdone`um die obere Schicht darüber zu informieren, dass die Übertragung remote empfangen wurde.
+6. `mbox_chan_txdone`Informieren Sie den Kunden, dass die `tx_done`Übertragung durch die Kundenregistrierung abgeschlossen ist. Der Kunde entscheidet sich für die weitere Verarbeitung, und die`tx_done` Parameter erfassen den Status der Datenübertragung.
 
 ### 1.3.1 Prozess des Empfangens von Daten
 
 &emsp; &emsp; Wie in der Abbildung oben gezeigt:
 
 1. Interrupts des Remote-Prozessors, die Daten an die Steuerung senden;
-2. Nach dem Empfang des Interrupts informiert der vom Controller registrierte Interrupt-Handler-Aufruf `mbox_chan_received_data`die obere Schicht, um Daten vom anderen Ende zu empfangen und an den entfernten Rx ACK zu antworten. 
-3. `mbox_chan_received_data`Rufen Sie den registrierten Client auf`rx_callback`. 
+2. Nach dem Empfang des Interrupts informiert der vom Controller registrierte Interrupt-Handler-Aufruf `mbox_chan_received_data`die obere Schicht, um Daten vom anderen Ende zu empfangen und an den entfernten Rx ACK zu antworten.
+3. `mbox_chan_received_data`Rufen Sie den registrierten Client auf`rx_callback`.
 4. `rx_callback`liest Daten von der in der Gerätestruktur angegebenen Adresse und benachrichtigt dann den Benutzerbereich mithilfe asynchroner Benachrichtigungen.
 5. Der asynchrone Userspace-Handler, der ioctl aufruft, liest die Daten des Empfangskanals.
 
@@ -111,7 +111,7 @@ Die wichtigsten Personen, für die sich dieses Dokument (dieser Leitfaden) richt
 
 ## 2,1 mailbox_controller.h
 
-&emsp; &emsp; Definiert (`mbox_controller`Abstraktion der Postfachhardware),`mbox_chan` (Abstraktion des Kanals) (`mbox_chan_ops`Sammlung von Callback-Funktionen, die Kanäle manipulieren). 
+&emsp; &emsp; Definiert (`mbox_controller`Abstraktion der Postfachhardware),`mbox_chan` (Abstraktion des Kanals) (`mbox_chan_ops`Sammlung von Callback-Funktionen, die Kanäle manipulieren).
 
 ```c
 struct mbox_controller {
@@ -397,7 +397,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 }
 ```
 
-&emsp; &emsp; Diese Funktion `of_parse_phandle_with_args`ruft übrigens den Kanal des angeforderten Index aus dem Gerätebaum ab. 
+&emsp; &emsp; Diese Funktion `of_parse_phandle_with_args`ruft übrigens den Kanal des angeforderten Index aus dem Gerätebaum ab.
 
 - `mboxes`Verweist auf den Eigenschaftsnamen der Griffliste im Knoten.
 - `#mbox-cells`Gibt die Anzahl der Zellen an, die in dem Knoten enthalten sind, auf die der Knoten verweist;
@@ -441,7 +441,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 
 ### 2.3.10 mbox_free_channel
 
-&emsp; &emsp; Die Kanalfreigabefunktion implementiert eine Rückruffunktion, die die Mitglieder des angegebenen Kanals leert und die Rückruffunktion implementiert, wenn das entsprechende Hardwareregister konfiguriert werden muss`shutdown`. 
+&emsp; &emsp; Die Kanalfreigabefunktion implementiert eine Rückruffunktion, die die Mitglieder des angegebenen Kanals leert und die Rückruffunktion implementiert, wenn das entsprechende Hardwareregister konfiguriert werden muss`shutdown`.
 
 ### 2.3.11 mbox_controller_register und mbox_controller_unregister
 
@@ -481,7 +481,7 @@ mailbox: mailbox@970e0000 {
 
 ## 3.1 Verantwortlicher
 
-&emsp; &emsp; Es muss ein Attribut `#mbox-cells`mit einem Wert von mindestens 1 vorhanden sein. Es gibt die`mboxes` Anzahl der Zellen für das Clientattribut an. 
+&emsp; &emsp; Es muss ein Attribut `#mbox-cells`mit einem Wert von mindestens 1 vorhanden sein. Es gibt die`mboxes` Anzahl der Zellen für das Clientattribut an.
 
 ## 3.2 Kunde
 
@@ -491,7 +491,7 @@ mailbox: mailbox@970e0000 {
 
 ## 3.3 Nutzung der Immobilie
 
-&emsp; &emsp; `mbox-cells`Die`mboxes` `mbox-names`drei Eigenschaften werden bei der Anwendung von Kanälen verwendet. 
+&emsp; &emsp; `mbox-cells`Die`mboxes` `mbox-names`drei Eigenschaften werden bei der Anwendung von Kanälen verwendet.
 
 ```c
 
@@ -545,20 +545,20 @@ Gehen Sie in das Verzeichnis `/app/dsp_app_new`und führen Sie den Befehl aus`./
 2. Ausführen der Linux-Userspace-Test-App
 Geben Sie das Verzeichnis ein`/app/mailbox_demo`, und führen Sie den Befehl aus`./mailbox_async`, wie in der folgenden Abbildung dargestellt:  
 ![](../zh/images/mailbox/130602_mailbox_async.png)mailbox_demo  
-Diese Demo verwendet asynchrone Benachrichtigungen, um Daten zu empfangen, die vom DSP gesendet werden. 
+Diese Demo verwendet asynchrone Benachrichtigungen, um Daten zu empfangen, die vom DSP gesendet werden.
 3. Führen Sie im Verzeichnis`/app/mailbox_demo` den Befehl aus`./mailbox_poll`, wie in der folgenden Abbildung dargestellt:  
 ![](../zh/images/mailbox/130602_mailbox_poll.png)mailbox_demo
-Diese Demo verwendet die Polling-Blockierung für 500ms, um Daten zu empfangen, die vom DSP gesendet werden. Wir senden Daten alle 4s und lesen die Daten alle 2s, so dass wir sehen können, dass alle 2s der Leseerfolg mit dem Lesefehler gestaffelt wird und der blockierende Lesevorgang erfolgreich ist. 
+Diese Demo verwendet die Polling-Blockierung für 500ms, um Daten zu empfangen, die vom DSP gesendet werden. Wir senden Daten alle 4s und lesen die Daten alle 2s, so dass wir sehen können, dass alle 2s der Leseerfolg mit dem Lesefehler gestaffelt wird und der blockierende Lesevorgang erfolgreich ist.
 
 ## 5.2 Testen des Codes
 
-&emsp; &emsp; Das dsp-Bare-Metal-Programm befindet sich `k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c`in der Mitte, und der User-Space-Testcode befindet sich in und`k510_buildroot/package/mailbox_demo/src/mailbox_async.c``k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`. 
+&emsp; &emsp; Das dsp-Bare-Metal-Programm befindet sich `k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c`in der Mitte, und der User-Space-Testcode befindet sich in und`k510_buildroot/package/mailbox_demo/src/mailbox_async.c``k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`.
 
 # 6 Bekannte Probleme
 
-&emsp; &emsp; Gelegentlich wird das `./dsp_app mailbox_demo.bin`dsp-Programm nicht in den dsp gebrannt, wenn der Befehl zum ersten Mal ausgeführt wird. Die Ausführung der Demo an dieser Stelle führt zu einem Sendefehler. 
+&emsp; &emsp; Gelegentlich wird das `./dsp_app mailbox_demo.bin`dsp-Programm nicht in den dsp gebrannt, wenn der Befehl zum ersten Mal ausgeführt wird. Die Ausführung der Demo an dieser Stelle führt zu einem Sendefehler.
 
-**Haftungsausschluss **für Übersetzungen  
-Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend. 
+**Haftungsausschluss**für Übersetzungen  
+Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend.
 
 Wenn Sie einen Übersetzungsfehler oder eine Ungenauigkeit melden möchten, können Sie uns gerne per E-Mail kontaktieren.

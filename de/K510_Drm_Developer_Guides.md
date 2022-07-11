@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Verzichtserklärung**</font>
 Die Produkte, Dienstleistungen oder Funktionen, die Sie erwerben, unterliegen den kommerziellen Verträgen und Bedingungen von Beijing Canaan Jiesi Information Technology Co., Ltd. ("das Unternehmen", dasselbe im Folgenden), und alle oder ein Teil der in diesem Dokument beschriebenen Produkte, Dienstleistungen oder Funktionen fallen möglicherweise nicht in den Rahmen Ihres Kaufs oder Ihrer Nutzung. Sofern im Vertrag nicht anders vereinbart, lehnt das Unternehmen alle ausdrücklichen oder stillschweigenden Zusicherungen oder Gewährleistungen hinsichtlich der Genauigkeit, Zuverlässigkeit, Vollständigkeit, des Marketings, des spezifischen Zwecks und der Nichtverletzung von Zusicherungen, Informationen oder Inhalten dieses Dokuments ab. Sofern nicht anders vereinbart, wird dieses Dokument nur als Leitfaden für die Verwendung zur Verfügung gestellt.
-Aufgrund von Produktversions-Upgrades oder anderen Gründen kann der Inhalt dieses Dokuments von Zeit zu Zeit ohne vorherige Ankündigung aktualisiert oder geändert werden. 
+Aufgrund von Produktversions-Upgrades oder anderen Gründen kann der Inhalt dieses Dokuments von Zeit zu Zeit ohne vorherige Ankündigung aktualisiert oder geändert werden.
 
 **<font face="黑体"  size=3>Markenhinweise</font>**
 
-"", "Canaan"-Symbol, Canaan und andere Marken von Canaan und andere Marken von Canaan <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />sind Marken von Beijing Canaan Jiesi Information Technology Co., Ltd. Alle anderen Marken oder eingetragenen Warenzeichen, die in diesem Dokument erwähnt werden können, sind Eigentum ihrer jeweiligen Inhaber. 
+"", "Canaan"-Symbol, Canaan und andere Marken von Canaan und andere Marken von Canaan <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />sind Marken von Beijing Canaan Jiesi Information Technology Co., Ltd. Alle anderen Marken oder eingetragenen Warenzeichen, die in diesem Dokument erwähnt werden können, sind Eigentum ihrer jeweiligen Inhaber.
 
 **<font face="黑体"  size=3>Copyright ©2022 Peking Canaan Jiesi Information Technology Co., Ltd</font>**
-Dieses Dokument gilt nur für die Entwicklung und das Design der K510-Plattform, ohne die schriftliche Genehmigung des Unternehmens darf keine Einheit oder Einzelperson einen Teil oder den gesamten Inhalt dieses Dokuments in irgendeiner Form verbreiten. 
+Dieses Dokument gilt nur für die Entwicklung und das Design der K510-Plattform, ohne die schriftliche Genehmigung des Unternehmens darf keine Einheit oder Einzelperson einen Teil oder den gesamten Inhalt dieses Dokuments in irgendeiner Form verbreiten.
 
 **<font face="黑体"  size=3>Peking Canaan Jiesi Informationstechnologie Co., Ltd</font>**
 URL: canaan-creative.com
@@ -57,9 +57,9 @@ Die wichtigsten Personen, für die sich dieses Dokument (dieser Leitfaden) richt
 
 Die derzeit von sdk verwendete Linux-Version ist 4.17.0. Linux, voller Name GNU/Linux, ist ein frei verwendbares und frei verbreitetes UNIX-ähnliches Betriebssystem mit einem Kernel, der erstmals am 5. Oktober 1991 von Linus Bennadict Torvaz veröffentlicht wurde, es ist hauptsächlich von den Ideen von Minix und Unix inspiriert und ist ein Multi-User-, Multi-Tasking-, Multi-Threaded- und Multi-CPU-basiertes Betriebssystem, das auf POSIX basiert. Es führt die wichtigsten Unix-Tool-Software, Anwendungen und Netzwerkprotokolle aus. Es unterstützt sowohl 32-Bit- als auch 64-Bit-Hardware. Linux erbt die netzwerkzentrierte Designphilosophie von Unix und ist ein stabiles Multi-User-Netzwerkbetriebssystem. Linux hat Hunderte von verschiedenen Distributionen, wie Community-basiertes Debian, ArchLinux und kommerziell entwickeltes Red Hat Enterprise Linux, SUSE, Oracle Linux usw.
 
-Direct Rendering Manager ist ein Subsystem des [Linux-Kernels, das für die ](https://en.wikipedia.org/wiki/Linux_kernel)GPU-Verbindung zu modernen [Grafikkarten](https://en.wikipedia.org/wiki/Video_cards)[ verantwortlich ist](https://en.wikipedia.org/wiki/Graphics_processing_unit). Der DRM macht eine[ API verfügbar](https://en.wikipedia.org/wiki/Application_programming_interface), die [Benutzerraumprogramme ](https://en.wikipedia.org/wiki/User-space)verwenden können, um Befehle und Daten an die GPU zu senden und Aktionen wie das Konfigurieren[ von Anzeigemoduseinstellungen auszuführen. ](https://en.wikipedia.org/wiki/Mode_setting)DRM wurde ursprünglich als [Kernel-Space-Komponente der](https://en.wikipedia.org/wiki/X.Org_Server)[ X Server](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)Direct Rendering Infrastructure[[](https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1)[1] entwickelt](https://en.wikipedia.org/wiki/Kernel-space), wurde aber seitdem durch andere Grafik-Stack-Alternativen wie[ Wayland](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol))) verwendet. 
+Direct Rendering Manager ist ein Subsystem des [Linux-Kernels, das für die](https://en.wikipedia.org/wiki/Linux_kernel)GPU-Verbindung zu modernen [Grafikkarten](https://en.wikipedia.org/wiki/Video_cards)[verantwortlich ist](https://en.wikipedia.org/wiki/Graphics_processing_unit). Der DRM macht eine[API verfügbar](https://en.wikipedia.org/wiki/Application_programming_interface), die [Benutzerraumprogramme](https://en.wikipedia.org/wiki/User-space)verwenden können, um Befehle und Daten an die GPU zu senden und Aktionen wie das Konfigurieren[von Anzeigemoduseinstellungen auszuführen.](https://en.wikipedia.org/wiki/Mode_setting)DRM wurde ursprünglich als [Kernel-Space-Komponente der](https://en.wikipedia.org/wiki/X.Org_Server)[X Server](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)Direct Rendering Infrastructure[[][https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1](1) entwickelt](<https://en.wikipedia.org/wiki/Kernel-space>), wurde aber seitdem durch andere Grafik-Stack-Alternativen wie[Wayland](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol))) verwendet.
 
-User-Space-Programme können die DRM-API verwenden, um die GPU für[ hardwarebeschleunigtes](https://en.wikipedia.org/wiki/Hardware_acceleration) [3D-Rendering](https://en.wikipedia.org/wiki/3D_rendering) und [Videodecodierung](https://en.wikipedia.org/wiki/Video_decoding) sowie [GPGPU-Berechnungen](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units) zu steuern. 
+User-Space-Programme können die DRM-API verwenden, um die GPU für[hardwarebeschleunigtes](https://en.wikipedia.org/wiki/Hardware_acceleration) [3D-Rendering](https://en.wikipedia.org/wiki/3D_rendering) und [Videodecodierung](https://en.wikipedia.org/wiki/Video_decoding) sowie [GPGPU-Berechnungen](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units) zu steuern.
 
 # 2 Hardware-Einführung
 
@@ -67,7 +67,7 @@ User-Space-Programme können die DRM-API verwenden, um die GPU für[ hardwarebes
 
 Laden Sie das SDK herunter und kompilieren Sie es, das SDK lädt den Linux-Code beim Kompilieren herunter und kompiliert ihn.
 
-Weitere Informationen zum Herunterladen und Kompilieren des SDK finden Sie unter[ K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md). 
+Weitere Informationen zum Herunterladen und Kompilieren des SDK finden Sie unter[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md).
 
 ## 2.2 Treiberdateien und -verzeichnisse
 
@@ -993,7 +993,7 @@ static int draw_frame(struct vo_draw_frame *frame)
 }
 ```
 
-**Haftungsausschluss **für Übersetzungen  
-Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend. 
+**Haftungsausschluss**für Übersetzungen  
+Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend.
 
 Wenn Sie einen Übersetzungsfehler oder eine Ungenauigkeit melden möchten, können Sie uns gerne per E-Mail kontaktieren.

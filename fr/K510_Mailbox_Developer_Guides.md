@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Démenti**</font>
 Les produits, services ou fonctionnalités que vous achetez sont soumis aux contrats commerciaux et aux conditions de Beijing Canaan Jiesi Information Technology Co., Ltd. (« la Société », les mêmes ci-après), et tout ou partie des produits, services ou fonctionnalités décrits dans ce document peuvent ne pas être dans le cadre de votre achat ou de votre utilisation. Sauf accord contraire dans le contrat, la Société décline toute représentation ou garantie, expresse ou implicite, quant à l'exactitude, la fiabilité, l'exhaustivité, le marketing, l'objectif spécifique et la non-agression de toute représentation, information ou contenu de ce document. Sauf convention contraire, le présent document est fourni à titre indicatif à titre indicatif d'utilisation seulement.
-En raison de mises à niveau de la version du produit ou d'autres raisons, le contenu de ce document peut être mis à jour ou modifié de temps à autre sans préavis. 
+En raison de mises à niveau de la version du produit ou d'autres raisons, le contenu de ce document peut être mis à jour ou modifié de temps à autre sans préavis.
 
 **<font face="黑体"  size=3>Avis sur les marques de commerce</font>**
 
-«  »<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icône « Canaan », Canaan et d'autres marques de commerce de Canaan et d'autres marques de commerce de Canaan sont des marques de commerce de Beijing Canaan Jiesi Information Technology Co., Ltd. Toutes les autres marques de commerce ou marques déposées qui peuvent être mentionnées dans ce document sont la propriété de leurs propriétaires respectifs. 
+«  »<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icône « Canaan », Canaan et d'autres marques de commerce de Canaan et d'autres marques de commerce de Canaan sont des marques de commerce de Beijing Canaan Jiesi Information Technology Co., Ltd. Toutes les autres marques de commerce ou marques déposées qui peuvent être mentionnées dans ce document sont la propriété de leurs propriétaires respectifs.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Ce document ne s'applique qu'au développement et à la conception de la plate-forme K510, sans l'autorisation écrite de la société, aucune unité ou individu ne peut diffuser une partie ou la totalité du contenu de ce document sous quelque forme que ce soit. 
+Ce document ne s'applique qu'au développement et à la conception de la plate-forme K510, sans l'autorisation écrite de la société, aucune unité ou individu ne peut diffuser une partie ou la totalité du contenu de ce document sous quelque forme que ce soit.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Demandes de renseignements des entreprises : salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # préface
 **<font face="黑体"  size=5>Objet </font>**du document
-Ce document est un document de développement pour le pilote de boîte aux lettres K510. 
+Ce document est un document de développement pour le pilote de boîte aux lettres K510.
 
 **<font face="黑体"  size=5>Objets de lecture</font>**
 
@@ -62,7 +62,7 @@ Les principales personnes auxquelles ce document (ce guide) s'applique :
 &emsp; &emsp; Le contrôleur est un pilote qui manipule directement la boîte aux lettres matérielle. Il fait fonctionner les registres matériels directement vers le bas, complétant la communication avec la télécommande en envoyant et en recevant des interruptions (si elles sont prises en charge par le matériel); Jusqu'à l'interface fournie par le framework pour compléter la communication avec le pilote client.
 &emsp; &emsp; Le client est le consommateur du contrôleur, communiquant avec le contrôleur vers le bas, complétant les applications de canal, la préparation des données et d'autres fonctions; Fournit des interfaces pour la manipulation de l'espace utilisateur.  
 &emsp; &emsp; Le framework de boîte aux lettres est responsable de l'interface entre le contrôleur et le client, la documentation du noyau dit: « Le pilote client et contrôleur peut être très dépendant de la plate-forme spécifique, par conséquent, le pilote client ne peut pas être partagé entre plusieurs plates-formes », donc dans`/drivers/mailbox` le répertoire, seul le pilote sur le contrôleur peut être trouvé et ne peut pas trouver le pilote client, un seul test peut être trouvé Pilote `mailbox-test.c`client du contrôleur. La façon dont le pilote client échange des données avec l'espace utilisateur dépend également du développeur du pilote lui-même.  
-&emsp; &emsp; Le diagramme suivant est le cadre de base pour deux enregistrements de pilotes : 
+&emsp; &emsp; Le diagramme suivant est le cadre de base pour deux enregistrements de pilotes :
 
 <div align=center>
 <img src="../zh/images/mailbox/130101_frame_00.svg" width="1400">
@@ -75,7 +75,7 @@ Les principales personnes auxquelles ce document (ce guide) s'applique :
 </div>
 
 &emsp; &emsp; L'infrastructure utilise `struct mbox_controller`des contrôleurs de boîte aux lettres abstraits, `struct mbox_chan`des canaux abstraits et des collections de fonctions `struct mbox_chan_ops`pour manipuler les canaux. Les trois structures de données ci-dessus sont destinées aux contrôleurs. Le framework utilise `struct mbox_client`des clients abstraits, qui sont spécifiques au client.  
-&emsp; &emsp; En plus de cela, nous devons définir notre propre structure de périphérique pour nos appareils et lecteurs, comme le montre la figure ci-dessus. La connexion entre le client et le contrôleur se`mbox_request_channel` fait dans la fonction lors de la demande d'un canal dans le client, et un canal est lié à une`struct mbox_client` structure. 
+&emsp; &emsp; En plus de cela, nous devons définir notre propre structure de périphérique pour nos appareils et lecteurs, comme le montre la figure ci-dessus. La connexion entre le client et le contrôleur se`mbox_request_channel` fait dans la fonction lors de la demande d'un canal dans le client, et un canal est lié à une`struct mbox_client` structure.
 
 ## 1.3 Flux d'appels de fonction
 
@@ -84,26 +84,26 @@ Les principales personnes auxquelles ce document (ce guide) s'applique :
 </div>  
 
 &emsp; &emsp; L'espace utilisateur et la livraison de données pilotée par le client utilisent ioctl plus des notifications asynchrones, qui sont déterminées par les développeurs de pilotes eux-mêmes et n'appartiennent pas au framework.  
-&emsp; &emsp; Nous avons créé un nœud de périphérique dans le pilote client`/dev/mailbox-client` à travers lequel l'espace utilisateur lit et envoie des données. 8 canaux d'émission, 8 canaux de réception. 
+&emsp; &emsp; Nous avons créé un nœud de périphérique dans le pilote client`/dev/mailbox-client` à travers lequel l'espace utilisateur lit et envoie des données. 8 canaux d'émission, 8 canaux de réception.
 
 ### 1.3.1 Envoi de flux de données
 
 &emsp; &emsp; Comme le montre la figure ci-dessus :
 
 1. Le fichier de manipulation de l'espace utilisateur gère l'envoi de données;
-2. Entrez dans la fonction ioctl pilotée par le client, qui copie les données de l'espace utilisateur dans l'espace du noyau et appelle éventuellement la`mbox_send_message` fonction ; 
-3. Le processus de traitement spécifique de cette fonction peut être vu dans l'analyse de code des chapitres suivants, qui appelle principalement deux fonctions de rappel: l'implémentation pilotée par le client`tx_prepare` et l'implémentation pilotée par le contrôleur`send_data`. Regardez les noms pour savoir ce que font ces deux fonctions. Il convient de noter que certaines boîtes aux lettres matérielles ont des registres de transmission de données matérielles, de sorte qu'à ce stade, la transmission de données peut être`send_data` effectuée au milieu; Certains matériels n'ont pas de registres de transmission de données matérielles, puis la transmission de données réelle peut également y être`tx_prepare` effectuée et `send_data`le rôle devient une simple **notification d'interruption de déclenchement au processeur distant**; 
+2. Entrez dans la fonction ioctl pilotée par le client, qui copie les données de l'espace utilisateur dans l'espace du noyau et appelle éventuellement la`mbox_send_message` fonction ;
+3. Le processus de traitement spécifique de cette fonction peut être vu dans l'analyse de code des chapitres suivants, qui appelle principalement deux fonctions de rappel: l'implémentation pilotée par le client`tx_prepare` et l'implémentation pilotée par le contrôleur`send_data`. Regardez les noms pour savoir ce que font ces deux fonctions. Il convient de noter que certaines boîtes aux lettres matérielles ont des registres de transmission de données matérielles, de sorte qu'à ce stade, la transmission de données peut être`send_data` effectuée au milieu; Certains matériels n'ont pas de registres de transmission de données matérielles, puis la transmission de données réelle peut également y être`tx_prepare` effectuée et `send_data`le rôle devient une simple **notification d'interruption de déclenchement au processeur distant**;
 4. Lorsque le processeur distant reçoit l'interruption et reçoit les données, il doit répondre au contrôleur avec une interruption indiquant que Tx est terminé;
-5. Après avoir reçu le Tx ACK, le gestionnaire d'interruptions enregistré par le contrôleur doit être appelé`mbox_chan_txdone` pour informer la couche supérieure que le transfert a été reçu à distance ; 
-6. `mbox_chan_txdone`Informez le client que le `tx_done`transfert est effectué par le biais de l'inscription du client. Le client décide du traitement ultérieur et les`tx_done` paramètres enregistrent l'état du transfert de données. 
+5. Après avoir reçu le Tx ACK, le gestionnaire d'interruptions enregistré par le contrôleur doit être appelé`mbox_chan_txdone` pour informer la couche supérieure que le transfert a été reçu à distance ;
+6. `mbox_chan_txdone`Informez le client que le `tx_done`transfert est effectué par le biais de l'inscription du client. Le client décide du traitement ultérieur et les`tx_done` paramètres enregistrent l'état du transfert de données.
 
 ### 1.3.1 Processus de réception des données
 
 &emsp; &emsp; Comme le montre la figure ci-dessus :
 
 1. Interruptions de l'envoi de données par le processeur distant au responsable du traitement;
-2. Après avoir reçu l'interruption, l'appel du gestionnaire d'interruption enregistré par le contrôleur `mbox_chan_received_data`informe la couche supérieure de recevoir des données provenant de l'extrémité et de répondre à l'ACK Rx distant. 
-3. `mbox_chan_received_data`Appeler le client enregistré`rx_callback` ; 
+2. Après avoir reçu l'interruption, l'appel du gestionnaire d'interruption enregistré par le contrôleur `mbox_chan_received_data`informe la couche supérieure de recevoir des données provenant de l'extrémité et de répondre à l'ACK Rx distant.
+3. `mbox_chan_received_data`Appeler le client enregistré`rx_callback` ;
 4. `rx_callback`lit les données de l'adresse spécifiée dans l'arborescence des périphériques, puis avertit l'espace utilisateur à l'aide de notifications asynchrones ;
 5. Le gestionnaire asynchrone de l'espace utilisateur qui appelle ioctl lit les données du canal de réception.
 
@@ -111,7 +111,7 @@ Les principales personnes auxquelles ce document (ce guide) s'applique :
 
 ## 2.1 mailbox_controller.h
 
-&emsp; &emsp; Défini `mbox_controller`(abstraction du matériel de boîte aux lettres),`mbox_chan` (abstraction du canal) `mbox_chan_ops`(collection de fonctions de rappel qui manipulent les canaux). 
+&emsp; &emsp; Défini `mbox_controller`(abstraction du matériel de boîte aux lettres),`mbox_chan` (abstraction du canal) `mbox_chan_ops`(collection de fonctions de rappel qui manipulent les canaux).
 
 ```c
 struct mbox_controller {
@@ -397,7 +397,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 }
 ```
 
-&emsp; &emsp; Cette fonction, en passant, `of_parse_phandle_with_args`obtient le canal de l'index demandé à partir de l'arborescence des périphériques. 
+&emsp; &emsp; Cette fonction, en passant, `of_parse_phandle_with_args`obtient le canal de l'index demandé à partir de l'arborescence des périphériques.
 
 - `mboxes`Pointe vers le nom de la propriété de liste phandle dans le nœud ;
 - `#mbox-cells`Indique le nombre de cellules contenues dans le nœud pointé par le phandle ;
@@ -441,7 +441,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 
 ### 2.3.10 mbox_free_channel
 
-&emsp; &emsp; La fonction de libération de canal implémente une fonction de rappel qui videra les membres du canal spécifié et implémentera la fonction de rappel si le registre matériel correspondant doit être configuré`shutdown`. 
+&emsp; &emsp; La fonction de libération de canal implémente une fonction de rappel qui videra les membres du canal spécifié et implémentera la fonction de rappel si le registre matériel correspondant doit être configuré`shutdown`.
 
 ### 2.3.11 mbox_controller_register et mbox_controller_unregister
 
@@ -481,7 +481,7 @@ mailbox: mailbox@970e0000 {
 
 ## 3.1 responsable du traitement
 
-&emsp; &emsp; Il doit y avoir un attribut`#mbox-cells` avec une valeur d'au moins 1. Il indique le`mboxes` nombre de cellules pour l'attribut client. 
+&emsp; &emsp; Il doit y avoir un attribut`#mbox-cells` avec une valeur d'au moins 1. Il indique le`mboxes` nombre de cellules pour l'attribut client.
 
 ## 3.2 Client
 
@@ -491,7 +491,7 @@ mailbox: mailbox@970e0000 {
 
 ## 3.3 Comment utiliser la propriété
 
-&emsp; &emsp; `mbox-cells`Les`mboxes` `mbox-names`trois propriétés sont utilisées lors de l'application de canaux. 
+&emsp; &emsp; `mbox-cells`Les`mboxes` `mbox-names`trois propriétés sont utilisées lors de l'application de canaux.
 
 ```c
 
@@ -545,20 +545,20 @@ Accédez au répertoire`/app/dsp_app_new` et exécutez la commande `./dsp_app ma
 2. Exécuter l'application de test de l'espace utilisateur Linux
 Entrez dans le répertoire`/app/mailbox_demo` et exécutez la commande`./mailbox_async`, comme illustré dans la figure suivante :  
 ![](../zh/images/mailbox/130602_mailbox_async.png)mailbox_demo  
-Cette démo utilise des notifications asynchrones pour recevoir les données envoyées par le dsp. 
+Cette démo utilise des notifications asynchrones pour recevoir les données envoyées par le dsp.
 3. Dans le répertoire`/app/mailbox_demo`, exécutez la commande`./mailbox_poll`, comme illustré dans la figure suivante :  
 ![](../zh/images/mailbox/130602_mailbox_poll.png)mailbox_demo
-Cette démo utilise le blocage des sondages pendant 500 ms pour recevoir les données envoyées par le dsp. Nous envoyons des données toutes les 4 secondes et lisons les données toutes les 2 secondes, de sorte que nous pouvons voir que toutes les 2 secondes, le succès de la lecture est échelonné avec l'échec de la lecture et la lecture de blocage réussit. 
+Cette démo utilise le blocage des sondages pendant 500 ms pour recevoir les données envoyées par le dsp. Nous envoyons des données toutes les 4 secondes et lisons les données toutes les 2 secondes, de sorte que nous pouvons voir que toutes les 2 secondes, le succès de la lecture est échelonné avec l'échec de la lecture et la lecture de blocage réussit.
 
 ## 5.2 Mise à l'essai du Code
 
-&emsp; &emsp; Le programme bare metal dsp est situé `k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c`au milieu et le code de test de l'espace utilisateur est situé dans`k510_buildroot/package/mailbox_demo/src/mailbox_async.c` et`k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`. 
+&emsp; &emsp; Le programme bare metal dsp est situé `k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c`au milieu et le code de test de l'espace utilisateur est situé dans`k510_buildroot/package/mailbox_demo/src/mailbox_async.c` et`k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`.
 
 # 6 Problèmes connus
 
-&emsp; &emsp; Parfois, le `./dsp_app mailbox_demo.bin`programme dsp n'est pas gravé dans le dsp la première fois que la commande est exécutée. L'exécution de la démo à ce stade entraînera un échec d'envoi. 
+&emsp; &emsp; Parfois, le `./dsp_app mailbox_demo.bin`programme dsp n'est pas gravé dans le dsp la première fois que la commande est exécutée. L'exécution de la démo à ce stade entraînera un échec d'envoi.
 
 **Clause de non-responsabilité en matière de**  
-Pour la commodité des clients, Canaan utilise un traducteur IA pour traduire du texte en plusieurs langues, ce qui peut contenir des erreurs. Nous ne garantissons pas l'exactitude, la fiabilité ou l'actualité des traductions fournies. Canaan ne sera pas responsable de toute perte ou dommage causé par la confiance accordée à l'exactitude ou à la fiabilité des informations traduites. S'il existe une différence de contenu entre les traductions dans différentes langues, la version simplifiée en chinois prévaudra. 
+Pour la commodité des clients, Canaan utilise un traducteur IA pour traduire du texte en plusieurs langues, ce qui peut contenir des erreurs. Nous ne garantissons pas l'exactitude, la fiabilité ou l'actualité des traductions fournies. Canaan ne sera pas responsable de toute perte ou dommage causé par la confiance accordée à l'exactitude ou à la fiabilité des informations traduites. S'il existe une différence de contenu entre les traductions dans différentes langues, la version simplifiée en chinois prévaudra.
 
 Si vous souhaitez signaler une erreur de traduction ou une inexactitude, n'hésitez pas à nous contacter par courrier.

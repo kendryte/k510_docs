@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disclaimer**</font>
 De producten, diensten of functies die u koopt, zijn onderworpen aan de commerciële contracten en voorwaarden van Beijing Canaan Jiesi Information Technology Co., Ltd. ("het Bedrijf", hierna hetzelfde), en alle of een deel van de producten, diensten of functies die in dit document worden beschreven, vallen mogelijk niet binnen het bereik van uw aankoop of gebruik. Tenzij anders overeengekomen in het contract, wijst het bedrijf alle verklaringen of garanties af, expliciet of impliciet, met betrekking tot de nauwkeurigheid, betrouwbaarheid, volledigheid, marketing, specifiek doel en niet-agressie van verklaringen, informatie of inhoud van dit document. Tenzij anders overeengekomen, wordt dit document uitsluitend verstrekt als leidraad voor gebruik.
-Vanwege upgrades van de productversie of andere redenen kan de inhoud van dit document van tijd tot tijd zonder enige kennisgeving worden bijgewerkt of gewijzigd. 
+Vanwege upgrades van de productversie of andere redenen kan de inhoud van dit document van tijd tot tijd zonder enige kennisgeving worden bijgewerkt of gewijzigd.
 
 **<font face="黑体"  size=3>Handelsmerkkennisgevingen</font>**
 
-""<img src="http://s2.loli.net/2022/03/30/xN21jbhnwSFyGRD.png" style="zoom:33%;" />, "Canaan" icoon, Kanaän en andere handelsmerken van Kanaän en andere handelsmerken van Kanaän zijn handelsmerken van Beijing Canaan Jiesi Information Technology Co., Ltd. Alle andere handelsmerken of geregistreerde handelsmerken die in dit document kunnen worden genoemd, zijn eigendom van hun respectieve eigenaars. 
+""<img src="http://s2.loli.net/2022/03/30/xN21jbhnwSFyGRD.png" style="zoom:33%;" />, "Canaan" icoon, Kanaän en andere handelsmerken van Kanaän en andere handelsmerken van Kanaän zijn handelsmerken van Beijing Canaan Jiesi Information Technology Co., Ltd. Alle andere handelsmerken of geregistreerde handelsmerken die in dit document kunnen worden genoemd, zijn eigendom van hun respectieve eigenaars.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co, Ltd</font>**
-Dit document is alleen van toepassing op de ontwikkeling en het ontwerp van het K510-platform, zonder de schriftelijke toestemming van het bedrijf mag geen enkele eenheid of persoon een deel of de inhoud van dit document in welke vorm dan ook verspreiden. 
+Dit document is alleen van toepassing op de ontwikkeling en het ontwerp van het K510-platform, zonder de schriftelijke toestemming van het bedrijf mag geen enkele eenheid of persoon een deel of de inhoud van dit document in welke vorm dan ook verspreiden.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co, Ltd</font>**
 URL: canaan-creative.com
@@ -136,7 +136,7 @@ Neuraal netwerkframework ondersteund door nncase
 
 De nnncase software stack bestaat momenteel uit twee delen: compiler en runtime.
 
-**Compiler:** Wordt gebruikt om neurale netwerkmodellen op een pc te compileren en uiteindelijk een kmodel-bestand te genereren. Het omvat voornamelijk importeur, IR, Evaluator, Quantize, Transform optimalisatie, Tiling, Partition, Schedule, Codegen en andere modules. 
+**Compiler:** Wordt gebruikt om neurale netwerkmodellen op een pc te compileren en uiteindelijk een kmodel-bestand te genereren. Het omvat voornamelijk importeur, IR, Evaluator, Quantize, Transform optimalisatie, Tiling, Partition, Schedule, Codegen en andere modules.
 
 - Importeur: importeert modellen uit andere neurale netwerkframeworks in nncase
 - IR: Middelste representatie, verdeeld in door de importeur geïmporteerde Neutrale IR (apparaatonafhankelijk) en Nutral IR gegenereerd door het verlagen van conversie Doel IR (apparaatafhankelijk)
@@ -154,10 +154,10 @@ De nnncase software stack bestaat momenteel uit twee delen: compiler en runtime.
 
 Het compilergedeelte van de nncase-toolchain bevat nncase en K510-compiler, die beide het bijbehorende wielpakket moeten installeren.
 
-- Het nncase wheel-pakket is[ uitgebracht op nncase github ](https://github.com/kendryte/nncase/releases/tag/v1.6.0)en ondersteunt Python 3.6 / 3.7 / 3.8 / 3.9 / 3.10, gebruikers kunnen de bijbehorende versie kiezen om te downloaden op basis van het besturingssysteem en Python
+- Het nncase wheel-pakket is[uitgebracht op nncase github](https://github.com/kendryte/nncase/releases/tag/v1.6.0)en ondersteunt Python 3.6 / 3.7 / 3.8 / 3.9 / 3.10, gebruikers kunnen de bijbehorende versie kiezen om te downloaden op basis van het besturingssysteem en Python
 - Het K510 compilerwielpakket bevindt zich in de map x86_64 van de nncase SDK, is niet afhankelijk van de Python-versie en kan direct worden geïnstalleerd
 
-Als u geen Ubuntu-omgeving hebt, kunt u[ nncase docker ](https://github.com/kendryte/nncase/blob/master/docs/build.md#docker)(Ubuntu 20.04 + Python 3.8) gebruiken.
+Als u geen Ubuntu-omgeving hebt, kunt u[nncase docker](https://github.com/kendryte/nncase/blob/master/docs/build.md#docker)(Ubuntu 20.04 + Python 3.8) gebruiken.
 
 ```shell
 cd /path/to/nncase_sdk
@@ -174,7 +174,7 @@ pip3 install x86_64/*.whl
 <!-- markdownlint-disable no-emphasis-as-header -->
 # 4 Compilatie/gevolgtrekkingsmodel
 
-nncase biedt** Python API**voor het compileren/afleiden van deep learning modellen op een pc
+nncase biedt**Python API**voor het compileren/afleiden van deep learning modellen op een pc
 
 ## 4.1 Ondersteunde operators
 
@@ -469,14 +469,14 @@ Elke woning wordt hieronder beschreven
 | benchmark_only   | Bool   | niet       | Hiermee geeft u op of kmodel alleen wordt gebruikt voor benchmark, die standaard false is                   |
 
 > 1. Invoerbereik is het bereik van drijvende-kommagetallen, dat wil zeggen, als het invoergegevenstype uint8 is, dan is het invoerbereik het bereik na dequantisatie tot drijvende komma (kan niet 0 ~ 1 zijn), dat vrij kan worden opgegeven.
-> 2. input_shape moeten worden gespecificeerd volgens de input_layout, [1，224，224，3]bijvoorbeeld als de input_layout NCHW is, moet de input_shape worden gespecificeerd als[1,3,224,224]; input_layout NHWC is, moet de input_shape worden gespecificeerd als[1,224,224,3]; 
+> 2. input_shape moeten worden gespecificeerd volgens de input_layout, [1，224，224，3]bijvoorbeeld als de input_layout NCHW is, moet de input_shape worden gespecificeerd als[1,3,224,224]; input_layout NHWC is, moet de input_shape worden gespecificeerd als[1,224,224,3];
 > 3. gemiddelde en std zijn parameters voor het normaliseren van drijvende-kommagetallen, die de gebruiker vrij kan opgeven;
 > 4. Wanneer u de brievenbusfunctie gebruikt, moet u de invoergrootte beperken tot 1,5 MB en de grootte van een enkel kanaal is binnen 0,75 MB;
 >
 > Bijvoorbeeld:
 >
 > 1. Het invoergegevenstype is ingesteld op uint8, input_range ingesteld op[0,255], de rol van dequantisatie is alleen om het type te converteren, de gegevens van uint8 naar float32 te converteren en de gemiddelde en std-parameters kunnen nog steeds worden opgegeven volgens de gegevens van 0 ~ 255
-> 2. Het invoergegevenstype is ingesteld op uint8, input_range ingesteld op[0,1], wordt het vastepuntnummer gekwantificeerd tot een [0,1]drijvende-kommagetal in het bereik en moeten het gemiddelde en de std worden opgegeven volgens het nieuwe drijvende-kommagetalbereik. 
+> 2. Het invoergegevenstype is ingesteld op uint8, input_range ingesteld op[0,1], wordt het vastepuntnummer gekwantificeerd tot een [0,1]drijvende-kommagetal in het bereik en moeten het gemiddelde en de std worden opgegeven volgens het nieuwe drijvende-kommagetalbereik.
 
 Het voorbewerkingsproces is als volgt (de groene knooppunten in de afbeelding zijn optioneel):
 
@@ -874,7 +874,7 @@ python3 scripts/mobilenetv2_tflite_fp32_image.py --target k510 --model models/mo
 
 ### 4.3.2 Compileer het float32 onnx model
 
-- Voor onnx-modellen wordt aanbevolen om het gebruik van[ ONNX Simplifier te vereenvoudigen ](https://github.com/daquexian/onnx-simplifier)voordat u compileert met nncase
+- Voor onnx-modellen wordt aanbevolen om het gebruik van[ONNX Simplifier te vereenvoudigen](https://github.com/daquexian/onnx-simplifier)voordat u compileert met nncase
 - mobilenetv2_onnx_fp32_image.py script is als volgt
 
 ```python
@@ -977,7 +977,7 @@ python3 scripts/mobilenetv2_onnx_fp32_image.py --target k510 --model models/mobi
 
 ### 4.3.3 Compileer het float32 caffe model
 
-- Het caffe wielpakket is[ afkomstig van ](https://github.com/kendryte/caffe/releases)kendryte caffe
+- Het caffe wielpakket is[afkomstig van](https://github.com/kendryte/caffe/releases)kendryte caffe
 - conv2d_caffe_fp32.py script is als volgt
 
 ```python
@@ -1037,7 +1037,7 @@ python3 scripts/conv2d_caffe_fp32.py --target k510 --caffemodel models/test.caff
 
 ### 4.3.4 Compileer en voeg pre-process float32 onnx model toe
 
-- Voor onnx-modellen wordt aanbevolen om het gebruik van[ ONNX Simplifier te vereenvoudigen ](https://github.com/daquexian/onnx-simplifier)voordat u compileert met nncase
+- Voor onnx-modellen wordt aanbevolen om het gebruik van[ONNX Simplifier te vereenvoudigen](https://github.com/daquexian/onnx-simplifier)voordat u compileert met nncase
 - Mobilenetv2_onnx_fp32_preprocess.py script is als volgt
 
 ```python
@@ -1660,7 +1660,7 @@ sim.run()
 
 ## 4.5 Voorbeeld van een inferentiemodel
 
-**Voorwaarde: **mobilenetv2_onnx_fp32_image.py script is gecompileerd met het mobiletv2-7.onnx model
+**Voorwaarde:**mobilenetv2_onnx_fp32_image.py script is gecompileerd met het mobiletv2-7.onnx model
 
 mobilenetv2_onnx_simu.py bevindt zich in de submap /path/to/nncase_sdk/examples/scripts, die als volgt luidt
 
@@ -1746,7 +1746,7 @@ output 0 cosine similarity : 0.9992437958717346
 
 nncase runtime wordt gebruikt om kmodel op AI-apparaten te laden / invoergegevens in te stellen / KPU-berekeningen uit te voeren / uitvoergegevens te verkrijgen, enz.
 
-Momenteel zijn alleen** de C++ versie **van API's, gerelateerde headerbestanden en statische bibliotheken beschikbaar in de map nncase sdk/riscv64
+Momenteel zijn alleen**de C++ versie**van API's, gerelateerde headerbestanden en statische bibliotheken beschikbaar in de map nncase sdk/riscv64
 
 ```bash
 $ tree -L 3 riscv64/
@@ -2691,39 +2691,39 @@ auto output = F::pad(input, paddings, pad_constant, pad_value).unwrap_or_throw()
 
 # 8 veelgestelde vragen
 
-1.安装wheel时报错: "xxx.whl is geen ondersteund wiel op dit platform." **
+1. 安装wheel时报错: "xxx.whl is geen ondersteund wiel op dit platform." **
 
-Q: 安装ncase wheel包, 出现ERROR: nncase-1.0.0.20210830-cp37-cp37m-manylinux_2_24_x86_64.whl is geen ondersteund wiel op dit platform.
+    Q: 安装ncase wheel包, 出现ERROR: nncase-1.0.0.20210830-cp37-cp37m-manylinux_2_24_x86_64.whl is geen ondersteund wiel op dit platform.
 
-A: Upgrade pip > = 20.3
+    A: Upgrade pip > = 20.3
 
-```shell
-sudo pip3 install --upgrade pip
-```
+    ```shell
+    sudo pip3 install --upgrade pip
+    ```
 
 2. **Wanneer de CRB het App-inferentieprogramma uitvoert, meldt het de fout "std::bad_alloc"**
 
-V: Voer het app-inferentieprogramma uit op de CRB en gooi een "std::bad_alloc"-uitzondering
+    V: Voer het app-inferentieprogramma uit op de CRB en gooi een "std::bad_alloc"-uitzondering
 
-```shell
-$ ./cpp.sh
-case ./yolov3_bfloat16 build at Sep 16 2021 18:12:03
-terminate called after throwing an instance of 'std::bad_alloc'
-  what():  std::bad_alloc
-```
+    ```shell
+    $ ./cpp.sh
+    case ./yolov3_bfloat16 build at Sep 16 2021 18:12:03
+    terminate called after throwing an instance of 'std::bad_alloc'
+    what():  std::bad_alloc
+    ```
 
-A: std::bad_alloc uitzonderingen worden meestal veroorzaakt door geheugentoewijzingsfouten, die als volgt kunnen worden gecontroleerd.
+    A: std::bad_alloc uitzonderingen worden meestal veroorzaakt door geheugentoewijzingsfouten, die als volgt kunnen worden gecontroleerd.
 
-- Controleer of het gegenereerde kmodel het huidige beschikbare geheugen van het systeem overschrijdt (zoals yolov3 bfloat16 kmodel grootte is 121MB, het huidige Linux beschikbare geheugen is slechts 70MB, de uitzondering zal worden gegooid).  Als het overschrijdt, probeer dan na de training kwantisatie te gebruiken om de kmodelgrootte te verkleinen.
-- Controleer de app op geheugenlekken
+    - Controleer of het gegenereerde kmodel het huidige beschikbare geheugen van het systeem overschrijdt (zoals yolov3 bfloat16 kmodel grootte is 121MB, het huidige Linux beschikbare geheugen is slechts 70MB, de uitzondering zal worden gegooid).  Als het overschrijdt, probeer dan na de training kwantisatie te gebruiken om de kmodelgrootte te verkleinen.
+    - Controleer de app op geheugenlekken
 
 3. **Bij het uitvoeren van het App inference programma[.. t_runtime_tensor.cpp:310 (maken)] data.size_bytes() == size = false (bool).**
 
-V: Simulator voert het app-inferentieprogramma uit en genereert een uitzondering "[.. t_runtime_tensor.cpp:310 (maken)] data.size_bytes() == size = false (bool)"
+    V: Simulator voert het app-inferentieprogramma uit en genereert een uitzondering "[.. t_runtime_tensor.cpp:310 (maken)] data.size_bytes() == size = false (bool)"
 
-A: Controleer de invoertensorinformatie voor de instellingen, met de nadruk op de invoervorm en het aantal bytes dat door elk element wordt ingenomen (fp32/uint8)
+    A: Controleer de invoertensorinformatie voor de instellingen, met de nadruk op de invoervorm en het aantal bytes dat door elk element wordt ingenomen (fp32/uint8)
 
 **Vertaling Disclaimer**  
-Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie. 
+Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie.
 
 Als u een vertaalfout of onnauwkeurigheid wilt melden, neem dan gerust contact met ons op via e-mail.

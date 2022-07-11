@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Renuncia**</font>
 Los productos, servicios o características que compre estarán sujetos a los contratos comerciales y términos de Beijing Canaan Jiesi Information Technology Co., Ltd. ("la Compañía", la misma en adelante), y todos o parte de los productos, servicios o características descritos en este documento pueden no estar dentro del alcance de su compra o uso. Salvo que se acuerde lo contrario en el contrato, la Compañía renuncia a todas las representaciones o garantías, expresas o implícitas, en cuanto a la precisión, confiabilidad, integridad, marketing, propósito específico y no agresión de cualquier representación, información o contenido de este documento. A menos que se acuerde lo contrario, este documento se proporciona como una guía para su uso solamente.
-Debido a actualizaciones de la versión del producto u otras razones, el contenido de este documento puede actualizarse o modificarse de vez en cuando sin previo aviso. 
+Debido a actualizaciones de la versión del producto u otras razones, el contenido de este documento puede actualizarse o modificarse de vez en cuando sin previo aviso.
 
 **<font face="黑体"  size=3>Avisos de marcas comerciales</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, el icono de "Canaan", Canaan y otras marcas comerciales de Canaan y otras marcas comerciales de Canaan son marcas comerciales de Beijing Canaan Jiesi Information Technology Co., Ltd. Todas las demás marcas comerciales o marcas registradas que puedan mencionarse en este documento son propiedad de sus respectivos propietarios. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, el icono de "Canaan", Canaan y otras marcas comerciales de Canaan y otras marcas comerciales de Canaan son marcas comerciales de Beijing Canaan Jiesi Information Technology Co., Ltd. Todas las demás marcas comerciales o marcas registradas que puedan mencionarse en este documento son propiedad de sus respectivos propietarios.
 
 **<font face="黑体"  size=3>Derechos de autor ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Este documento solo es aplicable al desarrollo y diseño de la plataforma K510, sin el permiso por escrito de la empresa, ninguna unidad o individuo puede difundir parte o la totalidad del contenido de este documento en ninguna forma. 
+Este documento solo es aplicable al desarrollo y diseño de la plataforma K510, sin el permiso por escrito de la empresa, ninguna unidad o individuo puede difundir parte o la totalidad del contenido de este documento en ninguna forma.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Información Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Consultas comerciales: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # prefacio
 **<font face="黑体"  size=5>Propósito del documento</font>**
-Este documento es un documento complementario al sdk de K510 y está destinado a ayudar a los ingenieros a comprender la compilación y grabación del sdk de K510. 
+Este documento es un documento complementario al sdk de K510 y está destinado a ayudar a los ingenieros a comprender la compilación y grabación del sdk de K510.
 
 **<font face="黑体"  size=5>Objetos reader</font>**
 
@@ -35,7 +35,7 @@ Las principales personas a las que se aplica este documento (esta guía):
 - Desarrolladores de software
 - Personal de soporte técnico
 
-**<font face="黑体"  size=5>Historial 
+**<font face="黑体"  size=5>Historial
  </font>**de revisiones <font face="宋体"  size=2>El historial de revisiones acumula una descripción de cada actualización del documento. La versión más reciente del documento contiene actualizaciones para todas las versiones anteriores. </font>
 
 | El número de versión   | Modificado por     | Fecha de revisión | Notas de revisión |
@@ -116,7 +116,7 @@ MX2_REL_0106-02e87077-20220428-153936CST-xxxx-server
 ####################################################################
 ```
 
-**Nota: La información anterior puede variar según la versión del sdk de k510**. 
+**Nota: La información anterior puede variar según la versión del sdk de k510**.
 
 # 3 entorno de compilación docker
 
@@ -127,7 +127,7 @@ sh k510_buildroot/tools/docker/run_k510_docker.sh
 ```
 
 Las operaciones de compilación posteriores se realizan en docker de forma predeterminada.
-Si necesita configurar un entorno local, consulte[ Configuración del entorno local](#env_set)
+Si necesita configurar un entorno local, consulte[Configuración del entorno local](#env_set)
 
 # 4 Compilar
 
@@ -143,7 +143,7 @@ make dl
 
 ## 4.2 Compilación
 
-K510_buildroot/config tiene archivos de configuración de compilación para tres placas de desarrollo, a saber,`k510_crb_lp3_v0_1_defconfig` , `k510_crb_lp3_v1_2_defconfig`y `k510_evb_lp3_v1_1_defconfig`, este documento se ilustra seleccionando k510_crb_lp3_v1_2_defconfig como destino** de compilación**. 
+K510_buildroot/config tiene archivos de configuración de compilación para tres placas de desarrollo, a saber,`k510_crb_lp3_v0_1_defconfig` , `k510_crb_lp3_v1_2_defconfig`y `k510_evb_lp3_v1_1_defconfig`, este documento se ilustra seleccionando k510_crb_lp3_v1_2_defconfig como destino** de compilación**.
 
 En el entorno de docker k510, escriba el siguiente comando para comenzar a compilar:
 
@@ -157,7 +157,7 @@ El siguiente mensaje indica que la compilación se completó correctamente.
 
 ![](../zh/images/sdk_build/image-uboot_r.png)
 
-Una vez completada la compilación, se genera la carpeta`k510_crb_lp3_v1_2_defconfig`. 
+Una vez completada la compilación, se genera la carpeta`k510_crb_lp3_v1_2_defconfig`.
 
 ![imagen-20220311121912711](../zh/images/sdk_build/image-makeout.png)
 
@@ -354,7 +354,7 @@ Los resultados de la ejecución son los siguientes:
 
 ![](../zh/images/sdk_build/image-riscv.png)
 
-Cuando se completa la compilación, `k510_crb_lp3_v1_2_defconfig/images`se genera una nueva en el directorio`bootm-bbl.img`. 
+Cuando se completa la compilación, `k510_crb_lp3_v1_2_defconfig/images`se genera una nueva en el directorio`bootm-bbl.img`.
 
 Finalmente, ingrese make en el directorio k510_crb_lp3_v1_2_defconfig y use el nuevo paquete bootm-bbl.img para generar archivos de imagen emmc y de tarjeta SD.
 
@@ -416,7 +416,7 @@ K510.dtb en el directorio k510_crb_lp3_v1_2_defconfig/images es el archivo de ba
 
 ## 4.7 Compilar la aplicación
 
-Los usuarios pueden hacer referencia a `package/hello_world` la Config.in y al archivo makefile que se escribe para crear sus propias aplicaciones, y las aplicaciones de usuario se colocan en el directorio k510_buildroot/package. 
+Los usuarios pueden hacer referencia a `package/hello_world` la Config.in y al archivo makefile que se escribe para crear sus propias aplicaciones, y las aplicaciones de usuario se colocan en el directorio k510_buildroot/package.
 
 El proceso de compilación de una aplicación se ilustra colocando hello_world proyectos en k510_buildroot / paquete como ejemplo.
 
@@ -454,41 +454,41 @@ Los resultados de la ejecución son los siguientes:
 
 1) Si es la primera vez que se compila, los pasos son los siguientes:
 
-En el directorio k510_buildroot, escriba el siguiente comando para compilar todo el programa del proyecto y empaquetar hello en archivos de imagen emmc y sd card.
+    En el directorio k510_buildroot, escriba el siguiente comando para compilar todo el programa del proyecto y empaquetar hello en archivos de imagen emmc y sd card.
 
-```shell
-make CONF=k510_crb_lp3_v1_2_defconfig
-```
+    ```shell
+    make CONF=k510_crb_lp3_v1_2_defconfig
+    ```
 
-Los resultados de la ejecución son los siguientes:
+    Los resultados de la ejecución son los siguientes:
 
-![](../zh/images/sdk_build/image-build_make_def.png)
+    ![](../zh/images/sdk_build/image-build_make_def.png)
 
-En el directorio k510_buildroot/k510_crb_lp3_v1_2_defconfig/target, puede ver la aplicación hello resultante, que indica si la aplicación se compiló correctamente.
+    En el directorio k510_buildroot/k510_crb_lp3_v1_2_defconfig/target, puede ver la aplicación hello resultante, que indica si la aplicación se compiló correctamente.
 
-![](../zh/images/sdk_build/image-hello.png)
+    ![](../zh/images/sdk_build/image-hello.png)
 
 2) Si se ha compilado, simplemente compile la aplicación y empaquétela en la imagen grabada, siga estos pasos:
 
-Introduzca el directorio k510_buildroot/k510_crb_lp3_v1_2_defconfig e introduzca el siguiente comando para compilar la aplicación hello.
+    Introduzca el directorio k510_buildroot/k510_crb_lp3_v1_2_defconfig e introduzca el siguiente comando para compilar la aplicación hello.
 
-```shell
-make hello_world-rebuild
-```
+    ```shell
+    make hello_world-rebuild
+    ```
 
-Los resultados de la ejecución son los siguientes:
+    Los resultados de la ejecución son los siguientes:
 
-![](../zh/images/sdk_build/image-app_build-1.png)
+    ![](../zh/images/sdk_build/image-app_build-1.png)
 
-Vaya al directorio k510_buildroot/k510_crb_lp3_v1_2_defconfig e ingrese el comando make para empaquetar hello en los archivos de imagen de la tarjeta emmc y sd.
+    Vaya al directorio k510_buildroot/k510_crb_lp3_v1_2_defconfig e ingrese el comando make para empaquetar hello en los archivos de imagen de la tarjeta emmc y sd.
 
-```shell
-make
-```
+    ```shell
+    make
+    ```
 
-Los resultados de la ejecución son los siguientes:
+    Los resultados de la ejecución son los siguientes:
 
-![](../zh/images/sdk_build/image-app-build-2.png)
+    ![](../zh/images/sdk_build/image-app-build-2.png)
 
 # 5 Desarrollar con el SDK K510
 
@@ -582,7 +582,7 @@ Después de insertar la tarjeta sD en el host, el resultado de la ejecución del
 
 ![](../zh/images/sdk_build/image-dev_sd.png)
 
-/dev/sdc es el nodo del dispositivo de la tarjeta SD. **Nota: Es posible que el nodo de dispositivo de la tarjeta SD generado en el entorno de usuario no sea /dev/sdc, y las operaciones posteriores deben modificarse de acuerdo con el nodo real. **
+/dev/sdc es el nodo del dispositivo de la tarjeta SD. **Nota: Es posible que el nodo de dispositivo de la tarjeta SD generado en el entorno de usuario no sea /dev/sdc, y las operaciones posteriores deben modificarse de acuerdo con el nodo real.**
 
 Ingrese el directorio k510_buildroot/k510_crb_lp3_v1_2_defconfig/image debajo del host e ingrese el comando dd para grabar sysimage-sdcard.img en el sdk:
 
@@ -596,21 +596,21 @@ El resultado de la ejecución en el host es el siguiente:
 
 ### 6.1.2 Grabar en Windows
 
-En Windows, la tarjeta SD puede ser grabada por la herramienta banana Etcher (dirección de descarga de la herramienta balena Etcher<https://www.balena.io/etcher/>). 
+En Windows, la tarjeta SD puede ser grabada por la herramienta banana Etcher (dirección de descarga de la herramienta balena Etcher<https://www.balena.io/etcher/>).
 
 1) Inserte la tarjeta TF en la PC, luego inicie la herramienta ColumnEtcher, haga clic en el botón "Flash from file" de la interfaz de la herramienta, seleccione el firmware que se grabará, como se muestra en la siguiente figura.
 
-![](../zh/images/sdk_build/image-sd_pre0.png)
+    ![](../zh/images/sdk_build/image-sd_pre0.png)
 
 2) Haga clic en el botón "Seleccionar destino" de la interfaz de la herramienta y seleccione la tarjeta sdcard de destino.
 
-![](../zh/images/sdk_build/image-pre1.png)
+    ![](../zh/images/sdk_build/image-pre1.png)
 
 3) Haga clic en el botón "Flash" para comenzar a parpadear, el proceso de parpadeo tiene una pantalla de barra de progreso, flash Finish se le pedirá después del final del parpadeo.
 
-| ![](../zh/images/sdk_build/clip_image_p1.jpg) | ![](../zh/images/sdk_build/clip_image_p2.jpg) |
-| --------------------------------------- | --------------------------------------- |
-|                                         |                                         |
+    | ![](../zh/images/sdk_build/clip_image_p1.jpg) | ![](../zh/images/sdk_build/clip_image_p2.jpg) |
+    | --------------------------------------- | --------------------------------------- |
+    |                                         |                                         |
 
 4) Cuando se complete el parpadeo, inserte la tarjeta SD en la ranura de la placa de desarrollo, seleccione BOOT para comenzar desde SD y, finalmente, la placa de desarrollo se puede encender para comenzar desde la tarjeta SD.
 
@@ -657,7 +657,7 @@ Cuando se complete el parpadeo, seleccione BOOT to Boot desde EMMC y, finalmente
 
 # 7 Entorno de compilación configurado por el usuario <a id="env_set"> </a>
 
-Si no utiliza el entorno docker anterior, puede configurar su propio entorno de desarrollo consultando el siguiente comando en ubuntu18.04 / 20.04, si no tiene permiso,`sudo` úselo. 
+Si no utiliza el entorno docker anterior, puede configurar su propio entorno de desarrollo consultando el siguiente comando en ubuntu18.04 / 20.04, si no tiene permiso,`sudo` úselo.
 
 ```shell
 apt-get update
@@ -695,7 +695,7 @@ apt-get install libssl-dev
 pip3 install pycryptodome
 ```
 
-**Descargo de responsabilidad de **traducción  
-Para la comodidad de los clientes, Canaan utiliza un traductor de IA para traducir texto a varios idiomas, que pueden contener errores. No garantizamos la exactitud, fiabilidad o puntualidad de las traducciones proporcionadas. Canaan no será responsable de ninguna pérdida o daño causado por la confianza en la exactitud o fiabilidad de la información traducida. Si existe una diferencia de contenido entre las traducciones en diferentes idiomas, prevalecerá la versión en chino simplificado. 
+**Descargo de responsabilidad de**traducción  
+Para la comodidad de los clientes, Canaan utiliza un traductor de IA para traducir texto a varios idiomas, que pueden contener errores. No garantizamos la exactitud, fiabilidad o puntualidad de las traducciones proporcionadas. Canaan no será responsable de ninguna pérdida o daño causado por la confianza en la exactitud o fiabilidad de la información traducida. Si existe una diferencia de contenido entre las traducciones en diferentes idiomas, prevalecerá la versión en chino simplificado.
 
 Si desea informar de un error o inexactitud de traducción, no dude en ponerse en contacto con nosotros por correo.

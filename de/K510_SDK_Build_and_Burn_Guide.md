@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Verzichtserklärung**</font>
 Die Produkte, Dienstleistungen oder Funktionen, die Sie erwerben, unterliegen den kommerziellen Verträgen und Bedingungen von Beijing Canaan Jiesi Information Technology Co., Ltd. ("das Unternehmen", dasselbe im Folgenden), und alle oder ein Teil der in diesem Dokument beschriebenen Produkte, Dienstleistungen oder Funktionen fallen möglicherweise nicht in den Rahmen Ihres Kaufs oder Ihrer Nutzung. Sofern im Vertrag nicht anders vereinbart, lehnt das Unternehmen alle ausdrücklichen oder stillschweigenden Zusicherungen oder Gewährleistungen hinsichtlich der Genauigkeit, Zuverlässigkeit, Vollständigkeit, des Marketings, des spezifischen Zwecks und der Nichtverletzung von Zusicherungen, Informationen oder Inhalten dieses Dokuments ab. Sofern nicht anders vereinbart, wird dieses Dokument nur als Leitfaden für die Verwendung zur Verfügung gestellt.
-Aufgrund von Produktversions-Upgrades oder anderen Gründen kann der Inhalt dieses Dokuments von Zeit zu Zeit ohne vorherige Ankündigung aktualisiert oder geändert werden. 
+Aufgrund von Produktversions-Upgrades oder anderen Gründen kann der Inhalt dieses Dokuments von Zeit zu Zeit ohne vorherige Ankündigung aktualisiert oder geändert werden.
 
 **<font face="黑体"  size=3>Markenhinweise</font>**
 
-"", "Canaan"-Symbol, Canaan und andere Marken von Canaan und andere Marken von Canaan <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />sind Marken von Beijing Canaan Jiesi Information Technology Co., Ltd. Alle anderen Marken oder eingetragenen Warenzeichen, die in diesem Dokument erwähnt werden können, sind Eigentum ihrer jeweiligen Inhaber. 
+"", "Canaan"-Symbol, Canaan und andere Marken von Canaan und andere Marken von Canaan <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />sind Marken von Beijing Canaan Jiesi Information Technology Co., Ltd. Alle anderen Marken oder eingetragenen Warenzeichen, die in diesem Dokument erwähnt werden können, sind Eigentum ihrer jeweiligen Inhaber.
 
 **<font face="黑体"  size=3>Copyright ©2022 Peking Canaan Jiesi Information Technology Co., Ltd</font>**
-Dieses Dokument gilt nur für die Entwicklung und das Design der K510-Plattform, ohne die schriftliche Genehmigung des Unternehmens darf keine Einheit oder Einzelperson einen Teil oder den gesamten Inhalt dieses Dokuments in irgendeiner Form verbreiten. 
+Dieses Dokument gilt nur für die Entwicklung und das Design der K510-Plattform, ohne die schriftliche Genehmigung des Unternehmens darf keine Einheit oder Einzelperson einen Teil oder den gesamten Inhalt dieses Dokuments in irgendeiner Form verbreiten.
 
 **<font face="黑体"  size=3>Peking Canaan Jiesi Informationstechnologie Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Geschäftliche Anfragen: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # Vorwort
 **<font face="黑体"  size=5>Zweck des Dokuments</font>**
-Dieses Dokument ist ein Begleitdokument zum K510 SDK und soll Ingenieuren helfen, die Kompilierung und das Brennen des K510 SDK zu verstehen. 
+Dieses Dokument ist ein Begleitdokument zum K510 SDK und soll Ingenieuren helfen, die Kompilierung und das Brennen des K510 SDK zu verstehen.
 
 **<font face="黑体"  size=5>Reader-Objekte</font>**
 
@@ -116,7 +116,7 @@ MX2_REL_0106-02e87077-20220428-153936CST-xxxx-server
 ####################################################################
 ```
 
-**Hinweis: Die obigen Informationen können je nach k510 SDK-Version variieren.** 
+**Hinweis: Die obigen Informationen können je nach k510 SDK-Version variieren.**
 
 # 3 Docker-Kompilierungsumgebung
 
@@ -127,7 +127,7 @@ sh k510_buildroot/tools/docker/run_k510_docker.sh
 ```
 
 Nachfolgende Kompilierungsvorgänge werden standardmäßig im Docker ausgeführt.
-Wenn Sie eine lokale Umgebung einrichten müssen, lesen Sie Einrichten der[ lokalen Umgebung.](#env_set)
+Wenn Sie eine lokale Umgebung einrichten müssen, lesen Sie Einrichten der[lokalen Umgebung.](#env_set)
 
 # 4 Kompilieren
 
@@ -143,7 +143,7 @@ make dl
 
 ## 4.2 Kompilierung
 
-K510_buildroot/config-Verzeichnis enthält Kompilierungskonfigurationsdateien für drei Entwicklungsboards, nämlich`k510_crb_lp3_v0_1_defconfig`  , , und , wird `k510_crb_lp3_v1_2_defconfig`dieses Dokument veranschaulicht, indem k510_crb_lp3_v1_2_defconfig als Kompilierungsziel`k510_evb_lp3_v1_1_defconfig` ausgewählt **wird**. 
+K510_buildroot/config-Verzeichnis enthält Kompilierungskonfigurationsdateien für drei Entwicklungsboards, nämlich`k510_crb_lp3_v0_1_defconfig`  , , und , wird `k510_crb_lp3_v1_2_defconfig`dieses Dokument veranschaulicht, indem k510_crb_lp3_v1_2_defconfig als Kompilierungsziel`k510_evb_lp3_v1_1_defconfig` ausgewählt **wird**.
 
 Geben Sie in der k510 Docker-Umgebung den folgenden Befehl ein, um mit der Kompilierung zu beginnen:
 
@@ -157,7 +157,7 @@ Die folgende Meldung weist darauf hin, dass die Kompilierung erfolgreich abgesch
 
 ![](../zh/images/sdk_build/image-uboot_r.png)
 
-Nachdem die Kompilierung abgeschlossen ist, wird der Ordner generiert`k510_crb_lp3_v1_2_defconfig`. 
+Nachdem die Kompilierung abgeschlossen ist, wird der Ordner generiert`k510_crb_lp3_v1_2_defconfig`.
 
 ![Bild-20220311121912711](../zh/images/sdk_build/image-makeout.png)
 
@@ -201,7 +201,7 @@ K510_crb_lp3_v1_2_defconfig/build-Verzeichnis ist der Quellcode für alle kompil
 
 Hinweis: xxx ist die Versionsnummer. Wenn in späteren Abschnitten auf die Pfade von kernle, bbl und uboot verwiesen wird, stellen xxx alle Versionsnummern dar.
 
-** Benötigen Sie besondere Aufmerksamkeit: ** Wenn Sie eine Bereinigung vornehmen, wird alles unter dem k510_crb_lp3_v1_2_defconfig Ordner gelöscht. Wenn Sie also den Kernel-, Bbl- oder uboot-Code ändern müssen, ändern Sie ihn nicht direkt im Build-Verzeichnis, Sie können Kapitel 5 lesen, um die Override-Quellmethode zu verwenden.
+**Benötigen Sie besondere Aufmerksamkeit:** Wenn Sie eine Bereinigung vornehmen, wird alles unter dem k510_crb_lp3_v1_2_defconfig Ordner gelöscht. Wenn Sie also den Kernel-, Bbl- oder uboot-Code ändern müssen, ändern Sie ihn nicht direkt im Build-Verzeichnis, Sie können Kapitel 5 lesen, um die Override-Quellmethode zu verwenden.
 
 ## 4.1 Buildroot konfigurieren
 
@@ -354,7 +354,7 @@ Die Ergebnisse der Ausführung sind wie folgt:
 
 ![](../zh/images/sdk_build/image-riscv.png)
 
-Wenn die Kompilierung abgeschlossen ist, wird eine`k510_crb_lp3_v1_2_defconfig/images` neue im Verzeichnis generiert`bootm-bbl.img`. 
+Wenn die Kompilierung abgeschlossen ist, wird eine`k510_crb_lp3_v1_2_defconfig/images` neue im Verzeichnis generiert`bootm-bbl.img`.
 
 Geben Sie abschließend make in das Verzeichnis k510_crb_lp3_v1_2_defconfig ein und verwenden Sie das neue Paket bootm-bbl.img, um emmc- und SD-Karten-Image-Dateien zu generieren.
 
@@ -416,7 +416,7 @@ K510.dtb im Verzeichnis k510_crb_lp3_v1_2_defconfig/images ist die neu generiert
 
 ## 4.7 Kompilieren der App
 
-Benutzer können sich auf `package/hello_world` das Schreiben von Config.in- und Makefile-Dateien beziehen, um ihre eigenen Anwendungen zu erstellen, und die Benutzeranwendungen werden im Verzeichnis k510_buildroot/package abgelegt. 
+Benutzer können sich auf `package/hello_world` das Schreiben von Config.in- und Makefile-Dateien beziehen, um ihre eigenen Anwendungen zu erstellen, und die Benutzeranwendungen werden im Verzeichnis k510_buildroot/package abgelegt.
 
 Der Prozess der Kompilierung einer Anwendung wird veranschaulicht, indem hello_world Projekte als Beispiel in k510_buildroot/package platziert werden.
 
@@ -454,41 +454,41 @@ Die Ergebnisse der Ausführung sind wie folgt:
 
 1) Wenn es das erste Mal ist, es zu kompilieren, sind die Schritte wie folgt:
 
-Geben Sie im Verzeichnis k510_buildroot den folgenden Befehl ein, um das gesamte Projektprogramm zu kompilieren und hello in emmc- und SD-Kartenbilddateien zu verpacken.
+    Geben Sie im Verzeichnis k510_buildroot den folgenden Befehl ein, um das gesamte Projektprogramm zu kompilieren und hello in emmc- und SD-Kartenbilddateien zu verpacken.
 
-```shell
-make CONF=k510_crb_lp3_v1_2_defconfig
-```
+    ```shell
+    make CONF=k510_crb_lp3_v1_2_defconfig
+    ```
 
-Die Ergebnisse der Ausführung sind wie folgt:
+    Die Ergebnisse der Ausführung sind wie folgt:
 
-![](../zh/images/sdk_build/image-build_make_def.png)
+    ![](../zh/images/sdk_build/image-build_make_def.png)
 
-Im Verzeichnis k510_buildroot/k510_crb_lp3_v1_2_defconfig/target sehen Sie die resultierende hello-Anwendung, die angibt, ob die Anwendung korrekt kompiliert wurde.
+    Im Verzeichnis k510_buildroot/k510_crb_lp3_v1_2_defconfig/target sehen Sie die resultierende hello-Anwendung, die angibt, ob die Anwendung korrekt kompiliert wurde.
 
-![](../zh/images/sdk_build/image-hello.png)
+    ![](../zh/images/sdk_build/image-hello.png)
 
 2) Wenn es kompiliert wurde, kompilieren Sie einfach die App und verpacken Sie es in das Brennbild, folgen Sie diesen Schritten:
 
-Geben Sie das Verzeichnis k510_buildroot/k510_crb_lp3_v1_2_defconfig ein und geben Sie den folgenden Befehl ein, um die hello-Anwendung zu kompilieren.
+    Geben Sie das Verzeichnis k510_buildroot/k510_crb_lp3_v1_2_defconfig ein und geben Sie den folgenden Befehl ein, um die hello-Anwendung zu kompilieren.
 
-```shell
-make hello_world-rebuild
-```
+    ```shell
+    make hello_world-rebuild
+    ```
 
-Die Ergebnisse der Ausführung sind wie folgt:
+    Die Ergebnisse der Ausführung sind wie folgt:
 
-![](../zh/images/sdk_build/image-app_build-1.png)
+    ![](../zh/images/sdk_build/image-app_build-1.png)
 
-Gehen Sie in das Verzeichnis k510_buildroot/k510_crb_lp3_v1_2_defconfig und geben Sie den Befehl make ein, um hello in die emmc- und sd-Kartenbilddateien zu packen.
+    Gehen Sie in das Verzeichnis k510_buildroot/k510_crb_lp3_v1_2_defconfig und geben Sie den Befehl make ein, um hello in die emmc- und sd-Kartenbilddateien zu packen.
 
-```shell
-make
-```
+    ```shell
+    make
+    ```
 
-Die Ergebnisse der Ausführung sind wie folgt:
+    Die Ergebnisse der Ausführung sind wie folgt:
 
-![](../zh/images/sdk_build/image-app-build-2.png)
+    ![](../zh/images/sdk_build/image-app-build-2.png)
 
 # 5 Entwickeln mit dem K510 SDK
 
@@ -582,7 +582,7 @@ Nach dem Einsetzen der sD-Karte in den Host lautet das Ergebnis der Ausführung 
 
 ![](../zh/images/sdk_build/image-dev_sd.png)
 
-/dev/sdc ist der Geräteknoten der SD-Karten. **Hinweis: Der in der Benutzerumgebung generierte SD-Kartengeräteknoten ist möglicherweise nicht /dev/sdc, und nachfolgende Operationen müssen entsprechend dem tatsächlichen Knoten geändert werden. **
+/dev/sdc ist der Geräteknoten der SD-Karten. **Hinweis: Der in der Benutzerumgebung generierte SD-Kartengeräteknoten ist möglicherweise nicht /dev/sdc, und nachfolgende Operationen müssen entsprechend dem tatsächlichen Knoten geändert werden.**
 
 Geben Sie das Verzeichnis k510_buildroot/k510_crb_lp3_v1_2_defconfig/image unter dem Host ein und geben Sie den Befehl dd ein, um sysimage-sdcard.img in das SDK zu brennen:
 
@@ -596,21 +596,21 @@ Das Ausführungsergebnis unter dem Host lautet wie folgt:
 
 ### 6.1.2 Brennen unter Windows
 
-Unter Windows kann die sD-Karte mit dem Bananen-Etcher-Tool gebrannt werden (Balena Etcher Tool Download-Adresse<https://www.balena.io/etcher/>). 
+Unter Windows kann die sD-Karte mit dem Bananen-Etcher-Tool gebrannt werden (Balena Etcher Tool Download-Adresse<https://www.balena.io/etcher/>).
 
 1) Legen Sie die TF-Karte in den PC ein, starten Sie dann das ColumnEtcher-Tool, klicken Sie auf die Schaltfläche "Flash from file" der Tool-Schnittstelle, wählen Sie die zu brennende Firmware aus, wie in der folgenden Abbildung gezeigt.
 
-![](../zh/images/sdk_build/image-sd_pre0.png)
+    ![](../zh/images/sdk_build/image-sd_pre0.png)
 
 2) Klicken Sie auf die Schaltfläche "Ziel auswählen" der Werkzeugoberfläche und wählen Sie die Ziel-SD-Karte aus.
 
-![](../zh/images/sdk_build/image-pre1.png)
+    ![](../zh/images/sdk_build/image-pre1.png)
 
 3) Klicken Sie auf die Schaltfläche "Flash", um mit dem Blinken zu beginnen, der Blinkvorgang hat eine Fortschrittsanzeige, Flash Finish wird nach dem Ende des Blinkens aufgefordert.
 
-| ![](../zh/images/sdk_build/clip_image_p1.jpg) | ![](../zh/images/sdk_build/clip_image_p2.jpg) |
-| --------------------------------------- | --------------------------------------- |
-|                                         |                                         |
+    | ![](../zh/images/sdk_build/clip_image_p1.jpg) | ![](../zh/images/sdk_build/clip_image_p2.jpg) |
+    | --------------------------------------- | --------------------------------------- |
+    |                                         |                                         |
 
 4) Wenn das Flashen abgeschlossen ist, setzen Sie die SD-Karte in den Steckplatz der Entwicklungsplatine ein, wählen Sie BOOT, um von der SD zu starten, und schließlich kann die Entwicklungsplatine eingeschaltet werden, um von der SD-Karte zu starten.
 
@@ -695,7 +695,7 @@ apt-get install libssl-dev
 pip3 install pycryptodome
 ```
 
-**Haftungsausschluss **für Übersetzungen  
-Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend. 
+**Haftungsausschluss**für Übersetzungen  
+Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend.
 
 Wenn Sie einen Übersetzungsfehler oder eine Ungenauigkeit melden möchten, können Sie uns gerne per E-Mail kontaktieren.

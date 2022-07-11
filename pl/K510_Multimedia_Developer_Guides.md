@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Zrzeczenie się**</font>
 Zakupione produkty, usługi lub funkcje podlegają umowom handlowym i warunkom Beijing Canaan Jiesi Information Technology Co., Ltd. ("Spółka", ta sama poniżej), a wszystkie lub część produktów, usług lub funkcji opisanych w niniejszym dokumencie może nie być objęta zakresem zakupu lub użytkowania. O ile nie uzgodniono inaczej w umowie, Firma zrzeka się wszelkich oświadczeń lub gwarancji, wyraźnych lub dorozumianych, co do dokładności, niezawodności, kompletności, marketingu, konkretnego celu i nieagresji jakichkolwiek oświadczeń, informacji lub treści tego dokumentu. O ile nie uzgodniono inaczej, niniejszy dokument jest dostarczany jako wskazówka wyłącznie do użytku.
-Ze względu na aktualizacje wersji produktu lub z innych powodów zawartość tego dokumentu może być od czasu do czasu aktualizowana lub modyfikowana bez powiadomienia. 
+Ze względu na aktualizacje wersji produktu lub z innych powodów zawartość tego dokumentu może być od czasu do czasu aktualizowana lub modyfikowana bez powiadomienia.
 
 **<font face="黑体"  size=3>Informacje o znakach towarowych</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, ikona "Canaan", Canaan i inne znaki towarowe Canaan oraz inne znaki towarowe Canaan są znakami towarowymi Beijing Canaan Jiesi Information Technology Co., Ltd. Wszystkie inne znaki towarowe lub zarejestrowane znaki towarowe, które mogą być wymienione w niniejszym dokumencie, są własnością ich odpowiednich właścicieli. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, ikona "Canaan", Canaan i inne znaki towarowe Canaan oraz inne znaki towarowe Canaan są znakami towarowymi Beijing Canaan Jiesi Information Technology Co., Ltd. Wszystkie inne znaki towarowe lub zarejestrowane znaki towarowe, które mogą być wymienione w niniejszym dokumencie, są własnością ich odpowiednich właścicieli.
 
 **<font face="黑体"  size=3>Prawa autorskie ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Niniejszy dokument ma zastosowanie wyłącznie do rozwoju i projektowania platformy K510, bez pisemnej zgody firmy, żadna jednostka ani osoba fizyczna nie może rozpowszechniać części lub całości treści tego dokumentu w jakiejkolwiek formie. 
+Niniejszy dokument ma zastosowanie wyłącznie do rozwoju i projektowania platformy K510, bez pisemnej zgody firmy, żadna jednostka ani osoba fizyczna nie może rozpowszechniać części lub całości treści tego dokumentu w jakiejkolwiek formie.
 
 **<font face="黑体"  size=3>Pekin Canaan Jiesi Information Technology Co Ltd</font>**
 Adres internetowy: canaan-creative.com
@@ -529,8 +529,8 @@ biegać`encode_app`
 | Pomoc | Informacje pomocy| | ||
 | rozszczepiać | Liczba kanałów | ZERO | [1,4] | jpeg、avc |
 | Ch | Numer kanału (oparty na 0) | ZERO | [0,3] | jpeg、avc |
-| ja | Wprowadź plik YUV, obsługuje tylko** format ** nv12| ZERO | v4l2 <br> xxx.yuv | jpeg、avc |
-| Dev | Nazwa urządzenia v4l2 | ZERO | **sensor0:** /dev/video3 /dev/video4 <br> <br>sensor1:<br> ** /dev/video7 / ** dev/ <br> video8 <br> | głaskać |
+| ja | Wprowadź plik YUV, obsługuje tylko**format** nv12| ZERO | v4l2 <br> xxx.yuv | jpeg、avc |
+| Dev | Nazwa urządzenia v4l2 | ZERO | **sensor0:** /dev/video3 /dev/video4 <br> <br>sensor1:<br> **/dev/video7 /** dev/ <br> video8 <br> | głaskać |
 | lub | wyjście| ZERO | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG | jpeg、avc |
 | w | Szerokość obrazu wyjściowego | 1920 | avc: [128,2048], wielokrotność 8 <br> jpeg: do 8192, wielokrotność 16 | jpeg、avc |
 | h | Wysokość obrazu wyjściowego | 1080 | avc: [64,2048], wielokrotność 8 <br> jpeg: do 8192, wielokrotność 2 | jpeg、avc |
@@ -668,7 +668,7 @@ Polecenie ffplay pull stream jest takie samo jak powyżej.
 
   Adres IP: Adres IP płytki programistycznej, wprowadź ifconfig na płycie, aby uzyskać.
 
-  Numer portu: 8554 + <通道号>*2, numery kanałów zazwyczaj zaczynają się od 0 (-ch 0, -ch 1...). 
+  Numer portu: 8554 + <通道号>*2, numery kanałów zazwyczaj zaczynają się od 0 (-ch 0, -ch 1...).
 
 - Odtwórz tryb strumienia RTSP: odpowiedni strumień RTSP może być odtwarzany przez vlc lub ffplay, a strumień danych może być przesyłany przez protokół udp lub TCP.
 
@@ -1017,7 +1017,7 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -i /dev/video3 -vco
 
 Ilustrują:
 
-1. Środowisko wykonawcze musi znajdować się w katalogu uruchamiania`video_sampe.conf`, `imx219_0.conf`a `imx219_1.conf`pliki są konfigurowane, a trzy pliki znajdują się w`/encode_app/` katalogu. 
+1. Środowisko wykonawcze musi znajdować się w katalogu uruchamiania`video_sampe.conf`, `imx219_0.conf`a `imx219_1.conf`pliki są konfigurowane, a trzy pliki znajdują się w`/encode_app/` katalogu.
 2. Wideo, które przychodzi w czasie rzeczywistym przez kamerę, jest zapisywane jako plik YUV, a ponieważ plik YUV jest bardzo duży, lokalna prędkość zapisu DDR lub NFS nie może nadążyć, co może spowodować spadek liczby klatek.
 
 #### 3.2.1.6 Kodowanie JPEG
@@ -1028,7 +1028,7 @@ Wyjście pliku:
 ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_jpeg -y test.mjpeg
 ```
 
-Opis: Środowisko wykonawcze musi znajdować się w katalogu uruchamiania`video_sampe.conf`, `imx219_0.conf`a `imx219_1.conf`pliki są konfigurowane, a trzy pliki znajdują się w`/encode_app/` katalogu. 
+Opis: Środowisko wykonawcze musi znajdować się w katalogu uruchamiania`video_sampe.conf`, `imx219_0.conf`a `imx219_1.conf`pliki są konfigurowane, a trzy pliki znajdują się w`/encode_app/` katalogu.
 
 Plik wyjściowy test.mjpeg można odtwarzać po stronie PC za pomocą ffplay
 
@@ -1064,7 +1064,7 @@ Podczas korzystania z ffplay do ściągania strumieni, uważaj, aby pobrać tylk
 
 - `ff_libk510_h264_encoder`: Sterowanie kodowaniem sprzętowym h264, odniesienie`libvenc.so`
 - `ff_libk510_jpeg_encoder`: Steruje kodowaniem sprzętowym jpeg, do którego się odwołuje`libvenc.so`
-- v4l2: W wersji v4l2.c dodano kod sprzętowy k510, a typ bufora v4l2 V4L2_MEMORY_USERPTR i odwoływał się do niego`libmediactl.so`. 
+- v4l2: W wersji v4l2.c dodano kod sprzętowy k510, a typ bufora v4l2 V4L2_MEMORY_USERPTR i odwoływał się do niego`libmediactl.so`.
 
 #### 3.2.2.1 polecenie generowania poprawek
 
@@ -1088,7 +1088,7 @@ sed -i "s/\/dl\/ffmpeg_canaan\/ffmpeg-4.4//g" ../../package/ffmpeg_canaan/xxx.pa
 
 #### 3.2.2.2 Konfiguracja ffmpeg
 
-W `package/ffmpeg_canaan/ffmpeg.mk`pliku można zmodyfikować rdzeń procesora, łańcuch narzędzi kompilacji i włączyć za pomocą opcji`ff_k510_video_demuxer` konfiguracji.`ff_libk510_jpeg_encoder` `ff_libk510_h264_encoder` 
+W `package/ffmpeg_canaan/ffmpeg.mk`pliku można zmodyfikować rdzeń procesora, łańcuch narzędzi kompilacji i włączyć za pomocą opcji`ff_k510_video_demuxer` konfiguracji.`ff_libk510_jpeg_encoder` `ff_libk510_h264_encoder`
 
 ```shell
 ./configure \
@@ -1113,7 +1113,7 @@ W `package/ffmpeg_canaan/ffmpeg.mk`pliku można zmodyfikować rdzeń procesora, 
     --enable-indev=v4l2 \
 ```
 
-**Zrzeczenie się odpowiedzialności za **tłumaczenie  
-Dla wygody klientów Canaan używa tłumacza AI do tłumaczenia tekstu na wiele języków, które mogą zawierać błędy. Nie gwarantujemy dokładności, rzetelności ani terminowości dostarczonych tłumaczeń. Canaan nie ponosi odpowiedzialności za jakiekolwiek straty lub szkody spowodowane poleganiem na dokładności lub wiarygodności przetłumaczonych informacji. W przypadku różnic w treści tłumaczeń w różnych językach, pierwszeństwo ma chińska wersja uproszczona. 
+**Zrzeczenie się odpowiedzialności za**tłumaczenie  
+Dla wygody klientów Canaan używa tłumacza AI do tłumaczenia tekstu na wiele języków, które mogą zawierać błędy. Nie gwarantujemy dokładności, rzetelności ani terminowości dostarczonych tłumaczeń. Canaan nie ponosi odpowiedzialności za jakiekolwiek straty lub szkody spowodowane poleganiem na dokładności lub wiarygodności przetłumaczonych informacji. W przypadku różnic w treści tłumaczeń w różnych językach, pierwszeństwo ma chińska wersja uproszczona.
 
 Jeśli chcesz zgłosić błąd lub niedokładność tłumaczenia, skontaktuj się z nami pocztą.

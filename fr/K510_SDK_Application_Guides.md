@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Démenti**</font>
 Les produits, services ou fonctionnalités que vous achetez sont soumis aux contrats commerciaux et aux conditions de Beijing Canaan Jiesi Information Technology Co., Ltd. (« la Société », les mêmes ci-après), et tout ou partie des produits, services ou fonctionnalités décrits dans ce document peuvent ne pas être dans le cadre de votre achat ou de votre utilisation. Sauf accord contraire dans le contrat, la Société décline toute représentation ou garantie, expresse ou implicite, quant à l'exactitude, la fiabilité, l'exhaustivité, le marketing, l'objectif spécifique et la non-agression de toute représentation, information ou contenu de ce document. Sauf convention contraire, le présent document est fourni à titre indicatif à titre indicatif d'utilisation seulement.
-En raison de mises à niveau de la version du produit ou d'autres raisons, le contenu de ce document peut être mis à jour ou modifié de temps à autre sans préavis. 
+En raison de mises à niveau de la version du produit ou d'autres raisons, le contenu de ce document peut être mis à jour ou modifié de temps à autre sans préavis.
 
 **<font face="黑体"  size=3>Avis sur les marques de commerce</font>**
 
-«  »<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icône « Canaan », Canaan et d'autres marques de commerce de Canaan et d'autres marques de commerce de Canaan sont des marques de commerce de Beijing Canaan Jiesi Information Technology Co., Ltd. Toutes les autres marques de commerce ou marques déposées qui peuvent être mentionnées dans ce document sont la propriété de leurs propriétaires respectifs. 
+«  »<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icône « Canaan », Canaan et d'autres marques de commerce de Canaan et d'autres marques de commerce de Canaan sont des marques de commerce de Beijing Canaan Jiesi Information Technology Co., Ltd. Toutes les autres marques de commerce ou marques déposées qui peuvent être mentionnées dans ce document sont la propriété de leurs propriétaires respectifs.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Ce document ne s'applique qu'au développement et à la conception de la plate-forme K510, sans l'autorisation écrite de la société, aucune unité ou individu ne peut diffuser une partie ou la totalité du contenu de ce document sous quelque forme que ce soit. 
+Ce document ne s'applique qu'au développement et à la conception de la plate-forme K510, sans l'autorisation écrite de la société, aucune unité ou individu ne peut diffuser une partie ou la totalité du contenu de ce document sous quelque forme que ce soit.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Demandes de renseignements des entreprises : salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # préface
 **<font face="黑体"  size=5>Objet </font>**du document
-Ce document est un document de description de l'exemple d'application K510 SDK. 
+Ce document est un document de description de l'exemple d'application K510 SDK.
 
 **<font face="黑体"  size=5>Objets de lecture</font>**
 
@@ -103,9 +103,9 @@ ai
 └── Config.in
 ```
 
-Vous pouvez vous référer au code source de la retinaface_mb_320 et`CMakeLists.txt` ajouter un nouveau programme de démonstration nncase. 
+Vous pouvez vous référer au code source de la retinaface_mb_320 et`CMakeLists.txt` ajouter un nouveau programme de démonstration nncase.
 
-Pour la compilation du modèle, voir`nncase_demo.mk` les POST_INSTALL_TARGET_HOOKS* qui y sont définies *:
+Pour la compilation du modèle, voir`nncase_demo.mk` les POST_INSTALL_TARGET_HOOKS*qui y sont définies*:
 
 ```text
 NNCASE_DEMO_DEPENDENCIES += mediactl_lib nncase_linux_runtime opencv4 libdrm
@@ -151,16 +151,16 @@ QOS_CTRL2.isp3dtof écrire QoS = 0xf
 QOS_CTRL3.display lire QoS = 0xf
 QOS_CTRL3.display écrire QoS = 0xf
 
-Décalage 0(QOS_CTRL0)[0x00f4]
+Décalage 0[QOS_CTRL0](0x00f4)
  du registre de contrôle QOS ![qos ctrl0](../zh/images/sdk_application/demo_nncase_qos_ctrl0.png)
 
-Décalage 
+Décalage
  [0x00f8]du registre de contrôle QOS 1 (QOS_CTRL1)![ qos ctrl1](../zh/images/sdk_application/demo_nncase_qos_ctrl1.png)
 
-Décalage 
+Décalage
  [0x00fc]du registre de contrôle QOS 2 (QOS_CTRL2)![ qos ctrl2](../zh/images/sdk_application/demo_nncase_qos_ctrl2.png)
 
-Décalage 
+Décalage
  [0x0100]du registre de contrôle QOS 3 (QOS_CTRL3)![ qos ctrl3](../zh/images/sdk_application/demo_nncase_qos_ctrl3.png)
 
 La compilation et l'installation du modèle sont détaillées dans le paquet de fichiers/ai/ai.mk :
@@ -197,7 +197,7 @@ ffmpeg -h encoder=libk510_h264 #查看k510编码器的参数
 ffmpeg -h demuxer=libk510_video #查看demuxer的配置参数
 ```
 
-Pour obtenir des instructions d'exécution détaillées, reportez-vous à[ K510_Multimedia_Developer_Guides.md](./K510_Multimedia_Developer_Guides.md)
+Pour obtenir des instructions d'exécution détaillées, reportez-vous à[K510_Multimedia_Developer_Guides.md](./K510_Multimedia_Developer_Guides.md)
 
 ## 1.3 alsa_demo
 
@@ -370,7 +370,7 @@ Le résultat de l'exécution du programme est:
 
 ![](../zh/images/sdk_application/image-watchdog.png)
 
-**Remarque**: Le module de surveillance k510 actuel a une fréquence d'horloge de travail de 757575 Hz, et le temps d'expiration en secondes doit être converti en délai d'expiration de la fréquence d'horloge de travail réelle du chien de garde, qui est calculée comme 2^ n / 757575, de sorte que le délai d'expiration réel sera supérieur ou égal au délai d'expiration d'entrée. 
+**Remarque**: Le module de surveillance k510 actuel a une fréquence d'horloge de travail de 757575 Hz, et le temps d'expiration en secondes doit être converti en délai d'expiration de la fréquence d'horloge de travail réelle du chien de garde, qui est calculée comme 2^ n / 757575, de sorte que le délai d'expiration réel sera supérieur ou égal au délai d'expiration d'entrée.
 
 Le délai d'expiration réel est calculé comme suit :
 
@@ -459,7 +459,7 @@ Pour activer la lecture et l'écriture des données 1G sur la carte SD, veuillez
 
 ## 1.10 Démo SHA/AES
 
-La démo SHA/AES utilise le noyau Linux pour exporter AF_ALG type d'interface Netlink et utilise l'API de chiffrement du noyau dans l'espace utilisateur. Reportez-vous à la section .<https://www.kernel.org/doc/html/latest/crypto/userspace-if.html> 
+La démo SHA/AES utilise le noyau Linux pour exporter AF_ALG type d'interface Netlink et utilise l'API de chiffrement du noyau dans l'espace utilisateur. Reportez-vous à la section .<https://www.kernel.org/doc/html/latest/crypto/userspace-if.html>
 
 Paramètre:
 -h Imprime les informations d'aide
@@ -600,17 +600,17 @@ Une fois le pilote du module WiFi chargé, la carte réseau sans fil wlan0 est g
 1) Ouvrez « Mobile Hotspot » dans le bloc-notes, puis définissez le nom et le mot de passe du hotspot
 2) Démarrez NetAssist sur le bloc-notes, configurez le type de protocole, l'adresse IP de l'hôte local, le port de l'hôte local, les paramètres de réception, les paramètres d'envoi et les données à envoyer, comme illustré dans la figure suivante :
 
-![](../zh/images/sdk_application/image_wifi_1.png)
+    ![](../zh/images/sdk_application/image_wifi_1.png)
 
 3) Le format de paramètre du programme de test wifi est:
 
-```shell
-./wifi <AP name> <password> <local ip> <server ip>
-```
+    ```shell
+    ./wifi <AP name> <password> <local ip> <server ip>
+    ```
 
-Par exemple, entrez le répertoire /app/wifi, entrez la commande pour démarrer le programme de test wifi et le résultat d'exécution du programme est le suivant :
+    Par exemple, entrez le répertoire /app/wifi, entrez la commande pour démarrer le programme de test wifi et le résultat d'exécution du programme est le suivant :
 
-![](../zh/images/sdk_application/image_wifi_2.png)
+    ![](../zh/images/sdk_application/image_wifi_2.png)
 
 ## 1.17 GPIO_KEYS démo
 
@@ -621,6 +621,6 @@ gpio-keys routine bloquant la lecture des événements de rapport clé et l'impr
 Le résultat de l'exécution du programme est illustré dans la figure suivante :![](../zh/images/sdk_application/image-gpio-keys.png)
 
 **Clause de non-responsabilité en matière de**  
-Pour la commodité des clients, Canaan utilise un traducteur IA pour traduire du texte en plusieurs langues, ce qui peut contenir des erreurs. Nous ne garantissons pas l'exactitude, la fiabilité ou l'actualité des traductions fournies. Canaan ne sera pas responsable de toute perte ou dommage causé par la confiance accordée à l'exactitude ou à la fiabilité des informations traduites. S'il existe une différence de contenu entre les traductions dans différentes langues, la version simplifiée en chinois prévaudra. 
+Pour la commodité des clients, Canaan utilise un traducteur IA pour traduire du texte en plusieurs langues, ce qui peut contenir des erreurs. Nous ne garantissons pas l'exactitude, la fiabilité ou l'actualité des traductions fournies. Canaan ne sera pas responsable de toute perte ou dommage causé par la confiance accordée à l'exactitude ou à la fiabilité des informations traduites. S'il existe une différence de contenu entre les traductions dans différentes langues, la version simplifiée en chinois prévaudra.
 
 Si vous souhaitez signaler une erreur de traduction ou une inexactitude, n'hésitez pas à nous contacter par courrier.

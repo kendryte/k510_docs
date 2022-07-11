@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disclaimer**</font>
 The products, services or features you purchase shall be subject to the commercial contracts and terms of Beijing Canaan Jiesi Information Technology Co., Ltd. ("the Company", the same hereinafter), and all or part of the products, services or features described in this document may not be within the scope of your purchase or use. Except as otherwise agreed in the contract, the Company disclaims all representations or warranties, express or implied, as to the accuracy, reliability, completeness, marketing, specific purpose and non-aggression of any representations, information, or content of this document. Unless otherwise agreed, this document is provided as a guide for use only.
-Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice. 
+Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice.
 
 **<font face="黑体"  size=3>Trademark Notices</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form. 
+This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Business Enquiries: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # preface
 **<font face="黑体"  size=5>Document purpose</font>**
-This document is a description document for the K510 SDK application example. 
+This document is a description document for the K510 SDK application example.
 
 **<font face="黑体"  size=5>Reader Objects</font>**
 
@@ -103,9 +103,9 @@ ai
 └── Config.in
 ```
 
-You can refer to the source code of the retinaface_mb_320 and`CMakeLists.txt` add a new nncase demo program. 
+You can refer to the source code of the retinaface_mb_320 and`CMakeLists.txt` add a new nncase demo program.
 
-For the compilation of the model, see`nncase_demo.mk` the POST_INSTALL_TARGET_HOOKS* defined therein*:
+For the compilation of the model, see`nncase_demo.mk` the POST_INSTALL_TARGET_HOOKS*defined therein*:
 
 ```text
 NNCASE_DEMO_DEPENDENCIES += mediactl_lib nncase_linux_runtime opencv4 libdrm
@@ -197,7 +197,7 @@ ffmpeg -h encoder=libk510_h264 #查看k510编码器的参数
 ffmpeg -h demuxer=libk510_video #查看demuxer的配置参数
 ```
 
-For detailed run instructions, refer to[ K510_Multimedia_Developer_Guides.md](./K510_Multimedia_Developer_Guides.md)
+For detailed run instructions, refer to[K510_Multimedia_Developer_Guides.md](./K510_Multimedia_Developer_Guides.md)
 
 ## 1.3 alsa_demo
 
@@ -370,7 +370,7 @@ The result of the execution of the program is:
 
 ![](../zh/images/sdk_application/image-watchdog.png)
 
-**Note**: The current k510 watchdog module has a working clock frequency of 757575Hz, and the timeout time in seconds needs to be converted to the timeout timeout of the actual working clock frequency of the watchdog, which is calculated as 2^n/757575, so the actual timeout time will be greater than or equal to the input timeout timeout. 
+**Note**: The current k510 watchdog module has a working clock frequency of 757575Hz, and the timeout time in seconds needs to be converted to the timeout timeout of the actual working clock frequency of the watchdog, which is calculated as 2^n/757575, so the actual timeout time will be greater than or equal to the input timeout timeout.
 
 The actual timeout period is calculated as follows:
 
@@ -459,7 +459,7 @@ To enable the reading and writing of 1G data to the SD card, please refer to the
 
 ## 1.10 SHA/AES demo
 
-SHA/AES demo uses the Linux kernel to export AF_ALG type of Netlink interface and uses the kernel encryption API in user space. Please refer to .<https://www.kernel.org/doc/html/latest/crypto/userspace-if.html> 
+SHA/AES demo uses the Linux kernel to export AF_ALG type of Netlink interface and uses the kernel encryption API in user space. Please refer to .<https://www.kernel.org/doc/html/latest/crypto/userspace-if.html>
 
 Parameter:
 -h Prints the help information
@@ -600,17 +600,17 @@ After the WiFi module driver is loaded, the wireless network card wlan0 is gener
 1) Open "Mobile Hotspot" in the notebook, and then set the name and password of the hotspot
 2) Start NetAssist on the notebook, configure the protocol type, local host IP, local host port, receive settings, send settings, and the data that needs to be sent, as shown in the following figure:
 
-![](../zh/images/sdk_application/image_wifi_1.png)
+    ![](../zh/images/sdk_application/image_wifi_1.png)
 
 3) The parameter format of the wifi test program is:
 
-```shell
-./wifi <AP name> <password> <local ip> <server ip>
-```
+    ```shell
+    ./wifi <AP name> <password> <local ip> <server ip>
+    ```
 
-For example, enter the /app/wifi directory, enter the command to start the wifi test program, and the execution result of the program is as follows:
+    For example, enter the /app/wifi directory, enter the command to start the wifi test program, and the execution result of the program is as follows:
 
-![](../zh/images/sdk_application/image_wifi_2.png)
+    ![](../zh/images/sdk_application/image_wifi_2.png)
 
 ## 1.17 GPIO_KEYS demo
 
@@ -621,6 +621,6 @@ gpio-keys routine blocking reading key reporting events and printing event infor
 The program execution result is shown in the following figure:![](../zh/images/sdk_application/image-gpio-keys.png)
 
 **Translation Disclaimer**  
-For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail. 
+For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail.
 
 If you would like to report a translation error or inaccuracy, please feel free to contact us by mail.

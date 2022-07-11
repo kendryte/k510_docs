@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**免責聲明**</font>
 您購買的產品、服務或特性等應受北京嘉楠捷思資訊技術有限公司（“本公司”，下同）商業合同和條款的約束，本文檔中描述的全部或部分產品、服務或特性可能不在您的購買或使用範圍之內。 除非合同另有約定，本公司不對本文檔的任何陳述、資訊、內容的準確性、可靠性、完整性、行銷型、特定目的性和非侵略性提供任何明示或默示的聲明或保證。 除非另有約定，本文檔僅作為使用指導的參考。
-由於產品版本升級或其他原因，本文檔內容將可能在未經任何通知的情況下，不定期進行更新或修改。 
+由於產品版本升級或其他原因，本文檔內容將可能在未經任何通知的情況下，不定期進行更新或修改。
 
 **<font face="黑体"  size=3>商標聲明</font>**
 
-“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”圖示、嘉楠和嘉楠其他商標均為北京嘉楠捷思資訊技術有限公司的商標。 本文檔可能提及的其他所有商標或註冊商標，由各自的所有人擁有。 
+“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”圖示、嘉楠和嘉楠其他商標均為北京嘉楠捷思資訊技術有限公司的商標。 本文檔可能提及的其他所有商標或註冊商標，由各自的所有人擁有。
 
 **<font face="黑体"  size=3>版權所有©2022北京嘉楠捷思資訊技術有限公司</font>**
-本文檔僅適用K510平台開發設計，非經本公司書面許可，任何單位和個人不得以任何形式對本文檔的部分或全部內容傳播。 
+本文檔僅適用K510平台開發設計，非經本公司書面許可，任何單位和個人不得以任何形式對本文檔的部分或全部內容傳播。
 
 **<font face="黑体"  size=3>北京嘉楠捷思資訊技術有限公司</font>**
 網址：canaan-creative.com
@@ -26,7 +26,7 @@
 <div style="page-break-after:always"></div>
 # 前言
 **<font face="黑体"  size=5>文件目的</font>**
-本文檔為K510 DSP核使用指導說明。 
+本文檔為K510 DSP核使用指導說明。
 
 **<font face="黑体"  size=5>讀者物件</font>**
 
@@ -97,7 +97,7 @@ dsp_app_new編譯后的可執行程式將存放在根文件系統/app/dsp_app_ne
 ## 3.1 英尺
 
 fft demo 程式位於`/app/dsp_app_new/fft.bin`。
-fft demo 程式源碼放在`k510_buildroot/package/k510_evb_test/src/test/fft`目錄下。 
+fft demo 程式源碼放在`k510_buildroot/package/k510_evb_test/src/test/fft`目錄下。
 
 進入 /app/dsp_app_new'目錄下：
 
@@ -132,7 +132,7 @@ cd /app/dsp_app_new
 ./dsp_app simd_umul8_demo.bin
 ```
 
-具體指令的可到 [Product Documentation - Andes Technology](http://www.andestech.com/en/products-solutions/product-documentation/) 下載 AndeStar V5 DSP ISA Extension Specification.PDF（v1.0，2019-03-25），查看第 3.172 節。 
+具體指令的可到 [Product Documentation - Andes Technology](http://www.andestech.com/en/products-solutions/product-documentation/) 下載 AndeStar V5 DSP ISA Extension Specification.PDF（v1.0，2019-03-25），查看第 3.172 節。
 
 ## 3.3 DSP調度程式介面
 
@@ -368,6 +368,6 @@ cpu2dsp_task_demo: exit successful
 ```
 
 **翻譯免責聲明**  
-為方便客戶，Canaan 使用 AI 翻譯程式將文字翻譯為多種語言，它可能包含錯誤。 我們不保證提供的譯文的準確性、可靠性或時效性。 對於因依賴已翻譯信息的準確性或可靠性而造成的任何損失或損害，Canaan 概不負責。 如果不同語言翻譯之間存在內容差異，以簡體中文版本為準。 
+為方便客戶，Canaan 使用 AI 翻譯程式將文字翻譯為多種語言，它可能包含錯誤。 我們不保證提供的譯文的準確性、可靠性或時效性。 對於因依賴已翻譯信息的準確性或可靠性而造成的任何損失或損害，Canaan 概不負責。 如果不同語言翻譯之間存在內容差異，以簡體中文版本為準。
 
 如果您要報告翻譯錯誤或不準確的問題，歡迎通過郵件與我們聯繫。

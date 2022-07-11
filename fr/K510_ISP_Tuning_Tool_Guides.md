@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Démenti**</font>
 Les produits, services ou fonctionnalités que vous achetez sont soumis aux contrats commerciaux et aux conditions de Beijing Canaan Jiesi Information Technology Co., Ltd. (« la Société », les mêmes ci-après), et tout ou partie des produits, services ou fonctionnalités décrits dans ce document peuvent ne pas être dans le cadre de votre achat ou de votre utilisation. Sauf accord contraire dans le contrat, la Société décline toute représentation ou garantie, expresse ou implicite, quant à l'exactitude, la fiabilité, l'exhaustivité, le marketing, l'objectif spécifique et la non-agression de toute représentation, information ou contenu de ce document. Sauf convention contraire, le présent document est fourni à titre indicatif à titre indicatif d'utilisation seulement.
-En raison de mises à niveau de la version du produit ou d'autres raisons, le contenu de ce document peut être mis à jour ou modifié de temps à autre sans préavis. 
+En raison de mises à niveau de la version du produit ou d'autres raisons, le contenu de ce document peut être mis à jour ou modifié de temps à autre sans préavis.
 
 **<font face="黑体"  size=3>Avis sur les marques de commerce</font>**
 
-«  »<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icône « Canaan », Canaan et d'autres marques de commerce de Canaan et d'autres marques de commerce de Canaan sont des marques de commerce de Beijing Canaan Jiesi Information Technology Co., Ltd. Toutes les autres marques de commerce ou marques déposées qui peuvent être mentionnées dans ce document sont la propriété de leurs propriétaires respectifs. 
+«  »<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icône « Canaan », Canaan et d'autres marques de commerce de Canaan et d'autres marques de commerce de Canaan sont des marques de commerce de Beijing Canaan Jiesi Information Technology Co., Ltd. Toutes les autres marques de commerce ou marques déposées qui peuvent être mentionnées dans ce document sont la propriété de leurs propriétaires respectifs.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Ce document ne s'applique qu'au développement et à la conception de la plate-forme K510, sans l'autorisation écrite de la société, aucune unité ou individu ne peut diffuser une partie ou la totalité du contenu de ce document sous quelque forme que ce soit. 
+Ce document ne s'applique qu'au développement et à la conception de la plate-forme K510, sans l'autorisation écrite de la société, aucune unité ou individu ne peut diffuser une partie ou la totalité du contenu de ce document sous quelque forme que ce soit.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Demandes de renseignements des entreprises : salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # préface
 **<font face="黑体"  size=5>Objet </font>**du document
-Ce document est une documentation de l'outil de réglage isp. 
+Ce document est une documentation de l'outil de réglage isp.
 
 **<font face="黑体"  size=5>Objets de lecture</font>**
 
@@ -112,16 +112,16 @@ Cette section décrit les fonctionnalités de ces panneaux dans la fenêtre de r
 
 La figure 3-1 montre l'ensemble du panneau de l'opérateur sur la fenêtre de réglage
 
-- Le panneau 1 est le** menu **qui peut éventuellement charger le fichier ISP configuré ou effectuer un étalonnage. 
-- Le panneau 2 est le **panneau de configuration de la connexion**, remplissez l'adresse IP et le numéro de port de la carte de développement (port par défaut 9982) et cliquez sur le bouton vert de connexion pour vous connecter. 
-- Le panneau 3 est le** panneau de registre**, si vous devez définir ou lire le registre n'est pas dans celui-ci, vous pouvez utiliser ce panneau pour définir et lire. 
-- Le panneau 4 est un **panneau de sélection **de paramètres de réglage, l'utilisateur peut sélectionner divers paramètres ou groupes de paramètres en fonction du texte de l'invite du panneau, les registres de ces sélections seront affichés sur le panneau 5. 
-- Le panneau 5 est le **panneau Paramètres de réglage**, qui permet de définir ou d'obtenir des valeurs de paramètre à partir du serveur de réglage. 
-- Le panneau 6 est un panneau d**'affichage d'image**, qui affiche la sortie d'image par le FAI et peut cliquer sur le bouton de pause au milieu lorsqu'il n'est pas nécessaire de jouer tout le temps. 
+- Le panneau 1 est le**menu**qui peut éventuellement charger le fichier ISP configuré ou effectuer un étalonnage.
+- Le panneau 2 est le **panneau de configuration de la connexion**, remplissez l'adresse IP et le numéro de port de la carte de développement (port par défaut 9982) et cliquez sur le bouton vert de connexion pour vous connecter.
+- Le panneau 3 est le**panneau de registre**, si vous devez définir ou lire le registre n'est pas dans celui-ci, vous pouvez utiliser ce panneau pour définir et lire.
+- Le panneau 4 est un **panneau de sélection**de paramètres de réglage, l'utilisateur peut sélectionner divers paramètres ou groupes de paramètres en fonction du texte de l'invite du panneau, les registres de ces sélections seront affichés sur le panneau 5.
+- Le panneau 5 est le **panneau Paramètres de réglage**, qui permet de définir ou d'obtenir des valeurs de paramètre à partir du serveur de réglage.
+- Le panneau 6 est un panneau d**'affichage d'image**, qui affiche la sortie d'image par le FAI et peut cliquer sur le bouton de pause au milieu lorsqu'il n'est pas nécessaire de jouer tout le temps.
 
 ![Figure 3-1 Fenêtre principale de l'outil de réglage](../zh/images/sdk_application/clip_image033.png)
 
-L'outil de réglage ISP** n'**acquiert pas automatiquement toutes les valeurs de registre après la connexion, et si vous devez obtenir toutes les valeurs de registre, vous pouvez cliquer sur le** bouton Lire sur le côté droit du panneau de configuration** de connexion pour extraire toutes les valeurs de registre actuelles. 
+L'outil de réglage ISP**n'**acquiert pas automatiquement toutes les valeurs de registre après la connexion, et si vous devez obtenir toutes les valeurs de registre, vous pouvez cliquer sur le**bouton Lire sur le côté droit du panneau de configuration** de connexion pour extraire toutes les valeurs de registre actuelles.
 
 # Étalonnage et étalonnage
 
@@ -196,6 +196,6 @@ Après correction, il est illustré dans la figure suivante
 ![Après correction](../zh/images/sdk_application/clip_image031.png)
 
 **Clause de non-responsabilité en matière de**  
-Pour la commodité des clients, Canaan utilise un traducteur IA pour traduire du texte en plusieurs langues, ce qui peut contenir des erreurs. Nous ne garantissons pas l'exactitude, la fiabilité ou l'actualité des traductions fournies. Canaan ne sera pas responsable de toute perte ou dommage causé par la confiance accordée à l'exactitude ou à la fiabilité des informations traduites. S'il existe une différence de contenu entre les traductions dans différentes langues, la version simplifiée en chinois prévaudra. 
+Pour la commodité des clients, Canaan utilise un traducteur IA pour traduire du texte en plusieurs langues, ce qui peut contenir des erreurs. Nous ne garantissons pas l'exactitude, la fiabilité ou l'actualité des traductions fournies. Canaan ne sera pas responsable de toute perte ou dommage causé par la confiance accordée à l'exactitude ou à la fiabilité des informations traduites. S'il existe une différence de contenu entre les traductions dans différentes langues, la version simplifiée en chinois prévaudra.
 
 Si vous souhaitez signaler une erreur de traduction ou une inexactitude, n'hésitez pas à nous contacter par courrier.

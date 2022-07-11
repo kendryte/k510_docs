@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disconoscimento**</font>
 I prodotti, i servizi o le funzionalità acquistati saranno soggetti ai contratti e ai termini commerciali di Beijing Canaan Jiesi Information Technology Co., Ltd. ("la Società", la stessa di seguito), e tutti o parte dei prodotti, servizi o funzionalità descritti in questo documento potrebbero non rientrare nell'ambito dell'acquisto o dell'utilizzo. Salvo quanto diversamente concordato nel contratto, la Società declina ogni dichiarazione o garanzia, espressa o implicita, in merito all'accuratezza, affidabilità, completezza, marketing, scopo specifico e non aggressione di qualsiasi dichiarazione, informazione o contenuto di questo documento. Salvo diverso accordo, questo documento è fornito solo come guida per l'uso.
-A causa di aggiornamenti della versione del prodotto o altri motivi, il contenuto di questo documento può essere aggiornato o modificato di volta in volta senza alcun preavviso. 
+A causa di aggiornamenti della versione del prodotto o altri motivi, il contenuto di questo documento può essere aggiornato o modificato di volta in volta senza alcun preavviso.
 
 **<font face="黑体"  size=3>Avvisi sui marchi</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icona "Canaan", Canaan e altri marchi di Canaan e altri marchi di Canaan sono marchi di Beijing Canaan Jiesi Information Technology Co., Ltd. Tutti gli altri marchi o marchi registrati che possono essere menzionati in questo documento sono di proprietà dei rispettivi proprietari. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, l'icona "Canaan", Canaan e altri marchi di Canaan e altri marchi di Canaan sono marchi di Beijing Canaan Jiesi Information Technology Co., Ltd. Tutti gli altri marchi o marchi registrati che possono essere menzionati in questo documento sono di proprietà dei rispettivi proprietari.
 
 **<font face="黑体"  size=3>Copyright ©2022 Pechino Canaan Jiesi Information Technology Co., Ltd</font>**
-Questo documento è applicabile solo allo sviluppo e alla progettazione della piattaforma K510, senza il permesso scritto della società, nessuna unità o individuo può diffondere parte o tutto il contenuto di questo documento in qualsiasi forma. 
+Questo documento è applicabile solo allo sviluppo e alla progettazione della piattaforma K510, senza il permesso scritto della società, nessuna unità o individuo può diffondere parte o tutto il contenuto di questo documento in qualsiasi forma.
 
 **<font face="黑体"  size=3>Pechino Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -529,8 +529,8 @@ Correre`encode_app`
 | Guida | Informazioni di aiuto| | ||
 | diviso | Il numero di canali | NULLO | [1,4] | jpeg、avc |
 | Ch | Numero di canale (basato su 0) | NULLO | [0,3] | jpeg、avc |
-| io | Inserisci il file YUV, supporta solo il** formato ** nv12| NULLO | v4l2 <br> xxx.yuv | jpeg、avc |
-| Dev | Nome dispositivo v4l2 | NULLO | **sensor0:** /dev/video3 /dev/video4 <br> <br>sensor1:<br> ** /dev/video7 / ** dev/ <br> video8 <br> | infarto |
+| io | Inserisci il file YUV, supporta solo il**formato** nv12| NULLO | v4l2 <br> xxx.yuv | jpeg、avc |
+| Dev | Nome dispositivo v4l2 | NULLO | **sensor0:** /dev/video3 /dev/video4 <br> <br>sensor1:<br> **/dev/video7 /** dev/ <br> video8 <br> | infarto |
 | o | prodotto| NULLO | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG | jpeg、avc |
 | in | Larghezza immagine di output | 1920 | avc: [128,2048], multiplo di 8 <br> jpeg: fino a 8192, multiplo di 16 | jpeg、avc |
 | h | Altezza dell'immagine di output | 1080 | avc: [64,2048], multiplo di 8 <br> jpeg: fino a 8192, multiplo di 2 | jpeg、avc |
@@ -668,7 +668,7 @@ Il comando ffplay pull stream è lo stesso di cui sopra.
 
   Indirizzo IP: l'indirizzo IP della scheda di sviluppo, immettere ifconfig sulla scheda per ottenere.
 
-  Numero di porta: 8554 + <通道号>*2, i numeri di canale generalmente partono da 0 (-ch 0, -ch 1...). 
+  Numero di porta: 8554 + <通道号>*2, i numeri di canale generalmente partono da 0 (-ch 0, -ch 1...).
 
 - Riproduci la modalità di flusso RTSP: il flusso RTSP corrispondente può essere riprodotto tramite vlc o ffplay e il flusso di dati può essere trasmesso tramite il protocollo udp o TCP.
 
@@ -1017,7 +1017,7 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -i /dev/video3 -vco
 
 Illustrare:
 
-1. Il runtime deve essere trovato nella directory di esecuzione`video_sampe.conf`, `imx219_0.conf`i `imx219_1.conf`file sono configurati e i tre file si trovano nella`/encode_app/` directory. 
+1. Il runtime deve essere trovato nella directory di esecuzione`video_sampe.conf`, `imx219_0.conf`i `imx219_1.conf`file sono configurati e i tre file si trovano nella`/encode_app/` directory.
 2. Il video che arriva in tempo reale dalla fotocamera viene scritto come un file YUV e, poiché il file YUV è molto grande, la velocità di scrittura DDR o NFS locale non può tenere il passo, il che potrebbe causare la caduta dei fotogrammi.
 
 #### 3.2.1.6 Codifica JPEG
@@ -1028,7 +1028,7 @@ Output del file:
 ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_jpeg -y test.mjpeg
 ```
 
-Descrizione: il runtime deve trovarsi nella directory di esecuzione`video_sampe.conf`,`imx219_0.conf`  `imx219_1.conf`i file vengono configurati e i tre file si trovano nella`/encode_app/` directory. 
+Descrizione: il runtime deve trovarsi nella directory di esecuzione`video_sampe.conf`,`imx219_0.conf`  `imx219_1.conf`i file vengono configurati e i tre file si trovano nella`/encode_app/` directory.
 
 Il file di output test.mjpeg può essere riprodotto sul lato PC con ffplay
 
@@ -1064,7 +1064,7 @@ Quando si utilizza ffplay per estrarre flussi, fare attenzione a estrarre un sol
 
 - `ff_libk510_h264_encoder`: Controllo della codifica hardware h264, a cui si fa riferimento`libvenc.so`
 - `ff_libk510_jpeg_encoder`: controlla la codifica hardware jpeg, a cui si fa riferimento`libvenc.so`
-- v4l2: in v4l2.c è stato aggiunto codice relativo all'hardware k510 e il tipo di buffer v4l2 V4L2_MEMORY_USERPTR e referenziato`libmediactl.so`. 
+- v4l2: in v4l2.c è stato aggiunto codice relativo all'hardware k510 e il tipo di buffer v4l2 V4L2_MEMORY_USERPTR e referenziato`libmediactl.so`.
 
 #### 3.2.2.1 Comando di generazione patch
 
@@ -1088,7 +1088,7 @@ sed -i "s/\/dl\/ffmpeg_canaan\/ffmpeg-4.4//g" ../../package/ffmpeg_canaan/xxx.pa
 
 #### 3.2.2.2 Configurazione ffmpeg
 
-Nel `package/ffmpeg_canaan/ffmpeg.mk`file, il core della CPU può essere modificato, la toolchain di compilazione e l'abilitazione può essere effettuata tramite l'opzione`ff_k510_video_demuxer` configee.`ff_libk510_jpeg_encoder` `ff_libk510_h264_encoder` 
+Nel `package/ffmpeg_canaan/ffmpeg.mk`file, il core della CPU può essere modificato, la toolchain di compilazione e l'abilitazione può essere effettuata tramite l'opzione`ff_k510_video_demuxer` configee.`ff_libk510_jpeg_encoder` `ff_libk510_h264_encoder`
 
 ```shell
 ./configure \
@@ -1114,6 +1114,6 @@ Nel `package/ffmpeg_canaan/ffmpeg.mk`file, il core della CPU può essere modific
 ```
 
 **Traduzione Disclaimer**  
-Per la comodità dei clienti, Canaan utilizza un traduttore AI per tradurre il testo in più lingue, che possono contenere errori. Non garantiamo l'accuratezza, l'affidabilità o la tempestività delle traduzioni fornite. Canaan non sarà responsabile per eventuali perdite o danni causati dall'affidamento sull'accuratezza o sull'affidabilità delle informazioni tradotte. Se c'è una differenza di contenuto tra le traduzioni in lingue diverse, prevarrà la versione cinese semplificata. 
+Per la comodità dei clienti, Canaan utilizza un traduttore AI per tradurre il testo in più lingue, che possono contenere errori. Non garantiamo l'accuratezza, l'affidabilità o la tempestività delle traduzioni fornite. Canaan non sarà responsabile per eventuali perdite o danni causati dall'affidamento sull'accuratezza o sull'affidabilità delle informazioni tradotte. Se c'è una differenza di contenuto tra le traduzioni in lingue diverse, prevarrà la versione cinese semplificata.
 
 Se desideri segnalare un errore di traduzione o un'inesattezza, non esitare a contattarci via mail.

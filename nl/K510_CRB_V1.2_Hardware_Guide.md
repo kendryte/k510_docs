@@ -15,14 +15,14 @@
 
 <font face="黑体" size=3>**Disclaimer**</font>
 De producten, diensten of functies die u koopt, zijn onderworpen aan de commerciële contracten en voorwaarden van Beijing Canaan Jiesi Information Technology Co., Ltd. ("het Bedrijf", hierna hetzelfde), en alle of een deel van de producten, diensten of functies die in dit document worden beschreven, vallen mogelijk niet binnen het bereik van uw aankoop of gebruik. Tenzij anders overeengekomen in het contract, wijst het bedrijf alle verklaringen of garanties af, expliciet of impliciet, met betrekking tot de nauwkeurigheid, betrouwbaarheid, volledigheid, marketing, specifiek doel en niet-agressie van verklaringen, informatie of inhoud van dit document. Tenzij anders overeengekomen, wordt dit document uitsluitend verstrekt als leidraad voor gebruik.
-Vanwege upgrades van de productversie of andere redenen kan de inhoud van dit document van tijd tot tijd zonder enige kennisgeving worden bijgewerkt of gewijzigd. 
+Vanwege upgrades van de productversie of andere redenen kan de inhoud van dit document van tijd tot tijd zonder enige kennisgeving worden bijgewerkt of gewijzigd.
 
 **<font face="黑体"  size=3>Handelsmerkkennisgevingen</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icoon, Kanaän en andere handelsmerken van Kanaän en andere handelsmerken van Kanaän zijn handelsmerken van Beijing Canaan Jiesi Information Technology Co., Ltd. Alle andere handelsmerken of geregistreerde handelsmerken die in dit document kunnen worden genoemd, zijn eigendom van hun respectieve eigenaars. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icoon, Kanaän en andere handelsmerken van Kanaän en andere handelsmerken van Kanaän zijn handelsmerken van Beijing Canaan Jiesi Information Technology Co., Ltd. Alle andere handelsmerken of geregistreerde handelsmerken die in dit document kunnen worden genoemd, zijn eigendom van hun respectieve eigenaars.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co, Ltd</font>**
-Dit document is alleen van toepassing op de ontwikkeling en het ontwerp van het K510-platform, zonder de schriftelijke toestemming van het bedrijf mag geen enkele eenheid of persoon een deel of de inhoud van dit document in welke vorm dan ook verspreiden. 
+Dit document is alleen van toepassing op de ontwikkeling en het ontwerp van het K510-platform, zonder de schriftelijke toestemming van het bedrijf mag geen enkele eenheid of persoon een deel of de inhoud van dit document in welke vorm dan ook verspreiden.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co, Ltd</font>**
 URL: canaan-creative.com
@@ -31,7 +31,7 @@ Zakelijke vragen: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # inleiding
 **<font face="黑体"  size=5>Doel van het document</font>**
-Dit document is een begeleidend document bij de K510 sdk en is bedoeld om ingenieurs te helpen de compilatie en het branden van de K510 sdk te begrijpen. 
+Dit document is een begeleidend document bij de K510 sdk en is bedoeld om ingenieurs te helpen de compilatie en het branden van de K510 sdk te begrijpen.
 
 **<font face="黑体"  size=5>Reader Objecten</font>**
 
@@ -221,7 +221,7 @@ De belangrijkste personen op wie dit document (deze gids) van toepassing is:
 
 ## 2.5 Schema's
 
-&emsp; &emsp; Het referentieschema voor de K510 CRB-ontwikkelingskaart moet[ bij de release worden gedownload](https://github.com/kendryte/k510_docs/releases). 
+&emsp; &emsp; Het referentieschema voor de K510 CRB-ontwikkelingskaart moet[bij de release worden gedownload](https://github.com/kendryte/k510_docs/releases).
 
 <div style="page-break-after:always"></div>
 
@@ -249,8 +249,8 @@ De belangrijkste personen op wie dit document (deze gids) van toepassing is:
 
 <center> Figuur 3-2 Voedingsingang </center>
 
-**Opmerking: Beperk het gebruik van een 5V-voeding, probeer bij gebruik van de snellaadadapter niet tegelijkertijd andere apparaten zoals mobiele telefoons aan te sluiten, zodat de snellaadadapter niet ten onrechte een voeding van meer dan 5 V uitvoert, wat resulteert in schade aan het voedingsgedeelte van de ontwikkelingskaart. **
-&emsp; &emsp; Gebruik de K2-tuimelschakelaar voor het in- en uitschakelen, zoals weergegeven in de volgende afbeelding. 
+**Opmerking: Beperk het gebruik van een 5V-voeding, probeer bij gebruik van de snellaadadapter niet tegelijkertijd andere apparaten zoals mobiele telefoons aan te sluiten, zodat de snellaadadapter niet ten onrechte een voeding van meer dan 5 V uitvoert, wat resulteert in schade aan het voedingsgedeelte van de ontwikkelingskaart.**
+&emsp; &emsp; Gebruik de K2-tuimelschakelaar voor het in- en uitschakelen, zoals weergegeven in de volgende afbeelding.
 
 <div align="center">
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-3.jpg" width=50%>
@@ -413,7 +413,7 @@ De belangrijkste personen op wie dit document (deze gids) van toepassing is:
 
 <center>Figuur 3-15 HDMI-interface</center>
 
- **Opmerking**: Omdat zowel de HDMI- als de 1080P TFT-schermen mipi dsi-stuurprogramma's gebruiken, kunnen ze slechts een van de twee schermen kiezen, kunnen ze niet tegelijkertijd worden gebruikt, schakelen ze door de bedieningspin GPIO om een van de uitgangen te selecteren. 
+ **Opmerking**: Omdat zowel de HDMI- als de 1080P TFT-schermen mipi dsi-stuurprogramma's gebruiken, kunnen ze slechts een van de twee schermen kiezen, kunnen ze niet tegelijkertijd worden gebruikt, schakelen ze door de bedieningspin GPIO om een van de uitgangen te selecteren.
 
 <div style="page-break-after:always"></div>
 
@@ -462,7 +462,7 @@ De belangrijkste personen op wie dit document (deze gids) van toepassing is:
 | 29   | 1v8              | 32   | 3v3          |
 | 30   | 1v8              | 31   | 3v3          |
 
-**Opmerking**: Let op het niveaubereik van de aangesloten pinnen bij het extern aansluiten om te voorkomen dat de verkeerde spanningsingang de K510-chip permanent beschadigt. 
+**Opmerking**: Let op het niveaubereik van de aangesloten pinnen bij het extern aansluiten om te voorkomen dat de verkeerde spanningsingang de K510-chip permanent beschadigt.
 
 <div style="page-break-after:always"></div>
 
@@ -528,7 +528,7 @@ De belangrijkste personen op wie dit document (deze gids) van toepassing is:
 | 27   | GPIO_3V3_127 | 28   | GPIO_3V3_126 |
 | 29   | GND          | 30   | GND          |
 
-**Opmerking**: Let op het niveaubereik van de aangesloten pinnen bij het extern aansluiten om te voorkomen dat de verkeerde spanningsingang de K510-chip permanent beschadigt. 
+**Opmerking**: Let op het niveaubereik van de aangesloten pinnen bij het extern aansluiten om te voorkomen dat de verkeerde spanningsingang de K510-chip permanent beschadigt.
 
 <div style="page-break-after:always"></div>
 
@@ -544,7 +544,7 @@ De belangrijkste personen op wie dit document (deze gids) van toepassing is:
 
 ## 4.2 Firmware branden
 
-&emsp; &emsp; Raadpleeg[ de K510_SDK_Build_and_Burn_Guide ](./K510_SDK_Build_and_Burn_Guide.md)documentatie. 
+&emsp; &emsp; Raadpleeg[de K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md)documentatie.
 
 ## 4.3 In- en uitschakelen
 
@@ -569,6 +569,6 @@ De belangrijkste personen op wie dit document (deze gids) van toepassing is:
 <center>Figuur 4-1 Apparaatbeheer nadat de installatie van het stuurprogramma is voltooid</center>
 
 **Vertaling Disclaimer**  
-Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie. 
+Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie.
 
 Als u een vertaalfout of onnauwkeurigheid wilt melden, neem dan gerust contact met ons op via e-mail.

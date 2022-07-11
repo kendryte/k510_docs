@@ -26,15 +26,15 @@ Die K510-bezogene Dokumentation lautet wie folgt:
 
 ## Leitfaden für Beiträge
 
-Wenn Sie an diesem Projekt interessiert sind und Feedback wünschen oder Unterlagen einreichen möchten, lesen Sie bitte KONSOLIDIERUNG[ ](.github/CONTRIBUTING.md)
+Wenn Sie an diesem Projekt interessiert sind und Feedback wünschen oder Unterlagen einreichen möchten, lesen Sie bitte KONSOLIDIERUNG[](.github/CONTRIBUTING.md)
 
 ## Kontaktieren Sie uns
 
 Peking Canaan Jiesi Informationstechnologie Co., Ltd  
-URL:[ canaan-creative.com](https://canaan-creative.com/)  
-Geschäftliche Anfragen:[ salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
+URL:[canaan-creative.com](https://canaan-creative.com/)  
+Geschäftliche Anfragen:[salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
 
-**Haftungsausschluss **für Übersetzungen  
-Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend. 
+**Haftungsausschluss**für Übersetzungen  
+Für die Bequemlichkeit der Kunden verwendet Canaan einen KI-Übersetzer, um Text in mehrere Sprachen zu übersetzen, die Fehler enthalten können. Wir übernehmen keine Gewähr für die Genauigkeit, Zuverlässigkeit oder Aktualität der bereitgestellten Übersetzungen. Canaan haftet nicht für Verluste oder Schäden, die durch das Vertrauen auf die Richtigkeit oder Zuverlässigkeit der übersetzten Informationen verursacht werden. Wenn es einen inhaltlichen Unterschied zwischen den Übersetzungen in verschiedenen Sprachen gibt, ist die vereinfachte chinesische Version maßgebend.
 
 Wenn Sie einen Übersetzungsfehler oder eine Ungenauigkeit melden möchten, können Sie uns gerne per E-Mail kontaktieren.

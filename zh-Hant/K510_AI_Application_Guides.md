@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**免責聲明**</font>
 您購買的產品、服務或特性等應受北京嘉楠捷思資訊技術有限公司（“本公司”，下同）商業合同和條款的約束，本文檔中描述的全部或部分產品、服務或特性可能不在您的購買或使用範圍之內。 除非合同另有約定，本公司不對本文檔的任何陳述、資訊、內容的準確性、可靠性、完整性、行銷型、特定目的性和非侵略性提供任何明示或默示的聲明或保證。 除非另有約定，本文檔僅作為使用指導的推理。
-由於產品版本升級或其他原因，本文檔內容將可能在未經任何通知的情況下，不定期進行更新或修改。 
+由於產品版本升級或其他原因，本文檔內容將可能在未經任何通知的情況下，不定期進行更新或修改。
 
 **<font face="黑体"  size=3>商標聲明</font>**
 
-“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”圖示、嘉楠和嘉楠其他商標均為北京嘉楠捷思資訊技術有限公司的商標。 本文檔可能提及的其他所有商標或註冊商標，由各自的所有人擁有。 
+“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”圖示、嘉楠和嘉楠其他商標均為北京嘉楠捷思資訊技術有限公司的商標。 本文檔可能提及的其他所有商標或註冊商標，由各自的所有人擁有。
 
 **<font face="黑体"  size=3>版權所有©2022北京嘉楠捷思資訊技術有限公司</font>**
-本文檔僅適用K510平台開發設計，非經本公司書面許可，任何單位和個人不得以任何形式對本文檔的部分或全部內容傳播。 
+本文檔僅適用K510平台開發設計，非經本公司書面許可，任何單位和個人不得以任何形式對本文檔的部分或全部內容傳播。
 
 **<font face="黑体"  size=3>北京嘉楠捷思資訊技術有限公司</font>**
 網址：canaan-creative.com
@@ -26,7 +26,7 @@
 <div style="page-break-after:always"></div>
 # 前言
 **<font face="黑体"  size=5>文件目的</font>**
-本文檔為K510 AI 應用的配套文檔，旨在幫助工程師瞭解 k510 AI 應用的編寫與應用。 
+本文檔為K510 AI 應用的配套文檔，旨在幫助工程師瞭解 k510 AI 應用的編寫與應用。
 
 **<font face="黑体"  size=5>讀者物件</font>**
 
@@ -78,7 +78,7 @@
 
 # 2 模型準備
 
-用於推理的YOLOV5s的onnx模型位於/docs/utils/AI_Application/aidemo_sdk/models/onnx子目錄（如果沒有檔請下載 [models](https://github.com/kendryte/k510_docs/releases/download/v1.5/models.tar.gz)  並解壓），靜態圖片位於/docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC/data子目錄，腳本位於/docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC子目錄。 
+用於推理的YOLOV5s的onnx模型位於/docs/utils/AI_Application/aidemo_sdk/models/onnx子目錄（如果沒有檔請下載 [models](https://github.com/kendryte/k510_docs/releases/download/v1.5/models.tar.gz)  並解壓），靜態圖片位於/docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC/data子目錄，腳本位於/docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC子目錄。
 
 按照腳本命令提示，運行yolov5_image.py腳本，得到靜態圖片的推理結果。 通過驗證輸出圖片的檢測框正確與否來檢測模型的正確性。
 
@@ -107,7 +107,7 @@ optional arguments:
 
 # 3 模型生成
 
-模型生成依賴於nncase compiler，關於nncase compiler的具體使用規則可參考[K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md)。 生成YOLOV5s的kmodel的腳本位於/docs/utils/AI_Application/aidemo_sdk/scripts子目錄。 
+模型生成依賴於nncase compiler，關於nncase compiler的具體使用規則可參考[K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md)。 生成YOLOV5s的kmodel的腳本位於/docs/utils/AI_Application/aidemo_sdk/scripts子目錄。
 
 按照腳本命令提示，運行gen_yolov5s_320_with_sigmoid_bf16_with_preprocess_output_nhwc.py，可生成相應的kmodel。
 
@@ -137,7 +137,7 @@ compile_options.input_range = [0, 255]
 
 # 4 模型驗證
 
-模型驗證依賴於nncase simulator，關於nncase simulator的具體使用規則可參考[K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md)。 驗證YOLOV5s的kmodel腳本位於/docs/utils/AI_Application/aidemo_sdk/scripts子目錄。 
+模型驗證依賴於nncase simulator，關於nncase simulator的具體使用規則可參考[K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md)。 驗證YOLOV5s的kmodel腳本位於/docs/utils/AI_Application/aidemo_sdk/scripts子目錄。
 
 按照腳本命令提示，運行simu_yolov5s_320_with_sigmoid_bf16_with_preprocess_output_nhwc.py，可驗證相應的kmodel是否生成正確。
 
@@ -160,7 +160,7 @@ output 2 cosine similarity : 0.9999019503593445
 
 # 5 編寫AI 應用程式
 
-模型驗證依賴於nncase runtime，關於nncase runtime的具體使用規則可參考[K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md)。 AI 應用程式參考 `k510_buildroot/package/ai/code/object_detect`。 首先需要創建目標檢測實例，併為kmodel輸入輸出分配空間。 
+模型驗證依賴於nncase runtime，關於nncase runtime的具體使用規則可參考[K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md)。 AI 應用程式參考 `k510_buildroot/package/ai/code/object_detect`。 首先需要創建目標檢測實例，併為kmodel輸入輸出分配空間。
 
 ```c++
 objectDetect od(obj_thresh, nms_thresh, net_len, {valid_width, valid_height});
@@ -263,9 +263,9 @@ std::vector<BoxInfo> result;
 
 # 6 編譯AI應用程式
 
-使用交叉編譯工具鏈，關於AI應用程式的編譯的具體使用規則可參考[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md)。 
+使用交叉編譯工具鏈，關於AI應用程式的編譯的具體使用規則可參考[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md)。
 
 **翻譯免責聲明**  
-為方便客戶，Canaan 使用 AI 翻譯程式將文字翻譯為多種語言，它可能包含錯誤。 我們不保證提供的譯文的準確性、可靠性或時效性。 對於因依賴已翻譯信息的準確性或可靠性而造成的任何損失或損害，Canaan 概不負責。 如果不同語言翻譯之間存在內容差異，以簡體中文版本為準。 
+為方便客戶，Canaan 使用 AI 翻譯程式將文字翻譯為多種語言，它可能包含錯誤。 我們不保證提供的譯文的準確性、可靠性或時效性。 對於因依賴已翻譯信息的準確性或可靠性而造成的任何損失或損害，Canaan 概不負責。 如果不同語言翻譯之間存在內容差異，以簡體中文版本為準。
 
 如果您要報告翻譯錯誤或不準確的問題，歡迎通過郵件與我們聯繫。

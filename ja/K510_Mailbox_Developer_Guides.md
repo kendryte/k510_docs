@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**免責事項**</font>
 お客様が購入した製品、サービス、または機能は、北京Jiayuan Jetts情報技術有限公司(以下「当社」、以下同じ)の商業契約および条件の対象となり、本書に記載されている製品、サービス、または機能の全部または一部がお客様の購入または使用の範囲外となる場合があります。 契約に別段の定めがない限り、当社は、本書の記述、情報、内容の正確性、信頼性、完全性、マーケティング、特定目的、非攻撃性について、明示または黙示を問わず、いかなる表明または保証も行いません。 特に断りのない限り、このドキュメントは使用ガイダンスの参照としてのみ使用してください。
-このドキュメントの内容は、製品バージョンのアップグレードまたはその他の理由により、予告なく随時更新または変更されることがあります。 
+このドキュメントの内容は、製品バージョンのアップグレードまたはその他の理由により、予告なく随時更新または変更されることがあります。
 
 **<font face="黑体"  size=3>商標表示</font>**
 
-「<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />」アイコン、カナン、その他の商標は、北京Jiayuan Jets情報技術有限公司の商標です。 本書で言及されるその他すべての商標または登録商標は、それぞれの所有者が所有しています。 
+「<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />」アイコン、カナン、その他の商標は、北京Jiayuan Jets情報技術有限公司の商標です。 本書で言及されるその他すべての商標または登録商標は、それぞれの所有者が所有しています。
 
 **<font face="黑体"  size=3>©著作権2022北京Jiayuan Jetth情報技術有限公司</font>**
-このドキュメントは、K510プラットフォーム開発設計にのみ適用され、当社の書面による許可なく、いかなるユニットまたは個人も、このドキュメントの一部または全部をいかなる形式でも配布することはできません。 
+このドキュメントは、K510プラットフォーム開発設計にのみ適用され、当社の書面による許可なく、いかなるユニットまたは個人も、このドキュメントの一部または全部をいかなる形式でも配布することはできません。
 
 **<font face="黑体"  size=3>北京Jiayuan Jetth情報技術有限公司</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ URL: canaan-creative.com
 <div style="page-break-after:always"></div>
 # 序文
 **<font face="黑体"  size=5>ドキュメントの目的</font>**
-このドキュメントは、K510 mailbox ドライバ用のドキュメントを開発しています。 
+このドキュメントは、K510 mailbox ドライバ用のドキュメントを開発しています。
 
 **<font face="黑体"  size=5>リーダー オブジェクト</font>**
 
@@ -62,7 +62,7 @@ URL: canaan-creative.com
 &emsp; &emsp; controller は、ハードウェア mailbox を直接操作するドライバです。 ハードウェア レジスタを直接操作し、送信と受信の割り込み (ハードウェアがサポートしている場合) を介して remote との通信を完了します。 client 駆動型との通信は、フレームワークによって提供されるインターフェイスを介して上向きに行われます。
 &emsp; &emsp; client は controller の消費者であり、controller とのダウンコミュニケーション、チャネルアプリケーションの完了、データの準備などの機能を備えています。 ユーザー空間で操作できるインターフェイスを上に提供します。  
 &emsp; &emsp; mailbox フレームワークは controller と client の間のインターフェイスを担当しており、カーネル ドキュメントでは"client ドライバと controller ドライバは特定のプラットフォームに大きく依存する可能性があるため、client ドライバは複数のプラットフォーム間で共有できない可能性があります" ため、`/drivers/mailbox`ディレクトリの下には controller のドライバのみが見つかり、client ドライバは見つからず、1 つのテストしか見つかりませんでした controller の `mailbox-test.c`client ドライブ。 client ドライバがユーザー空間とデータを交換する方法は、ドライバ開発者自身によって決定されます。  
-&emsp; &emsp; 次の図は、登録を駆動する 2 つの基本的なフレームワークです 
+&emsp; &emsp; 次の図は、登録を駆動する 2 つの基本的なフレームワークです
 
 <div align=center>
 <img src="../zh/images/mailbox/130101_frame_00.svg" width="1400">
@@ -75,7 +75,7 @@ URL: canaan-creative.com
 </div>
 
 &emsp; &emsp; フレームワークでは`struct mbox_controller`抽象 mailbox コントローラーを使用し、`struct mbox_chan`抽象チャネルを使用し、関数コレクションを使用`struct mbox_chan_ops`してチャネルを操作します。 上記の 3 つのデータ構造は controller 用です。 フレームワーク`struct mbox_client`は抽象クライアントを使用し、client 用です。  
-&emsp; &emsp; さらに、上の図に示すように、デバイスとドライバに対して独自のデバイス構造を定義する必要があります。 client と controller の関係は、client でチャネルを要求するときに関数`mbox_request_channel`内で行われ、チャネルは構造体をバインド`struct mbox_client`します。 
+&emsp; &emsp; さらに、上の図に示すように、デバイスとドライバに対して独自のデバイス構造を定義する必要があります。 client と controller の関係は、client でチャネルを要求するときに関数`mbox_request_channel`内で行われ、チャネルは構造体をバインド`struct mbox_client`します。
 
 ## 1.3 関数呼び出しプロセス
 
@@ -84,26 +84,26 @@ URL: canaan-creative.com
 </div>  
 
 &emsp; &emsp; ユーザー空間と client 駆動型データ配信は、ioctl と非同期通知を使用して、フレームワークの一部ではないコンテンツを駆動する開発者自身によって決定されます。  
-&emsp; &emsp; client ドライバにデバイス ノードを作成し`/dev/mailbox-client`、ユーザー空間がこのファイルを介してデータの読み取りと送信を行います。 8 つの送信チャネルと 8 つの受信チャネル。 
+&emsp; &emsp; client ドライバにデバイス ノードを作成し`/dev/mailbox-client`、ユーザー空間がこのファイルを介してデータの読み取りと送信を行います。 8 つの送信チャネルと 8 つの受信チャネル。
 
 ### 1.3.1 データ送信プロセス
 
 &emsp; &emsp; 上の図に示すように:
 
 1. ユーザー空間操作ファイル ハンドルはデータを送信します。
-2. ユーザー空間データをカーネル空間にコピーし、最終的に関数を呼び出す client 駆動型 ioctl 関数に入ります`mbox_send_message`。 
-3. この関数の具体的な処理フローは、主に client 駆動型実装と controller 駆動型実装の 2 つのコールバック関数の呼び出しで、後の章のコード分析を参照できます`tx_prepare``send_data`。 名前を見ると、これらの 2 つの関数の動作がわかります。 一部のハードウェアの mailbox にはハードウェア データ転送レジスタがあり、この時点でデータ転送を完了できます`send_data`。 一部のハードウェアにはハードウェア データ転送レジスタがないため、`tx_prepare`実際のデータ転送を完了でき、`send_data`単なる**トリガ割り込み通知遠端プロセッサ**になります。 
+2. ユーザー空間データをカーネル空間にコピーし、最終的に関数を呼び出す client 駆動型 ioctl 関数に入ります`mbox_send_message`。
+3. この関数の具体的な処理フローは、主に client 駆動型実装と controller 駆動型実装の 2 つのコールバック関数の呼び出しで、後の章のコード分析を参照できます`tx_prepare``send_data`。 名前を見ると、これらの 2 つの関数の動作がわかります。 一部のハードウェアの mailbox にはハードウェア データ転送レジスタがあり、この時点でデータ転送を完了できます`send_data`。 一部のハードウェアにはハードウェア データ転送レジスタがないため、`tx_prepare`実際のデータ転送を完了でき、`send_data`単なる**トリガ割り込み通知遠端プロセッサ**になります。
 4. リモートプロセッサが割り込みを受信し、データを受信すると、Tx が完了したことを示す割り込みで controller に返信する必要があります。
-5. Tx ACK を受信すると、controller によって登録された割り込み処理関数は、`mbox_chan_txdone`このトランスポートがリモートで受信されたことを上位層に通知するために呼び出す必要があります。 
-6. `mbox_chan_txdone`client によって登録され`tx_done`、この転送が完了したことを client に通知します。 後続の処理は client によって決定され、`tx_done`パラメータはデータ転送の状態を記録します。 
+5. Tx ACK を受信すると、controller によって登録された割り込み処理関数は、`mbox_chan_txdone`このトランスポートがリモートで受信されたことを上位層に通知するために呼び出す必要があります。
+6. `mbox_chan_txdone`client によって登録され`tx_done`、この転送が完了したことを client に通知します。 後続の処理は client によって決定され、`tx_done`パラメータはデータ転送の状態を記録します。
 
 ### 1.3.1 データの受信プロセス
 
 &emsp; &emsp; 上の図に示すように:
 
 1. 遠端プロセッサが controller に送信するデータの割り込み。
-2. 割り込みが受信されると、controller によって登録された割り込み処理関数呼び出`mbox_chan_received_data`しは、上位レベルが遠端からデータを受信し、遠端 Rx ACK に応答することを通知します。 
-3. `mbox_chan_received_data`クライアント登録を呼び出します`rx_callback`。 
+2. 割り込みが受信されると、controller によって登録された割り込み処理関数呼び出`mbox_chan_received_data`しは、上位レベルが遠端からデータを受信し、遠端 Rx ACK に応答することを通知します。
+3. `mbox_chan_received_data`クライアント登録を呼び出します`rx_callback`。
 4. `rx_callback`からデバイス ツリーで指定されたアドレスからデータを読み取り、非同期通知を使用してユーザー空間に通知します。
 5. ユーザー・スペースの非同期処理関数で ioctl が呼び出され、受信チャネルのデータが読み取られます。
 
@@ -111,7 +111,7 @@ URL: canaan-creative.com
 
 ## 2.1 mailbox_controller.h
 
-&emsp; &emsp; 定義されている`mbox_controller` (mailbox ハードウェアの抽象化)、`mbox_chan`(channel の抽象化)`mbox_chan_ops`(channel を操作するコールバック関数のコレクション)。 
+&emsp; &emsp; 定義されている`mbox_controller` (mailbox ハードウェアの抽象化)、`mbox_chan`(channel の抽象化)`mbox_chan_ops`(channel を操作するコールバック関数のコレクション)。
 
 ```c
 struct mbox_controller {
@@ -397,7 +397,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 }
 ```
 
-&emsp; &emsp; この関数は、`of_parse_phandle_with_args`デバイス ツリーから index 対応要求の channel を取得します。 
+&emsp; &emsp; この関数は、`of_parse_phandle_with_args`デバイス ツリーから index 対応要求の channel を取得します。
 
 - `mboxes`ノード内の phandle リスト プロパティ名をポイントします。
 - `#mbox-cells`phandle が指すノードに含まれるセルの数を示します。
@@ -441,7 +441,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 
 ### 2.3.10 mbox_free_channel
 
-&emsp; &emsp; チャネル解放関数は、指定されたチャネルのメンバーを空にし、対応するハードウェア レジスタを構成する必要がある場合は、`shutdown`コールバック関数を実装します。 
+&emsp; &emsp; チャネル解放関数は、指定されたチャネルのメンバーを空にし、対応するハードウェア レジスタを構成する必要がある場合は、`shutdown`コールバック関数を実装します。
 
 ### 2.3.11 mbox_controller_register および mbox_controller_unregister
 
@@ -481,7 +481,7 @@ mailbox: mailbox@970e0000 {
 
 ## 3.1 コントローラ
 
-&emsp; &emsp; 少`#mbox-cells`なくとも 1 の値を持つプロパティが必要です。 これは、client プロパティ`mboxes` cell の数を示します。 
+&emsp; &emsp; 少`#mbox-cells`なくとも 1 の値を持つプロパティが必要です。 これは、client プロパティ`mboxes` cell の数を示します。
 
 ## 3.2 クライアント
 
@@ -491,7 +491,7 @@ mailbox: mailbox@970e0000 {
 
 ## 3.3 プロパティの使用方法
 
-&emsp; &emsp; `mbox-cells`、`mboxes`、`mbox-names`3つの属性は、チャネルを適用するときに使用されます。 
+&emsp; &emsp; `mbox-cells`、`mboxes`、`mbox-names`3つの属性は、チャネルを適用するときに使用されます。
 
 ```c
 
@@ -545,20 +545,20 @@ static struct mbox_chan *canaan_mailbox_xlate(struct mbox_controller *controller
 2. Linux ユーザー空間のテストアプリを実行します
 ディレクトリに移動`/app/mailbox_demo`し、`./mailbox_async`次の図に示すようにコマンドを実行します。  
 ![mailbox_demo](../zh/images/mailbox/130602_mailbox_async.png)  
-この demo は、非同期通知を使用して dsp によって送信されたデータを受信します。 
+この demo は、非同期通知を使用して dsp によって送信されたデータを受信します。
 3. ディレクトリで`/app/mailbox_demo`、次の図に`./mailbox_poll`示すようにコマンドを実行します。  
 ![mailbox_demo](../zh/images/mailbox/130602_mailbox_poll.png)
-この demo は、poll を使用して 500 ms をブロックして、dsp によって送信されたデータを受信します。 データは 4 秒ごとに送信され、2 秒ごとに読み取られるため、2 秒ごとに、読み取りの成功と読み取りの失敗がインターリーブされ、ブロックされた読み取りが成功します。 
+この demo は、poll を使用して 500 ms をブロックして、dsp によって送信されたデータを受信します。 データは 4 秒ごとに送信され、2 秒ごとに読み取られるため、2 秒ごとに、読み取りの成功と読み取りの失敗がインターリーブされ、ブロックされた読み取りが成功します。
 
 ## 5.2 コードをテストします
 
-&emsp; &emsp; dsp ベア メタル プログラムは`k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c`、ユーザー空間テスト コードが合計にある場所にあります`k510_buildroot/package/mailbox_demo/src/mailbox_async.c``k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`。 
+&emsp; &emsp; dsp ベア メタル プログラムは`k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c`、ユーザー空間テスト コードが合計にある場所にあります`k510_buildroot/package/mailbox_demo/src/mailbox_async.c``k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`。
 
 # 6 既知の問題
 
-&emsp; &emsp; コマンドを初めて実行`./dsp_app mailbox_demo.bin`したときに、dsp プログラムが dsp に焼き込まれなかった場合があります。 この時点で demo を実行すると、送信に失敗する状況が発生します。 
+&emsp; &emsp; コマンドを初めて実行`./dsp_app mailbox_demo.bin`したときに、dsp プログラムが dsp に焼き込まれなかった場合があります。 この時点で demo を実行すると、送信に失敗する状況が発生します。
 
 **免責事項を翻訳します**  
-お客様の便宜のために、カナアンはAI翻訳プログラムを使用してテキストを複数の言語に翻訳し、エラーが含まれている可能性があります。 当社は、提供される翻訳の正確性、信頼性、または適時性を保証するものではありません。 カナアンは、翻訳された情報の正確性または信頼性への依存に起因するいかなる損失または損害についても責任を負いません。 異なる言語翻訳間でコンテンツの違いがある場合は、簡体字中国語版が優先されます。 
+お客様の便宜のために、カナアンはAI翻訳プログラムを使用してテキストを複数の言語に翻訳し、エラーが含まれている可能性があります。 当社は、提供される翻訳の正確性、信頼性、または適時性を保証するものではありません。 カナアンは、翻訳された情報の正確性または信頼性への依存に起因するいかなる損失または損害についても責任を負いません。 異なる言語翻訳間でコンテンツの違いがある場合は、簡体字中国語版が優先されます。
 
 翻訳エラーや不正確な問題を報告する場合は、メールでお問い合わせください。

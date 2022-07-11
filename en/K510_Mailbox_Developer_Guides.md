@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disclaimer**</font>
 The products, services or features you purchase shall be subject to the commercial contracts and terms of Beijing Canaan Jiesi Information Technology Co., Ltd. ("the Company", the same hereinafter), and all or part of the products, services or features described in this document may not be within the scope of your purchase or use. Except as otherwise agreed in the contract, the Company disclaims all representations or warranties, express or implied, as to the accuracy, reliability, completeness, marketing, specific purpose and non-aggression of any representations, information, or content of this document. Unless otherwise agreed, this document is provided as a guide for use only.
-Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice. 
+Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice.
 
 **<font face="黑体"  size=3>Trademark Notices</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form. 
+This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,7 +26,7 @@ Business Enquiries: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # preface
 **<font face="黑体"  size=5>Document purpose</font>**
-This document is a development document for the K510 mailbox driver. 
+This document is a development document for the K510 mailbox driver.
 
 **<font face="黑体"  size=5>Reader Objects</font>**
 
@@ -62,7 +62,7 @@ The main people to whom this document (this guide) applies:
 &emsp; &emsp; Controller is a driver that directly manipulates the hardware mailbox. It operates the hardware registers directly down, completing communication with remote by sending and receiving interrupts (if supported by the hardware); Up to the interface provided by the framework to complete the communication with the client driver.
 &emsp; &emsp; The client is the consumer of the controller, communicating with the controller downwards, completing channel applications, data preparation and other functions; Provides interfaces up for user-space manipulation.  
 &emsp; &emsp; The mailbox framework is responsible for the interface between the controller and the client, the kernel documentation says: "The client and controller driver may be very dependent on the specific platform, therefore, the client driver can not be shared between multiple platforms", so in`/drivers/mailbox` the directory, only the driver about the controller can be found and can not find the client driver, only one test can be found The `mailbox-test.c`client driver of the controller. How the client driver exchanges data with the user space is also up to the driver developer himself.  
-&emsp; &emsp; The following diagram is the basic framework for two driver registrations: 
+&emsp; &emsp; The following diagram is the basic framework for two driver registrations:
 
 <div align=center>
 <img src="../zh/images/mailbox/130101_frame_00.svg" width="1400">
@@ -75,7 +75,7 @@ The main people to whom this document (this guide) applies:
 </div>
 
 &emsp; &emsp; The framework uses `struct mbox_controller`abstract mailbox controllers, abstract `struct mbox_chan`channels, and collections of functions `struct mbox_chan_ops`to manipulate channels. The above three data structures are for controllers. The framework uses `struct mbox_client`abstract clients, which are client-specific.  
-&emsp; &emsp; In addition to this, we need to define our own device structure for our devices and drives, as shown in the figure above. The connection between the client and the controller is`mbox_request_channel` done in the function when applying for a channel in the client, and one channel is bound to a`struct mbox_client` struct. 
+&emsp; &emsp; In addition to this, we need to define our own device structure for our devices and drives, as shown in the figure above. The connection between the client and the controller is`mbox_request_channel` done in the function when applying for a channel in the client, and one channel is bound to a`struct mbox_client` struct.
 
 ## 1.3 Function call flow
 
@@ -84,26 +84,26 @@ The main people to whom this document (this guide) applies:
 </div>  
 
 &emsp; &emsp; User-space and client-driven data delivery uses ioctl plus asynchronous notifications, which is determined by the driver developers themselves and does not belong to the framework.  
-&emsp; &emsp; We created a device node in the client driver`/dev/mailbox-client` through which the user space reads and sends data. 8 transmit channels, 8 receive channels. 
+&emsp; &emsp; We created a device node in the client driver`/dev/mailbox-client` through which the user space reads and sends data. 8 transmit channels, 8 receive channels.
 
 ### 1.3.1 Sending Data Flow
 
 &emsp; &emsp; As shown in the figure above:
 
 1. User-space manipulation file handles to send data;
-2. Enter the client-driven ioctl function, which copies user-space data to kernel space and eventually calls the`mbox_send_message` function; 
-3. The specific processing process of this function can be seen in the code analysis of the later chapters, which mainly calls two callback functions: client-driven`tx_prepare` implementation and controller-driven implementation`send_data`. Look at the names to know what these two functions do. It should be noted that some hardware mailboxes have hardware data transmission registers, so at this time, the data transmission can be`send_data` completed in the middle; Some hardware does not have hardware data transmission registers, then the actual data transmission can also be`tx_prepare` completed in it, and `send_data`the role becomes a simple **trigger interrupt notification to the remote processor**; 
+2. Enter the client-driven ioctl function, which copies user-space data to kernel space and eventually calls the`mbox_send_message` function;
+3. The specific processing process of this function can be seen in the code analysis of the later chapters, which mainly calls two callback functions: client-driven`tx_prepare` implementation and controller-driven implementation`send_data`. Look at the names to know what these two functions do. It should be noted that some hardware mailboxes have hardware data transmission registers, so at this time, the data transmission can be`send_data` completed in the middle; Some hardware does not have hardware data transmission registers, then the actual data transmission can also be`tx_prepare` completed in it, and `send_data`the role becomes a simple **trigger interrupt notification to the remote processor**;
 4. When the remote processor receives the interrupt and receives the data, it needs to reply to the controller with an interrupt indicating that Tx has completed;
-5. After receiving the Tx ACK, the controller-registered interrupt handler needs to be called `mbox_chan_txdone`to notify the upper layer that the transfer has been received remotely; 
-6. `mbox_chan_txdone`Inform the client that the `tx_done`transfer is completed through the client registration. The client decides for subsequent processing, and the`tx_done` parameters record the state of the data transfer. 
+5. After receiving the Tx ACK, the controller-registered interrupt handler needs to be called `mbox_chan_txdone`to notify the upper layer that the transfer has been received remotely;
+6. `mbox_chan_txdone`Inform the client that the `tx_done`transfer is completed through the client registration. The client decides for subsequent processing, and the`tx_done` parameters record the state of the data transfer.
 
 ### 1.3.1 Process of Receiving Data
 
 &emsp; &emsp; As shown in the figure above:
 
 1. Interrupts of the remote processor sending data to the controller;
-2. After receiving the interrupt, the controller-registered interrupt handler call `mbox_chan_received_data`informs the upper layer to receive data coming from the far end and reply to the remote Rx ACK. 
-3. `mbox_chan_received_data`Invoke the client registered`rx_callback`; 
+2. After receiving the interrupt, the controller-registered interrupt handler call `mbox_chan_received_data`informs the upper layer to receive data coming from the far end and reply to the remote Rx ACK.
+3. `mbox_chan_received_data`Invoke the client registered`rx_callback`;
 4. `rx_callback`reads data from the address specified in the device tree, and then notifies the user space using asynchronous notifications;
 5. The user-space asynchronous handler that calls ioctl reads the data of the receive channel.
 
@@ -111,7 +111,7 @@ The main people to whom this document (this guide) applies:
 
 ## 2.1 mailbox_controller.h
 
-&emsp; &emsp; Defined `mbox_controller`(abstraction of mailbox hardware),`mbox_chan` (abstraction of channel) `mbox_chan_ops`(collection of callback functions that manipulate channels). 
+&emsp; &emsp; Defined `mbox_controller`(abstraction of mailbox hardware),`mbox_chan` (abstraction of channel) `mbox_chan_ops`(collection of callback functions that manipulate channels).
 
 ```c
 struct mbox_controller {
@@ -397,7 +397,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 }
 ```
 
-&emsp; &emsp; This function, by way, `of_parse_phandle_with_args`obtains the channel of the requested index from the device tree. 
+&emsp; &emsp; This function, by way, `of_parse_phandle_with_args`obtains the channel of the requested index from the device tree.
 
 - `mboxes`Points to the phandle list property name in the node;
 - `#mbox-cells`Indicates the number of cells contained in the node pointed to by the phandle;
@@ -441,7 +441,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 
 ### 2.3.10 mbox_free_channel
 
-&emsp; &emsp; The channel release function implements a callback function that will empty the members of the specified channel and implement the callback function if the corresponding hardware register needs to be configured`shutdown`. 
+&emsp; &emsp; The channel release function implements a callback function that will empty the members of the specified channel and implement the callback function if the corresponding hardware register needs to be configured`shutdown`.
 
 ### 2.3.11 mbox_controller_register and mbox_controller_unregister
 
@@ -481,7 +481,7 @@ mailbox: mailbox@970e0000 {
 
 ## 3.1 controller
 
-&emsp; &emsp; There must be an attribute`#mbox-cells` with a value of at least 1. It indicates the`mboxes` number of cells for the client attribute. 
+&emsp; &emsp; There must be an attribute`#mbox-cells` with a value of at least 1. It indicates the`mboxes` number of cells for the client attribute.
 
 ## 3.2 client
 
@@ -491,7 +491,7 @@ mailbox: mailbox@970e0000 {
 
 ## 3.3 How to use the property
 
-&emsp; &emsp; `mbox-cells`The`mboxes` `mbox-names`three properties are used when applying for channels. 
+&emsp; &emsp; `mbox-cells`The`mboxes` `mbox-names`three properties are used when applying for channels.
 
 ```c
 
@@ -545,20 +545,20 @@ Go to the directory`/app/dsp_app_new` and execute the command `./dsp_app mailbox
 2. Run the Linux userspace test app
 Enter the directory`/app/mailbox_demo` and execute the command`./mailbox_async`, as shown in the following figure:  
 ![mailbox_demo](../zh/images/mailbox/130602_mailbox_async.png)  
-This demo uses asynchronous notifications to receive data sent by the dsp. 
+This demo uses asynchronous notifications to receive data sent by the dsp.
 3. In the directory`/app/mailbox_demo`, execute the command`./mailbox_poll`, as shown in the following figure:  
 ![mailbox_demo](../zh/images/mailbox/130602_mailbox_poll.png)
-This demo uses poll blocking for 500ms to receive data sent by the dsp. We send data every 4s and read the data every 2s, so we can see that every 2s, the read success is staggered with the read failure, and the blocking read is successful. 
+This demo uses poll blocking for 500ms to receive data sent by the dsp. We send data every 4s and read the data every 2s, so we can see that every 2s, the read success is staggered with the read failure, and the blocking read is successful.
 
 ## 5.2 Testing the Code
 
-&emsp; &emsp; The dsp bare metal program is located `k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c`in the middle, and the user-space test code is located in`k510_buildroot/package/mailbox_demo/src/mailbox_async.c` and`k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`. 
+&emsp; &emsp; The dsp bare metal program is located `k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c`in the middle, and the user-space test code is located in`k510_buildroot/package/mailbox_demo/src/mailbox_async.c` and`k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`.
 
 # 6 Known issues
 
-&emsp; &emsp; Occasionally, the `./dsp_app mailbox_demo.bin`dsp program is not burned into the dsp the first time the command is executed. Execution of the demo at this point will result in a send failure. 
+&emsp; &emsp; Occasionally, the `./dsp_app mailbox_demo.bin`dsp program is not burned into the dsp the first time the command is executed. Execution of the demo at this point will result in a send failure.
 
 **Translation Disclaimer**  
-For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail. 
+For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail.
 
 If you would like to report a translation error or inaccuracy, please feel free to contact us by mail.

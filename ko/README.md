@@ -1,5 +1,5 @@
 [![Gitee 저장소](https://img.shields.io/badge/gitee-repository-blue?logo=gitee&style=plastic)](https://gitee.com/kendryte/k510_docs)
-[![ GitHub 릴리스](https://img.shields.io/github/v/release/kendryte/k510_docs?color=brightgreen&display_name=tag&logo=github&style=plastic)](https://github.com/kendryte/k510_docs/releases)
+[![GitHub 릴리스](https://img.shields.io/github/v/release/kendryte/k510_docs?color=brightgreen&display_name=tag&logo=github&style=plastic)](https://github.com/kendryte/k510_docs/releases)
 
 # 문서 개요입니다
 
@@ -26,15 +26,15 @@ k510 관련 문서는 다음과 같습니다.
 
 ## 기여 가이드
 
-이 프로젝트에 관심이 있거나, 질문에 대한 피드백을 제공하거나, 문서를 제출하려면[ CONTRIBUTING을 참조하십시오](.github/CONTRIBUTING.md)
+이 프로젝트에 관심이 있거나, 질문에 대한 피드백을 제공하거나, 문서를 제출하려면[CONTRIBUTING을 참조하십시오](.github/CONTRIBUTING.md)
 
 ## 저희에게 연락하십시오
 
 베이징 Jiananjets 정보 기술 유한 회사  
-웹 사이트:[ canaan-creative.com](https://canaan-creative.com/)  
-비즈니스 문의:[ salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
+웹 사이트:[canaan-creative.com](https://canaan-creative.com/)  
+비즈니스 문의:[salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
 
 **번역 면책 조항**  
-고객의 편의를 위해 Canan은 AI 번역 프로그램을 사용하여 오류를 포함할 수 있는 여러 언어로 텍스트를 번역합니다. 당사는 제공된 번역의 정확성, 신뢰성 또는 적시성을 보장하지 않습니다. Canan은 번역된 정보의 정확성이나 신뢰성에 의존하여 발생하는 손실이나 손해에 대해 책임을 지지 않습니다. 언어 번역 간에 콘텐츠 차이가 있는 경우 중국어 간체 버전이 우선합니다. 
+고객의 편의를 위해 Canan은 AI 번역 프로그램을 사용하여 오류를 포함할 수 있는 여러 언어로 텍스트를 번역합니다. 당사는 제공된 번역의 정확성, 신뢰성 또는 적시성을 보장하지 않습니다. Canan은 번역된 정보의 정확성이나 신뢰성에 의존하여 발생하는 손실이나 손해에 대해 책임을 지지 않습니다. 언어 번역 간에 콘텐츠 차이가 있는 경우 중국어 간체 버전이 우선합니다.
 
 번역 오류 또는 부정확한 문제를 신고하려면 이메일로 문의하시기 바랍니다.

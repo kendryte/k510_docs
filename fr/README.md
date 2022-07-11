@@ -22,19 +22,19 @@ La documentation relative au K510 est la suivante :
 | [K510_Drm_Developer_Guides.md](K510_Drm_Developer_Guides.md) | Documentation de l'interface de l'API DRM K510 |
 | [K510_Multimedia_Developer_Guides.md](K510_Multimedia_Developer_Guides.md) | Documentation d'exemple d'application multimédia K510 |
 | [K510_Mailbox_Developer_Guides.md](K510_Mailbox_Developer_Guides.md) | Documentation sur la communication multiprocesseur K510 |
-| [K510_ISP_Tuning_Tool_Guides.md](K510_ISP_Tuning_Tool_Guides.md) |K510   [ ISP Tuning Tool Documentation Adresse ](https://github.com/kendryte/k510_isp_tuning_tool/releases)de téléchargement|
+| [K510_ISP_Tuning_Tool_Guides.md](K510_ISP_Tuning_Tool_Guides.md) |K510   [ISP Tuning Tool Documentation Adresse](https://github.com/kendryte/k510_isp_tuning_tool/releases)de téléchargement|
 
 ## Contribution Guide
 
-Si vous êtes intéressé par ce projet et que vous souhaitez obtenir des commentaires ou soumettre de la documentation, veuillez vous référer à[ CONSOLIDATION](.github/CONTRIBUTING.md)
+Si vous êtes intéressé par ce projet et que vous souhaitez obtenir des commentaires ou soumettre de la documentation, veuillez vous référer à[CONSOLIDATION](.github/CONTRIBUTING.md)
 
 ## Contactez-nous
 
 Beijing Canaan Jiesi Information Technology Co., Ltd  
-URL:[ canaan-creative.com](https://canaan-creative.com/)  
-Demandes de renseignements des entreprises :[ salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
+URL:[canaan-creative.com](https://canaan-creative.com/)  
+Demandes de renseignements des entreprises :[salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
 
 **Clause de non-responsabilité en matière de**  
-Pour la commodité des clients, Canaan utilise un traducteur IA pour traduire du texte en plusieurs langues, ce qui peut contenir des erreurs. Nous ne garantissons pas l'exactitude, la fiabilité ou l'actualité des traductions fournies. Canaan ne sera pas responsable de toute perte ou dommage causé par la confiance accordée à l'exactitude ou à la fiabilité des informations traduites. S'il existe une différence de contenu entre les traductions dans différentes langues, la version simplifiée en chinois prévaudra. 
+Pour la commodité des clients, Canaan utilise un traducteur IA pour traduire du texte en plusieurs langues, ce qui peut contenir des erreurs. Nous ne garantissons pas l'exactitude, la fiabilité ou l'actualité des traductions fournies. Canaan ne sera pas responsable de toute perte ou dommage causé par la confiance accordée à l'exactitude ou à la fiabilité des informations traduites. S'il existe une différence de contenu entre les traductions dans différentes langues, la version simplifiée en chinois prévaudra.
 
 Si vous souhaitez signaler une erreur de traduction ou une inexactitude, n'hésitez pas à nous contacter par courrier.

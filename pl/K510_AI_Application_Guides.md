@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Zrzeczenie się**</font>
 Zakupione produkty, usługi lub funkcje podlegają umowom handlowym i warunkom Beijing Canaan Jiesi Information Technology Co., Ltd. ("Spółka", ta sama poniżej), a wszystkie lub część produktów, usług lub funkcji opisanych w niniejszym dokumencie może nie być objęta zakresem zakupu lub użytkowania. O ile nie uzgodniono inaczej w umowie, Firma zrzeka się wszelkich oświadczeń lub gwarancji, wyraźnych lub dorozumianych, co do dokładności, niezawodności, kompletności, marketingu, konkretnego celu i nieagresji jakichkolwiek oświadczeń, informacji lub treści tego dokumentu. O ile nie uzgodniono inaczej, niniejszy dokument jest dostarczany wyłącznie jako wskazówka do rozumowania.
-Ze względu na aktualizacje wersji produktu lub z innych powodów zawartość tego dokumentu może być od czasu do czasu aktualizowana lub modyfikowana bez powiadomienia. 
+Ze względu na aktualizacje wersji produktu lub z innych powodów zawartość tego dokumentu może być od czasu do czasu aktualizowana lub modyfikowana bez powiadomienia.
 
 **<font face="黑体"  size=3>Informacje o znakach towarowych</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, ikona "Canaan", Canaan i inne znaki towarowe Canaan oraz inne znaki towarowe Canaan są znakami towarowymi Beijing Canaan Jiesi Information Technology Co., Ltd. Wszystkie inne znaki towarowe lub zarejestrowane znaki towarowe, które mogą być wymienione w niniejszym dokumencie, są własnością ich odpowiednich właścicieli. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, ikona "Canaan", Canaan i inne znaki towarowe Canaan oraz inne znaki towarowe Canaan są znakami towarowymi Beijing Canaan Jiesi Information Technology Co., Ltd. Wszystkie inne znaki towarowe lub zarejestrowane znaki towarowe, które mogą być wymienione w niniejszym dokumencie, są własnością ich odpowiednich właścicieli.
 
 **<font face="黑体"  size=3>Prawa autorskie ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Niniejszy dokument ma zastosowanie wyłącznie do rozwoju i projektowania platformy K510, bez pisemnej zgody firmy, żadna jednostka ani osoba fizyczna nie może rozpowszechniać części lub całości treści tego dokumentu w jakiejkolwiek formie. 
+Niniejszy dokument ma zastosowanie wyłącznie do rozwoju i projektowania platformy K510, bez pisemnej zgody firmy, żadna jednostka ani osoba fizyczna nie może rozpowszechniać części lub całości treści tego dokumentu w jakiejkolwiek formie.
 
 **<font face="黑体"  size=3>Pekin Canaan Jiesi Information Technology Co Ltd</font>**
 Adres internetowy: canaan-creative.com
@@ -26,7 +26,7 @@ Zapytania biznesowe: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # przedmowa
 **<font face="黑体"  size=5>Przeznaczenie </font>**dokumentu
-Ten dokument jest dokumentem towarzyszącym aplikacji K510 AI i ma na celu pomóc inżynierom zrozumieć pisanie i zastosowanie aplikacji K510 AI. 
+Ten dokument jest dokumentem towarzyszącym aplikacji K510 AI i ma na celu pomóc inżynierom zrozumieć pisanie i zastosowanie aplikacji K510 AI.
 
 **<font face="黑体"  size=5>Obiekty programu Reader</font>**
 
@@ -78,7 +78,7 @@ W tym dokumencie weźmiemy model onnx o rozdzielczości 320x320 YOLOV5s jako prz
 
 # 2 Przygotowanie modelu
 
-Model onnx dla YOLOV5s do wnioskowania znajduje się w podkatalogu /docs/utils/AI_Application/aidemo_sdk/models/onnx (pobierz modele, jeśli nie są dostępne[ żadne pliki](https://github.com/kendryte/k510_docs/releases/download/v1.5/models.tar.gz)).  i rozpakuj), statyczny obraz znajduje się w podkatalogu /docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC/data, a skrypt znajduje się w podkatalogu /docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC. 
+Model onnx dla YOLOV5s do wnioskowania znajduje się w podkatalogu /docs/utils/AI_Application/aidemo_sdk/models/onnx (pobierz modele, jeśli nie są dostępne[żadne pliki](https://github.com/kendryte/k510_docs/releases/download/v1.5/models.tar.gz)).  i rozpakuj), statyczny obraz znajduje się w podkatalogu /docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC/data, a skrypt znajduje się w podkatalogu /docs/utils/AI_Application/aidemo_sdk/examples/python_inference_on_PC.
 
 Postępuj zgodnie z wierszem polecenia skryptu, aby uruchomić skrypt yolov5_image.py w celu uzyskania wyniku wnioskowania obrazu statycznego. Wykryj poprawność modelu, sprawdzając, czy pole wykrywania obrazu wyjściowego jest poprawne, czy nie.
 
@@ -107,7 +107,7 @@ optional arguments:
 
 # 3 Generacja modelu
 
-Generowanie modelu zależy od kompilatora nncase, a szczegółowe reguły korzystania z kompilatora nncase można znaleźć[ K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). Skrypt generujący kmodel dla YOLOV5s znajduje się w podkatalogu /docs/utils/AI_Application/aidemo_sdk/scripts. 
+Generowanie modelu zależy od kompilatora nncase, a szczegółowe reguły korzystania z kompilatora nncase można znaleźć[K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). Skrypt generujący kmodel dla YOLOV5s znajduje się w podkatalogu /docs/utils/AI_Application/aidemo_sdk/scripts.
 
 W wierszu polecenia skryptu uruchom gen_yolov5s_320_with_sigmoid_bf16_with_preprocess_output_nhwc.py, aby wygenerować odpowiedni kmodel.
 
@@ -137,7 +137,7 @@ compile_options.input_range = [0, 255]
 
 # 4 Walidacja modelu
 
-Walidacja modelu zależy od symulatora nncase, a szczegółowe zasady korzystania z symulatora nncase można znaleźć[ w K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). Sprawdź, czy skrypt kmodel yolov5s znajduje się w podkatalogu /docs/utils/AI_Application/aidemo_sdk/scripts. 
+Walidacja modelu zależy od symulatora nncase, a szczegółowe zasady korzystania z symulatora nncase można znaleźć[w K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). Sprawdź, czy skrypt kmodel yolov5s znajduje się w podkatalogu /docs/utils/AI_Application/aidemo_sdk/scripts.
 
 W wierszu polecenia skryptu uruchom simu_yolov5s_320_with_sigmoid_bf16_with_preprocess_output_nhwc.py, aby sprawdzić, czy odpowiedni kmodel jest generowany poprawnie.
 
@@ -160,7 +160,7 @@ output 2 cosine similarity : 0.9999019503593445
 
 # 5 Pisanie aplikacji AI
 
-Sprawdzanie poprawności modelu zależy od środowiska uruchomieniowego nncase, a szczegółowe reguły korzystania ze środowiska wykonawczego nncase można znaleźć[ K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). Dokumentacja aplikacji AI`k510_buildroot/package/ai/code/object_detect`. Najpierw należy utworzyć instancję wykrywania obiektów i przydzielić miejsce na wejście i wyjście kmodel. 
+Sprawdzanie poprawności modelu zależy od środowiska uruchomieniowego nncase, a szczegółowe reguły korzystania ze środowiska wykonawczego nncase można znaleźć[K510_nncase_Developer_Guides.md](./K510_nncase_Developer_Guides.md). Dokumentacja aplikacji AI`k510_buildroot/package/ai/code/object_detect`. Najpierw należy utworzyć instancję wykrywania obiektów i przydzielić miejsce na wejście i wyjście kmodel.
 
 ```c++
 objectDetect od(obj_thresh, nms_thresh, net_len, {valid_width, valid_height});
@@ -263,9 +263,9 @@ Na koniec narysuj pole wykrywania na dysku OSD, aby wyświetlić wyjście
 
 # 6 Kompiluj aplikacje AI
 
-Korzystając z łańcucha narzędzi kompilacji krzyżowej, można odwołać się do szczegółowych reguł kompilacji aplikacji AI[ K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md). 
+Korzystając z łańcucha narzędzi kompilacji krzyżowej, można odwołać się do szczegółowych reguł kompilacji aplikacji AI[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md).
 
-**Zrzeczenie się odpowiedzialności za **tłumaczenie  
-Dla wygody klientów Canaan używa tłumacza AI do tłumaczenia tekstu na wiele języków, które mogą zawierać błędy. Nie gwarantujemy dokładności, rzetelności ani terminowości dostarczonych tłumaczeń. Canaan nie ponosi odpowiedzialności za jakiekolwiek straty lub szkody spowodowane poleganiem na dokładności lub wiarygodności przetłumaczonych informacji. W przypadku różnic w treści tłumaczeń w różnych językach, pierwszeństwo ma chińska wersja uproszczona. 
+**Zrzeczenie się odpowiedzialności za**tłumaczenie  
+Dla wygody klientów Canaan używa tłumacza AI do tłumaczenia tekstu na wiele języków, które mogą zawierać błędy. Nie gwarantujemy dokładności, rzetelności ani terminowości dostarczonych tłumaczeń. Canaan nie ponosi odpowiedzialności za jakiekolwiek straty lub szkody spowodowane poleganiem na dokładności lub wiarygodności przetłumaczonych informacji. W przypadku różnic w treści tłumaczeń w różnych językach, pierwszeństwo ma chińska wersja uproszczona.
 
 Jeśli chcesz zgłosić błąd lub niedokładność tłumaczenia, skontaktuj się z nami pocztą.

@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Renuncia**</font>
 Los productos, servicios o características que compre estarán sujetos a los contratos comerciales y términos de Beijing Canaan Jiesi Information Technology Co., Ltd. ("la Compañía", la misma en adelante), y todos o parte de los productos, servicios o características descritos en este documento pueden no estar dentro del alcance de su compra o uso. Salvo que se acuerde lo contrario en el contrato, la Compañía renuncia a todas las representaciones o garantías, expresas o implícitas, en cuanto a la precisión, confiabilidad, integridad, marketing, propósito específico y no agresión de cualquier representación, información o contenido de este documento. A menos que se acuerde lo contrario, este documento se proporciona como una guía para su uso solamente.
-Debido a actualizaciones de la versión del producto u otras razones, el contenido de este documento puede actualizarse o modificarse de vez en cuando sin previo aviso. 
+Debido a actualizaciones de la versión del producto u otras razones, el contenido de este documento puede actualizarse o modificarse de vez en cuando sin previo aviso.
 
 **<font face="黑体"  size=3>Avisos de marcas comerciales</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, el icono de "Canaan", Canaan y otras marcas comerciales de Canaan y otras marcas comerciales de Canaan son marcas comerciales de Beijing Canaan Jiesi Information Technology Co., Ltd. Todas las demás marcas comerciales o marcas registradas que puedan mencionarse en este documento son propiedad de sus respectivos propietarios. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, el icono de "Canaan", Canaan y otras marcas comerciales de Canaan y otras marcas comerciales de Canaan son marcas comerciales de Beijing Canaan Jiesi Information Technology Co., Ltd. Todas las demás marcas comerciales o marcas registradas que puedan mencionarse en este documento son propiedad de sus respectivos propietarios.
 
 **<font face="黑体"  size=3>Derechos de autor ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Este documento solo es aplicable al desarrollo y diseño de la plataforma K510, sin el permiso por escrito de la empresa, ninguna unidad o individuo puede difundir parte o la totalidad del contenido de este documento en ninguna forma. 
+Este documento solo es aplicable al desarrollo y diseño de la plataforma K510, sin el permiso por escrito de la empresa, ninguna unidad o individuo puede difundir parte o la totalidad del contenido de este documento en ninguna forma.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Información Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -26,13 +26,13 @@ Consultas comerciales: salesAI@canaan-creative.com
 <div style="page-break-after:always"></div>
 # prefacio
 **<font face="黑体"  size=5>Propósito del documento</font>**
-Este documento es una documentación de ISP Tuning Tool. 
+Este documento es una documentación de ISP Tuning Tool.
 
 **<font face="黑体"  size=5>Objetos reader</font>**
 
 La audiencia principal de este documento son ingenieros de software experimentados, ingenieros de algoritmos de imagen, diseñadores de sistemas e integradores de sistemas que desean implementar aplicaciones y controladores propietarios.
 
-**<font face="黑体"  size=5>Historial 
+**<font face="黑体"  size=5>Historial
  </font>**de revisiones <font face="宋体"  size=2>El historial de revisiones acumula una descripción de cada actualización del documento. La versión más reciente del documento contiene actualizaciones para todas las versiones anteriores. </font>
 
 | El número de versión   | Modificado por     | Fecha de revisión | Notas de revisión |
@@ -112,16 +112,16 @@ En esta sección se describen las características de estos paneles en la ventan
 
 La Figura 3-1 muestra todo el panel del operador en la ventana de ajuste
 
-- El panel 1 es el** menú **que puede cargar opcionalmente el archivo ISP configurado o realizar la calibración. 
-- El panel 2 es el **panel de control de conexión**, complete la dirección IP y el número de puerto de la placa de desarrollo (puerto predeterminado 9982) y haga clic en el botón verde de conexión para conectarse. 
-- El panel 3 es el **panel de registro**, si necesita configurar o leer el registro no está en este, puede usar este panel para configurar y leer. 
-- El panel 4 es un **panel de selección de **parámetros de ajuste, el usuario puede seleccionar varios parámetros o grupos de parámetros de acuerdo con el texto del mensaje del panel, los registros de estas selecciones se mostrarán en el panel 5. 
-- El panel 5 es el **panel Configuración de parámetros de ajuste**, que se utiliza para establecer u obtener valores de parámetros del servidor de ajuste. 
-- El panel 6 es un **panel de visualización de imágenes**, que muestra la salida de la imagen por parte del ISP y puede hacer clic en el botón de pausa en el medio cuando no es necesario reproducir todo el tiempo. 
+- El panel 1 es el**menú**que puede cargar opcionalmente el archivo ISP configurado o realizar la calibración.
+- El panel 2 es el **panel de control de conexión**, complete la dirección IP y el número de puerto de la placa de desarrollo (puerto predeterminado 9982) y haga clic en el botón verde de conexión para conectarse.
+- El panel 3 es el **panel de registro**, si necesita configurar o leer el registro no está en este, puede usar este panel para configurar y leer.
+- El panel 4 es un **panel de selección de**parámetros de ajuste, el usuario puede seleccionar varios parámetros o grupos de parámetros de acuerdo con el texto del mensaje del panel, los registros de estas selecciones se mostrarán en el panel 5.
+- El panel 5 es el **panel Configuración de parámetros de ajuste**, que se utiliza para establecer u obtener valores de parámetros del servidor de ajuste.
+- El panel 6 es un **panel de visualización de imágenes**, que muestra la salida de la imagen por parte del ISP y puede hacer clic en el botón de pausa en el medio cuando no es necesario reproducir todo el tiempo.
 
 ![Figura 3-1 Ventana principal de la herramienta de ajuste](../zh/images/sdk_application/clip_image033.png)
 
-LA herramienta de ajuste de ISP** no **adquiere automáticamente todos los valores de registro después de conectarse, y si necesita obtener todos los valores de registro, puede hacer clic en el** botón Leer en el lado derecho del panel de control de conexión** para extraer todos los valores de registro actuales. 
+LA herramienta de ajuste de ISP**no**adquiere automáticamente todos los valores de registro después de conectarse, y si necesita obtener todos los valores de registro, puede hacer clic en el**botón Leer en el lado derecho del panel de control de conexión** para extraer todos los valores de registro actuales.
 
 # Calibración y calibración
 
@@ -195,7 +195,7 @@ Después de la corrección, se muestra en la siguiente figura
 
 ![Después de la corrección](../zh/images/sdk_application/clip_image031.png)
 
-**Descargo de responsabilidad de **traducción  
-Para la comodidad de los clientes, Canaan utiliza un traductor de IA para traducir texto a varios idiomas, que pueden contener errores. No garantizamos la exactitud, fiabilidad o puntualidad de las traducciones proporcionadas. Canaan no será responsable de ninguna pérdida o daño causado por la confianza en la exactitud o fiabilidad de la información traducida. Si existe una diferencia de contenido entre las traducciones en diferentes idiomas, prevalecerá la versión en chino simplificado. 
+**Descargo de responsabilidad de**traducción  
+Para la comodidad de los clientes, Canaan utiliza un traductor de IA para traducir texto a varios idiomas, que pueden contener errores. No garantizamos la exactitud, fiabilidad o puntualidad de las traducciones proporcionadas. Canaan no será responsable de ninguna pérdida o daño causado por la confianza en la exactitud o fiabilidad de la información traducida. Si existe una diferencia de contenido entre las traducciones en diferentes idiomas, prevalecerá la versión en chino simplificado.
 
 Si desea informar de un error o inexactitud de traducción, no dude en ponerse en contacto con nosotros por correo.

@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Renuncia**</font>
 Los productos, servicios o características que compre estarán sujetos a los contratos comerciales y términos de Beijing Canaan Jiesi Information Technology Co., Ltd. ("la Compañía", la misma en adelante), y todos o parte de los productos, servicios o características descritos en este documento pueden no estar dentro del alcance de su compra o uso. Salvo que se acuerde lo contrario en el contrato, la Compañía renuncia a todas las representaciones o garantías, expresas o implícitas, en cuanto a la precisión, confiabilidad, integridad, marketing, propósito específico y no agresión de cualquier representación, información o contenido de este documento. A menos que se acuerde lo contrario, este documento se proporciona como una guía para su uso solamente.
-Debido a actualizaciones de la versión del producto u otras razones, el contenido de este documento puede actualizarse o modificarse de vez en cuando sin previo aviso. 
+Debido a actualizaciones de la versión del producto u otras razones, el contenido de este documento puede actualizarse o modificarse de vez en cuando sin previo aviso.
 
 **<font face="黑体"  size=3>Avisos de marcas comerciales</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, el icono de "Canaan", Canaan y otras marcas comerciales de Canaan y otras marcas comerciales de Canaan son marcas comerciales de Beijing Canaan Jiesi Information Technology Co., Ltd. Todas las demás marcas comerciales o marcas registradas que puedan mencionarse en este documento son propiedad de sus respectivos propietarios. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, el icono de "Canaan", Canaan y otras marcas comerciales de Canaan y otras marcas comerciales de Canaan son marcas comerciales de Beijing Canaan Jiesi Information Technology Co., Ltd. Todas las demás marcas comerciales o marcas registradas que puedan mencionarse en este documento son propiedad de sus respectivos propietarios.
 
 **<font face="黑体"  size=3>Derechos de autor ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
-Este documento solo es aplicable al desarrollo y diseño de la plataforma K510, sin el permiso por escrito de la empresa, ninguna unidad o individuo puede difundir parte o la totalidad del contenido de este documento en ninguna forma. 
+Este documento solo es aplicable al desarrollo y diseño de la plataforma K510, sin el permiso por escrito de la empresa, ninguna unidad o individuo puede difundir parte o la totalidad del contenido de este documento en ninguna forma.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Información Technology Co., Ltd</font>**
 URL: canaan-creative.com
@@ -35,7 +35,7 @@ Las principales personas a las que se aplica este documento (esta guía):
 - Desarrolladores de software
 - Personal de soporte técnico
 
-**<font face="黑体"  size=5>Historial 
+**<font face="黑体"  size=5>Historial
  </font>**de revisiones <font face="宋体"  size=2>El historial de revisiones acumula una descripción de cada actualización del documento. La versión más reciente del documento contiene actualizaciones para todas las versiones anteriores. </font>
 
 | El número de versión   | Modificado por     | Fecha de revisión | Notas de revisión |
@@ -57,9 +57,9 @@ Las principales personas a las que se aplica este documento (esta guía):
 
 La versión de Linux utilizada actualmente por el sdk es 4.17.0. Linux, nombre completo GNU/Linux, es un sistema operativo tipo UNIX de uso libre y libre difusión con un kernel lanzado por primera vez por Linus Bennadict Torvaz el 5 de octubre de 1991, se inspira principalmente en las ideas de Minix y Unix, y es un sistema operativo multiusuario, multitarea, multihilo y multifutable basado en POSIX. Ejecuta el principal software de herramientas Unix, aplicaciones y protocolos de red. Es compatible con hardware de 32 bits y 64 bits. Linux hereda la filosofía de diseño centrada en la red de Unix y es un sistema operativo de red multiusuario estable. Linux tiene cientos de distribuciones diferentes, como debian basado en la comunidad, archlinux y Red Hat Enterprise Linux, SUSE, Oracle Linux, etc. desarrollados comercialmente.
 
-Direct Rendering Manager es un subsistema [del kernel de Linux](https://en.wikipedia.org/wiki/Linux_kernel) que es responsable[ de la conexión de la GPU a ](https://en.wikipedia.org/wiki/Video_cards)[las tarjetas de video modernas](https://en.wikipedia.org/wiki/Graphics_processing_unit). El DRM expone una[ API ](https://en.wikipedia.org/wiki/Application_programming_interface)que los programas [de espacio de usuario ](https://en.wikipedia.org/wiki/User-space)pueden usar para enviar comandos y datos a la GPU y realizar acciones como configurar los[ ajustes del modo de visualización. ](https://en.wikipedia.org/wiki/Mode_setting)DRM se desarrolló originalmente como un[ componente de espacio de kernel de](https://en.wikipedia.org/wiki/X.Org_Server)[ la infraestructura de ](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)renderizado directo[ de X Server[](https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1)[1], ](https://en.wikipedia.org/wiki/Kernel-space)pero desde entonces ha sido reemplazado por otras alternativas de pila de gráficos como[ Wayland](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol))) usos. 
+Direct Rendering Manager es un subsistema [del kernel de Linux](https://en.wikipedia.org/wiki/Linux_kernel) que es responsable[de la conexión de la GPU a](https://en.wikipedia.org/wiki/Video_cards)[las tarjetas de video modernas](https://en.wikipedia.org/wiki/Graphics_processing_unit). El DRM expone una[API](https://en.wikipedia.org/wiki/Application_programming_interface)que los programas [de espacio de usuario](https://en.wikipedia.org/wiki/User-space)pueden usar para enviar comandos y datos a la GPU y realizar acciones como configurar los[ajustes del modo de visualización.](https://en.wikipedia.org/wiki/Mode_setting)DRM se desarrolló originalmente como un[componente de espacio de kernel de](https://en.wikipedia.org/wiki/X.Org_Server)[la infraestructura de](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)renderizado directo[Wayland][https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1](1), ](<https://en.wikipedia.org/wiki/Kernel-space)pero> desde entonces ha sido reemplazado por otras alternativas de pila de gráficos como[Wayland](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol))) usos.
 
-Los programas de espacio de usuario pueden usar la API DRM para ordenar la GPU para la[ representación 3D](https://en.wikipedia.org/wiki/Hardware_acceleration) acelerada por[  hardware ](https://en.wikipedia.org/wiki/3D_rendering)y [la decodificación de video](https://en.wikipedia.org/wiki/Video_decoding), así como [la computación GPGPU](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units). 
+Los programas de espacio de usuario pueden usar la API DRM para ordenar la GPU para la[representación 3D](https://en.wikipedia.org/wiki/Hardware_acceleration) acelerada por[hardware](https://en.wikipedia.org/wiki/3D_rendering)y [la decodificación de video](https://en.wikipedia.org/wiki/Video_decoding), así como [la computación GPGPU](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units).
 
 # 2 Introducción al hardware
 
@@ -67,7 +67,7 @@ Los programas de espacio de usuario pueden usar la API DRM para ordenar la GPU p
 
 Descargue y compile el SDK, el SDK descargará y compilará el código de Linux al compilar.
 
-Para obtener más información acerca de cómo descargar y compilar el SDK, consulte[ K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md). 
+Para obtener más información acerca de cómo descargar y compilar el SDK, consulte[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md).
 
 ## 2.2 Archivos y directorios de controladores
 
@@ -993,7 +993,7 @@ static int draw_frame(struct vo_draw_frame *frame)
 }
 ```
 
-**Descargo de responsabilidad de **traducción  
-Para la comodidad de los clientes, Canaan utiliza un traductor de IA para traducir texto a varios idiomas, que pueden contener errores. No garantizamos la exactitud, fiabilidad o puntualidad de las traducciones proporcionadas. Canaan no será responsable de ninguna pérdida o daño causado por la confianza en la exactitud o fiabilidad de la información traducida. Si existe una diferencia de contenido entre las traducciones en diferentes idiomas, prevalecerá la versión en chino simplificado. 
+**Descargo de responsabilidad de**traducción  
+Para la comodidad de los clientes, Canaan utiliza un traductor de IA para traducir texto a varios idiomas, que pueden contener errores. No garantizamos la exactitud, fiabilidad o puntualidad de las traducciones proporcionadas. Canaan no será responsable de ninguna pérdida o daño causado por la confianza en la exactitud o fiabilidad de la información traducida. Si existe una diferencia de contenido entre las traducciones en diferentes idiomas, prevalecerá la versión en chino simplificado.
 
 Si desea informar de un error o inexactitud de traducción, no dude en ponerse en contacto con nosotros por correo.

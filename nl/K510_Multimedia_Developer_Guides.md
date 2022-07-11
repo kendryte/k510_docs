@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**Disclaimer**</font>
 De producten, diensten of functies die u koopt, zijn onderworpen aan de commerciële contracten en voorwaarden van Beijing Canaan Jiesi Information Technology Co., Ltd. ("het Bedrijf", hierna hetzelfde), en alle of een deel van de producten, diensten of functies die in dit document worden beschreven, vallen mogelijk niet binnen het bereik van uw aankoop of gebruik. Tenzij anders overeengekomen in het contract, wijst het bedrijf alle verklaringen of garanties af, expliciet of impliciet, met betrekking tot de nauwkeurigheid, betrouwbaarheid, volledigheid, marketing, specifiek doel en niet-agressie van verklaringen, informatie of inhoud van dit document. Tenzij anders overeengekomen, wordt dit document uitsluitend verstrekt als leidraad voor gebruik.
-Vanwege upgrades van de productversie of andere redenen kan de inhoud van dit document van tijd tot tijd zonder enige kennisgeving worden bijgewerkt of gewijzigd. 
+Vanwege upgrades van de productversie of andere redenen kan de inhoud van dit document van tijd tot tijd zonder enige kennisgeving worden bijgewerkt of gewijzigd.
 
 **<font face="黑体"  size=3>Handelsmerkkennisgevingen</font>**
 
-""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icoon, Kanaän en andere handelsmerken van Kanaän en andere handelsmerken van Kanaän zijn handelsmerken van Beijing Canaan Jiesi Information Technology Co., Ltd. Alle andere handelsmerken of geregistreerde handelsmerken die in dit document kunnen worden genoemd, zijn eigendom van hun respectieve eigenaars. 
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icoon, Kanaän en andere handelsmerken van Kanaän en andere handelsmerken van Kanaän zijn handelsmerken van Beijing Canaan Jiesi Information Technology Co., Ltd. Alle andere handelsmerken of geregistreerde handelsmerken die in dit document kunnen worden genoemd, zijn eigendom van hun respectieve eigenaars.
 
 **<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co, Ltd</font>**
-Dit document is alleen van toepassing op de ontwikkeling en het ontwerp van het K510-platform, zonder de schriftelijke toestemming van het bedrijf mag geen enkele eenheid of persoon een deel of de inhoud van dit document in welke vorm dan ook verspreiden. 
+Dit document is alleen van toepassing op de ontwikkeling en het ontwerp van het K510-platform, zonder de schriftelijke toestemming van het bedrijf mag geen enkele eenheid of persoon een deel of de inhoud van dit document in welke vorm dan ook verspreiden.
 
 **<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co, Ltd</font>**
 URL: canaan-creative.com
@@ -530,7 +530,7 @@ rennen`encode_app`
 | splijten | Het aantal kanalen | NUL | [1,4] | jpeg、avc |
 | Ch | Kanaalnummer (op basis van 0) | NUL | [0,3] | jpeg、avc |
 | Ik | Voer het YUV-bestand in, alleen **ondersteuning voor nv12-indeling**  | NUL | v4l2 <br> xxx.yuv | jpeg、avc |
-| Dev | v4l2 apparaatnaam | NUL | **sensor0:** /dev/video3 /dev/video4 <br> <br>sensor1:<br> ** /dev/video7 / ** dev/ <br> video8 <br> | aaien |
+| Dev | v4l2 apparaatnaam | NUL | **sensor0:** /dev/video3 /dev/video4 <br> <br>sensor1:<br> **/dev/video7 /** dev/ <br> video8 <br> | aaien |
 | of | uitvoer| NUL | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG | jpeg、avc |
 | in | Breedte van het uitvoerbeeld | 1920 | avc: [128,2048], veelvoud van 8 <br> jpeg: tot 8192, veelvoud van 16 | jpeg、avc |
 | h | Hoogte van het uitvoerbeeld | 1080 | avc: [64,2048], veelvoud van 8 <br> jpeg: tot 8192, veelvoud van 2 | jpeg、avc |
@@ -668,7 +668,7 @@ Het ffplay pull stream commando is hetzelfde als hierboven.
 
   IP-adres: Het IP-adres van de ontwikkelraad, voer ifconfig in op het bord om te verkrijgen.
 
-  Poortnummer: 8554 + <通道号>*2, kanaalnummers beginnen over het algemeen vanaf 0 (-ch 0, -ch 1...). 
+  Poortnummer: 8554 + <通道号>*2, kanaalnummers beginnen over het algemeen vanaf 0 (-ch 0, -ch 1...).
 
 - Speel RTSP-streammodus: de bijbehorende RTSP-stream kan worden afgespeeld via vlc of ffplay en de gegevensstroom kan worden verzonden via het udp- of TCP-protocol.
 
@@ -1017,7 +1017,7 @@ ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -i /dev/video3 -vco
 
 Illustreren:
 
-1. De runtime moet worden gevonden in de map run`video_sampe.conf` `imx219_0.conf`en de `imx219_1.conf`bestanden zijn geconfigureerd en de drie bestanden bevinden zich onder`/encode_app/` de map. 
+1. De runtime moet worden gevonden in de map run`video_sampe.conf` `imx219_0.conf`en de `imx219_1.conf`bestanden zijn geconfigureerd en de drie bestanden bevinden zich onder`/encode_app/` de map.
 2. De video die in realtime door de camera wordt geleverd, is geschreven als een YUV-bestand en omdat het YUV-bestand erg groot is, kan de lokale DDR- of NFS-schrijfsnelheid het niet bijhouden, wat kan leiden tot framedrop.
 
 #### 3.2.1.6 JPEG-codering
@@ -1028,7 +1028,7 @@ Bestandsuitvoer:
 ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_jpeg -y test.mjpeg
 ```
 
-Beschrijving: de runtime moet zich in de map run bevinden`video_sampe.conf` `imx219_0.conf`en `imx219_1.conf`de bestanden zijn geconfigureerd en de drie bestanden bevinden zich onder`/encode_app/` de map. 
+Beschrijving: de runtime moet zich in de map run bevinden`video_sampe.conf` `imx219_0.conf`en `imx219_1.conf`de bestanden zijn geconfigureerd en de drie bestanden bevinden zich onder`/encode_app/` de map.
 
 Het uitvoerbestand test.mjpeg kan aan de pc-kant worden afgespeeld met ffplay
 
@@ -1064,7 +1064,7 @@ Wanneer u ffplay gebruikt om streams te trekken, moet u ervoor zorgen dat u slec
 
 - `ff_libk510_h264_encoder`: Controle h264 hardware codering, waarnaar wordt verwezen`libvenc.so`
 - `ff_libk510_jpeg_encoder`: Regelt de jpeg hardware codering, waarnaar wordt verwezen`libvenc.so`
-- v4l2: In v4l2.c is k510 hardwaregerelateerde code toegevoegd en het v4l2-buffertype V4L2_MEMORY_USERPTR en waarnaar wordt verwezen`libmediactl.so`. 
+- v4l2: In v4l2.c is k510 hardwaregerelateerde code toegevoegd en het v4l2-buffertype V4L2_MEMORY_USERPTR en waarnaar wordt verwezen`libmediactl.so`.
 
 #### 3.2.2.1. opdracht voor het genereren van patches
 
@@ -1088,7 +1088,7 @@ sed -i "s/\/dl\/ffmpeg_canaan\/ffmpeg-4.4//g" ../../package/ffmpeg_canaan/xxx.pa
 
 #### 3.2.2.2 ffmpeg configuratie
 
-In het `package/ffmpeg_canaan/ffmpeg.mk`bestand kan de CPU-kern worden gewijzigd, de compilatietoolchain en kan de inschakeling worden gemaakt via de configuratieoptie`ff_k510_video_demuxer`.`ff_libk510_jpeg_encoder` `ff_libk510_h264_encoder` 
+In het `package/ffmpeg_canaan/ffmpeg.mk`bestand kan de CPU-kern worden gewijzigd, de compilatietoolchain en kan de inschakeling worden gemaakt via de configuratieoptie`ff_k510_video_demuxer`.`ff_libk510_jpeg_encoder` `ff_libk510_h264_encoder`
 
 ```shell
 ./configure \
@@ -1114,6 +1114,6 @@ In het `package/ffmpeg_canaan/ffmpeg.mk`bestand kan de CPU-kern worden gewijzigd
 ```
 
 **Vertaling Disclaimer**  
-Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie. 
+Voor het gemak van klanten gebruikt Canaan een AI-vertaler om tekst in meerdere talen te vertalen, wat fouten kan bevatten. Wij garanderen niet de nauwkeurigheid, betrouwbaarheid of tijdigheid van de geleverde vertalingen. Canaan is niet aansprakelijk voor enig verlies of schade veroorzaakt door het vertrouwen op de nauwkeurigheid of betrouwbaarheid van de vertaalde informatie. Als er een inhoudelijk verschil is tussen de vertalingen in verschillende talen, prevaleert de vereenvoudigd Chinese versie.
 
 Als u een vertaalfout of onnauwkeurigheid wilt melden, neem dan gerust contact met ons op via e-mail.

@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**면책 조항**</font>
 귀하가 구매한 제품, 서비스 또는 기능은 베이징 Jiananges 정보 기술 유한 회사(이하 "회사")의 상업 계약 및 약관의 적용을 받으며, 이 문서에 설명된 제품, 서비스 또는 기능의 전부 또는 일부는 구매 또는 사용의 범위를 벗어납니다. 계약에 달리 합의하지 않는 한, 회사는 본 문서의 진술, 정보, 내용의 정확성, 신뢰성, 완전성, 마케팅, 특정 목적 및 비침략성에 대해 명시적 또는 묵시적으로 어떠한 진술이나 보증도 하지 않습니다. 달리 합의하지 않는 한, 이 문서는 사용 지침의 참조로만 사용됩니다.
-이 문서의 내용은 제품 버전 업그레이드 또는 기타 이유로 인해 예고 없이 수시로 업데이트되거나 수정될 수 있습니다. 
+이 문서의 내용은 제품 버전 업그레이드 또는 기타 이유로 인해 예고 없이 수시로 업데이트되거나 수정될 수 있습니다.
 
 **<font face="黑体"  size=3>상표 고지</font>**
 
-베이징 <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />Jianan Jets 정보 기술 유한 공사의 상표는 Jianan, Jianan 및 Jianan의 다른 상표입니다. 이 문서에 언급될 수 있는 기타 모든 상표 또는 등록 상표는 해당 소유자가 소유합니다. 
+베이징 <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />Jianan Jets 정보 기술 유한 공사의 상표는 Jianan, Jianan 및 Jianan의 다른 상표입니다. 이 문서에 언급될 수 있는 기타 모든 상표 또는 등록 상표는 해당 소유자가 소유합니다.
 
 **<font face="黑体"  size=3>저작권 ©2022 베이징 Jiananjets 정보 기술 유한 회사</font>**
-이 문서는 K510 플랫폼 개발 및 설계에만 적용되며, 어떠한 단위나 개인도 회사의 서면 허가 없이 이 문서의 일부 또는 전부를 어떤 형태로든 배포할 수 없습니다. 
+이 문서는 K510 플랫폼 개발 및 설계에만 적용되며, 어떠한 단위나 개인도 회사의 서면 허가 없이 이 문서의 일부 또는 전부를 어떤 형태로든 배포할 수 없습니다.
 
 **<font face="黑体"  size=3>베이징 Jiananjets 정보 기술 유한 회사</font>**
 웹 사이트: canaan-creative.com
@@ -26,7 +26,7 @@
 <div style="page-break-after:always"></div>
 # 서문
 **<font face="黑体"  size=5>문서의 목적</font>**
-이 문서는 엔지니어가 k510 sdk의 컴파일 및 레코딩을 이해하는 데 도움이 되는 K510 sdk에 대한 컴패니언 문서입니다. 
+이 문서는 엔지니어가 k510 sdk의 컴파일 및 레코딩을 이해하는 데 도움이 되는 K510 sdk에 대한 컴패니언 문서입니다.
 
 **<font face="黑体"  size=5>독자 개체입니다</font>**
 
@@ -116,7 +116,7 @@ MX2_REL_0106-02e87077-20220428-153936CST-xxxx-server
 ####################################################################
 ```
 
-**참고: k510 sdk 버전은 다르며 위의 정보는 다를 수 있습니다**. 
+**참고: k510 sdk 버전은 다르며 위의 정보는 다를 수 있습니다**.
 
 # 3 docker 컴파일 환경
 
@@ -127,7 +127,7 @@ sh k510_buildroot/tools/docker/run_k510_docker.sh
 ```
 
 후속 컴파일 작업은 기본적으로 docker에서 수행됩니다.
-로컬 환경을 빌드해야 하는 경우[ 로컬 환경 빌드를 참조하십시오](#env_set)
+로컬 환경을 빌드해야 하는 경우[로컬 환경 빌드를 참조하십시오](#env_set)
 
 # 4 컴파일
 
@@ -143,7 +143,7 @@ make dl
 
 ## 4.2 컴파일
 
-k510_buildroot/config 디렉토리에는 , 및 의 세 가지 보드에 대한 컴파일 구성 파일이`k510_crb_lp3_v0_1_defconfig` `k510_crb_lp3_v1_2_defconfig``k510_evb_lp3_v1_1_defconfig`있으며 이 **문서에서는 컴파일 대상으로 k510_crb_lp3_v1_2_defconfig 선택합니다**. 
+k510_buildroot/config 디렉토리에는 , 및 의 세 가지 보드에 대한 컴파일 구성 파일이`k510_crb_lp3_v0_1_defconfig` `k510_crb_lp3_v1_2_defconfig``k510_evb_lp3_v1_1_defconfig`있으며 이 **문서에서는 컴파일 대상으로 k510_crb_lp3_v1_2_defconfig 선택합니다**.
 
 k510 docker 환경에서 다음 명령을 입력하여 컴파일을 시작합니다.
 
@@ -157,7 +157,7 @@ make CONF=k510_crb_lp3_v1_2_defconfig
 
 ![](../zh/images/sdk_build/image-uboot_r.png)
 
-컴파일이 완료되면 폴더가 생성됩니다`k510_crb_lp3_v1_2_defconfig`. 
+컴파일이 완료되면 폴더가 생성됩니다`k510_crb_lp3_v1_2_defconfig`.
 
 ![이미지-20220311121912711](../zh/images/sdk_build/image-makeout.png)
 
@@ -201,7 +201,7 @@ k510_crb_lp3_v1_2_defconfig/build 디렉터리 아래에는 컴파일된 모든 
 
 참고: xxx는 버전 번호입니다. 다음 장에서kernle, bbl 및 ubiot 경로를 참조할 때 xxx는 버전 번호를 나타냅니다.
 
-**주의 사항: **make clean이 k510_crb_lp3_v1_2_defconfig 폴더 아래의 모든 콘텐츠가 삭제됩니다. 따라서 build 디렉토리에서 직접 수정하지 않고 kernel, bbl 또는 ubaott 코드를 수정해야 하는 경우 5장 내용을 참조하여 override source를 사용할 수 있습니다.
+**주의 사항:**make clean이 k510_crb_lp3_v1_2_defconfig 폴더 아래의 모든 콘텐츠가 삭제됩니다. 따라서 build 디렉토리에서 직접 수정하지 않고 kernel, bbl 또는 ubaott 코드를 수정해야 하는 경우 5장 내용을 참조하여 override source를 사용할 수 있습니다.
 
 ## 4.1 빌드 루트를 구성합니다
 
@@ -354,7 +354,7 @@ make riscv-pk-k510
 
 ![](../zh/images/sdk_build/image-riscv.png)
 
-컴파일이 완료되면 `k510_crb_lp3_v1_2_defconfig/images`디렉터리에서 새 빌드가 생성됩니다`bootm-bbl.img`. 
+컴파일이 완료되면 `k510_crb_lp3_v1_2_defconfig/images`디렉터리에서 새 빌드가 생성됩니다`bootm-bbl.img`.
 
 마지막으로 k510_crb_lp3_v1_2_defconfig 디렉토리에 make를 입력하고 새 bootm-bbl.img 패키지로 emmc 및 sd 카드 이미지 파일을 생성합니다.
 
@@ -416,7 +416,7 @@ k510_crb_lp3_v1_2_defconfig/images 디렉토리에서 컴파일이 완료된 k51
 
 ## 4.7 앱을 컴파일합니다
 
-사용자는 `package/hello_world` 의 Config.in 및 makefile 파일 쓰기를 참조하여 k510_buildroot/package 디렉토리에 배치되는 자체 응용 프로그램을 빌드할 수 있습니다. 
+사용자는 `package/hello_world` 의 Config.in 및 makefile 파일 쓰기를 참조하여 k510_buildroot/package 디렉토리에 배치되는 자체 응용 프로그램을 빌드할 수 있습니다.
 
 hello_world 프로젝트를 k510_buildroot/package에 배치하여 응용 프로그램을 컴파일하는 프로세스를 보여 줍니다.
 
@@ -454,41 +454,41 @@ make CONF=k510_crb_lp3_v1_2_defconfig savedefconfig
 
 1) 첫 번째 컴파일의 경우 단계는 다음과 같습니다.
 
-k510_buildroot 디렉토리에서 다음 명령을 입력하여 전체 프로젝트 프로그램을 컴파일하고 hello를 emmc 및 sd 카드 이미지 파일로 패키징합니다.
+    k510_buildroot 디렉토리에서 다음 명령을 입력하여 전체 프로젝트 프로그램을 컴파일하고 hello를 emmc 및 sd 카드 이미지 파일로 패키징합니다.
 
-```shell
-make CONF=k510_crb_lp3_v1_2_defconfig
-```
+    ```shell
+    make CONF=k510_crb_lp3_v1_2_defconfig
+    ```
 
-실행 결과는 다음과 같습니다.
+    실행 결과는 다음과 같습니다.
 
-![](../zh/images/sdk_build/image-build_make_def.png)
+    ![](../zh/images/sdk_build/image-build_make_def.png)
 
-k510_buildroot/k510_crb_lp3_v1_2_defconfig/target 디렉토리에서 생성된 hello 응용 프로그램을 볼 수 있으며, 이 경우 응용 프로그램이 올바르게 컴파일되었는지 확인할 수 있습니다.
+    k510_buildroot/k510_crb_lp3_v1_2_defconfig/target 디렉토리에서 생성된 hello 응용 프로그램을 볼 수 있으며, 이 경우 응용 프로그램이 올바르게 컴파일되었는지 확인할 수 있습니다.
 
-![](../zh/images/sdk_build/image-hello.png)
+    ![](../zh/images/sdk_build/image-hello.png)
 
 2) 컴파일 된 경우, 그냥 컴파일하고 레코딩 이미지에 패키지, 단계는 다음과 같습니다 :
 
-k510_buildroot/k510_crb_lp3_v1_2_defconfig 디렉토리로 이동하여 다음 명령을 입력하여 hello 응용 프로그램을 컴파일합니다.
+    k510_buildroot/k510_crb_lp3_v1_2_defconfig 디렉토리로 이동하여 다음 명령을 입력하여 hello 응용 프로그램을 컴파일합니다.
 
-```shell
-make hello_world-rebuild
-```
+    ```shell
+    make hello_world-rebuild
+    ```
 
-실행 결과는 다음과 같습니다.
+    실행 결과는 다음과 같습니다.
 
-![](../zh/images/sdk_build/image-app_build-1.png)
+    ![](../zh/images/sdk_build/image-app_build-1.png)
 
-k510_buildroot/k510_crb_lp3_v1_2_defconfig 디렉토리로 이동하여 make 명령을 입력하여 hello를 emmc 및 sd 카드 이미지 파일로 패키징합니다.
+    k510_buildroot/k510_crb_lp3_v1_2_defconfig 디렉토리로 이동하여 make 명령을 입력하여 hello를 emmc 및 sd 카드 이미지 파일로 패키징합니다.
 
-```shell
-make
-```
+    ```shell
+    make
+    ```
 
-실행 결과는 다음과 같습니다.
+    실행 결과는 다음과 같습니다.
 
-![](../zh/images/sdk_build/image-app-build-2.png)
+    ![](../zh/images/sdk_build/image-app-build-2.png)
 
 # 5 K510 SDK를 사용하여 개발합니다
 
@@ -582,7 +582,7 @@ SD 카드를 호스트에 삽입하면 ls 명령 실행 결과는 다음과 같�
 
 ![](../zh/images/sdk_build/image-dev_sd.png)
 
-/dev/sdc는 sd 카드 장치 노드입니다. **참고: 사용자 환경에서 생성된 SD 카드 장치 노드는 /dev/sdc가 아닐 수 있으며 후속 작업은 실제 노드에 따라 수정해야 합니다. **
+/dev/sdc는 sd 카드 장치 노드입니다. **참고: 사용자 환경에서 생성된 SD 카드 장치 노드는 /dev/sdc가 아닐 수 있으며 후속 작업은 실제 노드에 따라 수정해야 합니다.**
 
 호스트에서 k510_buildroot/k510_crb_lp3_v1_2_defconfig/image 디렉토리로 이동하여 dd 명령을 입력하여 sysimage-sdcard.img를 sdcard로 구울 수 있습니다.
 
@@ -596,21 +596,21 @@ sudo dd if=sysimage-sdcard.img of=/dev/sdc bs=1M oflag=sync
 
 ### 6.1.2 Windows에서 레코딩합니다
 
-Windows에서는 balenaEtcher 도구를 사용하여 sd 카드를 레코딩할 수 있습니다(balenaEtcher 도구 다운로드 주소<https://www.balena.io/etcher/>). 
+Windows에서는 balenaEtcher 도구를 사용하여 sd 카드를 레코딩할 수 있습니다(balenaEtcher 도구 다운로드 주소<https://www.balena.io/etcher/>).
 
 1) PC에 TF 카드를 삽입 한 다음 balenaEtcher 도구를 시작하고 도구 인터페이스의 "Flash from file"버튼을 클릭하고 아래 그림과 같이 구울 펌웨어를 선택하십시오.
 
-![](../zh/images/sdk_build/image-sd_pre0.png)
+    ![](../zh/images/sdk_build/image-sd_pre0.png)
 
 2) 도구 인터페이스의 "Select target" 버튼을 클릭하고 대상 sdcard 카드를 선택합니다.
 
-![](../zh/images/sdk_build/image-pre1.png)
+    ![](../zh/images/sdk_build/image-pre1.png)
 
 3) 플래시 버튼을 클릭하여 쓰기를 시작하고, 굽기 프로세스는 진행률 표시줄을 표시하고, 굽기는 플래시 피니시를 알려줍니다.
 
-| ![](../zh/images/sdk_build/clip_image_p1.jpg) | ![](../zh/images/sdk_build/clip_image_p2.jpg) |
-| --------------------------------------- | --------------------------------------- |
-|                                         |                                         |
+    | ![](../zh/images/sdk_build/clip_image_p1.jpg) | ![](../zh/images/sdk_build/clip_image_p2.jpg) |
+    | --------------------------------------- | --------------------------------------- |
+    |                                         |                                         |
 
 4) 레코딩이 완료되면 SD 카드를 개발 보드 슬롯에 삽입하고 SD에서 부팅하기 위해 BOOT를 선택하고 마지막으로 SD 카드에서 전원을 공급합니다.
 
@@ -657,7 +657,7 @@ dd if=sysimage-emmc.img of=/dev/mmcblk0 bs=1M
 
 # 7 사용자 구성 컴파일 환경 <a id="env_set"> </a>
 
-사용자가 위의 docker 환경을 사용하지 않는 경우 우분투 18.04/20.04에서 다음 명령을 참조하여 자체 개발 환경을 구성할 수 있습니다`sudo`. 
+사용자가 위의 docker 환경을 사용하지 않는 경우 우분투 18.04/20.04에서 다음 명령을 참조하여 자체 개발 환경을 구성할 수 있습니다`sudo`.
 
 ```shell
 apt-get update
@@ -696,6 +696,6 @@ pip3 install pycryptodome
 ```
 
 **번역 면책 조항**  
-고객의 편의를 위해 Canan은 AI 번역 프로그램을 사용하여 오류를 포함할 수 있는 여러 언어로 텍스트를 번역합니다. 당사는 제공된 번역의 정확성, 신뢰성 또는 적시성을 보장하지 않습니다. Canan은 번역된 정보의 정확성이나 신뢰성에 의존하여 발생하는 손실이나 손해에 대해 책임을 지지 않습니다. 언어 번역 간에 콘텐츠 차이가 있는 경우 중국어 간체 버전이 우선합니다. 
+고객의 편의를 위해 Canan은 AI 번역 프로그램을 사용하여 오류를 포함할 수 있는 여러 언어로 텍스트를 번역합니다. 당사는 제공된 번역의 정확성, 신뢰성 또는 적시성을 보장하지 않습니다. Canan은 번역된 정보의 정확성이나 신뢰성에 의존하여 발생하는 손실이나 손해에 대해 책임을 지지 않습니다. 언어 번역 간에 콘텐츠 차이가 있는 경우 중국어 간체 버전이 우선합니다.
 
 번역 오류 또는 부정확한 문제를 신고하려면 이메일로 문의하시기 바랍니다.

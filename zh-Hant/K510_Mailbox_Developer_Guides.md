@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**免責聲明**</font>
 您購買的產品、服務或特性等應受北京嘉楠捷思資訊技術有限公司（“本公司”，下同）商業合同和條款的約束，本文檔中描述的全部或部分產品、服務或特性可能不在您的購買或使用範圍之內。 除非合同另有約定，本公司不對本文檔的任何陳述、資訊、內容的準確性、可靠性、完整性、行銷型、特定目的性和非侵略性提供任何明示或默示的聲明或保證。 除非另有約定，本文檔僅作為使用指導的參考。
-由於產品版本升級或其他原因，本文檔內容將可能在未經任何通知的情況下，不定期進行更新或修改。 
+由於產品版本升級或其他原因，本文檔內容將可能在未經任何通知的情況下，不定期進行更新或修改。
 
 **<font face="黑体"  size=3>商標聲明</font>**
 
-“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”圖示、嘉楠和嘉楠其他商標均為北京嘉楠捷思資訊技術有限公司的商標。 本文檔可能提及的其他所有商標或註冊商標，由各自的所有人擁有。 
+“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”圖示、嘉楠和嘉楠其他商標均為北京嘉楠捷思資訊技術有限公司的商標。 本文檔可能提及的其他所有商標或註冊商標，由各自的所有人擁有。
 
 **<font face="黑体"  size=3>版權所有©2022北京嘉楠捷思資訊技術有限公司</font>**
-本文檔僅適用K510平台開發設計，非經本公司書面許可，任何單位和個人不得以任何形式對本文檔的部分或全部內容傳播。 
+本文檔僅適用K510平台開發設計，非經本公司書面許可，任何單位和個人不得以任何形式對本文檔的部分或全部內容傳播。
 
 **<font face="黑体"  size=3>北京嘉楠捷思資訊技術有限公司</font>**
 網址：canaan-creative.com
@@ -26,7 +26,7 @@
 <div style="page-break-after:always"></div>
 # 前言
 **<font face="黑体"  size=5>文件目的</font>**
-本文檔為K510 mailbox 驅動開發文檔。 
+本文檔為K510 mailbox 驅動開發文檔。
 
 **<font face="黑体"  size=5>讀者物件</font>**
 
@@ -75,7 +75,7 @@
 </div>
 
 &emsp; &emsp; 框架中使用`struct mbox_controller`抽象 mailbox 控制器，使用`struct mbox_chan`抽象通道，使用函數集合`struct mbox_chan_ops`來對通道進行操作。 上面三個數據結構是針對controller的。 框架使用`struct mbox_client`抽象用戶端，是針對 client 的。  
-&emsp; &emsp; 除此之外，我們需要針對我們的設備與驅動定義一個我們自己的設備結構體，如上圖所示。 client 與 controller 的聯繫是通過在 client 中申請通道時，在`mbox_request_channel`函數中完成的，一個通道綁定一個`struct mbox_client`結構體。 
+&emsp; &emsp; 除此之外，我們需要針對我們的設備與驅動定義一個我們自己的設備結構體，如上圖所示。 client 與 controller 的聯繫是通過在 client 中申請通道時，在`mbox_request_channel`函數中完成的，一個通道綁定一個`struct mbox_client`結構體。
 
 ## 1.3 函數調用流程
 
@@ -84,26 +84,26 @@
 </div>  
 
 &emsp; &emsp; 用戶空間與 client 驅動的數據傳遞使用 ioctl 加異步通知的方式，這一部分內容由驅動開發者自己決定，不屬於框架的內容。  
-&emsp; &emsp; 我們在 client 驅動中創建了設備節點`/dev/mailbox-client`，用戶空間通過此文件進行數據讀取與發送。 8 個發送通道，8 個接收通道。 
+&emsp; &emsp; 我們在 client 驅動中創建了設備節點`/dev/mailbox-client`，用戶空間通過此文件進行數據讀取與發送。 8 個發送通道，8 個接收通道。
 
 ### 1.3.1 發送數據流程
 
 &emsp; &emsp; 如上圖所示：
 
 1. 用戶空間操作檔句柄發送數據;
-2. 進入 client 驅動的 ioctl 函數，此函數將使用者空間數據複製到內核空間，最終調用了`mbox_send_message`函數; 
-3. 此函數的具體處理流程可以看後面章節的代碼分析，主要就是調用了兩個回調函數：client 驅動實現的`tx_prepare`，controller 驅動實現的`send_data`。 看名字就可以知道這兩個函數的作用。 需要注意的是，有些硬體的 mailbox 是有硬體數據傳輸寄存器的，那麼此時，數據傳輸就可以在`send_data`中完成; 有些硬體沒有硬體數據傳輸寄存器，那麼也可以在`tx_prepare`中完成實際的數據傳輸，`send_data`的作用就變成了單純的**觸發中斷通知遠端處理器**; 
+2. 進入 client 驅動的 ioctl 函數，此函數將使用者空間數據複製到內核空間，最終調用了`mbox_send_message`函數;
+3. 此函數的具體處理流程可以看後面章節的代碼分析，主要就是調用了兩個回調函數：client 驅動實現的`tx_prepare`，controller 驅動實現的`send_data`。 看名字就可以知道這兩個函數的作用。 需要注意的是，有些硬體的 mailbox 是有硬體數據傳輸寄存器的，那麼此時，數據傳輸就可以在`send_data`中完成; 有些硬體沒有硬體數據傳輸寄存器，那麼也可以在`tx_prepare`中完成實際的數據傳輸，`send_data`的作用就變成了單純的**觸發中斷通知遠端處理器**;
 4. 當遠端處理器收到中斷，並接收數據以後，需要回復給controller一個中斷表明 Tx 已經完成;
-5. 收到 Tx ACK 以後，controller 註冊的中斷處理函數需要調用`mbox_chan_txdone`來通知上層本次傳輸已被遠端接收; 
-6. `mbox_chan_txdone`通過 client 註冊的`tx_done`來告知 client 本次傳輸已完成。 由 client 決定後續處理，`tx_done`的參數記錄了數據傳輸的狀態。 
+5. 收到 Tx ACK 以後，controller 註冊的中斷處理函數需要調用`mbox_chan_txdone`來通知上層本次傳輸已被遠端接收;
+6. `mbox_chan_txdone`通過 client 註冊的`tx_done`來告知 client 本次傳輸已完成。 由 client 決定後續處理，`tx_done`的參數記錄了數據傳輸的狀態。
 
 ### 1.3.1 接收數據流程
 
 &emsp; &emsp; 如上圖所示：
 
 1. 遠端處理器發送給 controller 傳輸數據的中斷;
-2. 收到中斷以後，controller 註冊的中斷處理函數調用`mbox_chan_received_data`通知上層收到遠端傳來的數據，並回復給遠端 Rx ACK。 
-3. `mbox_chan_received_data`調用客戶端註冊的`rx_callback`; 
+2. 收到中斷以後，controller 註冊的中斷處理函數調用`mbox_chan_received_data`通知上層收到遠端傳來的數據，並回復給遠端 Rx ACK。
+3. `mbox_chan_received_data`調用客戶端註冊的`rx_callback`;
 4. `rx_callback`中從設備樹指定的位址讀取數據，然後使用異步通知的方式通知用戶空間;
 5. 用戶空間的異步處理函數中調用ioctl讀取接收通道的數據。
 
@@ -111,7 +111,7 @@
 
 ## 2.1 mailbox_controller.h
 
-&emsp; &emsp; 定義了`mbox_controller`（對 mailbox 硬體的抽象）、`mbox_chan`（對 channel 的抽象）`mbox_chan_ops`（操作 channel 的回調函數的集合）。 
+&emsp; &emsp; 定義了`mbox_controller`（對 mailbox 硬體的抽象）、`mbox_chan`（對 channel 的抽象）`mbox_chan_ops`（操作 channel 的回調函數的集合）。
 
 ```c
 struct mbox_controller {
@@ -397,7 +397,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 }
 ```
 
-&emsp; &emsp; 此函數，通過`of_parse_phandle_with_args`來從設備樹中獲得 index 對應請求的 channel。 
+&emsp; &emsp; 此函數，通過`of_parse_phandle_with_args`來從設備樹中獲得 index 對應請求的 channel。
 
 - `mboxes`指向節點中 phandle 列表屬性名;
 - `#mbox-cells`指明 phandle 指向的節點所含的 cell 個數;
@@ -441,7 +441,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 
 ### 2.3.10 mbox_free_channel
 
-&emsp; &emsp; 通道釋放函數，將指定通道的成員清空，如果對應的硬體寄存器需要配置的，實現`shutdown`回調函數。 
+&emsp; &emsp; 通道釋放函數，將指定通道的成員清空，如果對應的硬體寄存器需要配置的，實現`shutdown`回調函數。
 
 ### 2.3.11 mbox_controller_register 和 mbox_controller_unregister
 
@@ -481,7 +481,7 @@ mailbox: mailbox@970e0000 {
 
 ## 3.1 控制器
 
-&emsp; &emsp; 必須有屬性`#mbox-cells`，值至少為 1。 它指明瞭 client 屬性`mboxes` cell 的個數。 
+&emsp; &emsp; 必須有屬性`#mbox-cells`，值至少為 1。 它指明瞭 client 屬性`mboxes` cell 的個數。
 
 ## 3.2 用戶端
 
@@ -491,7 +491,7 @@ mailbox: mailbox@970e0000 {
 
 ## 3.3 該屬性的使用方法
 
-&emsp; &emsp; `mbox-cells`、`mboxes`、`mbox-names`三個屬性是在申請通道時用到的。 
+&emsp; &emsp; `mbox-cells`、`mboxes`、`mbox-names`三個屬性是在申請通道時用到的。
 
 ```c
 
@@ -545,20 +545,20 @@ static struct mbox_chan *canaan_mailbox_xlate(struct mbox_controller *controller
 2. 運行 Linux 使用者空間的測試 app
 進入目錄`/app/mailbox_demo`，執行命令`./mailbox_async`，如下圖所示：  
 ![mailbox_demo](../zh/images/mailbox/130602_mailbox_async.png)  
-此 demo 使用異步通知的方式接收 dsp 發送來的數據。 
+此 demo 使用異步通知的方式接收 dsp 發送來的數據。
 3. 在目錄`/app/mailbox_demo`中，執行命令`./mailbox_poll`，如下圖所示：  
 ![mailbox_demo](../zh/images/mailbox/130602_mailbox_poll.png)
-此 demo 使用 poll 阻塞 500ms 的方式接收 dsp 發送來的數據。 我們每隔 4s 發送一次數據，每 2s 讀一次數據，因此可以看到每隔 2s，讀取成功與讀取失敗交錯列印，阻塞讀取是成功的。 
+此 demo 使用 poll 阻塞 500ms 的方式接收 dsp 發送來的數據。 我們每隔 4s 發送一次數據，每 2s 讀一次數據，因此可以看到每隔 2s，讀取成功與讀取失敗交錯列印，阻塞讀取是成功的。
 
 ## 5.2 測試代碼
 
-&emsp; &emsp; dsp 裸機程式位於`k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c`中，用戶空間測試代碼位於`k510_buildroot/package/mailbox_demo/src/mailbox_async.c`和`k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`。 
+&emsp; &emsp; dsp 裸機程式位於`k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c`中，用戶空間測試代碼位於`k510_buildroot/package/mailbox_demo/src/mailbox_async.c`和`k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`。
 
 # 6 已知問題
 
-&emsp; &emsp; 偶爾會出現第一次執行命令`./dsp_app mailbox_demo.bin`時沒有將 dsp 程式燒進 dsp 中的情況出現。 此時執行 demo 會出現發送失敗的情況。 
+&emsp; &emsp; 偶爾會出現第一次執行命令`./dsp_app mailbox_demo.bin`時沒有將 dsp 程式燒進 dsp 中的情況出現。 此時執行 demo 會出現發送失敗的情況。
 
 **翻譯免責聲明**  
-為方便客戶，Canaan 使用 AI 翻譯程式將文字翻譯為多種語言，它可能包含錯誤。 我們不保證提供的譯文的準確性、可靠性或時效性。 對於因依賴已翻譯信息的準確性或可靠性而造成的任何損失或損害，Canaan 概不負責。 如果不同語言翻譯之間存在內容差異，以簡體中文版本為準。 
+為方便客戶，Canaan 使用 AI 翻譯程式將文字翻譯為多種語言，它可能包含錯誤。 我們不保證提供的譯文的準確性、可靠性或時效性。 對於因依賴已翻譯信息的準確性或可靠性而造成的任何損失或損害，Canaan 概不負責。 如果不同語言翻譯之間存在內容差異，以簡體中文版本為準。
 
 如果您要報告翻譯錯誤或不準確的問題，歡迎通過郵件與我們聯繫。

@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**면책 조항**</font>
 귀하가 구매한 제품, 서비스 또는 기능은 베이징 Jiananges 정보 기술 유한 회사(이하 "회사")의 상업 계약 및 약관의 적용을 받으며, 이 문서에 설명된 제품, 서비스 또는 기능의 전부 또는 일부는 구매 또는 사용의 범위를 벗어납니다. 계약에 달리 합의하지 않는 한, 회사는 본 문서의 진술, 정보, 내용의 정확성, 신뢰성, 완전성, 마케팅, 특정 목적 및 비침략성에 대해 명시적 또는 묵시적으로 어떠한 진술이나 보증도 하지 않습니다. 달리 합의하지 않는 한, 이 문서는 사용 지침의 참조로만 사용됩니다.
-이 문서의 내용은 제품 버전 업그레이드 또는 기타 이유로 인해 예고 없이 수시로 업데이트되거나 수정될 수 있습니다. 
+이 문서의 내용은 제품 버전 업그레이드 또는 기타 이유로 인해 예고 없이 수시로 업데이트되거나 수정될 수 있습니다.
 
 **<font face="黑体"  size=3>상표 고지</font>**
 
-베이징 <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />Jianan Jets 정보 기술 유한 공사의 상표는 Jianan, Jianan 및 Jianan의 다른 상표입니다. 이 문서에 언급될 수 있는 기타 모든 상표 또는 등록 상표는 해당 소유자가 소유합니다. 
+베이징 <img src="../zh/images/canaan-logo.png" style="zoom:33%;" />Jianan Jets 정보 기술 유한 공사의 상표는 Jianan, Jianan 및 Jianan의 다른 상표입니다. 이 문서에 언급될 수 있는 기타 모든 상표 또는 등록 상표는 해당 소유자가 소유합니다.
 
 **<font face="黑体"  size=3>저작권 ©2022 베이징 Jiananjets 정보 기술 유한 회사</font>**
-이 문서는 K510 플랫폼 개발 및 설계에만 적용되며, 어떠한 단위나 개인도 회사의 서면 허가 없이 이 문서의 일부 또는 전부를 어떤 형태로든 배포할 수 없습니다. 
+이 문서는 K510 플랫폼 개발 및 설계에만 적용되며, 어떠한 단위나 개인도 회사의 서면 허가 없이 이 문서의 일부 또는 전부를 어떤 형태로든 배포할 수 없습니다.
 
 **<font face="黑体"  size=3>베이징 Jiananjets 정보 기술 유한 회사</font>**
 웹 사이트: canaan-creative.com
@@ -57,9 +57,9 @@
 
 현재 sdk에서 사용하는 Linux 버전은 4.17.0입니다. Linux, 전체 이름 GNU/Linux, 무료 사용 및 무료 확산 클래스 UNIX 운영 체제, 리누스 베나딕트 토바즈에 의해 처음 출시 된 커널 1991년 10월 5일, 주로 미니 엑스와 유닉스 아이디어에서 영감을, POSIX 기반 다중 사용자, 멀티 태스킹, 멀티 스레드 및 멀티 CPU 운영 체제. 주요 유닉스 도구 소프트웨어, 응용 프로그램 및 네트워크 프로토콜을 실행합니다. 32비트 및 64비트 하드웨어를 지원합니다. Linux는 유닉스의 네트워크 중심 설계 아이디어를 계승하며 안정적인 다중 사용자 네트워크 운영 체제입니다. Linux에는 커뮤니티 기반 Debian, archlinux, 상용 개발 기반 Red Hat Enterprise Linux, SUSE, Oracle Linux 등 수백 가지 배포판이 있습니다.
 
-Direct Rendering Manager는 최신 [비디오 카드의 ](https://en.wikipedia.org/wiki/Linux_kernel)GPU 연결을 담당하는 [Linux 커널](https://en.wikipedia.org/wiki/Video_cards)[의 하위 시스템입니다](https://en.wikipedia.org/wiki/Graphics_processing_unit). DRM은[](https://en.wikipedia.org/wiki/Application_programming_interface) [사용자 공간 ](https://en.wikipedia.org/wiki/User-space)프로그램이 GPU에 명령과 데이터를 보내고 디스플레이 모드 설정 구성과 같은 작업을 수행하는 데 사용할 수 있는 API를[ 노출합니다. ](https://en.wikipedia.org/wiki/Mode_setting)DRM은 원래 [X Server](https://en.wikipedia.org/wiki/X.Org_Server)[Direct Rendering Infrastructure](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)[[1\]](https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1)[의 커널 공간 ](https://en.wikipedia.org/wiki/Kernel-space)구성 요소로 개발되었지만, 그 이후로 다른 그래픽 스택 대안(예:[ Wayland )를](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)) 사용합니다. 
+Direct Rendering Manager는 최신 [비디오 카드의](https://en.wikipedia.org/wiki/Linux_kernel)GPU 연결을 담당하는 [Linux 커널](https://en.wikipedia.org/wiki/Video_cards)[의 하위 시스템입니다](https://en.wikipedia.org/wiki/Graphics_processing_unit). DRM은[](https://en.wikipedia.org/wiki/Application_programming_interface) [사용자 공간](https://en.wikipedia.org/wiki/User-space)프로그램이 GPU에 명령과 데이터를 보내고 디스플레이 모드 설정 구성과 같은 작업을 수행하는 데 사용할 수 있는 API를[노출합니다.](https://en.wikipedia.org/wiki/Mode_setting)DRM은 원래 [X Server](https://en.wikipedia.org/wiki/X.Org_Server)[Direct Rendering Infrastructure](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)[[1\]](https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1)[의 커널 공간](https://en.wikipedia.org/wiki/Kernel-space)구성 요소로 개발되었지만, 그 이후로 다른 그래픽 스택 대안(예:[Wayland )를](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)) 사용합니다.
 
-사용자 공간 프로그램은 DRM API 명령 GPU를 사용하여[ 하드웨어 가속](https://en.wikipedia.org/wiki/Hardware_acceleration) [3D 렌더링](https://en.wikipedia.org/wiki/3D_rendering) 및 [비디오 디코딩](https://en.wikipedia.org/wiki/Video_decoding)뿐만 아니라[ GPUPU 계산을](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units) 수행할 수 있습니다. 
+사용자 공간 프로그램은 DRM API 명령 GPU를 사용하여[하드웨어 가속](https://en.wikipedia.org/wiki/Hardware_acceleration) [3D 렌더링](https://en.wikipedia.org/wiki/3D_rendering) 및 [비디오 디코딩](https://en.wikipedia.org/wiki/Video_decoding)뿐만 아니라[GPUPU 계산을](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units) 수행할 수 있습니다.
 
 # 2 하드웨어 소개
 
@@ -67,7 +67,7 @@ Direct Rendering Manager는 최신 [비디오 카드의 ](https://en.wikipedia.o
 
 sdk를 다운로드하고 컴파일하면 sdk가 컴파일될 때 linux 코드가 다운로드되고 컴파일됩니다.
 
-sdk의 다운로드 및 컴파일 방법은[ K510_SDK_Build_and_Burn_Guide ](./K510_SDK_Build_and_Burn_Guide.md)참조하십시오. 
+sdk의 다운로드 및 컴파일 방법은[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md)참조하십시오.
 
 ## 2.2 파일 및 디렉토리를 구동합니다
 
@@ -994,6 +994,6 @@ static int draw_frame(struct vo_draw_frame *frame)
 ```
 
 **번역 면책 조항**  
-고객의 편의를 위해 Canan은 AI 번역 프로그램을 사용하여 오류를 포함할 수 있는 여러 언어로 텍스트를 번역합니다. 당사는 제공된 번역의 정확성, 신뢰성 또는 적시성을 보장하지 않습니다. Canan은 번역된 정보의 정확성이나 신뢰성에 의존하여 발생하는 손실이나 손해에 대해 책임을 지지 않습니다. 언어 번역 간에 콘텐츠 차이가 있는 경우 중국어 간체 버전이 우선합니다. 
+고객의 편의를 위해 Canan은 AI 번역 프로그램을 사용하여 오류를 포함할 수 있는 여러 언어로 텍스트를 번역합니다. 당사는 제공된 번역의 정확성, 신뢰성 또는 적시성을 보장하지 않습니다. Canan은 번역된 정보의 정확성이나 신뢰성에 의존하여 발생하는 손실이나 손해에 대해 책임을 지지 않습니다. 언어 번역 간에 콘텐츠 차이가 있는 경우 중국어 간체 버전이 우선합니다.
 
 번역 오류 또는 부정확한 문제를 신고하려면 이메일로 문의하시기 바랍니다.

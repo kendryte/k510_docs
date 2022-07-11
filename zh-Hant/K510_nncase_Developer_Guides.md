@@ -10,14 +10,14 @@
 
 <font face="黑体" size=3>**免責聲明**</font>
 您購買的產品、服務或特性等應受北京嘉楠捷思資訊技術有限公司（“本公司”，下同）商業合同和條款的約束，本文檔中描述的全部或部分產品、服務或特性可能不在您的購買或使用範圍之內。 除非合同另有約定，本公司不對本文檔的任何陳述、資訊、內容的準確性、可靠性、完整性、行銷型、特定目的性和非侵略性提供任何明示或默示的聲明或保證。 除非另有約定，本文檔僅作為使用指導的參考。
-由於產品版本升級或其他原因，本文檔內容將可能在未經任何通知的情況下，不定期進行更新或修改。 
+由於產品版本升級或其他原因，本文檔內容將可能在未經任何通知的情況下，不定期進行更新或修改。
 
 **<font face="黑体"  size=3>商標聲明</font>**
 
-“<img src="http://s2.loli.net/2022/03/30/xN21jbhnwSFyGRD.png" style="zoom:33%;" />”、“Canaan”圖示、嘉楠和嘉楠其他商標均為北京嘉楠捷思資訊技術有限公司的商標。 本文檔可能提及的其他所有商標或註冊商標，由各自的所有人擁有。 
+“<img src="http://s2.loli.net/2022/03/30/xN21jbhnwSFyGRD.png" style="zoom:33%;" />”、“Canaan”圖示、嘉楠和嘉楠其他商標均為北京嘉楠捷思資訊技術有限公司的商標。 本文檔可能提及的其他所有商標或註冊商標，由各自的所有人擁有。
 
 **<font face="黑体"  size=3>版權所有©2022北京嘉楠捷思資訊技術有限公司</font>**
-本文檔僅適用K510平台開發設計，非經本公司書面許可，任何單位和個人不得以任何形式對本文檔的部分或全部內容傳播。 
+本文檔僅適用K510平台開發設計，非經本公司書面許可，任何單位和個人不得以任何形式對本文檔的部分或全部內容傳播。
 
 **<font face="黑体"  size=3>北京嘉楠捷思資訊技術有限公司</font>**
 網址：canaan-creative.com
@@ -136,7 +136,7 @@ nncase支持的神經網路框架
 
 nnncase軟體棧目前包括compiler和runtime兩部分。
 
-**Compiler：** 用於在PC上編譯神經網路模型，最終生成kmodel檔。 主要包括importer， IR， Evaluator， Quantize， Transform優化， Tiling， Partition， Schedule， Codegen等模組。 
+**Compiler：** 用於在PC上編譯神經網路模型，最終生成kmodel檔。 主要包括importer， IR， Evaluator， Quantize， Transform優化， Tiling， Partition， Schedule， Codegen等模組。
 
 - Importer： 將其它神經網路框架的模型導入到nncase中
 - IR： 中間表示， 分為importer導入的Neutral IR（設備無關）和Neutral IR經lowering轉換生成的Target IR（設備相關）
@@ -469,14 +469,14 @@ py::class_<compile_options>(m, "CompileOptions")
 | benchmark_only   | 布爾   | 否       | 指定kmodel是否只用於benchmark， 預設為False                   |
 
 > 1. input range為浮點數的範圍，即如果輸入數據類型為uint8，則input range為反量化到浮點之後的範圍（可以不為0~1），可以自由指定.
-> 2. input_shape需要按照input_layout進行指定，以[1，224，224，3]為例，如果input_layout為NCHW，則input_shape需指定為[1,3,224,224]; input_layout為NHWC，則input_shape需指定為[1,224,224,3]; 
+> 2. input_shape需要按照input_layout進行指定，以[1，224，224，3]為例，如果input_layout為NCHW，則input_shape需指定為[1,3,224,224]; input_layout為NHWC，則input_shape需指定為[1,224,224,3];
 > 3. mean和std為浮點數進行normalize的參數，用戶可以自由指定;
 > 4. 使用letterbox功能時，需要限制輸入size在1.5MB內，單channel的size在0.75MB內;
 >
 > 例如：
 >
 > 1. 輸入數據類型設定為uint8，input_range設定為[0,255]，則反量化的作用只是進行類型轉化，將uint8的數據轉化為float32，mean和std參數仍然可以按照0~255的數據進行指定.
-> 2. 輸入數據類型設定為uint8，input_range設定為[0,1]，則會將定點數反量化為範圍為[0,1]的浮點數， mean 和std需要按照新的浮點數範圍進行指定。 
+> 2. 輸入數據類型設定為uint8，input_range設定為[0,1]，則會將定點數反量化為範圍為[0,1]的浮點數， mean 和std需要按照新的浮點數範圍進行指定。
 
 前處理流程如下（圖中綠色節點皆為可選）：
 
@@ -2701,7 +2701,7 @@ A： 升級 pip >= 20.3
 sudo pip3 install --upgrade pip
 ```
 
-**2.CRB運行App推理程式時， 報錯“std：：bad_alloc”**
+2.CRB運行App推理程式時， 報錯“std：：bad_alloc”**
 
 Q： CRB上運行App推理程式， 拋出“std：：bad_alloc”異常
 
@@ -2724,6 +2724,6 @@ Q： simulator運行App推理程式， 拋出“[..t_runtime_tensor.cpp：310 �
 A： 檢查設定的輸入tensor資訊， 重點是輸入shape和每個元素佔用的位元組數（fp32/uint8）
 
 **翻譯免責聲明**  
-為方便客戶，Canaan 使用 AI 翻譯程式將文字翻譯為多種語言，它可能包含錯誤。 我們不保證提供的譯文的準確性、可靠性或時效性。 對於因依賴已翻譯信息的準確性或可靠性而造成的任何損失或損害，Canaan 概不負責。 如果不同語言翻譯之間存在內容差異，以簡體中文版本為準。 
+為方便客戶，Canaan 使用 AI 翻譯程式將文字翻譯為多種語言，它可能包含錯誤。 我們不保證提供的譯文的準確性、可靠性或時效性。 對於因依賴已翻譯信息的準確性或可靠性而造成的任何損失或損害，Canaan 概不負責。 如果不同語言翻譯之間存在內容差異，以簡體中文版本為準。
 
 如果您要報告翻譯錯誤或不準確的問題，歡迎通過郵件與我們聯繫。
