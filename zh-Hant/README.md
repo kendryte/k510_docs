@@ -26,7 +26,7 @@ k510 相關文檔如下：
 
 ## 貢獻指南
 
-如果您對本專案感興趣，想要反饋問題或提交文檔，請參考[CONTRIBUTING](.github/CONTRIBUTING.md)
+如果您對本專案感興趣，想要反饋問題或提交文檔，請參考[CONTRIBUTING](/.github/CONTRIBUTING.md)
 
 ## 聯繫我們
 

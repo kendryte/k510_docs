@@ -143,7 +143,7 @@ make dl
 
 ## 4.2 Kompilacja
 
-K510_buildroot/config zawiera pliki konfiguracyjne kompilacji dla trzech płyt programistycznych, a mianowicie`k510_crb_lp3_v0_1_defconfig` , `k510_crb_lp3_v1_2_defconfig`i `k510_evb_lp3_v1_1_defconfig`, ten dokument jest zilustrowany przez wybranie k510_crb_lp3_v1_2_defconfig jako celu** kompilacji**.
+K510_buildroot/config zawiera pliki konfiguracyjne kompilacji dla trzech płyt programistycznych, a mianowicie`k510_crb_lp3_v0_1_defconfig` , `k510_crb_lp3_v1_2_defconfig`i `k510_evb_lp3_v1_1_defconfig`, ten dokument jest zilustrowany przez wybranie k510_crb_lp3_v1_2_defconfig jako celu**kompilacji**.
 
 W środowisku docker k510 wprowadź następujące polecenie, aby rozpocząć kompilację:
 

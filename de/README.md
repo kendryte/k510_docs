@@ -26,7 +26,7 @@ Die K510-bezogene Dokumentation lautet wie folgt:
 
 ## Leitfaden für Beiträge
 
-Wenn Sie an diesem Projekt interessiert sind und Feedback wünschen oder Unterlagen einreichen möchten, lesen Sie bitte KONSOLIDIERUNG[](.github/CONTRIBUTING.md)
+Wenn Sie an diesem Projekt interessiert sind und Feedback wünschen oder Unterlagen einreichen möchten, lesen Sie bitte KONSOLIDIERUNG[](/.github/CONTRIBUTING.md)
 
 ## Kontaktieren Sie uns
 

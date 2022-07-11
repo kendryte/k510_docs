@@ -452,7 +452,7 @@ py::class_<compile_options>(m, "CompileOptions")
 | スワップRB           | ブール   | いいえ       | RGB 入力データの赤と青の 2 つのチャネル (RGB - > BGR または BGR - > RGB) を交換するかどうかは、デフォルトで False です |
 | 意味する             | リスト   | いいえ       | 正規化されたパラメータ平均は、デフォルトで前処理されます[0, 0, 0]                        |
 | 標準              | リスト   | いいえ       | 正規化されたパラメータ分散を前処理します[デフォルト](1, 1, 1)                        |
-| input_range      | リスト   | いいえ       | 入力データの逆量子化後の対応する浮動小数点数の範囲。デフォルトは[0，1]               |
+| input_range      | リスト   | いいえ       | 入力データの逆量子化後の対応する浮動小数点数の範囲。デフォルトは[0, 1]               |
 | output_range     | リスト   | いいえ       | 固定小数点データを出力する前に浮動小数点数に対応する範囲で、デフォルトでは空です                     |
 | input_shape      | リスト   | いいえ       | 入力データのshapeを指定input_shape,input_shapeのlayoutはinput layoutと一致する必要があり,入力データのinput_shapeがモデルのinput shapeと一致しない場合にはletterbox操作(resize/padなど)を行う. |
 | letterbox_value  | 浮く  | いいえ       | 前処理の letterbox のパディング値を指定します                                  |

@@ -57,10 +57,6 @@ URL: canaan-creative.com
 
 現在、sdk で使用されている Linux のバージョンは 4.17.0 です。 Linux は、すべて GNU/Linux と呼ばれ、1991 年 10 月 5 日に Linas Bennadkte Tovaz によって最初にリリースされたカーネルを持つ、POSIX ベースのマルチユーザー、マルチタスク、マルチスレッドおよびマルチ CPU 対応のオペレーティング システムである Miniix と Unix の思想に触発された、自由に使用および配布できるクラス UNIX オペレーティング システムです。 主要な Unix ツール ソフトウェア、アプリケーション、およびネットワーク プロトコルを実行できます。 32 ビット ハードウェアと 64 ビット ハードウェアの両方をサポートします。 Linux は、Unix のネットワーク中心の設計思想を継承し、安定したパフォーマンスを持つマルチユーザー ネットワーク オペレーティング システムです。 Linux には、コミュニティベースの debian、archlinux、商用開発に基づく Red Hat Enterprise Linux、SUSE、Oracle Linux など、数百の異なるディストリビューションがあります。
 
-Direct Rendering Manager は [Linux カーネル](https://en.wikipedia.org/wiki/Linux_kernel)のサブシステムであり、最新の[ビデオカードとの](https://en.wikipedia.org/wiki/Video_cards)[GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit) 接続を担当しています。 DRM は[](https://en.wikipedia.org/wiki/Application_programming_interface)、[ユーザー空間](https://en.wikipedia.org/wiki/User-space)プログラムが GPU にコマンドとデータを送信し、ディスプレイ モード設定の構成などの操作を実行するために使用できる API[を公開します。](https://en.wikipedia.org/wiki/Mode_setting)DRM は、もともと[X Server](https://en.wikipedia.org/wiki/X.Org_Server)[Direct Rendering Infrastructure](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)[[1\]](https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1)[のカーネル空間](https://en.wikipedia.org/wiki/Kernel-space)コンポーネントとして開発されましたが、それ以来、他のグラフィックス スタックの代替手段 (例:[1](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol))) を使用します。
-
-ユーザー空間プログラムは、DRM API コマンド GPU を使用して、[ハードウェア アクセラレーション](https://en.wikipedia.org/wiki/Hardware_acceleration) [3D レンダリング](https://en.wikipedia.org/wiki/3D_rendering)と[ビデオ デコード](https://en.wikipedia.org/wiki/Video_decoding)、および [GPGPU 計算を実行できます](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units)。
-
 # 2 ハードウェアの概要
 
 ## 2.1 取得方法

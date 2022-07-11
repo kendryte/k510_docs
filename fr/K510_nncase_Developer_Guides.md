@@ -452,7 +452,7 @@ Chaque propriété est décrite ci-dessous
 | swapRB           | Bool   | non       | S'il faut échanger des données d'entrée RVB entre les canaux rouge et bleu (RVB - > BGR ou BGR->RGB), la valeur par défaut est False |
 | méchant             | liste   | non       | Le prétraitement normalise la moyenne des paramètres, qui est par défaut la suivante :[0, 0, 0]                        |
 | MST              | liste   | non       | Le prétraitement normalise la variance du paramètre, qui est définie par défaut sur[1, 1, 1]                        |
-| input_range      | liste   | non       | Plage de nombres à virgule flottante après déquantisation des données d'entrée, qui est par défaut la suivante :[0，1]               |
+| input_range      | liste   | non       | Plage de nombres à virgule flottante après déquantisation des données d'entrée, qui est par défaut la suivante :[0, 1]               |
 | output_range     | liste   | non       | Plage de nombres à virgule flottante avant la sortie des données à virgule fixe, qui est par défaut vide                     |
 | input_shape      | liste   | non       | Spécifiez la forme des données d'entrée, la disposition du input_shape doit être cohérente avec la disposition d'entrée, et la input_shape des données d'entrée est incompatible avec la forme d'entrée du modèle, et l'opération bitbox (redimensionnement/pad, etc.) sera effectuée. |
 | letterbox_value  | flotter  | non       | Spécifie la valeur de remplissage de la zone de prétraitement fetchbox                                  |

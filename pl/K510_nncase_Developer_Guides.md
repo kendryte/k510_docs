@@ -452,7 +452,7 @@ Każda właściwość jest opisana poniżej
 | swapRB           | Bool   | nie       | Niezależnie od tego, czy dane wejściowe RGB mają być wymieniane między kanałami czerwonym i niebieskim (RGB--> BGR lub BGR->RGB), domyślnie jest to False |
 | znaczyć             | lista   | nie       | Wstępne przetwarzanie normalizuje parametr mean, który domyślnie jest ustawiony na[0, 0, 0]                        |
 | Std              | lista   | nie       | Wstępne przetwarzanie normalizuje wariancję parametru, która domyślnie wynosi[1, 1, 1]                        |
-| input_range      | lista   | nie       | Zakres liczb zmiennoprzecinkowych po kwantyzacji danych wejściowych, który domyślnie wynosi[0，1]               |
+| input_range      | lista   | nie       | Zakres liczb zmiennoprzecinkowych po kwantyzacji danych wejściowych, który domyślnie wynosi[0, 1]               |
 | output_range     | lista   | nie       | Zakres liczb zmiennoprzecinkowych przed wyjściem danych stałoprzecinkowych, który domyślnie jest pusty                     |
 | input_shape      | lista   | nie       | Określ kształt danych wejściowych, układ input_shape musi być spójny z układem wejściowym, a input_shape danych wejściowych jest niespójna z kształtem wejściowym modelu, a operacja bitbox (zmiana rozmiaru / pad itp.) zostanie wykonana. |
 | letterbox_value  | spławik  | nie       | Określa wartość wypełnienia wstępnie przetwarzanego pola pobierania                                  |

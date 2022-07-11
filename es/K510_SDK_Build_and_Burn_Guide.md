@@ -143,7 +143,7 @@ make dl
 
 ## 4.2 Compilación
 
-K510_buildroot/config tiene archivos de configuración de compilación para tres placas de desarrollo, a saber,`k510_crb_lp3_v0_1_defconfig` , `k510_crb_lp3_v1_2_defconfig`y `k510_evb_lp3_v1_1_defconfig`, este documento se ilustra seleccionando k510_crb_lp3_v1_2_defconfig como destino** de compilación**.
+K510_buildroot/config tiene archivos de configuración de compilación para tres placas de desarrollo, a saber,`k510_crb_lp3_v0_1_defconfig` , `k510_crb_lp3_v1_2_defconfig`y `k510_evb_lp3_v1_1_defconfig`, este documento se ilustra seleccionando k510_crb_lp3_v1_2_defconfig como destino**de compilación**.
 
 En el entorno de docker k510, escriba el siguiente comando para comenzar a compilar:
 

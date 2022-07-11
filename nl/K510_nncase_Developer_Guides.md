@@ -452,7 +452,7 @@ Elke woning wordt hieronder beschreven
 | swapRB           | Bool   | niet       | Of u nu RGB-invoergegevens wilt uitwisselen tussen de rode en blauwe kanalen (RGB- > BGR of BGR->RGB), de standaardwaarde is False |
 | bedoelen             | lijst   | niet       | Voorbewerking normaliseert het parametergemiddelde, dat standaard wordt ingesteld op[0, 0, 0]                        |
 | Geslachtsziekte              | lijst   | niet       | Voorbewerking normaliseert de parametervariantie, die standaard is ingesteld op[1, 1, 1]                        |
-| input_range      | lijst   | niet       | Het bereik van getallen met drijvende komma na dequantisatie van de invoergegevens, dat standaard is ingesteld op[0，1]               |
+| input_range      | lijst   | niet       | Het bereik van getallen met drijvende komma na dequantisatie van de invoergegevens, dat standaard is ingesteld op[0, 1]               |
 | output_range     | lijst   | niet       | Het bereik van getallen met drijvende komma voordat de gegevens met vast punt worden uitgevoerd, dat standaard leeg is                     |
 | input_shape      | lijst   | niet       | Geef de vorm van de invoergegevens op, de lay-out van de input_shape moet consistent zijn met de invoerlay-out en de input_shape van de invoergegevens is inconsistent met de invoervorm van het model en de bitboxbewerking (formaat wijzigen /pad, enz.) wordt uitgevoerd. |
 | letterbox_value  | drijven  | niet       | Hiermee geeft u de opvulwaarde op van het fetchbox voorbewerking                                  |

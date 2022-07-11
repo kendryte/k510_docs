@@ -151,17 +151,17 @@ QOS_CTRL2.isp3dtof записать QoS = 0xf
 QOS_CTRL3.display чтение QoS = 0xf
 QOS_CTRL3.display записать QoS = 0xf
 
-Смещение регистра управления QOS 0[QOS_CTRL0](0x00f4)
- ![Qos CTRL0](../zh/images/sdk_application/demo_nncase_qos_ctrl0.png)
+Смещение регистра управления QOS 0 (QOS_CTRL0) [0x00f4]
+![Qos CTRL0](../zh/images/sdk_application/demo_nncase_qos_ctrl0.png)
 
-Смещение регистра управления QOS 1 [QOS_CTRL1](0x00f8)
- ![QOS CTRL1](../zh/images/sdk_application/demo_nncase_qos_ctrl1.png)
+Смещение регистра управления QOS 1 (QOS_CTRL1) [0x00f8]
+![QOS CTRL1](../zh/images/sdk_application/demo_nncase_qos_ctrl1.png)
 
-Смещение регистра управления QOS 2 [QOS_CTRL2](0x00fc)
- ![QOS CTRL2](../zh/images/sdk_application/demo_nncase_qos_ctrl2.png)
+Смещение регистра управления QOS 2 (QOS_CTRL2) [0x00fc]
+![QOS CTRL2](../zh/images/sdk_application/demo_nncase_qos_ctrl2.png)
 
-Смещение регистра управления QOS 3 [QOS_CTRL3](0x0100)
- ![QOS CTRL3](../zh/images/sdk_application/demo_nncase_qos_ctrl3.png)
+Смещение регистра управления QOS 3 (QOS_CTRL3) [0x0100]
+![QOS CTRL3](../zh/images/sdk_application/demo_nncase_qos_ctrl3.png)
 
 Компиляция и установка модели подробно описаны в файле package/ai/ai.mk:
 
