@@ -1,4 +1,4 @@
-![](images/canaan-cover.png)
+![](../zh/images/canaan-cover.png)
 
 **<font face="黑体" size="6" style="float:right">K510 DSP CORE Guide</font>**
 
@@ -14,7 +14,7 @@
 
 **<font face="黑体"  size=3>商标声明</font>**
 
-“<img src="images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
+“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
 
 **<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
 本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
@@ -58,7 +58,7 @@
 
 K510芯片中一共有三个处理器，其中CPU Dual cores运行Linux，DSP核空闲留待用户开发使用，本文档提供了DSP核作为协处理器运行裸机程序的参考例程。
 
-![](images/doc_dsp/image-dsp_1.png)
+![](../zh/images/doc_dsp/image-dsp_1.png)
 
 <center> 图1 k510框图 </center>
 
@@ -90,7 +90,7 @@ dsp_app_new编译后的可执行程序将存放在根文件系统/app/dsp_app_ne
 
 开机后，dsp_log默认将在后台执行，其配置文件在：k510_buildroot/board/canaan/k510/k510_rootfs_skeleton/etc/init.d/rc.sysinit
 
-![](images/doc_dsp/image-dsp_log.png)
+![](../zh/images/doc_dsp/image-dsp_log.png)
 
 # 3 DSP 裸机Demo
 
@@ -113,7 +113,7 @@ cd /app/dsp_app_new
 
 可以看到如下打印：
 
-![DSP Demo](images/doc_dsp/demo_dsp.png)
+![DSP Demo](../zh/images/doc_dsp/demo_dsp.png)
 
 现在dsp上运行的firmware是fft的demo程序。
 
@@ -366,3 +366,8 @@ task 0 is disabled
 exit: task0 is disabled
 cpu2dsp_task_demo: exit successful
 ```
+
+**翻译免责声明**  
+为方便客户，Canaan 使用 AI 翻译程序将文本翻译为多种语言，它可能包含错误。我们不保证提供的译文的准确性、可靠性或时效性。对于因依赖已翻译信息的准确性或可靠性而造成的任何损失或损害，Canaan 概不负责。如果不同语言翻译之间存在内容差异，以简体中文版本为准。
+
+如果您要报告翻译错误或不准确的问题，欢迎通过邮件与我们联系。

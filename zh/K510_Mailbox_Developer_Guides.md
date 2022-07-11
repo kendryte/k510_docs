@@ -1,4 +1,4 @@
-![](images/canaan-cover.png)
+![](../zh/images/canaan-cover.png)
 
 **<font face="黑体" size="6" style="float:right">K510 Mailbox Developer's Guide</font>**
 
@@ -14,7 +14,7 @@
 
 **<font face="黑体"  size=3>商标声明</font>**
 
-“<img src="images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
+“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
 
 **<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
 本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
@@ -65,14 +65,14 @@
 &emsp;&emsp;下图是两个驱动注册的基本框架：  
 
 <div align=center>
-<img src="images/mailbox/130101_frame_00.svg" width="1400">
+<img src="../zh/images/mailbox/130101_frame_00.svg" width="1400">
 </div>  
 
 ## 1.2 数据结构
 
 &emsp;&emsp;controller 与 client 的数据结构如下图所示：
 <div align=center>
-<img src="images/mailbox/130102_data_structure.svg" width="1400">
+<img src="../zh/images/mailbox/130102_data_structure.svg" width="1400">
 </div>
 
 &emsp;&emsp;框架中使用`struct mbox_controller`抽象 mailbox 控制器，使用`struct mbox_chan`抽象通道，使用函数集合`struct mbox_chan_ops`来对通道进行操作。上面三个数据结构是针对 controller 的。框架使用`struct mbox_client`抽象客户端，是针对 client 的。  
@@ -82,7 +82,7 @@
 
 &emsp;&emsp;函数调用流程如下图所示：
 <div align=center>
-<img src="images/mailbox/130103_frame_callback.svg" width="1400">
+<img src="../zh/images/mailbox/130103_frame_callback.svg" width="1400">
 </div>  
 
 &emsp;&emsp;用户空间与 client 驱动的数据传递使用 ioctl 加异步通知的方式，这一部分内容由驱动开发者自己决定，不属于框架的内容。  
@@ -248,7 +248,7 @@ static int add_to_rbuf(struct mbox_chan *chan, void *mssg)
 
 &emsp;&emsp;该函数逻辑如下：  
 <div align=center>
-<img src="images/mailbox/130203_add_to_rbuf.svg" width="500">
+<img src="../zh/images/mailbox/130203_add_to_rbuf.svg" width="500">
 </div>
 
 ### 2.3.2msg_submit
@@ -277,7 +277,7 @@ static void msg_submit(struct mbox_chan *chan)
 
 &emsp;&emsp;该函数逻辑如下：  
 <div align=center>
-<img src="images/mailbox/130203_msg_submit.svg" width="450">
+<img src="../zh/images/mailbox/130203_msg_submit.svg" width="450">
 </div>  
 
 ### 2.3.3 tx_tick
@@ -359,7 +359,7 @@ mbox_send_message(struct mbox_chan *chan, void *mssg)
 
 &emsp;&emsp;该函数逻辑如下：  
 <div align=center>
-<img src="images/mailbox/130203_mbox_send_message.svg" width="700">
+<img src="../zh/images/mailbox/130203_mbox_send_message.svg" width="700">
 </div>  
 
 ### 2.3.8 mbox_request_channel
@@ -438,7 +438,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 &emsp;&emsp;后面是对通道信息的初始化，包括缓存计数的清零，chan 的 cl 和客户端申请 channel 的 client 绑定，tx_complete 的初始化等。  
 &emsp;&emsp;该函数逻辑如下：  
 <div align=center>
-<img src="images/mailbox/130203_mbox_request_channel.svg" width="500">
+<img src="../zh/images/mailbox/130203_mbox_request_channel.svg" width="500">
 </div>
 
 ### 2.3.9 mbox_request_channel_byname
@@ -547,13 +547,13 @@ static struct mbox_chan *canaan_mailbox_xlate(struct mbox_controller *controller
 
 1. 加载 dsp 裸机程序
 进入目录`/app/dsp_app_new`，执行命令`./dsp_app mailbox_demo.bin`将裸机程序加载到 dsp 中，如下图所示：  
-![dsp_load](./images/mailbox/130601_dsp_load.png)  
+![dsp_load](../zh/images/mailbox/130601_dsp_load.png)  
 2. 运行 Linux 用户空间的测试 app
 进入目录`/app/mailbox_demo`，执行命令`./mailbox_async`，如下图所示：  
-![mailbox_demo](images/mailbox/130602_mailbox_async.png)  
+![mailbox_demo](../zh/images/mailbox/130602_mailbox_async.png)  
 此 demo 使用异步通知的方式接收 dsp 发送来的数据。
 3. 在目录`/app/mailbox_demo`中，执行命令`./mailbox_poll`，如下图所示：  
-![mailbox_demo](images/mailbox/130602_mailbox_poll.png)
+![mailbox_demo](../zh/images/mailbox/130602_mailbox_poll.png)
 此 demo 使用 poll 阻塞 500ms 的方式接收 dsp 发送来的数据。我们每隔 4s 发送一次数据，每 2s 读一次数据，因此可以看到每隔 2s，读取成功与读取失败交错打印，阻塞读取是成功的。
 
 ## 5.2 测试代码
@@ -563,3 +563,8 @@ static struct mbox_chan *canaan_mailbox_xlate(struct mbox_controller *controller
 # 6 已知问题
 
 &emsp;&emsp;偶尔会出现第一次执行命令`./dsp_app mailbox_demo.bin`时没有将 dsp 程序烧进 dsp 中的情况出现。此时执行 demo 会出现发送失败的情况。
+
+**翻译免责声明**  
+为方便客户，Canaan 使用 AI 翻译程序将文本翻译为多种语言，它可能包含错误。我们不保证提供的译文的准确性、可靠性或时效性。对于因依赖已翻译信息的准确性或可靠性而造成的任何损失或损害，Canaan 概不负责。如果不同语言翻译之间存在内容差异，以简体中文版本为准。
+
+如果您要报告翻译错误或不准确的问题，欢迎通过邮件与我们联系。

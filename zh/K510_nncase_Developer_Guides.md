@@ -452,7 +452,7 @@ py::class_<compile_options>(m, "CompileOptions")
 | swapRB           | bool   | 否       | 是否交换RGB输入数据的红和蓝两个通道(RGB-->BGR或者BGR-->RGB)，默认为False |
 | mean             | list   | 否       | 前处理标准化参数均值，默认为[0, 0, 0]                        |
 | std              | list   | 否       | 前处理标准化参数方差，默认为[1, 1, 1]                        |
-| input_range      | list   | 否       | 输入数据反量化后对应浮点数的范围，默认为[0，1]               |
+| input_range      | list   | 否       | 输入数据反量化后对应浮点数的范围，默认为[0, 1]               |
 | output_range     | list   | 否       | 输出定点数据前对应浮点数的范围，默认为空                     |
 | input_shape      | list   | 否       | 指定输入数据的shape，input_shape的layout需要与input layout保持一致，输入数据的input_shape与模型的input shape不一致时会进行letterbox操作(resize/pad等) |
 | letterbox_value  | float  | 否       | 指定前处理letterbox的填充值                                  |
@@ -2722,3 +2722,8 @@ A: std::bad_alloc异常通常是因为内存分配失败导致的, 可做如下�
 Q: simulator运行App推理程序, 抛出"[..t_runtime_tensor.cpp:310 (create)] data.size_bytes() == size = false (bool)"异常
 
 A: 检查设置的输入tensor信息,  重点是输入shape和每个元素占用的字节数(fp32/uint8)
+
+**翻译免责声明**  
+为方便客户，Canaan 使用 AI 翻译程序将文本翻译为多种语言，它可能包含错误。我们不保证提供的译文的准确性、可靠性或时效性。对于因依赖已翻译信息的准确性或可靠性而造成的任何损失或损害，Canaan 概不负责。如果不同语言翻译之间存在内容差异，以简体中文版本为准。
+
+如果您要报告翻译错误或不准确的问题，欢迎通过邮件与我们联系。

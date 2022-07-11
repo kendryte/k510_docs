@@ -1,4 +1,4 @@
-![](images/canaan-cover.png)
+![](../zh/images/canaan-cover.png)
 
 **<font face="黑体" size="6" style="float:right">K510 多媒体开发指南</font>**
 
@@ -14,7 +14,7 @@
 
 **<font face="黑体"  size=3>商标声明</font>**
 
-“<img src="images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
+“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
 
 **<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
 本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
@@ -496,7 +496,7 @@ Enc_ERR = 1
 # 2.1 硬件结构图
 
 K510的硬件框图如下：
-![hardware_block_diagram](images/multimedia_guides/hardware_block_diagram.png)
+![hardware_block_diagram](../zh/images/multimedia_guides/hardware_block_diagram.png)
 
 从video sensor接收到的数据，经MIPI DPHY、CSI、VI、ISP处理得到yuv源数据，并存储到DDR中。h264 encoder模块从DDR读取数据，进行编码运算，运算结果存储到DDR中。
 
@@ -504,7 +504,7 @@ K510的硬件框图如下：
 
 多媒体开发平台的软件架构如下：
 
-![multimedia_block_diagram.png](images/multimedia_guides/multimedia_block_diagram.png)
+![multimedia_block_diagram.png](../zh/images/multimedia_guides/multimedia_block_diagram.png)
 
 其中，
 
@@ -737,11 +737,11 @@ ffmpeg -h filter=audio3a #查看audio3a的配置参数
 
 ffmpeg的逻辑框如下：
 
-![ffmpeg_block_diagram](images/multimedia_guides/ffmpeg_block_diagram.png)
+![ffmpeg_block_diagram](../zh/images/multimedia_guides/ffmpeg_block_diagram.png)
 
 audio3a用于将接收到的音频进行3a运算并输出，其逻辑框图如下：
 
-![ffmpeg_canaan_audio3a](images/multimedia_guides/ffmpeg_canaan_audio3a.png)
+![ffmpeg_canaan_audio3a](../zh/images/multimedia_guides/ffmpeg_canaan_audio3a.png)
 
 ### 3.2.1 程序运行说明
 
@@ -1114,3 +1114,8 @@ sed -i "s/\/dl\/ffmpeg_canaan\/ffmpeg-4.4//g" ../../package/ffmpeg_canaan/xxx.pa
     --enalbe-audio3a \
     --enable-indev=v4l2 \
 ```
+
+**翻译免责声明**  
+为方便客户，Canaan 使用 AI 翻译程序将文本翻译为多种语言，它可能包含错误。我们不保证提供的译文的准确性、可靠性或时效性。对于因依赖已翻译信息的准确性或可靠性而造成的任何损失或损害，Canaan 概不负责。如果不同语言翻译之间存在内容差异，以简体中文版本为准。
+
+如果您要报告翻译错误或不准确的问题，欢迎通过邮件与我们联系。

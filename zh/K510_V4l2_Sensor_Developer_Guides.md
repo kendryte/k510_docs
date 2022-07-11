@@ -1,4 +1,4 @@
-![](images\canaan-cover.png)
+![](../zh/images/canaan-cover.png)
 
 **<font face="黑体" size="6" style="float:right">K510 V4L2 Sensor Developer's Guide</font>**
 
@@ -14,7 +14,7 @@
 
 **<font face="黑体"  size=3>商标声明</font>**
 
-“<img src="images\canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
+“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
 
 **<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
 本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
@@ -1311,3 +1311,8 @@ video_width[4]:返回的每个video的宽度。
 video_height[4]:返回的每个video的高度。
 video_out_format[4]:返回的每个video的输出图像格式，具体见《video的配置文件》的解释。
 ```
+
+**翻译免责声明**  
+为方便客户，Canaan 使用 AI 翻译程序将文本翻译为多种语言，它可能包含错误。我们不保证提供的译文的准确性、可靠性或时效性。对于因依赖已翻译信息的准确性或可靠性而造成的任何损失或损害，Canaan 概不负责。如果不同语言翻译之间存在内容差异，以简体中文版本为准。
+
+如果您要报告翻译错误或不准确的问题，欢迎通过邮件与我们联系。

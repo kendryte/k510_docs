@@ -1,4 +1,4 @@
-![](images/canaan-cover.png)
+![](../zh/images/canaan-cover.png)
 
 **<font face="黑体" size="6" style="float:right">K510 Direct Rendering Manager开发指南</font>**
 
@@ -14,7 +14,7 @@
 
 **<font face="黑体"  size=3>商标声明</font>**
 
-“<img src="images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
+“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
 
 **<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
 本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
@@ -56,10 +56,6 @@
 # 1简介
 
 目前sdk使用的linux版本是4.17.0。Linux，全称GNU/Linux，是一种免费使用和自由传播的类UNIX操作系统，其内核由林纳斯·本纳第克特·托瓦兹于1991年10月5日首次发布，它主要受到Minix和Unix思想的启发，是一个基于POSIX的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的Unix工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。Linux有上百种不同的发行版，如基于社区开发的debian、archlinux，和基于商业开发的Red Hat Enterprise Linux、SUSE、Oracle Linux等。
-
-Direct Rendering Manager是[Linux 内核](https://en.wikipedia.org/wiki/Linux_kernel)的一个子系统，负责与现代[视频卡的](https://en.wikipedia.org/wiki/Video_cards)[GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit)连接。DRM 公开了一个[API](https://en.wikipedia.org/wiki/Application_programming_interface)，[用户空间](https://en.wikipedia.org/wiki/User-space)程序可以使用该 API 向 GPU 发送命令和数据，并执行诸如配置显示器[模式设置等操作。](https://en.wikipedia.org/wiki/Mode_setting)DRM 最初是作为[X Server](https://en.wikipedia.org/wiki/X.Org_Server)[Direct Rendering Infrastructure](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)[[1\]](https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1)[的内核空间](https://en.wikipedia.org/wiki/Kernel-space)组件开发的，但从那时起它已被其他图形堆栈替代方案（如[Wayland](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)) ）使用。
-
-用户空间程序可以使用 DRM API 命令 GPU 进行[硬件加速](https://en.wikipedia.org/wiki/Hardware_acceleration) [3D 渲染](https://en.wikipedia.org/wiki/3D_rendering)和[视频解码](https://en.wikipedia.org/wiki/Video_decoding)，以及[GPGPU 计算](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units)。
 
 # 2硬件介绍
 
@@ -994,3 +990,8 @@ static int draw_frame(struct vo_draw_frame *frame)
     return drmIoctl(drm_dev.fd, DRM_IOCTL_KENDRYTE_DRAW_FRAME, frame);
 }
 ```
+
+**翻译免责声明**  
+为方便客户，Canaan 使用 AI 翻译程序将文本翻译为多种语言，它可能包含错误。我们不保证提供的译文的准确性、可靠性或时效性。对于因依赖已翻译信息的准确性或可靠性而造成的任何损失或损害，Canaan 概不负责。如果不同语言翻译之间存在内容差异，以简体中文版本为准。
+
+如果您要报告翻译错误或不准确的问题，欢迎通过邮件与我们联系。
