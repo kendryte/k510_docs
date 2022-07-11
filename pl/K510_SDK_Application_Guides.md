@@ -151,17 +151,17 @@ QOS_CTRL2.isp3dtof zapisz QoS = 0xf
 QOS_CTRL3.display odczyt QoS = 0xf
 QOS_CTRL3.display zapisz QoS = 0xf
 
-Przesunięcie rejestru sterowania QOS 0[QOS_CTRL0](0x00f4)
- ![qos ctrl0](../zh/images/sdk_application/demo_nncase_qos_ctrl0.png)
+Przesunięcie rejestru sterowania QOS 0 (QOS_CTRL0) [0x00f4]
+![qos ctrl0](../zh/images/sdk_application/demo_nncase_qos_ctrl0.png)
 
-Przesunięcie
- [0x00f8]rejestru sterowania QOS 1 (QOS_CTRL1)![ qos ctrl1](../zh/images/sdk_application/demo_nncase_qos_ctrl1.png)
+Przesunięcie rejestru sterowania QOS 1 (QOS_CTRL1) [0x00f8]
+![qos ctrl1](../zh/images/sdk_application/demo_nncase_qos_ctrl1.png)
 
-Przesunięcie
- [0x00fc]rejestru sterowania QOS 2 (QOS_CTRL2)![ qos ctrl2](../zh/images/sdk_application/demo_nncase_qos_ctrl2.png)
+Przesunięcie rejestru sterowania QOS 2 (QOS_CTRL2) [0x00fc]
+![qos ctrl2](../zh/images/sdk_application/demo_nncase_qos_ctrl2.png)
 
-Przesunięcie
- [0x0100]rejestru sterowania QOS 3 (QOS_CTRL3)![ qos ctrl3](../zh/images/sdk_application/demo_nncase_qos_ctrl3.png)
+Przesunięcie rejestru sterowania QOS 3 (QOS_CTRL3) [0x0100]
+![qos ctrl3](../zh/images/sdk_application/demo_nncase_qos_ctrl3.png)
 
 Kompilacja i instalacja modelu jest szczegółowo opisana w pliku package/ai/ai.mk:
 

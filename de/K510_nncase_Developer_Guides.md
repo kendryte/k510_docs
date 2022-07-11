@@ -452,7 +452,7 @@ Jede Eigenschaft wird im Folgenden beschrieben
 | swapRB           | Bool   | nicht       | Unabhängig davon, ob RGB-Eingangsdaten zwischen den roten und blauen Kanälen (RGB--> BGR oder BGR->RGB) ausgetauscht werden sollen, ist der Standardwert False |
 | bedeuten             | Liste   | nicht       | Die Vorverarbeitung normalisiert den Parametermittelwert, der standardmäßig auf[0, 0, 0]                        |
 | std              | Liste   | nicht       | Die Vorverarbeitung normalisiert die Parametervarianz, die standardmäßig auf[1, 1, 1]                        |
-| input_range      | Liste   | nicht       | Der Bereich der Gleitkommazahlen nach der Dequantisierung der Eingabedaten, der standardmäßig auf[0，1]               |
+| input_range      | Liste   | nicht       | Der Bereich der Gleitkommazahlen nach der Dequantisierung der Eingabedaten, der standardmäßig auf[0, 1]               |
 | output_range     | Liste   | nicht       | Der Bereich der Gleitkommazahlen vor der Ausgabe der Festkommadaten, der standardmäßig leer ist                     |
 | input_shape      | Liste   | nicht       | Geben Sie die Form der Eingabedaten an, das Layout der input_shape muss mit dem Eingabelayout konsistent sein, und die input_shape der Eingabedaten ist nicht konsistent mit der Eingabeform des Modells, und der Bitbox-Vorgang (Größenänderung/Pad usw.) wird ausgeführt. |
 | letterbox_value  | schweben  | nicht       | Gibt den Auffüllungswert der vorverarbeiteten Abrufbox an.                                  |

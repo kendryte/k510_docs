@@ -452,7 +452,7 @@ py::class_<compile_options>(m, "CompileOptions")
 | 交換RB           | 布爾   | 否       | 是否交換RGB輸入數據的紅和藍兩個通道（RGB-->BGR或者BGR-->RGB），預設為False |
 | 意味著             | 清單   | 否       | 前處理標準化參數均值，預設為[0, 0, 0]                        |
 | 性病              | 清單   | 否       | 前處理標準化參數方差，預設為[1, 1, 1]                        |
-| input_range      | 清單   | 否       | 輸入數據反量化后對應浮點數的範圍，預設為[0，1]               |
+| input_range      | 清單   | 否       | 輸入數據反量化后對應浮點數的範圍，預設為[0, 1]               |
 | output_range     | 清單   | 否       | 輸出定點數據前對應浮點數的範圍，預設為空                     |
 | input_shape      | 清單   | 否       | 指定輸入數據的shape，input_shape的layout需要與input layout保持一致，輸入數據的input_shape與模型的input shape不一致時會進行letterbox操作（resize/pad等） |
 | letterbox_value  | 浮  | 否       | 指定前處理letterbox的填充值                                  |

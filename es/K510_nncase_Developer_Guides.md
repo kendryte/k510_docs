@@ -452,7 +452,7 @@ Cada propiedad se describe a continuación
 | swapRB           | Bool   | no       | Ya sea para intercambiar datos de entrada RGB entre los canales rojo y azul (RGB--> BGR o BGR->RGB), el valor predeterminado es False |
 | significar             | lista   | no       | El preprocesamiento normaliza la media del parámetro, que de forma predeterminada es[0, 0, 0]                        |
 | ETS              | lista   | no       | El preprocesamiento normaliza la varianza de parámetros, que de forma predeterminada es[1, 1, 1]                        |
-| input_range      | lista   | no       | El rango de números de coma flotante después de la descuantización de los datos de entrada, que por defecto es[0，1]               |
+| input_range      | lista   | no       | El rango de números de coma flotante después de la descuantización de los datos de entrada, que por defecto es[0, 1]               |
 | output_range     | lista   | no       | El rango de números de coma flotante antes de que se generen los datos de punto fijo, que de forma predeterminada es en blanco                     |
 | input_shape      | lista   | no       | Especifique la forma de los datos de entrada, el diseño del input_shape debe ser coherente con el diseño de entrada, y la input_shape de los datos de entrada es inconsistente con la forma de entrada del modelo, y se realizará la operación de caja de bits (cambio de tamaño / pad, etc.). |
 | letterbox_value  | flotar  | no       | Especifica el valor de relleno del fetchbox de preprocesamiento                                  |

@@ -26,7 +26,7 @@ K510 gerelateerde documentatie is als volgt:
 
 ## Bijdrage gids
 
-Als u geïnteresseerd bent in dit project en feedback wilt of documentatie wilt indienen, raadpleegt u[CONSOLIDEREN](.github/CONTRIBUTING.md)
+Als u geïnteresseerd bent in dit project en feedback wilt of documentatie wilt indienen, raadpleegt u[CONSOLIDEREN](/.github/CONTRIBUTING.md)
 
 ## Neem contact met ons op
 

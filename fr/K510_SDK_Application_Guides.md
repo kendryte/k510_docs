@@ -151,17 +151,17 @@ QOS_CTRL2.isp3dtof écrire QoS = 0xf
 QOS_CTRL3.display lire QoS = 0xf
 QOS_CTRL3.display écrire QoS = 0xf
 
-Décalage 0[QOS_CTRL0](0x00f4)
- du registre de contrôle QOS ![qos ctrl0](../zh/images/sdk_application/demo_nncase_qos_ctrl0.png)
+Décalage du registre de contrôle QOS0 (QOS_CTRL0) [0x00f4]
+![qos ctrl0](../zh/images/sdk_application/demo_nncase_qos_ctrl0.png)
 
-Décalage
- [0x00f8]du registre de contrôle QOS 1 (QOS_CTRL1)![ qos ctrl1](../zh/images/sdk_application/demo_nncase_qos_ctrl1.png)
+Décalage du registre de contrôle QOS1 (QOS_CTRL1) [0x00f8]
+![qos ctrl1](../zh/images/sdk_application/demo_nncase_qos_ctrl1.png)
 
-Décalage
- [0x00fc]du registre de contrôle QOS 2 (QOS_CTRL2)![ qos ctrl2](../zh/images/sdk_application/demo_nncase_qos_ctrl2.png)
+Décalage du registre de contrôle QOS2 (QOS_CTRL2) [0x00fc]
+![qos ctrl2](../zh/images/sdk_application/demo_nncase_qos_ctrl2.png)
 
-Décalage
- [0x0100]du registre de contrôle QOS 3 (QOS_CTRL3)![ qos ctrl3](../zh/images/sdk_application/demo_nncase_qos_ctrl3.png)
+Décalage du registre de contrôle QOS3 (QOS_CTRL3) [0x0100]
+![qos ctrl3](../zh/images/sdk_application/demo_nncase_qos_ctrl3.png)
 
 La compilation et l'installation du modèle sont détaillées dans le paquet de fichiers/ai/ai.mk :
 

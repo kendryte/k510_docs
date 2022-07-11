@@ -452,7 +452,7 @@ Each property is described below
 | swapRB           | bool   | not       | Whether to exchange RGB input data between the red and blue channels (RGB--> BGR or BGR->RGB), the default is False |
 | mean             | list   | not       | Preprocessing normalizes the parameter mean, which defaults to[0, 0, 0]                        |
 | Std              | list   | not       | Preprocessing normalizes the parameter variance, which defaults to [1, 1, 1]                        |
-| input_range      | list   | not       | The range of floating-point numbers after dequantization of the input data, which defaults to[0，1]               |
+| input_range      | list   | not       | The range of floating-point numbers after dequantization of the input data, which defaults to[0, 1]               |
 | output_range     | list   | not       | The range of floating-point numbers before the fixed-point data is output, which defaults to blank                     |
 | input_shape      | list   | not       | Specify the shape of the input data, the layout of the input_shape needs to be consistent with the input layout, and the input_shape of the input data is inconsistent with the input shape of the model, and the bitbox operation (resize/pad, etc.) will be performed. |
 | letterbox_value  | float  | not       | Specifies the padding value of the pre-processing fetchbox                                  |

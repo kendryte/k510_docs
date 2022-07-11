@@ -452,7 +452,7 @@ Ogni proprietà è descritta di seguito
 | swapRB           | Bool   | non       | Se scambiare dati di input RGB tra i canali rosso e blu (RGB--> BGR o BGR->RGB), l'impostazione predefinita è False |
 | Significare             | lista   | non       | La pre-elaborazione normalizza la media del parametro, che per impostazione predefinita è[0, 0, 0]                        |
 | Std              | lista   | non       | La pre-elaborazione normalizza la varianza dei parametri, che per impostazione predefinita è[1, 1, 1]                        |
-| input_range      | lista   | non       | Intervallo di numeri a virgola mobile dopo la dequantizzazione dei dati di input, che per impostazione predefinita è[0，1]               |
+| input_range      | lista   | non       | Intervallo di numeri a virgola mobile dopo la dequantizzazione dei dati di input, che per impostazione predefinita è[0, 1]               |
 | output_range     | lista   | non       | Intervallo di numeri a virgola mobile prima dell'output dei dati a virgola fissa, che per impostazione predefinita è vuoto                     |
 | input_shape      | lista   | non       | Specificare la forma dei dati di input, il layout del input_shape deve essere coerente con il layout di input e la input_shape dei dati di input è incoerente con la forma di input del modello e verrà eseguita l'operazione bitbox (ridimensionamento/pad, ecc.). |
 | letterbox_value  | galleggiare  | non       | Specifica il valore di riempimento della fetchbox di pre-elaborazione                                  |

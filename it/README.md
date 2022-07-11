@@ -26,7 +26,7 @@ La documentazione relativa a K510 è la seguente:
 
 ## Guida ai contributi
 
-Se sei interessato a questo progetto e desideri un feedback o inviare documentazione, fai riferimento a[CONSOLIDATING](.github/CONTRIBUTING.md)
+Se sei interessato a questo progetto e desideri un feedback o inviare documentazione, fai riferimento a[CONSOLIDATING](/.github/CONTRIBUTING.md)
 
 ## Contattaci
 

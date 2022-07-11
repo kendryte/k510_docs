@@ -151,17 +151,17 @@ QOS_CTRL2.isp3dtof write QoS = 0xf
 QOS_CTRL3.display leggi QoS = 0xf
 QOS_CTRL3.display write QoS = 0xf
 
-Registro di controllo QOS 0(QOS_CTRL0) offset[0x00f4]
- ![QOS CTRL0](../zh/images/sdk_application/demo_nncase_qos_ctrl0.png)
+Offset del registro di controllo QOS0 (QOS_CTRL0) [0x00f4]
+![QOS CTRL0](../zh/images/sdk_application/demo_nncase_qos_ctrl0.png)
 
-Offset del registro di controllo QOS 1 [QOS_CTRL1](0x00f8)
- ![QOS CTRL1](../zh/images/sdk_application/demo_nncase_qos_ctrl1.png)
+Offset del registro di controllo QOS1 (QOS_CTRL1) [0x00f8]
+![QOS CTRL1](../zh/images/sdk_application/demo_nncase_qos_ctrl1.png)
 
-Offset del registro di controllo QOS 2 [QOS_CTRL2](0x00fc)
- ![QOS CTRL2](../zh/images/sdk_application/demo_nncase_qos_ctrl2.png)
+Offset del registro di controllo QOS2 (QOS_CTRL2) [0x00fc]
+![QOS CTRL2](../zh/images/sdk_application/demo_nncase_qos_ctrl2.png)
 
-Offset del registro di controllo QOS 3 [QOS_CTRL3](0x0100)
- ![QOS CTRL3](../zh/images/sdk_application/demo_nncase_qos_ctrl3.png)
+Offset del registro di controllo QOS3 (QOS_CTRL3) [0x0100]
+![QOS CTRL3](../zh/images/sdk_application/demo_nncase_qos_ctrl3.png)
 
 La compilazione e l'installazione del modello è dettagliata nel pacchetto di file/ai/ai.mk:
 

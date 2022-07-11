@@ -57,10 +57,6 @@
 
 현재 sdk에서 사용하는 Linux 버전은 4.17.0입니다. Linux, 전체 이름 GNU/Linux, 무료 사용 및 무료 확산 클래스 UNIX 운영 체제, 리누스 베나딕트 토바즈에 의해 처음 출시 된 커널 1991년 10월 5일, 주로 미니 엑스와 유닉스 아이디어에서 영감을, POSIX 기반 다중 사용자, 멀티 태스킹, 멀티 스레드 및 멀티 CPU 운영 체제. 주요 유닉스 도구 소프트웨어, 응용 프로그램 및 네트워크 프로토콜을 실행합니다. 32비트 및 64비트 하드웨어를 지원합니다. Linux는 유닉스의 네트워크 중심 설계 아이디어를 계승하며 안정적인 다중 사용자 네트워크 운영 체제입니다. Linux에는 커뮤니티 기반 Debian, archlinux, 상용 개발 기반 Red Hat Enterprise Linux, SUSE, Oracle Linux 등 수백 가지 배포판이 있습니다.
 
-Direct Rendering Manager는 최신 [비디오 카드의](https://en.wikipedia.org/wiki/Linux_kernel)GPU 연결을 담당하는 [Linux 커널](https://en.wikipedia.org/wiki/Video_cards)[의 하위 시스템입니다](https://en.wikipedia.org/wiki/Graphics_processing_unit). DRM은[](https://en.wikipedia.org/wiki/Application_programming_interface) [사용자 공간](https://en.wikipedia.org/wiki/User-space)프로그램이 GPU에 명령과 데이터를 보내고 디스플레이 모드 설정 구성과 같은 작업을 수행하는 데 사용할 수 있는 API를[노출합니다.](https://en.wikipedia.org/wiki/Mode_setting)DRM은 원래 [X Server](https://en.wikipedia.org/wiki/X.Org_Server)[Direct Rendering Infrastructure](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)[[1\]](https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1)[의 커널 공간](https://en.wikipedia.org/wiki/Kernel-space)구성 요소로 개발되었지만, 그 이후로 다른 그래픽 스택 대안(예:[Wayland )를](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)) 사용합니다.
-
-사용자 공간 프로그램은 DRM API 명령 GPU를 사용하여[하드웨어 가속](https://en.wikipedia.org/wiki/Hardware_acceleration) [3D 렌더링](https://en.wikipedia.org/wiki/3D_rendering) 및 [비디오 디코딩](https://en.wikipedia.org/wiki/Video_decoding)뿐만 아니라[GPUPU 계산을](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units) 수행할 수 있습니다.
-
 # 2 하드웨어 소개
 
 ## 2.1 획득 방법

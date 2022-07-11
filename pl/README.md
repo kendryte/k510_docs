@@ -26,7 +26,7 @@ Dokumentacja związana z K510 jest następująca:
 
 ## Przewodnik po składkach
 
-Jeśli jesteś zainteresowany tym projektem i chciałbyś uzyskać opinię lub przesłać dokumentację, zapoznaj się z SEKCJĄ[KONSOLIDACJA](.github/CONTRIBUTING.md)
+Jeśli jesteś zainteresowany tym projektem i chciałbyś uzyskać opinię lub przesłać dokumentację, zapoznaj się z SEKCJĄ[KONSOLIDACJA](/.github/CONTRIBUTING.md)
 
 ## Skontaktuj się z nami
 

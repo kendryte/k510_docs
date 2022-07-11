@@ -57,10 +57,6 @@
 
 目前sdk使用的linux版本是4.17.0。 Linux，全稱GNU/Linux，是一種免費使用和自由傳播的類UNIX操作系統，其內核由林納斯·本納第克特·托瓦茲於1991年10月5日首次發佈，它主要受到Minix和Unix思想的啟發，是一個基於POSIX的多使用者、多任務、支援多線程和多CPU的操作系統。 它能運行主要的Unix工具軟體、應用程式和網路協定。 它支援32位和64位硬體。 Linux繼承了Unix以網路為核心的設計思想，是一個性能穩定的多用戶網路操作系統。 Linux有上百種不同的發行版，如基於社區開發的debian、archlinux，和基於商業開發的Red Hat Enterprise Linux、SUSE、Oracle Linux等。
 
-Direct Rendering Manager是[Linux 內核](https://en.wikipedia.org/wiki/Linux_kernel)的一個子系統，負責與現代[視頻卡的](https://en.wikipedia.org/wiki/Video_cards)[GPU](https://en.wikipedia.org/wiki/Graphics_processing_unit)連接。 DRM 公開了一個[API](https://en.wikipedia.org/wiki/Application_programming_interface)，[用戶空間](https://en.wikipedia.org/wiki/User-space)程式可以使用該 API 向 GPU 發送命令和數據，並執行諸如配置顯示器[模式設置等操作。](https://en.wikipedia.org/wiki/Mode_setting)DRM 最初是作為[X Server](https://en.wikipedia.org/wiki/X.Org_Server)[Direct Rendering Infrastructure](https://en.wikipedia.org/wiki/Direct_Rendering_Infrastructure)[[1\]](https://en.wikipedia.org/wiki/Direct_Rendering_Manager#cite_note-DRM_readme-1)[的內核空間](https://en.wikipedia.org/wiki/Kernel-space)元件開發的，但從那時起它已被其他圖形堆棧替代方案（如 [Wayland](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)) ）使用。
-
-用戶空間程式可以使用DRM API命令 GPU 進行[硬體加速](https://en.wikipedia.org/wiki/Hardware_acceleration)[3D渲染](https://en.wikipedia.org/wiki/3D_rendering)和[視頻解碼](https://en.wikipedia.org/wiki/Video_decoding)，以及[GPGPU計算](https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units)。
-
 # 2硬體介紹
 
 ## 2.1獲取方式
