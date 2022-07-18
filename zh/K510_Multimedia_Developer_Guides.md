@@ -536,7 +536,7 @@ K510的硬件框图如下：
 | h | 输出图像高度 | 1080 | avc: [64,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 2 | jpeg、avc |
 | fps | 摄像头采集帧率，目前只支持30pfs | 30 | 30 | avc |
 | r | 编码输出帧率 | 30 | 能整除fps或者被fps整除的数 | avc |
-| inframes | 输入yuv帧数 | 0 | [0,32767] | jpeg、avc |
+| inframes | 输入yuv帧数 | 0 | [0,50] | jpeg、avc |
 | outframes | 输出yuv帧数，如果比参数-inframes大，将会重复编码 | 0 | [0,32767] | jpeg、avc |
 | gop | Group Of Picture，即两个 I 帧之间的间隔 | 25 | [1,1000] | avc |
 | rcmode | 表示码率控制模式 0:CONST_QP 1:CBR 2:VBR | CBR | [0,2] | avc |
@@ -549,7 +549,7 @@ K510的硬件框图如下：
 | maxqp | 最大QP值 | 54 | [sliceqp,54] | avc |
 | enableLTR | 使能长期参考帧，参数指定刷新周期。0：不启用刷新周期。正数：周期性设置参考帧并且下一帧设置为使用长期参考帧 | 0 | [0,65535] | avc |
 | roi | roi配置文件，指定多个roi区域 | NULL | xxx.conf | avc |
-| ae | 使能AE | 0 | 0-不使能AE<br>1-使能AE |
+| ae | 使能AE | 0 | 0-不使能AE<br>1-使能AE ||
 | conf | vl42配置文件,会指定的配置文件的基础上，根据命令行输入参数修改v4l2配置参数 | NULL | xxx.conf | avc |
 
 ### 3.1.1 输入yuv文件，输出文件
@@ -661,6 +661,8 @@ ffplay拉流命令同上。
 ### 3.1.6 注意事项
 
 - 运行环境：核心板sensor：IMX219_SENSOR
+
+- 多路编码时的总数据量不能超过1080p60。
 
 - rtsp流地址格式:rtsp://ip地址:端口号/testStream，其中ip地址和端口号可变，其余部分固定.
 
@@ -1002,7 +1004,7 @@ ffmpeg -h demuxer=v4l2 #查看v4l2的配置参数
 | s | 图像分辨率，例如1920x1080 | NULL | |
 | r | 帧率，目前只支持30fps | 30 | 30 |
 | isp | 打开k510 isp硬件 | 0 | 0-1 |
-| buf_type | v4l2 buffer`类型` <br>1: V4L2_MEMORY_MMAP ：适合于-vcodec copy<br>2: V4L2_MEMORY_USERPTR：适合于-vcodec libk510_h264 | 1 | 1~4 |
+| buf_type | v4l2 buffer`类型` <br>1: V4L2_MEMORY_MMAP ：适合于-vcodec copy<br>2: V4L2_MEMORY_USERPTR：适合于-vcodec libk510_h264 | 1 | 1~2 |
 | conf | v4l2 config file | NULL | |
 
 ffmpeg运行命令示例：其中10.100.232.11为接收端地址，根据实际修改。
