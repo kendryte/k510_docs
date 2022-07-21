@@ -1,4 +1,4 @@
-![](images/canaan-cover.png)
+![](../zh/images/canaan-cover.png)
 &nbsp;
 &nbsp;
 **<font face="黑体" size="6" style="float:right">K510 CRB V1.2 Hardware Guides</font>**
@@ -21,7 +21,7 @@
 
 **<font face="黑体"  size=3>商标声明</font>**
 
-“<img src="images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
+“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
 
 **<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
 本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
@@ -89,7 +89,7 @@
 - 拓展备件
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/image-K510_Core.png">
+    <img src="../zh/images/hw_crb_v1_2/image-K510_Core.png">
 </div>
 
   <center>图 1-1 K510 CRB 渲染图</center>
@@ -118,13 +118,13 @@
 &emsp;&emsp;关于K510功能详情，请参考《K510 Full Datasheet》。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/image-hw_1_2.png">
+    <img src="../zh/images/hw_crb_v1_2/image-hw_1_2.png">
 </div>
 
 <center>图 1-2 K510 CRB组成</center>
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/image-hw_1_3.png">
+    <img src="../zh/images/hw_crb_v1_2/image-hw_1_3.png">
 </div>
 
 <center>图 1-3 K510 CRB 系统框图 </center>
@@ -174,7 +174,7 @@
 ## 2.1 整体效果图
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/image-hw_2_1.png" width=80%>
+    <img src="../zh/images/hw_crb_v1_2/image-hw_2_1.png" width=80%>
 </div>
 
 <center> 图2-1 主板正面图 </center>
@@ -182,7 +182,7 @@
 <div style="page-break-after:always"></div>
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/image-hw_2_2.png" width=80%>
+    <img src="../zh/images/hw_crb_v1_2/image-hw_2_2.png" width=80%>
 </div>
 
 <center> 图2-1 主板背面图 </center>
@@ -192,13 +192,13 @@
 ## 2.2 结构与接口示意图
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/image-hw_2_3.png" width=120%>
+    <img src="../zh/images/hw_crb_v1_2/image-hw_2_3.png" width=120%>
 </div>
 
 <center> 图2-3 主板正面各器件位置 </center>
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/image-hw_2-4.png" width=120%>
+    <img src="../zh/images/hw_crb_v1_2/image-hw_2-4.png" width=120%>
 </div>
 
 <center> 图 2-4 主板背面 </center>
@@ -234,7 +234,7 @@
 &emsp;&emsp;在使用K510 CRB进行学习和开发之前，建议先参考K510手册中芯片的详细架构，这样可以对K510的供电、存储、计算资源和外设等有更深入的了解，有利于芯片方案的熟悉和开发。K510 核心板如图3-1。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/image-hw_3_1.png">
+    <img src="../zh/images/hw_crb_v1_2/image-hw_3_1.png">
 </div>
 
 <center>图3-1 K510 Core核心模组</center>
@@ -246,7 +246,7 @@
 &emsp;&emsp;K510 CRB使用外部5V供电，板载了两个USB type C接口，都可以为开发板进行供电，其中UART接口用于连接电脑，电脑的USB接口只能提供500mA电流，在遇到供电不足时，请同时使用适配器在DC:5V处供电。接口如下图所示。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/image-hw_3_2.png" width=60%>
+    <img src="../zh/images/hw_crb_v1_2/image-hw_3_2.png" width=60%>
 </div>
 
 <center> 图3-2 电源输入接口 </center>
@@ -255,7 +255,7 @@
 &emsp;&emsp;使用K2 拨动开关进行上电和掉电的操作，如下图所示。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/clip_hw_3-3.jpg" width=50%>
+    <img src="../zh/images/hw_crb_v1_2/clip_hw_3-3.jpg" width=50%>
 </div>
 
 <center>图3-3 电源开关说明</center>
@@ -271,7 +271,7 @@
 &emsp;&emsp;K510 CRB板载的一颗4G Bytes的eMMC存储器，位于核心模组上，可以用于存储启动代码和用户文件等数据。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/image-eMMC.png" width=70%>
+    <img src="../zh/images/hw_crb_v1_2/image-eMMC.png" width=70%>
 </div>
 
 <center>图3-4 eMMC存储器</center>
@@ -281,7 +281,7 @@
 &emsp;&emsp;K510 CRB 板载了128M Bytes的NAND Flash存储器，可以用于存储启动代码和用户文件等数据。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/clip_hw_3_5.jpg " width=75%>
+    <img src="../zh/images/hw_crb_v1_2/clip_hw_3_5.jpg " width=75%>
 </div>
 
 <center>图3-5 NAND Flash存储器</center>
@@ -291,7 +291,7 @@
 &emsp;&emsp;K510 CRB 板载了TF卡座，可以外接TF卡，用于存储启动代码和用户文件等数据。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/image-hw_3_6.png">
+    <img src="../zh/images/hw_crb_v1_2/image-hw_3_6.png">
 </div>
 
 <center>图3-6 TF卡座</center>
@@ -303,7 +303,7 @@
 &emsp;&emsp;K510 CRB板载了两颗用户轻触按键，用户可以对轻触按键进行自定义编程，作为系统输入触发或软件相关的其他功能等。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/clip_hw_3_7.jpg" width=50%>
+    <img src="../zh/images/hw_crb_v1_2/clip_hw_3_7.jpg" width=50%>
 </div>
 
 <center>图3-7 按键</center>
@@ -317,7 +317,7 @@
 &emsp;&emsp;对两颗指示灯进行自定义编程点亮或熄灭，可以作为系统输出或软件相关的状态指示等功能。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/clip_hw_3_8.jpg" width=60%>
+    <img src="../zh/images/hw_crb_v1_2/clip_hw_3_8.jpg" width=60%>
 </div>
 
 <center>图3-8 指示灯</center>
@@ -342,7 +342,7 @@
 | 1(OFF)  | 1(OFF)  | EMMC启动      |
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/clip_hw_3_9.jpg" width=60%>
+    <img src="../zh/images/hw_crb_v1_2/clip_hw_3_9.jpg" width=60%>
 </div>
 
 <center>图3-9 复位开关和启动模式拨码开关</center>
@@ -356,7 +356,7 @@
 &emsp;&emsp;K510 CRB使用了nuvoton公司的音频编解码器芯片NAU88C22，实现语音的输入和输出功能。包括一颗板载麦克风、标准3.5mm耳机插座和2P扬声器接口。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/clip_hw_3-10.jpg" width=60%>
+    <img src="../zh/images/hw_crb_v1_2/clip_hw_3-10.jpg" width=60%>
 </div>
 
 <center>图3-10 Audio</center>
@@ -366,7 +366,7 @@
 &emsp;&emsp;K510 CRB 板载USB OTG插座，可以用来实现USB host/device功能。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/clip_hw_3_11.jpg">
+    <img src="../zh/images/hw_crb_v1_2/clip_hw_3_11.jpg">
 </div>
 
 <center>图3-11 USB-OTG座</center>
@@ -378,7 +378,7 @@
 &emsp;&emsp;K510 CRB为了方便用户开发和调试，板载了USB->UART接口，可以通过PC-USB线缆对K510进行UART串口通信和调试等操作。初次使用可能会需要加载驱动，详见4.2节。板载UART接口如下图所示。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/clip_hw_3_12.jpg" width=50%>
+    <img src="../zh/images/hw_crb_v1_2/clip_hw_3_12.jpg" width=50%>
 </div>
 
 <center>图3-12 USB-UART接口</center>
@@ -388,7 +388,7 @@
 &emsp;&emsp;K510 CRB 板载了一颗WIFI/BT二合一模组AP6212，用于拓展开发板进行网络的连接和蓝牙的通信功能，板载接口如下图所示。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/clip_hw_3-13.jpg" width=40%>
+    <img src="../zh/images/hw_crb_v1_2/clip_hw_3-13.jpg" width=40%>
 </div>
 
 <center>图3-13 WIFI/BT模组</center>
@@ -400,7 +400,7 @@
 &emsp;&emsp;K510 CRB 板载千兆以太网座，K510通过RGMII接口外接PHY芯片实现。板载接口如下图所示。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/clip_hw_3_14.jpg" width=60%>
+    <img src="../zh/images/hw_crb_v1_2/clip_hw_3_14.jpg" width=60%>
 </div>
 
 <center>图3-14 以太网接口</center>
@@ -410,7 +410,7 @@
 &emsp;&emsp;K510 CRB板载HDMI-A母座，可以通过标准HDMI线缆连接外置显示屏，使用K510的mipi dsi接口输出转换实现。板载接口如下图所示。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/clip_hw_3_15.jpg" width=60%>
+    <img src="../zh/images/hw_crb_v1_2/clip_hw_3_15.jpg" width=60%>
 </div>
 
 <center>图3-15 HDMI接口</center>
@@ -424,7 +424,7 @@
 &emsp;&emsp;K510 CRB通过0.8mm 间距板对板连接器，将MIPI CSI、DVP、电源和部分GPIO等进行了引出，用于实现不同场景和不同需求情况下的摄像头输入。板载接口如下图所示。接口定义如下表所示。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/clip_hw_3-16.jpg">
+    <img src="../zh/images/hw_crb_v1_2/clip_hw_3-16.jpg">
 </div>
 
 <center>图3-16 Video IN接口</center>
@@ -473,7 +473,7 @@
 &emsp;&emsp;K510 CRB板载了0.5mm间距30P的翻盖下接FPC连接器，用于连接外部的LCD显示屏，板载接口如下图所示。接口定义如下表所示。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/clip_hw_3-17.jpg">
+    <img src="../zh/images/hw_crb_v1_2/clip_hw_3-17.jpg">
 </div>
 
 <center>图3-17 Video Out接口</center>
@@ -505,7 +505,7 @@
 &emsp;&emsp;为了方便用户进行自定义拓展功能的实现，在K510 CRB上预留了30P的2.54mm拓展排针，引出了包括电源和部分GPIO，用户可通过软件iomux操作，将I2C、UART、SPI等硬件资源映射到相应的GPIO上，以实现相应功能的外部连接和拓展。板载接口如下图所示。详细定义如下表所示。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/clip_hw-3-18.jpg">
+    <img src="../zh/images/hw_crb_v1_2/clip_hw-3-18.jpg">
 </div>
 
 <center>图3-18 40P排针拓展接口</center>
@@ -565,7 +565,12 @@
 &emsp;&emsp;如下图所示，设备为“COM6”，具体以PC设备管理器中显示的情况为准。
 
 <div align="center">
-    <img src="images/hw_crb_v1_2/clip_hw_4_1.jpg">
+    <img src="../zh/images/hw_crb_v1_2/clip_hw_4_1.jpg">
 </div>
 
 <center>图4-1 驱动安装完成后的设备管理器</center>
+
+**翻译免责声明**  
+为方便客户，Canaan 使用 AI 翻译程序将文本翻译为多种语言，它可能包含错误。我们不保证提供的译文的准确性、可靠性或时效性。对于因依赖已翻译信息的准确性或可靠性而造成的任何损失或损害，Canaan 概不负责。如果不同语言翻译之间存在内容差异，以简体中文版本为准。
+
+如果您要报告翻译错误或不准确的问题，欢迎通过邮件与我们联系。

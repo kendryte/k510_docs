@@ -11,14 +11,12 @@ K510-CRB-KIT
 |Version|Date|Description|Author|
 | :- | :- | :- | :- |
 |1.0.0|2022-06-13|First version|Wanghao Zhangtao Shiwentao|
-|||||
-|||||
 
 ## 2. Overview
 
 Kendryte K510 is the second-generation AI edge-side inference chip launched by Canaan, providing high-performance image and voice processing capabilities. It integrates the latest generation image processor ISP, supports TOF depth signal access.
 
-K510-CORE is the core module, with a K510 chip onboard, which CPU adopts dual-core 64bit RISC-V architecture. K510 is equipped with the second-generation neural network processor KPU 2.0, using independent computing data-flow technology. Compared with the previous generation, it has improved computing power significantly while reducing power consumption. The onboard memory is 512MB LPDDR3@1600MHz. It supports two MIPI serial image inputs and one DVP parallel image input, and supports one MIPI image output.
+K510-CORE is the core module, with a K510 chip onboard, with a dual-core 64bit RISC-V architecture. K510 is equipped with the second-generation neural network processor KPU 2.0, using independent computing data-flow technology. Compared with the previous generation, it has improved computing power significantly while reducing power consumption. The onboard memory is 512MB LPDDR3@1600MHz. It supports two MIPI serial image inputs and one DVP parallel image input, and supports one MIPI image output.
 
 K510 CRB-KIT is a developer kit based on the K510 chip. It adopts a hierarchical design and is based on the K510 core module.
 
@@ -27,6 +25,20 @@ K510 CRB-KIT is a developer kit based on the K510 chip. It adopts a hierarchical
 ### 3.1 DataSheet
 
 <https://canaan.io/product/kendryte-k510-crb-kit-developer-kit>
+
+### 3.2 Standard Kit Contents
+
+- K510 Customer Reference Board KIT x1
+- USB to typeC cable x2
+- USB to micro OTG cable x1
+
+### 3.3 User Provided items
+
+- 5V@2A USB power adapter
+
+### 3.4 Additional Hardware References
+
+NO
 
 ## 4. Set up your Development Environment
 
@@ -72,17 +84,21 @@ K510 CRB-KIT is a developer kit based on the K510 chip. It adopts a hierarchical
 
 - Front view of the hardware
 
-![](/zh/images/aws_quick_start/board_front.png)
+  ![](/zh/images/aws_quick_start/board_front.png)
 
 - Back view of the hardware
 
-![](/zh/images/aws_quick_start/board_back.png)
+  ![](/zh/images/aws_quick_start/board_back.png)
 
-- 5A@2A power adaptor, USB to type-C cable(Attached parts)
+- 5V@2A USB power adaptor, USB to type-C cable
+- Run your application
+  - Follow the section 4.5 to burn your code to TF card, then put that card into TF card slot of board
+  - Make sure the boot mode is on TF card mode (BOOT0=OFF, BOOT1=ON). Refer to blew boot setting table
+  - Connect power adapter to Type-C port of board (refer to front view picture)
+  - Turn the power switch from OFF to ON and wait system up
+- Boot mode setting table
 
-- Boot mode settting table
-
-![](/zh/images/aws_quick_start/boot_mode.png)
+  ![](/zh/images/aws_quick_start/boot_mode.png)
 
 - Uart driver download page: [Download](https://www.wch.cn/downloads/CH341SER_EXE.html)
 
@@ -157,7 +173,7 @@ Sample Policy:
 }
 ```
 
-__Note: This policy should be used for testing only.__
+__NOTE – The examples in this document are intended only for dev environments.  All devices in your production fleet must have credentials with privileges that authorize only intended actions on specific resources. The specific permission policies can vary for your use case. Identify the permission policies that best meet your business and security requirements.  For more information, refer to Example policies and Security Best practices.__
 
 ### 7.2 Create a new Device
 
@@ -173,11 +189,11 @@ Then add the name of new device
 
 ![](/zh/images/aws_quick_start/thing_properties.png)
 
-Then chose Auto-generate a new certificate (recommended)
+Then choose Auto-generate a new certificate (recommended)
 
 ![](/zh/images/aws_quick_start/device_certificate.png)
 
-Then chose your policy
+Then choose your policy
 
 ![](/zh/images/aws_quick_start/attach_policies.png)
 
@@ -187,7 +203,7 @@ Download the certificate, public key, and private key for the device. Next, down
 
 ## 8. Provision the Device with credentials
 
-Make sure you have downloaded the k510_buildroot file in step four，put the file generated in step 7 into the certs folder，as shown in the figure
+Make sure you have downloaded the k510_buildroot file in step four, put the file generated in step 7 into the certs folder, as shown in the figure
 
 ![](/zh/images/aws_quick_start/certs_folder.png)
 
@@ -210,7 +226,8 @@ Compile k510_buildreoot, aws_iot_test has been compiled in package, and the gene
 
 ## 10. Run the demo
 
-Test MQTT Connect
+To verify MQTT messages are being received by AWS IoT Core:
+Follow the instructions at <https://docs.aws.amazon.com/iot/latest/developerguide/view-mqtt-messages.html>
 
 Please enter the command on the serial port debugging page
 
@@ -223,7 +240,7 @@ Display on the development k510 board
 
 ![](/zh/images/aws_quick_start/aws_iot_test.png)
 
-AWS IoT certification display
+AWS IoT MQTT Test Client display
 
 ![](/zh/images/aws_quick_start/certification_display.png)
 
@@ -233,7 +250,7 @@ Each time an individual item is verified, just run aws_iot_test directly, and th
 
 ## 11. Debugging
 
-During debugging, all log logs will be printed on the serial port debugging interface, as shown in the figure
+During debugging, all logs will be printed on the serial port debugging interface, as shown in the figure
 
 ![](/zh/images/aws_quick_start/aws_iot_test_log.png)
 
