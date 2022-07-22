@@ -259,7 +259,7 @@ isp_modules:
 0 -- 模块没有使能  1 -- 模块使能 
 ```
 
-# 2  配置imx385 sensor 
+# 2  配置imx385 sensor
 
 ## 2.1 修改 设备树
 
@@ -268,6 +268,7 @@ isp_modules:
 #include "k510_common/camera-imx219x2.dtsi" 替换成 
 #include "k510_common/camera-imx385.dtsi"， 如下图所示
 ```
+
 ![ouput.yuv](../zh/images/sdk_application/image-imx385-dts.jpg)
 
 ## 2.2 修改内核
@@ -279,16 +280,17 @@ make linux-menuconfig
 
 进入配置界面后，进入下边路径：
 
-```shell
+```text
 Device Drivers  --->
-		Multimedia support  --->
-				Sensors used on soc_camera driver  --->
+	Multimedia support  --->
+		Sensors used on soc_camera driver  --->
 ```
 
 进入目录后，将Sony IMX385 sensor support 选上，两个219 的不选上，如下如：
 ![ouput.yuv](../zh/images/sdk_application/image-imx385-kernel-config.jpg)
 
 ## 2.3 重新编译镜像
+
 ```shell
 cd k510_buildroot/k510_crb_lp3_v1_2_defconfig
 make linux-rebuild
