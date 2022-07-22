@@ -282,8 +282,8 @@ make linux-menuconfig
 
 ```text
 Device Drivers  --->
-	Multimedia support  --->
-		Sensors used on soc_camera driver  --->
+Multimedia support  --->
+Sensors used on soc_camera driver  --->
 ```
 
 进入目录后，将Sony IMX385 sensor support 选上，两个219 的不选上，如下如：
