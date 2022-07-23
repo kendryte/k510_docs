@@ -558,18 +558,18 @@ v4l2_drm demo展示了摄像头输入和显示的功能。
 
 ```shell
 cd /app/mediactl_lib
-./v4l2_drm.out -f video_drm_1080x1920.conf -e 1
+./v4l2_drm.out -f video_drm_1080x1920.conf
 或者
 ./v4l2_drm.out -f video_drm_1920x1080.conf
 或者
-./v4l2_drm.out -e 1 -f imx385_video_1920x1080.conf  
+./v4l2_drm.out -f imx385_video_1920x1080.conf  
 ```
 
 imx385 demo ：
 这个需要修改配置，具体参照 K510_V4l2_Developer_Guides.md，运行命令如下：
 
 ```shell
-./v4l2_drm.out -e 1 -f imx385_video_1920x1080.conf  
+./v4l2_drm.out -f imx385_video_1920x1080.conf  
 ```
 
 启动v4l2_drm.out应用程序，v4l2_drm.out显示效果：
