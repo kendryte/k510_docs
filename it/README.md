@@ -30,7 +30,7 @@ Se sei interessato a questo progetto e desideri un feedback o inviare documentaz
 
 ## Contattaci
 
-Pechino Canaan Jiesi Information Technology Co., Ltd  
+Canaan Inc.  
 URL:[canaan-creative.com](https://canaan-creative.com/)  
 Richieste commerciali:[salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
 

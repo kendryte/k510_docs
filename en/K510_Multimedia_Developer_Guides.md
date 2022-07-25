@@ -536,7 +536,7 @@ run`encode_app`
 | h | Output image height | 1080 | avc: [64,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 2 | jpeg、avc |
 | fps | The camera captures frame rates, which currently only support 30pfs | 30 | 30 | stroke |
 | r | Encoded output frame rate | 30 | The number that can divisible or be divisible by fps | stroke |
-| inframes | Enter the number of yuv frames | 0 | [0,32767] | jpeg、avc |
+| inframes | Enter the number of yuv frames | 0 | [0,50] | jpeg、avc |
 | outframes | The output of the yuv frames, if larger than the parameter -inframes, will be repeated encoding | 0 | [0,32767] | jpeg、avc |
 | gop | Group Of Picture, the interval between two I frames | 25 | [1,1000] | stroke |
 | rcmode | Represents bitrate control mode 0:CONST_QP 1:CBR 2:VBR | CBR | [0,2] | stroke |
@@ -549,7 +549,7 @@ run`encode_app`
 | maxqp | The maximum QP value | 54 | [sliceqp,54] | stroke |
 | enableLTR | Enables long-term reference frames, and parameters specify the refresh period. 0: The refresh cycle is not enabled. Positive: Periodically sets the reference frame and the next frame is set to use the long reference frame | 0 | [0,65535] | stroke |
 | king | Roi configuration file, which specifies multiple roi regions | NULL | xxx.conf | stroke |
-| ae | Enable AE | 0 | 0 - Does not enable AE<br>1 - Enable AE |
+| ae | Enable AE | 0 | 0 - Does not enable AE<br>1 - Enable AE | |
 | Conf | The vl42 configuration file modifies the v4l2 configuration parameters based on the specified configuration file and the command line input parameters | NULL | xxx.conf | stroke |
 
 ### 3.1.1 Enter the yuv file and output the file
@@ -1002,7 +1002,7 @@ ffmpeg -h demuxer=v4l2 #查看v4l2的配置参数
 | s | Image resolution, such as 1920x1080 | NULL | |
 | r | Frame rate, currently only support 30fps | 30 | 30 |
 | isp | Turn on the k510 ISP hardware | 0 | 0-1 |
-| buf_type | v4l2 buffer`类型` <br>1: V4L2_MEMORY_MMAP: for -vcodec copy<br>2: V4L2_MEMORY_USERPTR: for -vcodec libk510_h264 | 1 | 1~4 |
+| buf_type | v4l2 buffer`类型` <br>1: V4L2_MEMORY_MMAP: for -vcodec copy<br>2: V4L2_MEMORY_USERPTR: for -vcodec libk510_h264 | 1 | 1~2 |
 | Conf | v4l2 config file | NULL | |
 
 Example of ffmpeg running command: where 10.100.232.11 is the receiving address, modified according to the actual situation.

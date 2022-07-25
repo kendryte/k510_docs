@@ -536,7 +536,7 @@ biegać`encode_app`
 | h | Wysokość obrazu wyjściowego | 1080 | avc: [64,2048], wielokrotność 8 <br> jpeg: do 8192, wielokrotność 2 | jpeg、avc |
 | Fps | Aparat rejestruje liczbę klatek na sekundę, która obecnie obsługuje tylko 30pfs | 30 | 30 | głaskać |
 | r | Zakodowana wyjściowa liczba klatek na sekundę | 30 | Liczba, która może być podzielna lub podzielna przez fps | głaskać |
-| ramki wejściowe | Wprowadź liczbę klatek yuv | 0 | [0,32767] | jpeg、avc |
+| ramki wejściowe | Wprowadź liczbę klatek yuv | 0 | [0,50] | jpeg、avc |
 | outframes | Wyjście ramek yuv, jeśli są większe niż parametr -inframes, będą powtarzane kodowanie | 0 | [0,32767] | jpeg、avc |
 | Gop | Grupa obrazów, interwał między dwiema klatkami I | 25 | [1,1000] | głaskać |
 | rcmode | Reprezentuje tryb sterowania przepływnością 0:CONST_QP 1:CBR 2:VBR | CBR | [0,2] | głaskać |
@@ -549,7 +549,7 @@ biegać`encode_app`
 | maxqp | Maksymalna wartość QP | 54 | [sliceqp,54] | głaskać |
 | enableLTR | Włącza długoterminowe ramki odniesienia, a parametry określają okres odświeżania. 0: Cykl odświeżania nie jest włączony. Pozytywny: Okresowo ustawia układ odniesienia, a następna ramka jest ustawiona tak, aby używała długiego układu odniesienia. | 0 | [0,65535] | głaskać |
 | król | Plik konfiguracyjny Roi, który określa wiele regionów roi | ZERO | xxx.conf | głaskać |
-| Ae | Włącz AE | 0 | 0 - Nie włącza AE<br>1 - Włącz AE |
+| Ae | Włącz AE | 0 | 0 - Nie włącza AE<br>1 - Włącz AE | |
 | Conf | Plik konfiguracyjny vl42 modyfikuje parametry konfiguracyjne v4l2 na podstawie określonego pliku konfiguracyjnego i parametrów wejściowych wiersza polecenia | ZERO | xxx.conf | głaskać |
 
 ### 3.1.1 Wprowadź plik yuv i wyjdź plik
@@ -1002,7 +1002,7 @@ ffmpeg -h demuxer=v4l2 #查看v4l2的配置参数
 | s | Rozdzielczość obrazu, na przykład 1920x1080 | ZERO | |
 | r | Liczba klatek na sekundę, obecnie obsługuje tylko 30 klatek na sekundę | 30 | 30 |
 | isp | Włączanie sprzętu k510 ISP | 0 | 0-1 |
-| buf_type | v4l2 buffer`类型` <br>1: V4L2_MEMORY_MMAP: for -vcodec copy<br>2: V4L2_MEMORY_USERPTR: for -vcodec libk510_h264 | 1 | 1 ~ 4 |
+| buf_type | v4l2 buffer`类型` <br>1: V4L2_MEMORY_MMAP: for -vcodec copy<br>2: V4L2_MEMORY_USERPTR: for -vcodec libk510_h264 | 1 | 1~2 |
 | Conf | Plik konfiguracyjny v4l2 | ZERO | |
 
 Przykład polecenia ffmpeg: gdzie 10.100.232.11 jest adresem odbierającym, zmodyfikowanym zgodnie z rzeczywistą sytuacją.

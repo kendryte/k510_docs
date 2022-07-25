@@ -30,7 +30,7 @@ k510 관련 문서는 다음과 같습니다.
 
 ## 저희에게 연락하십시오
 
-베이징 Jiananjets 정보 기술 유한 회사  
+Canaan Inc.  
 웹 사이트:[canaan-creative.com](https://canaan-creative.com/)  
 비즈니스 문의:[salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
 

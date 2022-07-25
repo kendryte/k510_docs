@@ -30,7 +30,7 @@
 
 ## Свяжитесь с нами
 
-Пекин Ханаан Цзеси Информационные Технологии Co., Ltd  
+Canaan Inc.  
 URL:[canaan-creative.com](https://canaan-creative.com/)  
 Бизнес-запросы:[salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
 

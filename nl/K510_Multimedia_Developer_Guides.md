@@ -536,7 +536,7 @@ rennen`encode_app`
 | h | Hoogte van het uitvoerbeeld | 1080 | avc: [64,2048], veelvoud van 8 <br> jpeg: tot 8192, veelvoud van 2 | jpeg、avc |
 | Fps | De camera legt framesnelheden vast, die momenteel slechts 30pfs ondersteunen | 30 | 30 | aaien |
 | r | Gecodeerde framesnelheid van uitvoer | 30 | Het getal dat deelbaar of deelbaar kan zijn door fps | aaien |
-| inframes | Voer het aantal yuv-frames in | 0 | [0,32767] | jpeg、avc |
+| inframes | Voer het aantal yuv-frames in | 0 | [0,50] | jpeg、avc |
 | outframes | De uitvoer van de yuv-frames, indien groter dan de parameter -inframes, wordt herhaald gecodeerd | 0 | [0,32767] | jpeg、avc |
 | Gop | Group Of Picture, het interval tussen twee I-frames | 25 | [1,1000] | aaien |
 | Rcmode | Vertegenwoordigt bitrate controlemodus 0:CONST_QP 1:CBR 2:VBR | CBR | [0,2] | aaien |
@@ -549,7 +549,7 @@ rennen`encode_app`
 | MaxQP | De maximale QP-waarde | 54 | [SliceQP,54] | aaien |
 | enableLTR inschakelen | Hiermee schakelt u referentiekaders voor de lange termijn in en geven parameters de vernieuwingsperiode op. 0: De vernieuwingscyclus is niet ingeschakeld. Positief: Hiermee wordt periodiek het referentiekader ingesteld en het volgende frame wordt ingesteld om het lange referentiekader te gebruiken | 0 | [0,65535] | aaien |
 | koning | Roi-configuratiebestand, dat meerdere roi-regio's opgeeft | NUL | xxx.conf | aaien |
-| Ae | AE inschakelen | 0 | 0 - Schakelt AE 1 niet in<br>- AE inschakelen |
+| Ae | AE inschakelen | 0 | 0 - Schakelt AE 1 niet in<br>- AE inschakelen | |
 | Conf | Het vl42-configuratiebestand wijzigt de v4l2-configuratieparameters op basis van het opgegeven configuratiebestand en de invoerparameters van de opdrachtregel | NUL | xxx.conf | aaien |
 
 ### 3.1.1 Voer het yuv-bestand in en voer het bestand uit
@@ -1002,7 +1002,7 @@ ffmpeg -h demuxer=v4l2 #查看v4l2的配置参数
 | s | Beeldresolutie, zoals 1920x1080 | NUL | |
 | r | Framesnelheid, momenteel alleen ondersteuning voor 30 fps | 30 | 30 |
 | internetprovider | Schakel de K510 ISP-hardware in | 0 | 0-1 |
-| buf_type | v4l2 buffer`类型` <br>1: V4L2_MEMORY_MMAP: for -vcodec copy<br>2: V4L2_MEMORY_USERPTR: for -vcodec libk510_h264 | 1 | 1 ~ 4 |
+| buf_type | v4l2 buffer`类型` <br>1: V4L2_MEMORY_MMAP: for -vcodec copy<br>2: V4L2_MEMORY_USERPTR: for -vcodec libk510_h264 | 1 | 1~2 |
 | Conf | v4l2 configuratie bestand | NUL | |
 
 Voorbeeld van de ffmpeg running command: waarbij 10.100.232.11 het ontvangende adres is, aangepast aan de werkelijke situatie.

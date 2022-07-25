@@ -536,7 +536,7 @@ Courir`encode_app`
 | h | Hauteur de l'image de sortie | 1080 | avc: [64,2048], multiple de 8 <br> jpeg: jusqu'à 8192, multiple de 2 | jpeg、avc |
 | fps | La caméra capture les fréquences d'images, qui ne prennent actuellement en charge que 30pfs | 30 | 30 | avc |
 | r | Fréquence d'images de sortie codée | 30 | Le nombre qui peut être divisible ou divisible par fps | avc |
-| cadres | Entrez le nombre d'images yuv | 0 | [0,32767] | jpeg、avc |
+| cadres | Entrez le nombre d'images yuv | 0 | [0,50] | jpeg、avc |
 | cadres externes | La sortie des trames yuv, si elle est plus grande que le paramètre -inframes, sera un codage répété | 0 | [0,32767] | jpeg、avc |
 | Gop | Group Of Picture, l'intervalle entre deux images I | 25 | [1,1000] | avc |
 | rcmode | Représente le mode de contrôle du débit binaire 0:CONST_QP 1:CBR 2:VBR | CBR | [0,2] | avc |
@@ -549,7 +549,7 @@ Courir`encode_app`
 | maxqp | La valeur QP maximale | 54 | [trancheqp,54] | avc |
 | activerLTR | Active les trames de référence à long terme et les paramètres spécifient la période d'actualisation. 0 : Le cycle d'actualisation n'est pas activé. Positif : définit périodiquement le cadre de référence et l'image suivante est définie pour utiliser le cadre de référence long | 0 | [0,65535] | avc |
 | roi | Fichier de configuration roi, qui spécifie plusieurs régions roi | ZÉRO | xxx.conf | avc |
-| Æ | Activer AE | 0 | 0 - N'active pas AE<br>1 - Activer AE |
+| Æ | Activer AE | 0 | 0 - N'active pas AE<br>1 - Activer AE | |
 | Conf | Le fichier de configuration vl42 modifie les paramètres de configuration v4l2 en fonction du fichier de configuration spécifié et des paramètres d'entrée de ligne de commande | ZÉRO | xxx.conf | avc |
 
 ### 3.1.1 Entrez le fichier yuv et sortez le fichier
@@ -1002,7 +1002,7 @@ ffmpeg -h demuxer=v4l2 #查看v4l2的配置参数
 | s | Résolution d'image, telle que 1920x1080 | ZÉRO | |
 | r | Fréquence d'images, ne prend actuellement en charge que 30fps | 30 | 30 |
 | FAI | Allumez le matériel du fournisseur de services Internet k510 | 0 | 0-1 |
-| buf_type |Tampon  `类型` v4l2 <br>1 : V4L2_MEMORY_MMAP : pour -vcodec copie<br>2 : V4L2_MEMORY_USERPTR : pour -vcodec libk510_h264 | 1 | 1 ~ 4 |
+| buf_type |Tampon  `类型` v4l2 <br>1 : V4L2_MEMORY_MMAP : pour -vcodec copie<br>2 : V4L2_MEMORY_USERPTR : pour -vcodec libk510_h264 | 1 | 1~2 |
 | Conf | Fichier de configuration v4l2 | ZÉRO | |
 
 Exemple de commande d'exécution ffmpeg : où 10.100.232.11 est l'adresse de réception, modifiée en fonction de la situation réelle.
