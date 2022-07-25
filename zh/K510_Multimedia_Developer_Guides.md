@@ -764,20 +764,9 @@ ffplay接收命令：
 ffplay.exe -protocol_whitelist "file,udp,rtp" -i test.sdp -fflags nobuffer -analyzeduration 1000000 -flags low_delay
 ```
 
-其中test.sdp按照如下示例配置。
+其中test.sdp内容可以从命令输出中获取。
 
-```text
-SDP:
-v=0
-o=- 0 0 IN IP4 127.0.0.1
-s=No Name
-c=IN IP4 10.102.231.29
-t=0 0
-a=tool:libavformat 58.76.100
-m=video 1234 RTP/AVP 96
-a=rtpmap:96 H264/90000
-a=fmtp:96 packetization-mode=1
-```
+![image-20220721162011470](../zh/images/multimedia_guides/sdp.png)
 
 .sdp参数说明：
 
@@ -798,21 +787,7 @@ ffmpeg -f alsa -ac 2 -ar 32000 -i hw:0 -acodec aac -f rtp rtp://10.100.232.11:12
 - ac：设置音频通道数
 - ar：设置音频采样率
 
-ffplay接收命令与接收视频流相同，sdp文件参考下面的示例。
-
-```text
-SDP:
-v=0
-o=- 0 0 IN IP4 127.0.0.1
-s=No Name
-c=IN IP4 10.100.232.11
-t=0 0
-a=tool:libavformat 58.76.100
-m=audio 1234 RTP/AVP 97
-b=AS:128
-a=rtpmap:97 MPEG4-GENERIC/32000/2
-a=fmtp:97 profile-level-id=1;mode=AAC-hbr;sizelength=13;indexlength=3;indexdeltalength=3; config=129056E500
-```
+ffplay接收命令同上。
 
 ##### 3.2.1.1.3 rtp推送音视频流
 
@@ -822,45 +797,31 @@ ffmpeg运行命令示例：
 ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_h264 -an -f rtp rtp://10.100.232.11:1234 -f alsa -ac 2 -ar 32000 -i hw:0 -acodec aac -vn -f rtp rtp://10.100.232.11:1236
 ```
 
-ffplay接收命令与接收音频流相同，sdp文件参考下面的示例。
-
-```text
-SDP:
-v=0
-o=- 0 0 IN IP4 127.0.0.1
-s=No Name
-t=0 0
-a=tool:libavformat 58.76.100
-m=video 1234 RTP/AVP 96
-c=IN IP4 10.100.232.11
-a=rtpmap:96 H264/90000
-a=fmtp:96 packetization-mode=1
-m=audio 1236 RTP/AVP 97
-c=IN IP4 10.100.232.11
-b=AS:128
-a=rtpmap:97 MPEG4-GENERIC/32000/2
-a=fmtp:97 profile-level-id=1;mode=AAC-hbr;sizelength=13;indexlength=3;indexdeltalength=3; config=129056E500
-```
+ffplay接收命令同上。
 
 #### 3.2.1.2 rtsp推流
 
-rtsp推流前需要部署rtsp服务器，将数据流推送到服务器上。
+rtsp推流前需要部署rtsp服务器，将数据流推送到服务器上。rtsp服务器推荐使用EasyDarwin，下载地址:[Releases · EasyDarwin/EasyDarwin (github.com)](https://github.com/EasyDarwin/EasyDarwin/releases).
+
+软件安装成功后，会以系统服务的形式开机自启，默认监听端口号:554.
+
+![image-20220721113937361](../zh/images/multimedia_guides/EasyDarwin_run.png)
 
 ##### 3.2.1.2.1 rtsp推视频流
 
 ffmpeg运行命令示例：
 
 ```shell
-ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_h264 -acodec copy -f rtsp rtsp://10.100.232.11:5544/live/test110
+ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_h264 -acodec copy -f rtsp rtsp://10.100.232.11:554/test110
 ```
 
 - `idr_freq`为IDR帧间隔，需要为GOP的整数倍。rtsp推流必须生成IDR帧才能拉到流。
-- `rtsp://10.100.232.11:5544/live/test110`为rtsp服务器的推拉流url地址
+- `rtsp://10.100.232.11:554/test110`为rtsp服务器的推拉流url地址
 
 ffplay拉流命令示例：
 
 ```shell
-ffplay.exe -protocol_whitelist "file,udp,rtp,tcp" -i rtsp://10.100.232.11:5544/live/test110
+ffplay.exe -protocol_whitelist "file,udp,rtp,tcp" -i rtsp://10.100.232.11:554/test110
 ```
 
 ##### 3.2.1.2.2 rtsp推音频流
@@ -868,7 +829,7 @@ ffplay.exe -protocol_whitelist "file,udp,rtp,tcp" -i rtsp://10.100.232.11:5544/l
 ffmpeg运行命令示例：
 
 ```shell
-ffmpeg -f alsa -ac 2 -ar 32000 -i hw:0 -acodec aac -f rtsp rtsp://10.100.232.11:5544/live/test110
+ffmpeg -f alsa -ac 2 -ar 32000 -i hw:0 -acodec aac -f rtsp rtsp://10.100.232.11:554/test110
 ```
 
 ffplay拉流命令与rtsp拉视频流的命令相同。
@@ -878,7 +839,7 @@ ffplay拉流命令与rtsp拉视频流的命令相同。
 ffmpeg运行命令示例：
 
 ```shell
-ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -f alsa -ac 2 -ar 32000 -i hw:0 -idr_freq 25 -vcodec libk510_h264 -acodec aac -f rtsp rtsp://10.100.232.11:5544/live/test110
+ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -f alsa -ac 2 -ar 32000 -i hw:0 -idr_freq 25 -vcodec libk510_h264 -acodec aac -f rtsp rtsp://10.100.232.11:554/test110
 ```
 
 ffplay拉流命令与rtsp拉视频流的命令相同。
