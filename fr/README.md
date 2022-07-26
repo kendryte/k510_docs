@@ -30,7 +30,7 @@ Si vous êtes intéressé par ce projet et que vous souhaitez obtenir des commen
 
 ## Contactez-nous
 
-Beijing Canaan Jiesi Information Technology Co., Ltd  
+Canaan Inc.  
 URL:[canaan-creative.com](https://canaan-creative.com/)  
 Demandes de renseignements des entreprises :[salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
 

@@ -536,7 +536,7 @@ correr`encode_app`
 | h | Altura de la imagen de salida | 1080 | avc: [64,2048], múltiplo de 8 <br> jpeg: hasta 8192, múltiplo de 2 | jpeg、avc |
 | Fps | La cámara captura velocidades de fotogramas, que actualmente solo admiten 30pfs | 30 | 30 | Golpe |
 | r | Velocidad de fotogramas de salida codificada | 30 | El número que puede ser divisible o divisible por fps | Golpe |
-| inframes | Introduzca el número de fotogramas yuv | 0 | [0,32767] | jpeg、avc |
+| inframes | Introduzca el número de fotogramas yuv | 0 | [0,50] | jpeg、avc |
 | fotogramas salientes | La salida de los fotogramas yuv, si es mayor que el parámetro -inframes, se repetirá la codificación | 0 | [0,32767] | jpeg、avc |
 | Gop | Grupo de imagen, el intervalo entre dos marcos I | 25 | [1,1000] | Golpe |
 | rcmode | Representa el modo de control de velocidad de bits 0:CONST_QP 1:CBR 2:VBR | CBR | [0,2] | Golpe |
@@ -549,7 +549,7 @@ correr`encode_app`
 | maxqp | El valor máximo de QP | 54 | [sliceqp,54] | Golpe |
 | enableLTR | Habilita marcos de referencia a largo plazo y los parámetros especifican el período de actualización. 0: El ciclo de actualización no está habilitado. Positivo: establece periódicamente el marco de referencia y el siguiente marco se establece para usar el marco de referencia largo | 0 | [0,65535] | Golpe |
 | rey | Archivo de configuración de Roi, que especifica varias regiones de roi | NULO | xxx.conf | Golpe |
-| Æ | Habilitar AE | 0 | 0 - No habilita AE<br>1 - Habilitar AE |
+| Æ | Habilitar AE | 0 | 0 - No habilita AE<br>1 - Habilitar AE | |
 | Conf | El archivo de configuración vl42 modifica los parámetros de configuración de v4l2 en función del archivo de configuración especificado y los parámetros de entrada de la línea de comandos | NULO | xxx.conf | Golpe |
 
 ### 3.1.1 Ingrese el archivo yuv y genere el archivo
@@ -1002,7 +1002,7 @@ ffmpeg -h demuxer=v4l2 #查看v4l2的配置参数
 | s | Resolución de imagen, como 1920x1080 | NULO | |
 | r | Velocidad de fotogramas, actualmente solo admite 30 fps | 30 | 30 |
 | isp | Encienda el hardware del ISP k510 | 0 | 0-1 |
-| buf_type | búfer`类型`  v4l2 <br>1: V4L2_MEMORY_MMAP: para -vcodec copia<br>2: V4L2_MEMORY_USERPTR: para -vcodec libk510_h264 | 1 | 1 ~ 4 |
+| buf_type | búfer`类型`  v4l2 <br>1: V4L2_MEMORY_MMAP: para -vcodec copia<br>2: V4L2_MEMORY_USERPTR: para -vcodec libk510_h264 | 1 | 1~2 |
 | Conf | Archivo de configuración v4l2 | NULO | |
 
 Ejemplo de comando ffmpeg running: donde 10.100.232.11 es la dirección receptora, modificada según la situación real.

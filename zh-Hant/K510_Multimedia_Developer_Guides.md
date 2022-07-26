@@ -536,7 +536,7 @@ K510的硬體框圖如下：
 | h | 輸出圖像高度 | 1080 | avc： [64,2048]， 8 jpeg 的倍數 <br> ： 最多 8192， 2 的倍數 | jpeg、avc |
 | 幀率 | 攝像頭採集幀率，目前只支援30pfs | 30 | 30 | 中風 |
 | r | 編碼輸出幀率 | 30 | 能整除fps或者被fps整除的數 | 中風 |
-| 內聯幀 | 輸入yuv幀數 | 0 | [0,32767] | jpeg、avc |
+| 內聯幀 | 輸入yuv幀數 | 0 | [0,50] | jpeg、avc |
 | 外幀 | 輸出yuv幀數，如果比參數-inframes大，將會重複編碼 | 0 | [0,32767] | jpeg、avc |
 | 共和黨 | Group Of Picture，即兩個 I 幀之間的間隔 | 25 | [1,1000] | 中風 |
 | rcmode | 表示碼率控制模式 0：CONST_QP 1：CBR 2：VBR | 斷續器 | [0,2] | 中風 |
@@ -549,7 +549,7 @@ K510的硬體框圖如下：
 | 最大qp | 最大QP值 | 54 | [切片qp，54] | 中風 |
 | enableLTR | 使能長期參考幀，參數指定刷新週期。 0：不啟用刷新週期。 正數：週期性設置參考幀並且下一幀設置為使用長期參考幀 | 0 | [0,65535] | 中風 |
 | 王 | roi配置檔，指定多個roi區域 | 零 | xxx.conf | 中風 |
-| ae | 使能AE | 0 | 0-不使能AE<br>1-使能AE |
+| ae | 使能AE | 0 | 0-不使能AE<br>1-使能AE | |
 | 會議 | vl42配置檔，會指定的配置檔的基礎上，根據命令行輸入參數修改v4l2配置參數 | 零 | xxx.conf | 中風 |
 
 ### 3.1.1 輸入yuv文件，輸出檔
@@ -1002,7 +1002,7 @@ ffmpeg -h demuxer=v4l2 #查看v4l2的配置参数
 | s | 圖像解析度，例如1920x1080 | 零 | |
 | r | 幀率，目前只支援30fps | 30 | 30 |
 | 胰島 | 打開k510 isp硬體 | 0 | 0-1 |
-| buf_type | v4l2 buffer`类型` <br>1： V4L2_MEMORY_MMAP ：適合於-vcodec copy<br>2： V4L2_MEMORY_USERPTR：適合於-vcodec libk510_h264 | 1 | 1~4 |
+| buf_type | v4l2 buffer`类型` <br>1： V4L2_MEMORY_MMAP ：適合於-vcodec copy<br>2： V4L2_MEMORY_USERPTR：適合於-vcodec libk510_h264 | 1 | 1~2 |
 | 會議 | v4l2 配置檔 | 零 | |
 
 ffmpeg運行命令示例：其中10.100.232.11為接收端位址，根據實際修改。

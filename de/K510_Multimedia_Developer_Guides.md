@@ -1002,7 +1002,7 @@ ffmpeg -h demuxer=v4l2 #查看v4l2的配置参数
 | s | Bildauflösung, z. B. 1920 x 1080 | NULL | |
 | r | Bildrate, unterstützt derzeit nur 30fps | 30 | 30 |
 | ISP | Schalten Sie die k510 ISP-Hardware ein. | 0 | 0-1 |
-| buf_type | v4l2 buffer`类型` <br> 1: V4L2_MEMORY_MMAP: for -vcodec copy 2: V4L2_MEMORY_USERPTR: for -vcodec<br>libk510_h264 | 1 | 1 ~ 4 |
+| buf_type | v4l2 buffer`类型` <br> 1: V4L2_MEMORY_MMAP: for -vcodec copy 2: V4L2_MEMORY_USERPTR: for -vcodec<br>libk510_h264 | 1 | 1~2 |
 | conf | v4l2-Konfigurationsdatei | NULL | |
 
 Beispiel für den ausführenden Befehl ffmpeg: wobei 10.100.232.11 die empfangende Adresse ist, die je nach tatsächlicher Situation geändert wird.

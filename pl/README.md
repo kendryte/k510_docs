@@ -30,7 +30,7 @@ Jeśli jesteś zainteresowany tym projektem i chciałbyś uzyskać opinię lub p
 
 ## Skontaktuj się z nami
 
-Pekin Canaan Jiesi Information Technology Co Ltd  
+Canaan Inc.  
 Adres internetowy:[canaan-creative.com](https://canaan-creative.com/)  
 Zapytania biznesowe:[salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
 
