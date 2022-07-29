@@ -534,8 +534,8 @@ K510的硬件框图如下：
 | o | 输出| NULL | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG | jpeg、avc |
 | w | 输出图像宽度 | 1920 | avc: [128,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 16 | jpeg、avc |
 | h | 输出图像高度 | 1080 | avc: [64,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 2 | jpeg、avc |
-| fps | 摄像头采集帧率，目前只支持30pfs | 30 | 30 | avc |
-| r | 编码输出帧率 | 30 | 支持常用帧率转换，与encoder API的FrameRate参数取值范围一致 | avc |
+| fps | 摄像头采集帧率 | 30 | 30 | avc |
+| r | 编码输出帧率 | 与参数`fps`相等 | 支持常用帧率转换，与encoder API的FrameRate参数取值范围一致 | avc |
 | inframes | 输入yuv帧数 | 0 | [0,50] | jpeg、avc |
 | outframes | 输出yuv帧数，如果比参数-inframes大，将会重复编码 | 0 | [0,32767] | jpeg、avc |
 | gop | Group Of Picture，即两个 I 帧之间的间隔 | 25 | [1,1000] | avc |
