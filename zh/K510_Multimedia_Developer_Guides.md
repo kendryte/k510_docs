@@ -81,7 +81,7 @@ pCfg：输入编码配置参数
 |             MinQP             | 最小qp值                                                     |                         [0,sliceqp]                          | avc          |
 |             MaxQP             | 最大qp值                                                     |                         [sliceqp,54]                         | avc          |
 |            profile            | SPS 中的 profile_idc 参数:0: base 1:main 2:high 3:jpeg       |                            [0,3]                             | jpeg，avc    |
-|             level             | PS 中的 level_idc 参数                                       |                           [10,42]                            | avc          |
+|             level             | SPS 中的 level_idc 参数                                       |                           [10,42]                            | avc          |
 |          AspectRatio          | 显示比例                                                     |                     参见AVC_AspectRatio                      | jpeg，avc    |
 |            FreqIDR            | 两个idr帧的间隔                                              |                           [1,1000]                           | avc          |
 |            gopLen             | Group Of Picture，即两个 I 帧之间的间隔                      |                           [1,1000]                           | avc          |
