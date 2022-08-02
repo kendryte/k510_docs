@@ -61,7 +61,7 @@ k510_buildroot/package/encode_app/enc_interface.h
 【语法】
 
 ```c
-EncoderHandle* VIdeoEncoder_Create(EncSettings *pCfg)
+EncoderHandle* VideoEncoder_Create(EncSettings *pCfg)
 ```
 
 【参数】
@@ -389,7 +389,7 @@ typedef struct
 {
     unsigned short width;
     unsigned short height;
-    unsigned short stride;
+    unsigned short stride; //must be multiple of 32
     unsigned char *data;
 }EncInputFrame;
 ```
