@@ -99,7 +99,11 @@ isp-tuningd receives a yuv image (NV12) in size of 3133440 bytes from the standa
 
 ```shell
 cd /app/mediactl_lib
+# use camera 0
 ./v4l2_drm_isptool -f video_drm_1080x1920.conf
+
+# use camera 1
+./v4l2_drm_isptool -f video_drm_1080x1920_r2k.conf
 ```
 
 # ISP tuning options
