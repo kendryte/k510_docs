@@ -534,7 +534,7 @@ K510的硬件框图如下：
 | o | 输出| NULL | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG | jpeg、avc |
 | w | 输出图像宽度 | 1920 | avc: [128,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 16 | jpeg、avc |
 | h | 输出图像高度 | 1080 | avc: [64,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 2 | jpeg、avc |
-| fps | 摄像头采集帧率 | 30 | 30 | avc |
+| fps | 摄像头采集帧率 | 30 | (30, 60, 75) <br> 与`video_sample_xxx.conf`文件配置一致 | avc |
 | r | 编码输出帧率 | 与参数`fps`相等 | 支持常用帧率转换，与encoder API的FrameRate参数取值范围一致 | avc |
 | inframes | 输入yuv帧数 | 0 | [0,50] | jpeg、avc |
 | outframes | 输出yuv帧数，如果比参数-inframes大，将会重复编码 | 0 | [0,32767] | jpeg、avc |
@@ -694,7 +694,7 @@ ffmpeg放在/usr/local/bin目录下。
 | g | gop size | 25 | 1~1000 |
 | b | bitrate | 4000000 | 0~20000000 |
 | r | 帧率,由于isp目前只支持30fps，故解码器应设置为30 | 30 | 30 |
-| idr_freq | IDR频率 | -1(没有IDR) | -1~256 |
+| idr_freq | IDR频率 | 25 | -1~256 |
 | qp | 用cqp编码时，配置qp值 | -1(auto) | -1~100 |
 | maxrate | bitrate的最大值 | 0 | 20000000 |
 | profile | 支持的profile | 2(high) | 0 - baseline <br> 1 - main <br> 2 - high |
