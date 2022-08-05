@@ -714,7 +714,7 @@ ffmpeg放在/usr/local/bin目录下。
 (3) device libk510_video参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
-| wh | frame size | NULL | **for encodelibk510_h264:**:<br>  up to 2048x2048 <br> width multiple of 8 <br> height multiple of 8 <br> min. width: 128 <br> min. height: 64 <br> **for encoder libk510_jpeg:** <br> up to 8192x8192 <br> width multiple of 16 <br> height multiple of 2 |
+| wh | frame size | NULL | **for encoder libk510_h264:**:<br>  up to 2048x2048 <br> width multiple of 8 <br> height multiple of 8 <br> min. width: 128 <br> min. height: 64 <br> **for encoder libk510_jpeg:** <br> up to 8192x8192 <br> width multiple of 16 <br> height multiple of 2 |
 | exp | exposure parameter | 0 | 0~128 |
 | agc | analog gain | 0 | 0~232 |
 
