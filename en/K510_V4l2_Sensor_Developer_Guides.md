@@ -2,47 +2,47 @@
 
 **<font face="黑体" size="6" style="float:right">K510 V4L2 Sensor Developer's Guide</font>**
 
-<font face="黑体"  size=3>文档版本：V1.0.0</font>
+<font face="黑体"  size=3>Document version: V1.0.0</font>
 
-<font face="黑体"  size=3>发布日期：2022-03-11</font>
-
-<div style="page-break-after:always"></div>
-
-<font face="黑体" size=3>**免责声明**</font>
-您购买的产品、服务或特性等应受北京嘉楠捷思信息技术有限公司（“本公司”，下同）商业合同和条款的约束，本文档中描述的全部或部分产品、服务或特性可能不在您的购买或使用范围之内。除非合同另有约定，本公司不对本文档的任何陈述、信息、内容的准确性、可靠性、完整性、营销型、特定目的性和非侵略性提供任何明示或默示的声明或保证。除非另有约定，本文档仅作为使用指导的参考。
-由于产品版本升级或其他原因，本文档内容将可能在未经任何通知的情况下，不定期进行更新或修改。
-
-**<font face="黑体"  size=3>商标声明</font>**
-
-“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
-
-**<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
-本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
-
-**<font face="黑体"  size=3>北京嘉楠捷思信息技术有限公司</font>**
-网址：canaan-creative.com
-商务垂询：salesAI@canaan-creative.com
+<font face="黑体"  size=3>Published: 2022-03-11</font>
 
 <div style="page-break-after:always"></div>
 
-# 前言
+<font face="黑体" size=3>**Disclaimer**</font>
+The products, services or features you purchase shall be subject to the commercial contracts and terms of Beijing Canaan Jiesi Information Technology Co., Ltd. ("the Company", the same hereinafter), and all or part of the products, services or features described in this document may not be within the scope of your purchase or use. Except as otherwise agreed in the contract, the Company disclaims all representations or warranties, express or implied, as to the accuracy, reliability, completeness, marketing, specific purpose and non-aggression of any representations, information, or content of this document. Unless otherwise agreed, this document is provided as a guide for use only.
+Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice.
 
-**<font face="黑体"  size=5>文档目的</font>**
-本文档为K510 sensor 开发的说明文档。
+**<font face="黑体"  size=3>Trademark Notices</font>**
 
-**<font face="黑体"  size=5>读者对象</font>**
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners.
 
-本文档（本指南）主要适用的人员：
+**<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
+This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form.
 
-- 软件开发人员
-- 技术支持人员
+**<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
+URL: canaan-creative.com
+Business Enquiries: salesAI@canaan-creative.com
 
-**<font face="黑体"  size=5>修订记录</font>**
-<font face="宋体"  size=2>修订记录累积了每次文档更新的说明。最新版本的文档包含以前所有版本的更新内容。</font>
+<div style="page-break-after:always"></div>
 
-| 版本号 | 修改者 | 修订日期   | 修订说明     |
+# preface
+
+**<font face="黑体"  size=5>Document purpose</font>**
+This document is an explanatory document developed for the K510 sensor.
+
+**<font face="黑体"  size=5>Reader Objects</font>**
+
+The main people to whom this document (this guide) applies:
+
+- Software developers
+- Technical support personnel
+
+**<font face="黑体"  size=5>Revision history</font>**
+ <font face="宋体"  size=2>The revision history accumulates a description of each document update. The latest version of the document contains updates for all previous versions. </font>
+
+| The version number | Modified by | Date of revision   | Revision Notes     |
 | :----- | ------ | ---------- | ------------ |
-| V1.0.0 | 朱大雷 | 2022-03-11 | SDK V1.5发布 |
+| V1.0.0 | Zhu Dalei | 2022-03-11 | SDK V1.5 released |
 |        |        |            |              |
 |        |        |            |              |
 |        |        |            |              |
@@ -54,19 +54,19 @@
 
 <div style="page-break-after:always"></div>
 
-**<font face="黑体"  size=6>目 录</font>**
+**<font face="黑体"  size=6>Contents</font>**
 
 [TOC]
 
 <div style="page-break-after:always"></div>
 
-# 1、V4L2 sesor 驱动
+# 1. V4L2 sesor driver
 
-​以imx219为例，代码在drivers/media/i2c/soc_camera/canaanchip/imx219_0.c  
+Taking imx219 as an example, the code is in drivers/media/i2c/soc_camera/canaanchip/imx219_0.c  
 
-## 1.1 增加sensor配置
+## 1.1 Add sensor configuration
 
-- 增加以下一组配置
+- Add the following set of configurations
 
     ```c
     /* MCLK:24MHz  1080x1920  30fps   MIPI LANE2 */
@@ -147,7 +147,7 @@
     };
     ```
 
-- 把配置增加到modes序列里，如下：
+- Add the configuration to the modes sequence as follows:
 
     ```c
     static const struct imx219_mode supported_modes[] = {
@@ -176,14 +176,14 @@
     };
     ```
 
-    说明：
-    .width = 1080 是sensor输出水平有效像素。
-    .height = 1920 是sensor输出高度有效行数。
-    .hts_def = 0x0d78 - IMX219_EXP_LINES_MARGIN 是sensor输出水平总像素减去曝光行阈值。0x0d78是sensor输出水平总像素，这个在vidieo.conf 文件会用到。IMX219_EXP_LINES_MARGIN是定义曝光行阈值，目前是4，可以更改。
-    .vts_def = 0x0898是sensor输出高度的总行数，这个在vidieo.conf 文件会用到。
-    .reg_list = imx219_init_tab_1080_1920_30fps 是上面所改的配置。
+    Illustrate:
+    .width = 1080 is the sensor output level effective pixel.
+    .height = 1920 is the number of highly valid rows for the sensor output.
+    .hts_def = 0x0d78 - IMX219_EXP_LINES_MARGIN is the sensor output level total pixels minus the exposure line threshold. 0x0d78 is the sensor output level total pixels, which will be used in the vidieo.conf file. IMX219_EXP_LINES_MARGIN is to define the exposure row threshold, which is currently 4 and can be changed.
+    .vts_def = 0x0898 is the total number of lines of sensor output height, which is used in the vidieo.conf file.
+    .reg_list = imx219_init_tab_1080_1920_30fps is the configuration changed above.
 
-- 增加stream on 的mode，这个在imx219_s_stream会用到
+- Add the model of stream on, which will be used imx219_s_stream
 
     ```c
     static const struct imx219_reg start[] = {
@@ -192,7 +192,7 @@
     };
     ```
 
-- 增加stream off 的mode，这个在imx219_s_stream会用到
+- Add the stream off mode, which will be used imx219_s_stream
 
     ```c
     static const struct imx219_reg stop[] = {
@@ -201,9 +201,9 @@
     };
     ```
 
-## 1.2 增加曝光增益及曝光行的控制
+## 1.2 Increase the exposure gain and control of the exposure line
 
-增加或修改
+Add or modify
 ​case V4L2_CID_ANALOGUE_GAIN:
 ​case V4L2_CID_GAIN:
 ​case V4L2_CID_EXPOSURE:
@@ -316,9 +316,9 @@ static int imx219_s_ctrl(struct v4l2_ctrl *ctrl)
 }
 ```
 
-## 1.3 修改probe函数中初始化配置（以imx_probe)
+## 1.3 Modify the initialization configuration in the probe function (to imx_probe)
 
-### 1.3.1 修改版本号
+### 1.3.1 Modify the version number
 
 ```c
 dev_info(dev, "driver version: %02x.%02x.%02x",
@@ -327,7 +327,7 @@ dev_info(dev, "driver version: %02x.%02x.%02x",
     (uint8_t)(DRIVER_VERSION));
 ```
 
-### 1.3.2 增加及修改DTS里对嘉楠信息解析
+### 1.3.2 Add and modify canaan information parsing in DTS
 
 ```c
     ret = of_property_read_u32(node, CANAANMODULE_CAMERA_MODULE_INDEX,
@@ -343,9 +343,9 @@ dev_info(dev, "driver version: %02x.%02x.%02x",
             &priv->len_name);
 ```
 
-### 1.3.3 修改当前支持模式的CROP信息
+### 1.3.3 Modify crop information for currently supported modes
 
-与上面配置信息里一致。
+This is consistent with the configuration information above.
 
 ```c
 priv->crop_rect.left = 680; //0x2A8
@@ -354,9 +354,9 @@ priv->crop_rect.width = priv->cur_mode->width;
 priv->crop_rect.height = priv->cur_mode->height;
 ```
 
-### 1.3.4 修改sensor名字等信息
+### 1.3.4 Modify the sensor name and other information
 
-这个sensor name会在video_cfg.conf文件用到，mediactl_lib库里需要它找到sensor。
+This sensor name will be used in video_cfg.conf file, mediactl_lib library needs it to find the sensor.
 
 ```c
 memset(facing, 0, sizeof(facing));
@@ -370,7 +370,7 @@ snprintf(sd->name, sizeof(sd->name), "m%02d_%s_%s %s",
         IMX219_NAME, dev_name(sd->dev));
 ```
 
-## 1.4 增加或修改sensor版本的读取函数（imx219_video_probe）
+## 1.4 Add or modify the sensor version of the read function (imx219_video_probe)
 
 ```c
 static int imx219_video_probe(struct i2c_client *client)
@@ -450,9 +450,9 @@ done:
 }
 ```
 
-## 1.5 修改sensor的控制函数
+## 1.5 Modify the sensor's control function
 
-主要是对默认的曝光值及曝光行的初始值修改（IMX219_ANALOGUE_GAIN_MIN/IMX219_DIGITAL_GAIN_MAX/IMX219_ANALOGUE_GAIN_DEFAULT,IMX219_DIGITAL_EXPOSURE_MIN/IMX219_DIGITAL_EXPOSURE_MAX/IMX219_DIGITAL_EXPOSURE_DEFAULT）
+Mainly the default exposure value and the initial value of the exposure line are modified (IMX219_ANALOGUE_GAIN_MIN/IMX219_DIGITAL_GAIN_MAX/IMX219_ANALOGUE_GAIN_DEFAULT, IMX219_DIGITAL_EXPOSURE_MIN/IMX219_DIGITAL_EXPOSURE_MAX/IMX219_ DIGITAL_EXPOSURE_DEFAULT）
 
 ```c
 static int imx219_ctrls_init(struct v4l2_subdev *sd)
@@ -530,9 +530,9 @@ error:
 }
 ```
 
-## 1.6 上下电函数
+## 1.6 Power-up and power-up functions
 
-主要是增加对sensor上下电控制，IO口的操作。
+Mainly to increase the control of the sensor power-up and power-up, the operation of the IO port.
 
 ```c
 static int imx219_s_power(struct v4l2_subdev *sd, int on)
@@ -553,9 +553,9 @@ static int imx219_s_power(struct v4l2_subdev *sd, int on)
 }
 ```
 
-## 1.7 set_fmt函数
+## 1.7 set_fmt functions
 
-主要是对fmt->format.code = MEDIA_BUS_FMT_SRGGB10_1X10 这句话的修改，sensor是支持raw10/raw12。
+Mainly a modification of the fmt->format.code = MEDIA_BUS_FMT_SRGGB10_1X10 sentence, the sensor is supported raw10/raw12.
 
 ```c
 static int imx219_set_fmt(struct v4l2_subdev *sd,
@@ -605,9 +605,9 @@ static int imx219_set_fmt(struct v4l2_subdev *sd,
 }
 ```
 
-## 1.8 get_fmt函数
+## 1.8 get_fmt functions
 
-主要是对fmt->format.code = MEDIA_BUS_FMT_SRGGB10_1X10 这句话的修改，sensor是支持raw10/raw12。
+Mainly a modification of the fmt->format.code = MEDIA_BUS_FMT_SRGGB10_1X10 sentence, the sensor is supported raw10/raw12.
 
 ```c
 static int imx219_get_fmt(struct v4l2_subdev *sd,
@@ -633,9 +633,9 @@ static int imx219_get_fmt(struct v4l2_subdev *sd,
 }
 ```
 
-# 2、ISP 的配置参数
+# 2. The configuration parameters of the ISP
 
-isp的配置文件是mediactl_init函数要使用的，是json格式的，具体如下：(每个参数的意义参看ISP的寄存器文档)
+The configuration file of isp is mediactl_init function to use, in json format, as follows: (The meaning of each parameter refer to the ISP's register document)
 
 ```json
 {
@@ -1171,9 +1171,9 @@ isp的配置文件是mediactl_init函数要使用的，是json格式的，具体
 }
 ```
 
-# 3、video_cfg配置文件
+# 3. video_cfg profile
 
-这个文件是mediactl_init函数要使用的，是json格式,具体格式及相关的解释如下：
+This file is mediactl_init function to use, is in json format, the specific format and related explanations are as follows:
 
 ```json
 {
@@ -1254,7 +1254,7 @@ isp的配置文件是mediactl_init函数要使用的，是json格式的，具体
 }
 ```
 
-需要修改的信息解释如下：
+The information that needs to be modified is explained as follows:
 
 ```text
 sensor0_name:只在V4L2驱动中设置的sensor驱动名字。
@@ -1312,7 +1312,7 @@ video_height[4]:返回的每个video的高度。
 video_out_format[4]:返回的每个video的输出图像格式，具体见《video的配置文件》的解释。
 ```
 
-**翻译免责声明**  
-为方便客户，Canaan 使用 AI 翻译程序将文本翻译为多种语言，它可能包含错误。我们不保证提供的译文的准确性、可靠性或时效性。对于因依赖已翻译信息的准确性或可靠性而造成的任何损失或损害，Canaan 概不负责。如果不同语言翻译之间存在内容差异，以简体中文版本为准。
+**Translation Disclaimer**  
+For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail.
 
-如果您要报告翻译错误或不准确的问题，欢迎通过邮件与我们联系。
+If you would like to report a translation error or inaccuracy, please feel free to contact us by mail.

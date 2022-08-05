@@ -2,45 +2,45 @@
 
 **<font face="黑体" size="6" style="float:right">K510 Mailbox Developer's Guide</font>**
 
-<font face="黑体"  size=3>文档版本：V1.0.0</font>
+<font face="黑体"  size=3>Document version: V1.0.0</font>
 
-<font face="黑体"  size=3>发布日期：2022-03-09</font>
-
-<div style="page-break-after:always"></div>
-
-<font face="黑体" size=3>**免责声明**</font>
-您购买的产品、服务或特性等应受北京嘉楠捷思信息技术有限公司（“本公司”，下同）商业合同和条款的约束，本文档中描述的全部或部分产品、服务或特性可能不在您的购买或使用范围之内。除非合同另有约定，本公司不对本文档的任何陈述、信息、内容的准确性、可靠性、完整性、营销型、特定目的性和非侵略性提供任何明示或默示的声明或保证。除非另有约定，本文档仅作为使用指导的参考。
-由于产品版本升级或其他原因，本文档内容将可能在未经任何通知的情况下，不定期进行更新或修改。
-
-**<font face="黑体"  size=3>商标声明</font>**
-
-“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
-
-**<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
-本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
-
-**<font face="黑体"  size=3>北京嘉楠捷思信息技术有限公司</font>**
-网址：canaan-creative.com
-商务垂询：salesAI@canaan-creative.com
+<font face="黑体"  size=3>Published: 2022-03-09</font>
 
 <div style="page-break-after:always"></div>
-# 前言
-**<font face="黑体"  size=5>文档目的</font>**
-本文档为K510 mailbox 驱动开发文档。
 
-**<font face="黑体"  size=5>读者对象</font>**
+<font face="黑体" size=3>**Disclaimer**</font>
+The products, services or features you purchase shall be subject to the commercial contracts and terms of Beijing Canaan Jiesi Information Technology Co., Ltd. ("the Company", the same hereinafter), and all or part of the products, services or features described in this document may not be within the scope of your purchase or use. Except as otherwise agreed in the contract, the Company disclaims all representations or warranties, express or implied, as to the accuracy, reliability, completeness, marketing, specific purpose and non-aggression of any representations, information, or content of this document. Unless otherwise agreed, this document is provided as a guide for use only.
+Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice.
 
-本文档（本指南）主要适用的人员：
+**<font face="黑体"  size=3>Trademark Notices</font>**
 
-- 软件开发人员
-- 技术支持人员
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners.
 
-**<font face="黑体"  size=5>修订记录</font>**
-<font face="宋体"  size=2>修订记录累积了每次文档更新的说明。最新版本的文档包含以前所有版本的更新内容。</font>
+**<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
+This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form.
 
-| 版本号   | 修改者     | 修订日期 | 修订说明 |
+**<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
+URL: canaan-creative.com
+Business Enquiries: salesAI@canaan-creative.com
+
+<div style="page-break-after:always"></div>
+# preface
+**<font face="黑体"  size=5>Document purpose</font>**
+This document is a development document for the K510 mailbox driver.
+
+**<font face="黑体"  size=5>Reader Objects</font>**
+
+The main people to whom this document (this guide) applies:
+
+- Software developers
+- Technical support personnel
+
+**<font face="黑体"  size=5>Revision history</font>**
+ <font face="宋体"  size=2>The revision history accumulates a description of each document update. The latest version of the document contains updates for all previous versions. </font>
+
+| The version number   | Modified by     | Date of revision | Revision Notes |
 |  :-----  |-------   |  ------  |  ------  |
-| V1.0.0 | 系统软件组 | 2022-03-09 | SDK V1.5发布 |
+| V1.0.0 | System software groups | 2022-03-09 | SDK V1.5 released |
 |        |        |            |                    |
 |        |        |            |                    |
 |        |        |            |                    |
@@ -48,72 +48,70 @@
 |        |        |            |                    |
 
 <div style="page-break-after:always"></div>
-**<font face="黑体"  size=6>目 录</font>**
+**<font face="黑体"  size=6>Contents</font>**
 
 [TOC]
 
 <div style="page-break-after:always"></div>
 
-# 1 框架分析
+# 1 Framework analysis
 
 ## 1.1 client、controller 与 framework
 
-&emsp;&emsp;mailbox 框架用于处理多处理器之间的通信。框架分为 controller 与 client。  
-&emsp;&emsp;controller 是直接操作硬件 mailbox 的驱动。它向下直接操作硬件寄存器，通过发送与接收中断（如果硬件支持）完成与 remote 的通信；向上通过框架提供的接口完成与 client 驱动的交流。
-&emsp;&emsp;client 是 controller 的消费者，向下与 controller 沟通，完成通道申请，数据准备等功能；向上提供可供用户空间操作的接口。  
-&emsp;&emsp;mailbox 框架所负责的就是 controller 与 client 之间的接口，内核文档中说：“client 和 controller 驱动程序可能是会非常依赖于特定平台的，因此，client 驱动大概率不能在多个平台之间共享”，所以在`/drivers/mailbox`目录下，只能找到有关 controller 的驱动而找不到 client 的驱动，只能找到一个测试 controller 的`mailbox-test.c`的 client 驱动。client 驱动如何与用户空间交换数据也就由驱动开发者自己决定。  
-&emsp;&emsp;下图是两个驱动注册的基本框架：  
+&emsp; &emsp; The mailbox framework is used to handle communication between multiple processors. The framework is divided into controller and client.  
+&emsp; &emsp; Controller is a driver that directly manipulates the hardware mailbox. It operates the hardware registers directly down, completing communication with remote by sending and receiving interrupts (if supported by the hardware); Up to the interface provided by the framework to complete the communication with the client driver.
+&emsp; &emsp; The client is the consumer of the controller, communicating with the controller downwards, completing channel applications, data preparation and other functions; Provides interfaces up for user-space manipulation.  
+&emsp; &emsp; The mailbox framework is responsible for the interface between the controller and the client, the kernel documentation says: "The client and controller driver may be very dependent on the specific platform, therefore, the client driver can not be shared between multiple platforms", so in`/drivers/mailbox` the directory, only the driver about the controller can be found and can not find the client driver, only one test can be found The `mailbox-test.c`client driver of the controller. How the client driver exchanges data with the user space is also up to the driver developer himself.  
+&emsp; &emsp; The following diagram is the basic framework for two driver registrations:
 
 <div align=center>
 <img src="../zh/images/mailbox/130101_frame_00.svg" width="1400">
 </div>  
 
-## 1.2 数据结构
+## 1.2 Data Structures
 
-&emsp;&emsp;controller 与 client 的数据结构如下图所示：
-<div align=center>
+&emsp; &emsp; The data structure of controller and client is shown in the following figure:<div align=center>
 <img src="../zh/images/mailbox/130102_data_structure.svg" width="1400">
 </div>
 
-&emsp;&emsp;框架中使用`struct mbox_controller`抽象 mailbox 控制器，使用`struct mbox_chan`抽象通道，使用函数集合`struct mbox_chan_ops`来对通道进行操作。上面三个数据结构是针对 controller 的。框架使用`struct mbox_client`抽象客户端，是针对 client 的。  
-&emsp;&emsp;除此之外，我们需要针对我们的设备与驱动定义一个我们自己的设备结构体，如上图所示。client 与 controller 的联系是通过在 client 中申请通道时，在`mbox_request_channel`函数中完成的，一个通道绑定一个`struct mbox_client`结构体。
+&emsp; &emsp; The framework uses `struct mbox_controller`abstract mailbox controllers, abstract `struct mbox_chan`channels, and collections of functions `struct mbox_chan_ops`to manipulate channels. The above three data structures are for controllers. The framework uses `struct mbox_client`abstract clients, which are client-specific.  
+&emsp; &emsp; In addition to this, we need to define our own device structure for our devices and drives, as shown in the figure above. The connection between the client and the controller is`mbox_request_channel` done in the function when applying for a channel in the client, and one channel is bound to a`struct mbox_client` struct.
 
-## 1.3 函数调用流程
+## 1.3 Function call flow
 
-&emsp;&emsp;函数调用流程如下图所示：
-<div align=center>
+&emsp; &emsp; The function call flow is shown in the following figure:<div align=center>
 <img src="../zh/images/mailbox/130103_frame_callback.svg" width="1400">
 </div>  
 
-&emsp;&emsp;用户空间与 client 驱动的数据传递使用 ioctl 加异步通知的方式，这一部分内容由驱动开发者自己决定，不属于框架的内容。  
-&emsp;&emsp;我们在 client 驱动中创建了设备节点`/dev/mailbox-client`，用户空间通过此文件进行数据读取与发送。8 个发送通道，8 个接收通道。
+&emsp; &emsp; User-space and client-driven data delivery uses ioctl plus asynchronous notifications, which is determined by the driver developers themselves and does not belong to the framework.  
+&emsp; &emsp; We created a device node in the client driver`/dev/mailbox-client` through which the user space reads and sends data. 8 transmit channels, 8 receive channels.
 
-### 1.3.1 发送数据流程
+### 1.3.1 Sending Data Flow
 
-&emsp;&emsp;如上图所示：
+&emsp; &emsp; As shown in the figure above:
 
-1. 用户空间操作文件句柄发送数据；
-2. 进入 client 驱动的 ioctl 函数，此函数将用户空间数据复制到内核空间，最终调用了`mbox_send_message`函数；
-3. 此函数的具体处理流程可以看后面章节的代码分析，主要就是调用了两个回调函数：client 驱动实现的`tx_prepare`，controller 驱动实现的`send_data`。看名字就可以知道这两个函数的作用。需要注意的是，有些硬件的 mailbox 是有硬件数据传输寄存器的，那么此时，数据传输就可以在`send_data`中完成；有些硬件没有硬件数据传输寄存器，那么也可以在`tx_prepare`中完成实际的数据传输，`send_data`的作用就变成了单纯的**触发中断通知远端处理器**；
-4. 当远端处理器收到中断，并接收数据以后，需要回复给 controller 一个中断表明 Tx 已经完成；
-5. 收到 Tx ACK 以后，controller 注册的中断处理函数需要调用`mbox_chan_txdone`来通知上层本次传输已被远端接收；
-6. `mbox_chan_txdone`通过 client 注册的`tx_done`来告知 client 本次传输已完成。由 client 决定后续处理，`tx_done`的参数记录了数据传输的状态。
+1. User-space manipulation file handles to send data;
+2. Enter the client-driven ioctl function, which copies user-space data to kernel space and eventually calls the`mbox_send_message` function;
+3. The specific processing process of this function can be seen in the code analysis of the later chapters, which mainly calls two callback functions: client-driven`tx_prepare` implementation and controller-driven implementation`send_data`. Look at the names to know what these two functions do. It should be noted that some hardware mailboxes have hardware data transmission registers, so at this time, the data transmission can be`send_data` completed in the middle; Some hardware does not have hardware data transmission registers, then the actual data transmission can also be`tx_prepare` completed in it, and `send_data`the role becomes a simple **trigger interrupt notification to the remote processor**;
+4. When the remote processor receives the interrupt and receives the data, it needs to reply to the controller with an interrupt indicating that Tx has completed;
+5. After receiving the Tx ACK, the controller-registered interrupt handler needs to be called `mbox_chan_txdone`to notify the upper layer that the transfer has been received remotely;
+6. `mbox_chan_txdone`Inform the client that the `tx_done`transfer is completed through the client registration. The client decides for subsequent processing, and the`tx_done` parameters record the state of the data transfer.
 
-### 1.3.1 接收数据流程
+### 1.3.1 Process of Receiving Data
 
-&emsp;&emsp;如上图所示：
+&emsp; &emsp; As shown in the figure above:
 
-1. 远端处理器发送给 controller 传输数据的中断；
-2. 收到中断以后，controller 注册的中断处理函数调用`mbox_chan_received_data`通知上层收到远端传来的数据，并回复给远端 Rx ACK。
-3. `mbox_chan_received_data`调用客户端注册的`rx_callback`；
-4. `rx_callback`中从设备树指定的地址读取数据，然后使用异步通知的方式通知用户空间；
-5. 用户空间的异步处理函数中调用 ioctl 读取接收通道的数据。
+1. Interrupts of the remote processor sending data to the controller;
+2. After receiving the interrupt, the controller-registered interrupt handler call `mbox_chan_received_data`informs the upper layer to receive data coming from the far end and reply to the remote Rx ACK.
+3. `mbox_chan_received_data`Invoke the client registered`rx_callback`;
+4. `rx_callback`reads data from the address specified in the device tree, and then notifies the user space using asynchronous notifications;
+5. The user-space asynchronous handler that calls ioctl reads the data of the receive channel.
 
-# 2 框架代码分析
+# 2 Framework code analysis
 
 ## 2.1 mailbox_controller.h
 
-&emsp;&emsp;定义了`mbox_controller`（对 mailbox 硬件的抽象）、`mbox_chan`（对 channel 的抽象）`mbox_chan_ops`（操作 channel 的回调函数的集合）。
+&emsp; &emsp; Defined `mbox_controller`(abstraction of mailbox hardware),`mbox_chan` (abstraction of channel) `mbox_chan_ops`(collection of callback functions that manipulate channels).
 
 ```c
 struct mbox_controller {
@@ -246,8 +244,7 @@ struct mbox_client {
 static int add_to_rbuf(struct mbox_chan *chan, void *mssg)
 ```
 
-&emsp;&emsp;该函数逻辑如下：  
-<div align=center>
+&emsp; &emsp; The function logic is as follows:<div align=center>
 <img src="../zh/images/mailbox/130203_add_to_rbuf.svg" width="500">
 </div>
 
@@ -275,8 +272,7 @@ static void msg_submit(struct mbox_chan *chan)
 }
 ```
 
-&emsp;&emsp;该函数逻辑如下：  
-<div align=center>
+&emsp; &emsp; The function logic is as follows:<div align=center>
 <img src="../zh/images/mailbox/130203_msg_submit.svg" width="450">
 </div>  
 
@@ -357,8 +353,7 @@ void mbox_client_txdone(struct mbox_chan *chan, int r)
 mbox_send_message(struct mbox_chan *chan, void *mssg)
 ```
 
-&emsp;&emsp;该函数逻辑如下：  
-<div align=center>
+&emsp; &emsp; The function logic is as follows:<div align=center>
 <img src="../zh/images/mailbox/130203_mbox_send_message.svg" width="700">
 </div>  
 
@@ -402,14 +397,14 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 }
 ```
 
-&emsp;&emsp;此函数，通过`of_parse_phandle_with_args`来从设备树中获得 index 对应请求的 channel。
+&emsp; &emsp; This function, by way, `of_parse_phandle_with_args`obtains the channel of the requested index from the device tree.
 
-- `mboxes`指向节点中 phandle 列表属性名；
-- `#mbox-cells`指明 phandle 指向的节点所含的 cell 个数；
-- `index`表示 phandle 列表的索引，0 代表第一个 phandle，1 代表第二个 phandle；
-- `out_args`存储 phandle 中的参数。
+- `mboxes`Points to the phandle list property name in the node;
+- `#mbox-cells`Indicates the number of cells contained in the node pointed to by the phandle;
+- `index`Represents the index of the phandle list, with 0 representing the first phandle and 1 representing the second phandle;
+- `out_args`Stores parameters in the phandle.
 
-&emsp;&emsp;例如，在我们的设备树中
+&emsp; &emsp; For example, in our device tree
 
 ```c
 /* 
@@ -435,27 +430,26 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
 };
 ```
 
-&emsp;&emsp;后面是对通道信息的初始化，包括缓存计数的清零，chan 的 cl 和客户端申请 channel 的 client 绑定，tx_complete 的初始化等。  
-&emsp;&emsp;该函数逻辑如下：  
-<div align=center>
+&emsp; &emsp; This is followed by the initialization of the channel information, including the zeroing of the cache count, the cl of chan and the client binding of the client requesting the channel, the initialization of the tx_complete, and so on.  
+&emsp; &emsp; The function logic is as follows:<div align=center>
 <img src="../zh/images/mailbox/130203_mbox_request_channel.svg" width="500">
 </div>
 
 ### 2.3.9 mbox_request_channel_byname
 
-&emsp;&emsp;此函数就是根据 name（mbox-names 属性） 从设备树中获取对应的 mboxes 列表，最后还是调用了 mbox_request_channel 函数申请通道。
+&emsp; &emsp; This function obtains the corresponding mboxes list from the device tree according to name(mbox-names attribute), and finally calls the mbox_request_channel function to apply for a channel.
 
 ### 2.3.10 mbox_free_channel
 
-&emsp;&emsp;通道释放函数，将指定通道的成员清空，如果对应的硬件寄存器需要配置的，实现`shutdown`回调函数。
+&emsp; &emsp; The channel release function implements a callback function that will empty the members of the specified channel and implement the callback function if the corresponding hardware register needs to be configured`shutdown`.
 
-### 2.3.11 mbox_controller_register 和 mbox_controller_unregister
+### 2.3.11 mbox_controller_register and mbox_controller_unregister
 
-&emsp;&emsp;顾名思义。
+&emsp; &emsp; Name implies.
 
-# 3 设备树分析
+# 3 Device tree analysis
 
-&emsp;&emsp;示例：
+&emsp; &emsp; Example:
 
 ```c
 /* controller */
@@ -487,17 +481,17 @@ mailbox: mailbox@970e0000 {
 
 ## 3.1 controller
 
-&emsp;&emsp;必须有属性`#mbox-cells`，值至少为 1。它指明了 client 属性`mboxes` cell 的个数。
+&emsp; &emsp; There must be an attribute`#mbox-cells` with a value of at least 1. It indicates the`mboxes` number of cells for the client attribute.
 
 ## 3.2 client
 
-&emsp;&emsp;必须有属性`mboxes`，它会提供给驱动通道的信息。  
-&emsp;&emsp;可选属性`mbox-names`，是`mboxes`的别名。  
-&emsp;&emsp;可选属性`reg`，mailbox client 与 remote 通信而保留的任何内存的一部分。  
+&emsp; &emsp; There must be a property `mboxes`that provides information to the drive channel.  
+&emsp; &emsp; Optional attribute`mbox-names`, yes `mboxes`alias.  
+&emsp; &emsp; Optionally`reg`, the mailbox client communicates with the remote while retaining a portion of any memory.  
 
-## 3.3 该属性的使用方法
+## 3.3 How to use the property
 
-&emsp;&emsp;`mbox-cells`、`mboxes`、`mbox-names`三个属性是在申请通道时用到的。
+&emsp; &emsp; `mbox-cells`The`mboxes` `mbox-names`three properties are used when applying for channels.
 
 ```c
 
@@ -528,43 +522,43 @@ static struct mbox_chan *canaan_mailbox_xlate(struct mbox_controller *controller
 }
 ```
 
-&emsp;&emsp;在这里我们将其用作了通道号，也可以添加别的特定于硬件的信息，具体解释由驱动开发者自行决定。
+&emsp; &emsp; Here we use it as the channel number, or we can add other hardware-specific information, the specific explanation is up to the driver developer.
 
-# 4 驱动实现
+# 4 Driver implementation
 
-- dts 配置
-&emsp;&emsp;参见上面设备树示例。
+- DTS configuration
+&emsp; &emsp; See the device tree example above.
 - controller
-&emsp;&emsp;参考`/drivers/mailbox/canaan-mailbox.c`
+&emsp;&emsp;reference`/drivers/mailbox/canaan-mailbox.c`
 - client
-&emsp;&emsp;参考`/drivers/mailbox/canaan_mbox_client.c`
-- 用户空间程序
-&emsp;&emsp;参考`k510_buildroot/package/mailbox_demo/src/mailbox_async.c`和`k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`
+&emsp;&emsp;reference`/drivers/mailbox/canaan_mbox_client.c`
+- User-space programs
+&emsp; &emsp; Reference`k510_buildroot/package/mailbox_demo/src/mailbox_async.c` and`k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`
 
-# 5 demo 使用方法
+# 5 How to use demo
 
-## 5.1 使用
+## 5.1 Use
 
-1. 加载 dsp 裸机程序
-进入目录`/app/dsp_app_new`，执行命令`./dsp_app mailbox_demo.bin`将裸机程序加载到 dsp 中，如下图所示：  
+1. Load the dsp bare metal program
+Go to the directory`/app/dsp_app_new` and execute the command `./dsp_app mailbox_demo.bin`to load the bare metal program into the dsp, as shown in the following figure:  
 ![dsp_load](../zh/images/mailbox/130601_dsp_load.png)  
-2. 运行 Linux 用户空间的测试 app
-进入目录`/app/mailbox_demo`，执行命令`./mailbox_async`，如下图所示：  
+2. Run the Linux userspace test app
+Enter the directory`/app/mailbox_demo` and execute the command`./mailbox_async`, as shown in the following figure:  
 ![mailbox_demo](../zh/images/mailbox/130602_mailbox_async.png)  
-此 demo 使用异步通知的方式接收 dsp 发送来的数据。
-3. 在目录`/app/mailbox_demo`中，执行命令`./mailbox_poll`，如下图所示：  
+This demo uses asynchronous notifications to receive data sent by the dsp.
+3. In the directory`/app/mailbox_demo`, execute the command`./mailbox_poll`, as shown in the following figure:  
 ![mailbox_demo](../zh/images/mailbox/130602_mailbox_poll.png)
-此 demo 使用 poll 阻塞 500ms 的方式接收 dsp 发送来的数据。我们每隔 4s 发送一次数据，每 2s 读一次数据，因此可以看到每隔 2s，读取成功与读取失败交错打印，阻塞读取是成功的。
+This demo uses poll blocking for 500ms to receive data sent by the dsp. We send data every 4s and read the data every 2s, so we can see that every 2s, the read success is staggered with the read failure, and the blocking read is successful.
 
-## 5.2 测试代码
+## 5.2 Testing the Code
 
-&emsp;&emsp;dsp 裸机程序位于`k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c`中，用户空间测试代码位于`k510_buildroot/package/mailbox_demo/src/mailbox_async.c`和`k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`。
+&emsp; &emsp; The dsp bare metal program is located `k510_buildroot/package/k510_evb_test/src/test/mailbox_demo/main.c`in the middle, and the user-space test code is located in`k510_buildroot/package/mailbox_demo/src/mailbox_async.c` and`k510_buildroot/package/mailbox_demo/src/mailbox_poll.c`.
 
-# 6 已知问题
+# 6 Known issues
 
-&emsp;&emsp;偶尔会出现第一次执行命令`./dsp_app mailbox_demo.bin`时没有将 dsp 程序烧进 dsp 中的情况出现。此时执行 demo 会出现发送失败的情况。
+&emsp; &emsp; Occasionally, the `./dsp_app mailbox_demo.bin`dsp program is not burned into the dsp the first time the command is executed. Execution of the demo at this point will result in a send failure.
 
-**翻译免责声明**  
-为方便客户，Canaan 使用 AI 翻译程序将文本翻译为多种语言，它可能包含错误。我们不保证提供的译文的准确性、可靠性或时效性。对于因依赖已翻译信息的准确性或可靠性而造成的任何损失或损害，Canaan 概不负责。如果不同语言翻译之间存在内容差异，以简体中文版本为准。
+**Translation Disclaimer**  
+For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail.
 
-如果您要报告翻译错误或不准确的问题，欢迎通过邮件与我们联系。
+If you would like to report a translation error or inaccuracy, please feel free to contact us by mail.

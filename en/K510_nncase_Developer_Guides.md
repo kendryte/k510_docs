@@ -2,162 +2,162 @@
 
 **<font face="黑体" size="6" style="float:right">K510 nncase Developer's Guide</font>**
 
-<font face="黑体"  size=3>文档版本：V1.0.1</font>
+<font face="黑体"  size=3>Document version: V1.0.1</font>
 
-<font face="黑体"  size=3>发布日期：2022-05-10</font>
-
-<div style="page-break-after:always"></div>
-
-<font face="黑体" size=3>**免责声明**</font>
-您购买的产品、服务或特性等应受北京嘉楠捷思信息技术有限公司（“本公司”，下同）商业合同和条款的约束，本文档中描述的全部或部分产品、服务或特性可能不在您的购买或使用范围之内。除非合同另有约定，本公司不对本文档的任何陈述、信息、内容的准确性、可靠性、完整性、营销型、特定目的性和非侵略性提供任何明示或默示的声明或保证。除非另有约定，本文档仅作为使用指导的参考。
-由于产品版本升级或其他原因，本文档内容将可能在未经任何通知的情况下，不定期进行更新或修改。
-
-**<font face="黑体"  size=3>商标声明</font>**
-
-“<img src="http://s2.loli.net/2022/03/30/xN21jbhnwSFyGRD.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
-
-**<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
-本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
-
-**<font face="黑体"  size=3>北京嘉楠捷思信息技术有限公司</font>**
-网址：canaan-creative.com
-商务垂询：salesAI@canaan-creative.com
+<font face="黑体"  size=3>Published: 2022-05-10</font>
 
 <div style="page-break-after:always"></div>
-# 前言
-**<font face="黑体"  size=5>文档目的</font>**
-本文档为nncase/K510 compiler的使用说明文档，提供给用户如何安装nncase, 如何调用compiler APIs编译神经网络模型和runtime APIs编写AI推理程序.
 
-**<font face="黑体"  size=5>读者对象</font>**
+<font face="黑体" size=3>**Disclaimer**</font>
+The products, services or features you purchase shall be subject to the commercial contracts and terms of Beijing Canaan Jiesi Information Technology Co., Ltd. ("the Company", the same hereinafter), and all or part of the products, services or features described in this document may not be within the scope of your purchase or use. Except as otherwise agreed in the contract, the Company disclaims all representations or warranties, express or implied, as to the accuracy, reliability, completeness, marketing, specific purpose and non-aggression of any representations, information, or content of this document. Unless otherwise agreed, this document is provided as a guide for use only.
+Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice.
 
-本文档（本指南）主要适用的人员：
+**<font face="黑体"  size=3>Trademark Notices</font>**
 
-- 软件开发人员
-- 技术支持人员
+""<img src="http://s2.loli.net/2022/03/30/xN21jbhnwSFyGRD.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners.
 
-**<font face="黑体"  size=5>术语及缩略词</font>**
+**<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
+This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form.
 
-| 术语 | 解释/全称                              |
+**<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
+URL: canaan-creative.com
+Business Enquiries: salesAI@canaan-creative.com
+
+<div style="page-break-after:always"></div>
+# preface
+**<font face="黑体"  size=5>Document purpose</font>**
+This document is a description document for the use of the nncase/K510 compiler, providing users with how to install nncase, how to call the compiler APIs to compile neural network models, and runtime APIs to write AI inference programs
+
+**<font face="黑体"  size=5>Reader Objects</font>**
+
+The main people to whom this document (this guide) applies:
+
+- Software developers
+- Technical support personnel
+
+**<font face="黑体"  size=5>Terms and acronyms</font>**
+
+| term | Explanation/full name                              |
 | ---- | -------------------------------------- |
-| PTQ  | Post-training quantization, 训练后量化 |
-| MSE  | mean-square error, 均方误差            |
+| PTQ  | Post-training quantization, post-training quantization |
+| MSE  | mean-square error, mean squared error            |
 |      |                                        |
 
-**<font face="黑体"  size=5>修订记录</font>**
-<font face="宋体"  size=2>修订记录累积了每次文档更新的说明。最新版本的文档包含以前所有版本的更新内容。</font>
+**<font face="黑体"  size=5>Revision history</font>**
+ <font face="宋体"  size=2>The revision history accumulates a description of each document update. The latest version of the document contains updates for all previous versions. </font>
 
-| 版本号   | 修改者     | 修订日期 | 修订说明 |
+| The version number   | Modified by     | Date of revision | Revision Notes |
 |  :-----  |-------   |  ------  |  ------  |
-| V1.0.1 | 张扬 | 2022-05-10 | nncase_v1.6.1 |
-| V1.0.0 | 张扬/张济昭/杨浩琪 | 2022-05-06 | nncase_v1.6.0 |
-| V0.9.0 | 张扬 | 2022-04-01 | nncase_v1.5.0 |
-| V0.8.0 | 张扬/张济昭 | 2022-03-03 | nncase_v1.4.0 |
-| V0.7.0 | 张扬 | 2022-01-28 | nncase_v1.3.0 |
-| V0.6.0 | 张扬 | 2021-12-31 | nncase_v1.2.0 |
-| V0.5.0 | 张扬 | 2021-12-03 | nncase_v1.1.0 |
-| V0.4.0 | 张扬/杨浩琪/郑启航 | 2021-10-29 | nncase_v1.0.0 |
-| V0.3.0 | 张扬/杨浩琪 | 2021-09-28 | nncase_v1.0.0_rc1 |
-| V0.2.0 | 张扬/杨浩琪 | 2021-09-02 | nncase_v1.0.0_beta2 |
-| V0.1.0 | 张扬/杨浩琪 | 2021-08-31 | nncase_v1.0.0_beta1 |
+| V1.0.1 | Publicity | 2022-05-10 | nncase_v1.6.1 |
+| V1.0.0 | Zhang Yang/Zhang Jizhao/Yang Haoqi | 2022-05-06 | nncase_v1.6.0 |
+| V0.9.0 | Publicity | 2022-04-01 | nncase_v1.5.0 |
+| V0.8.0 | Zhang Yang/Zhang Jizhao | 2022-03-03 | nncase_v1.4.0 |
+| V0.7.0 | Publicity | 2022-01-28 | nncase_v1.3.0 |
+| V0.6.0 | Publicity | 2021-12-31 | nncase_v1.2.0 |
+| V0.5.0 | Publicity | 2021-12-03 | nncase_v1.1.0 |
+| V0.4.0 | Zhang Yang/Haoqi Yang/Zheng Qihang | 2021-10-29 | nncase_v1.0.0 |
+| V0.3.0 | Zhang Yang / Yang Haoqi | 2021-09-28 | nncase_v1.0.0_rc1 |
+| V0.2.0 | Zhang Yang / Yang Haoqi | 2021-09-02 | nncase_v1.0.0_beta2 |
+| V0.1.0 | Zhang Yang / Yang Haoqi | 2021-08-31 | nncase_v1.0.0_beta1 |
 
 <div style="page-break-after:always"></div>
-**<font face="黑体"  size=6>目 录</font>**
+**<font face="黑体"  size=6>Contents</font>**
 
 [TOC]
 
 <div style="page-break-after:always"></div>
 
-# 1 开发环境简介
+# 1 Introduction to the development environment
 
-## 1.1 操作系统
+## 1.1 Operating System
 
 - Ubuntu 18.04/20.04
 
-## 1.2 软件环境
+## 1.2 Software Environment
 
-软件环境要求如下表所示：
+The software environment requirements are shown in the following table:
 
-| 序号 | 软件资源        | 说明                        |
+| serial number | Software resources        | illustrate                        |
 | ---- | --------------- | --------------------------- |
 | 1    | Python          | Python 3.6/3.7/3.8/3.9/3.10 |
-| 2    | pip3            | pip3版本 >= 20.3            |
-| 3    | onnx            | onnx版本为1.9.0             |
-| 4    | onnx-simplifier | onnx-simplifier版本为0.3.6  |
-| 5    | onnxoptimizer   | onnxoptimizer版本为0.2.6    |
+| 2    | pip3            | pip3 version > = 20.3            |
+| 3    | onnx            | The onnx version is 1.9.0             |
+| 4    | onnx-simplify | The onnx-simplifier version is 0.3.6  |
+| 5    | onnxoptimizer   | The onnxoptimizer version is 0.2.6    |
 
-## 1.3 硬件环境
+## 1.3 Hardware Environment
 
-硬件环境要求如下表所示：
+The hardware environment requirements are shown in the following table:
 
-| 序号 | 硬件资源     | 说明 |
+| serial number | Hardware resources     | illustrate |
 | ---- | ------------ | ---- |
 | 1    | K510 CRB     |      |
-| 2    | SD卡及读卡器 |      |
+| 2    | SD card and card reader |      |
 
-# 2 nncase简介
+# 2 introduction to nncase
 
-## 2.1 什么是nncase
+## 2.1 What is nncase
 
-nncase是一个为 AI 加速器设计的神经网络编译器, 目前支持的 target有cpu/K210/K510等
+nncase is a neural network compiler designed for AI accelerators, and currently supports targets such as CPU/K210/K510
 
-nncase提供的功能
+Features provided by nncase
 
-- 支持多输入多输出网络，支持多分支结构
-- 静态内存分配，不需要堆内存
-- 算子合并和优化
-- 支持 float 和uint8/int8量化推理
-- 支持训练后量化，使用浮点模型和量化校准集
-- 平坦模型，支持零拷贝加载
+- Support multiple input and multiple output networks, support multi-branch structure
+- Static memory allocation, no heap memory required
+- Operator merging and optimization
+- Supports float and uint8/int8 quantization inference
+- Supports post-training quantization, using floating-point models and quantization calibration sets
+- Flat model with zero copy loading support
 
-nncase支持的神经网络框架
+Neural network framework supported by nncase
 
 - tflite
 - onnx
 - caffe
 
-## 2.2 产品优势
+## 2.2 Product Advantages
 
-- **简单的端到端部署**
+- **Simple end-to-end deployment**
 
-  减少与用户交互的次数。用户使用和部署 CPU、GPU 模型相同的工具和流程就可完成在 KPU 上的部署。无需设置复杂的参数，降低使用门槛，加速 AI 算法的迭代周期。
-- **充分利用现有AI生态**
+  Reduce the number of interactions with users. Deployment on KPUs can be accomplished by using and deploying the same tools and processes for the CPU and GPU models. There is no need to set complex parameters, lower the threshold of use, and accelerate the iteration cycle of AI algorithms.
+- **Make full use of the existing AI ecosystem**
 
-  依附于业内广泛使用的框架。一方面可以提高知名度，享受到成熟生态的红利。另一方面可以降低中小开发商的开发成本，业界成熟的模型和算法可以直接部署。
-- **充分发挥硬件性能**
+  Attached to a framework widely used in the industry. On the one hand, it can improve its visibility and enjoy the dividends of a mature ecology. On the other hand, the development costs of small and medium-sized developers can be reduced, and the mature models and algorithms in the industry can be directly deployed.
+- **Get the most out of your hardware**
 
-  NPU的优势就在于效能比CPU、GPU高，DL Compiler必须能够充分发挥硬件的性能。Compiler还需要对新模型结构自适应地优化性能，因此需要在手工优化之外探索一条新的自动优化技术。
-- **可扩展性和可维护性**
+  The advantage of NPU is that the performance is higher than that of CPU and GPU, and the DL Compiler must be able to fully utilize the performance of the hardware. Compiler also needs to adaptively optimize performance for the new model structure, so a new automatic optimization technique needs to be explored in addition to manual optimization.
+- **Scalability and maintainability**
 
-  能够支持 K210、K510 以及将来芯片的 AI 模型部署。需要在架构层面提供一定的可扩展性。增加新 Target 的代价要小，能够尽可能复用更多的模块。加快新产品的研发速度实现 DL Compiler 的技术积累。
+  Ability to support AI model deployments for K210, K510, and future chips. Some scalability needs to be provided at the architectural level. Adding a new Target is less expensive and allows you to reuse as many modules as possible. Accelerate the development of new products to achieve the technology accumulation of DL Compiler.
 
-## 2.3 nncase架构
+## 2.3 nncase architecture
 
 <img src="https://i.loli.net/2021/08/18/IQR12SOJdzxTUZH.png" alt="nncase_arch.png" style="zoom:67%;" />
 
-nnncase软件栈目前包括compiler和runtime两部分。
+The nnncase software stack currently consists of two parts: compiler and runtime.
 
-**Compiler:** 用于在PC上编译神经网络模型，最终生成kmodel文件。主要包括importer, IR, Evaluator, Quantize, Transform优化, Tiling, Partition, Schedule, Codegen等模块。
+**Compiler:** Used to compile neural network models on a PC and eventually generate a kmodel file. It mainly includes importer, IR, Evaluator, Quantize, Transform optimization, Tiling, Partition, Schedule, Codegen and other modules.
 
-- Importer: 将其它神经网络框架的模型导入到nncase中
-- IR: 中间表示, 分为importer导入的Neutral IR(设备无关)和Neutral IR经lowering转换生成的Target IR(设备相关)
-- Evaluator: Evaluator提供IR的解释执行能力，常被用于Constant Folding/PTQ Calibration等场景
-- Transform: 用于IR转换和图的遍历优化等
-- Quantize: 训练后量化, 对要量化的tensor加入量化标记, 根据输入的校正集, 调用 Evaluator进行解释执行, 收集tensor的数据范围, 插入量化/反量化结点, 最后优化消除不必要的量化/反量化结点等
-- Tiling: 受限于NPU较低的存储器容量，需要将大块计算进行拆分. 另外, 计算存在大量数据复用时选择Tiling参数会对时延和带宽产生影响
-- Partition: 将图按ModuleType进行切分, 切分后的每个子图会对应RuntimeModule, 不同类型的RuntimeModule对应不同的Device(cpu/K510)
-- Schedule: 根据优化后图中的数据依赖关系生成计算顺序并分配Buffer
-- Codegen: 对每个子图分别调用ModuleType对应的codegen，生成RuntimeModule
+- Importer: Imports models from other neural network frameworks into nncase
+- IR: Middle representation, divided into importer-imported Neutral IR (device independent) and Nutral IR generated by lowering conversion Target IR (device dependent)
+- Evaluator: Evaluator provides interpretive execution of IR and is often used in scenarios such as Constant Folding/PTQ Calibration
+- Transform: For IR transformation and graph traversal optimization, etc
+- Quantize: Quantize after training, add quantization markers to the tensor to be quantized, call Evaluator for interpretation execution according to the input correction set, collect tensor data range, insert quantization/dequantization nodes, and finally optimize to eliminate unnecessary quantization/dequantization nodes, etc
+- Tiling: Limited by the lower memory capacity of the NPU, large chunks of computation need to be split. In addition, selecting the Tilling parameter when there is a large amount of data multiplexing in the calculation will have an impact on latency and bandwidth
+- Partition: Divide the graph by ModuleType, each subgraph after splitting will correspond to RuntimeModule, different types of RuntimeModule correspond to different Devices (cpu/K510)
+- Schedule: Generates a calculation order and allocates buffers based on the data dependencies in the optimized graph
+- Codegen: Call the codegen corresponding to ModuleType for each subgraph to generate RuntimeModule
 
-**Runtime**: 集成于用户App， 提供加载kmodel/设置输入数据/KPU执行/获取输出数据等功能.
+**Runtime**: Integrated into the user app, it provides functions such as loading kmodel/ setting input data, KPU execution, and obtaining output data
 
-# 3 安装nncase
+# 3 Install nncase
 
-nncase工具链compiler部分包括nncase和K510 compiler, 均需安装相应wheel包.
+The compiler part of the nncase toolchain includes nncase and K510 compiler, both of which need to install the corresponding wheel package.
 
-- nncase wheel包在[nncase github](https://github.com/kendryte/nncase/releases/tag/v1.6.0)发布, 支持Python 3.6/3.7/3.8/3.9/3.10, 用户可根据操作系统和Python选择相应版本下载 .
-- K510 compiler wheel包在nncase sdk的x86_64目录下, 不依赖Python版本, 可直接安装
+- The nncase wheel package was[released on nncase github](https://github.com/kendryte/nncase/releases/tag/v1.6.0), supporting Python 3.6/3.7/3.8/3.9/3.10, users can choose the corresponding version to download according to the operating system and Python
+- The K510 compiler wheel package is in the x86_64 directory of the nncase SDK, does not depend on the Python version, and can be installed directly
 
-用户若没有Ubuntu环境, 可使用[nncase docker](https://github.com/kendryte/nncase/blob/master/docs/build.md#docker)(Ubuntu 20.04 + Python 3.8)
+If you do not have an Ubuntu environment, you can use[nncase docker](https://github.com/kendryte/nncase/blob/master/docs/build.md#docker)(Ubuntu 20.04 + Python 3.8).
 
 ```shell
 cd /path/to/nncase_sdk
@@ -165,20 +165,20 @@ docker pull registry.cn-hangzhou.aliyuncs.com/kendryte/nncase:latest
 docker run -it --rm -v `pwd`:/mnt -w /mnt registry.cn-hangzhou.aliyuncs.com/kendryte/nncase:latest /bin/bash -c "/bin/bash"
 ```
 
-下面以Ubuntu 20.04 + Python 3.8安装nncase为例
+The following takes Ubuntu 20.04 + Python 3.8 installation of nncase as an example
 
 ```shell
 wget -P x86_64 https://github.com/kendryte/nncase/releases/download/v1.6.0/nncase-1.6.0.20220505-cp38-cp38-manylinux_2_24_x86_64.whl
 pip3 install x86_64/*.whl
 ```
 <!-- markdownlint-disable no-emphasis-as-header -->
-# 4 编译/推理模型
+# 4 Compilation/inference model
 
-nncase提供了**Python API**s, 用于在PC上编译/推理深度学习模型.
+nncase provides**Python API**for compiling/inferring deep learning models on a PC
 
-## 4.1 支持的算子
+## 4.1 Supported operators
 
-### 4.1.1 tflite算子
+### 4.1.1 tflite operator
 
 | Operator                | Is Supported |
 | ----------------------- | ------------ |
@@ -192,7 +192,7 @@ nncase提供了**Python API**s, 用于在PC上编译/推理深度学习模型.
 | CEIL                    | ✅            |
 | CONCATENATION           | ✅            |
 | CONV_2D                 | ✅            |
-| COS                     | ✅            |
+| BODY                     | ✅            |
 | CUSTOM                  | ✅            |
 | DEPTHWISE_CONV_2D       | ✅            |
 | DIV                     | ✅            |
@@ -215,7 +215,7 @@ nncase提供了**Python API**s, 用于在PC上编译/推理深度学习模型.
 | MAXIMUM                 | ✅            |
 | MEAN                    | ✅            |
 | MINIMUM                 | ✅            |
-| MUL                     | ✅            |
+| I                     | ✅            |
 | NEG                     | ✅            |
 | NOT_EQUAL               | ✅            |
 | PAD                     | ✅            |
@@ -235,7 +235,7 @@ nncase提供了**Python API**s, 用于在PC上编译/推理深度学习模型.
 | ROUND                   | ✅            |
 | RSQRT                   | ✅            |
 | SHAPE                   | ✅            |
-| SIN                     | ✅            |
+| WITHOUT                     | ✅            |
 | SLICE                   | ✅            |
 | SOFTMAX                 | ✅            |
 | SPACE_TO_BATCH_ND       | ✅            |
@@ -246,7 +246,7 @@ nncase提供了**Python API**s, 用于在PC上编译/推理深度学习模型.
 | SQUARE                  | ✅            |
 | SUB                     | ✅            |
 | SUM                     | ✅            |
-| TANH                    | ✅            |
+| FISHY                    | ✅            |
 | TILE                    | ✅            |
 | TRANSPOSE               | ✅            |
 | TRANSPOSE_CONV          | ✅            |
@@ -261,7 +261,7 @@ nncase提供了**Python API**s, 用于在PC上编译/推理深度学习模型.
 | SPLIT                   | ✅            |
 | HARD_SWISH              | ✅            |
 
-### 4.1.2 onnx算子
+### 4.1.2 onnx operator
 
 | Operator              | Is Supported |
 | --------------------- | ------------ |
@@ -271,28 +271,28 @@ nncase提供了**Python API**s, 用于在PC上编译/推理深度学习模型.
 | And                   | ✅            |
 | ArgMax                | ✅            |
 | ArgMin                | ✅            |
-| Asin                  | ✅            |
+| Salty                  | ✅            |
 | Asinh                 | ✅            |
 | Add                   | ✅            |
 | AveragePool           | ✅            |
 | BatchNormalization    | ✅            |
 | Cast                  | ✅            |
 | Ceil                  | ✅            |
-| Celu                  | ✅            |
+| To                  | ✅            |
 | Clip                  | ✅            |
 | Concat                | ✅            |
 | Constant              | ✅            |
 | ConstantOfShape       | ✅            |
 | Conv                  | ✅            |
 | ConvTranspose         | ✅            |
-| Cos                   | ✅            |
+| Body                   | ✅            |
 | Cosh                  | ✅            |
 | CumSum                | ✅            |
 | DepthToSpace          | ✅            |
 | DequantizeLinear      | ✅            |
 | Div                   | ✅            |
 | Dropout               | ✅            |
-| Elu                   | ✅            |
+| Life                   | ✅            |
 | Exp                   | ✅            |
 | Expand                | ✅            |
 | Equal                 | ✅            |
@@ -322,7 +322,7 @@ nncase提供了**Python API**s, 用于在PC上编译/推理深度学习模型.
 | MaxPool               | ✅            |
 | Max                   | ✅            |
 | Min                   | ✅            |
-| Mul                   | ✅            |
+| I                   | ✅            |
 | Neg                   | ✅            |
 | Not                   | ✅            |
 | OneHot                | ✅            |
@@ -350,11 +350,11 @@ nncase提供了**Python API**s, 用于在PC上编译/推理深度学习模型.
 | ReverseSequence       | ✅            |
 | RoiAlign              | ✅            |
 | Round                 | ✅            |
-| Selu                  | ✅            |
+| Village                  | ✅            |
 | Shape                 | ✅            |
 | Sign                  | ✅            |
-| Sin                   | ✅            |
-| Sinh                  | ✅            |
+| Without                   | ✅            |
+| Birth                  | ✅            |
 | Sigmoid               | ✅            |
 | Size                  | ✅            |
 | Slice                 | ✅            |
@@ -367,7 +367,7 @@ nncase提供了**Python API**s, 用于在PC上编译/推理深度学习模型.
 | Squeeze               | ✅            |
 | Sub                   | ✅            |
 | Sum                   | ✅            |
-| Tanh                  | ✅            |
+| Fishy                  | ✅            |
 | Tile                  | ✅            |
 | TopK                  | ✅            |
 | Transpose             | ✅            |
@@ -376,7 +376,7 @@ nncase提供了**Python API**s, 用于在PC上编译/推理深度学习模型.
 | Unsqueeze             | ✅            |
 | Where                 | ✅            |
 
-### 4.1.3 caffe算子
+### 4.1.3 caffe operator
 
 | Operator              | Is Supported |
 | --------------------- | ------------ |
@@ -384,8 +384,8 @@ nncase提供了**Python API**s, 用于在PC上编译/推理深度学习模型.
 | Concat                | ✅            |
 | Convolution           | ✅            |
 | Eltwise               | ✅            |
-| Permute               | ✅            |
-| ReLU                  | ✅            |
+| Trade-ins               | ✅            |
+| relu                  | ✅            |
 | Reshape               | ✅            |
 | Slice                 | ✅            |
 | Softmax               | ✅            |
@@ -398,17 +398,17 @@ nncase提供了**Python API**s, 用于在PC上编译/推理深度学习模型.
 | LSTM                  | ✅            |
 | InnerProduct          | ✅            |
 
-## 4.2 编译模型APIs
+## 4.2 Compile model APIs
 
-目前编译模型API支持tflite/onnx/caffe等深度学习框架.
+At present, the compilation model API supports deep learning frameworks such as tflite/onnx/caffe.
 
 ### 4.2.1 CompileOptions
 
-**功能描述**
+**Feature description**
 
-CompileOptions类, 用于配置nncase编译选项
+CompileOptions class for configuring nncase compilation options
 
-**类定义**
+**Class definition**
 
 ```python
 py::class_<compile_options>(m, "CompileOptions")
@@ -439,52 +439,52 @@ py::class_<compile_options>(m, "CompileOptions")
     .def_readwrite("benchmark_only", &compile_options::benchmark_only);
 ```
 
-各属性说明如下
+Each property is described below
 
-| 属性名称         | 类型   | 是否必须 | 描述                                                         |
+| Property name         | type   | Yes or no | description                                                         |
 | ---------------- | ------ | -------- | ------------------------------------------------------------ |
-| target           | string | 是       | 指定编译目标, 如'k210', 'k510'                               |
-| quant_type       | string | 否       | 指定数据量化类型, 如'uint8', 'int8'                          |
-| w_quant_type     | string | 否       | 指定权重量化类型, 如'uint8', 'int8', 默认为'uint8'           |
-| use_mse_quant_w  | bool   | 否       | 指定权重量化时是否使用最小化均方误差(mean-square error, MSE)算法优化量化参数 |
-| split_w_to_act   | bool   | 否       | 指定是否将部分权重数据平衡到激活数据中                       |
-| preprocess       | bool   | 否       | 是否开启前处理，默认为False                                  |
-| swapRB           | bool   | 否       | 是否交换RGB输入数据的红和蓝两个通道(RGB-->BGR或者BGR-->RGB)，默认为False |
-| mean             | list   | 否       | 前处理标准化参数均值，默认为[0, 0, 0]                        |
-| std              | list   | 否       | 前处理标准化参数方差，默认为[1, 1, 1]                        |
-| input_range      | list   | 否       | 输入数据反量化后对应浮点数的范围，默认为[0, 1]               |
-| output_range     | list   | 否       | 输出定点数据前对应浮点数的范围，默认为空                     |
-| input_shape      | list   | 否       | 指定输入数据的shape，input_shape的layout需要与input layout保持一致，输入数据的input_shape与模型的input shape不一致时会进行letterbox操作(resize/pad等) |
-| letterbox_value  | float  | 否       | 指定前处理letterbox的填充值                                  |
-| input_type       | string | 否       | 指定输入数据的类型, 默认为'float32'                          |
-| output_type      | string | 否       | 指定输出数据的类型, 如'float32', 'uint8'(仅用于指定量化情况下), 默认为'float32' |
-| input_layout     | string | 否       | 指定输入数据的layout, 如'NCHW', 'NHWC'. 若输入数据layout与模型本身layout不同, nncase会插入transpose进行转换 |
-| output_layout    | string | 否       | 指定输出数据的layout, 如'NCHW', 'NHWC'. 若输出数据layout与模型本身layout不同, nncase会插入transpose进行转换 |
-| model_layout     | string | 否       | 指定模型的layout，默认为空，当tflite模型layout为‘NCHW’，Onnx和Caffe模型layout为‘NHWC’时需指定 |
-| is_fpga          | bool   | 否       | 指定kmodel是否用于fpga, 默认为False                          |
-| dump_ir          | bool   | 否       | 指定是否dump IR, 默认为False                                 |
-| dump_asm         | bool   | 否       | 指定是否dump asm汇编文件, 默认为False                        |
-| dump_quant_error | bool   | 否       | 指定是否dump量化前后的模型误差                               |
-| dump_dir         | string | 否       | 前面指定dump_ir等开关后, 这里指定dump的目录, 默认为空字符串  |
-| benchmark_only   | bool   | 否       | 指定kmodel是否只用于benchmark, 默认为False                   |
+| target           | string | be       | Specify the compilation target, such as 'k210', 'k510'                               |
+| quant_type       | string | not       | Specify the data quantization type, such as 'uint8', 'int8'                          |
+| w_quant_type     | string | not       | Specify the weight quantization type, such as 'uint8', 'int8', default to 'uint8'           |
+| use_mse_quant_w  | bool   | not       | Specifies whether to use the mean-square error (MSE) algorithm to optimize the quantization parameters when quantizing weights |
+| split_w_to_act   | bool   | not       | Specifies whether to balance partial weight data into active data                       |
+| preprocess       | bool   | not       | Whether pre-processing is enabled or not, the default is False                                  |
+| swapRB           | bool   | not       | Whether to exchange RGB input data between the red and blue channels (RGB--> BGR or BGR->RGB), the default is False |
+| mean             | list   | not       | Preprocessing normalizes the parameter mean, which defaults to[0, 0, 0]                        |
+| Std              | list   | not       | Preprocessing normalizes the parameter variance, which defaults to [1, 1, 1]                        |
+| input_range      | list   | not       | The range of floating-point numbers after dequantization of the input data, which defaults to[0, 1]               |
+| output_range     | list   | not       | The range of floating-point numbers before the fixed-point data is output, which defaults to blank                     |
+| input_shape      | list   | not       | Specify the shape of the input data, the layout of the input_shape needs to be consistent with the input layout, and the input_shape of the input data is inconsistent with the input shape of the model, and the bitbox operation (resize/pad, etc.) will be performed. |
+| letterbox_value  | float  | not       | Specifies the padding value of the pre-processing fetchbox                                  |
+| input_type       | string | not       | Specifies the type of input data, defaulting to 'float32'                          |
+| output_type      | string | not       | Specifies the type of output data, such as 'float32', 'uint8' (only for specified quantization), defaults to 'float32' |
+| input_layout     | string | not       | Specify the layout of the input data, such as 'NCHW', 'NHWC'. If the input data layout is different from the model itself, nncase inserts transpose for conversion |
+| output_layout    | string | not       | Specify the output data for the layout, such as 'NCHW', 'NHWC'. If the output data layout is different from the model itself, nncase will insert transpose for conversion |
+| model_layout     | string | not       | Specify the layout of the model, which defaults to blank, and specifies when the tflite model layout is 'NCHW' and the Onnx and Caffe models are 'NHWC' |
+| is_fpga          | bool   | not       | Specifies whether kmodel is used for FPGAs, which defaults to False                          |
+| dump_ir          | bool   | not       | Specifies whether dump IR, defaults to False                                 |
+| dump_asm         | bool   | not       | Specifies whether the dump asm assembly file, which defaults to False                        |
+| dump_quant_error | bool   | not       | Specifies whether dump quantizes the model error before and after                               |
+| dump_dir         | string | not       | After specifying the dump_ir and other switches earlier, here you specify the directory of dump, which defaults to an empty string  |
+| benchmark_only   | bool   | not       | Specifies whether kmodel is used only for benchmark, which defaults to False                   |
 
-> 1. input range为浮点数的范围，即如果输入数据类型为uint8，则input range为反量化到浮点之后的范围（可以不为0~1），可以自由指定.
-> 2. input_shape需要按照input_layout进行指定，以[1，224，224，3]为例，如果input_layout为NCHW，则input_shape需指定为[1,3,224,224];input_layout为NHWC，则input_shape需指定为[1,224,224,3];
-> 3. mean和std为浮点数进行normalize的参数，用户可以自由指定;
-> 4. 使用letterbox功能时，需要限制输入size在1.5MB内，单channel的size在0.75MB内;
+> 1. Input range is the range of floating-point numbers, that is, if the input data type is uint8, then the input range is the range after dequantization to floating point (can not be 0 ~ 1), which can be freely specified.
+> 2. input_shape need to be specified according to the input_layout, [1，224，224，3]for example, if the input_layout is NCHW, the input_shape needs to be specified as[1,3,224,224]; input_layout is NHWC, the input_shape needs to be specified as[1,224,224,3];
+> 3. mean and std are parameters for normalize floating-point numbers, which the user is free to specify;
+> 4. When using the letterbox function, you need to limit the input size to 1.5MB, and the size of a single channel is within 0.75MB;
 >
-> 例如:
+> For example:
 >
-> 1. 输入数据类型设定为uint8，input_range设定为[0,255]，则反量化的作用只是进行类型转化，将uint8的数据转化为float32，mean和std参数仍然可以按照0~255的数据进行指定.
-> 2. 输入数据类型设定为uint8，input_range设定为[0,1]，则会将定点数反量化为范围为[0,1]的浮点数, mean 和std需要按照新的浮点数范围进行指定。
+> 1. The input data type is set to uint8, input_range set to[0,255], the role of dequantization is only to convert the type, convert the data of uint8 to float32, and the mean and std parameters can still be specified according to the data of 0~255
+> 2. The input data type is set to uint8, input_range set [0,1]to, the fixed-point number is dequantized to a [0,1]floating-point number in the range, and mean and std need to be specified according to the new floating-point number range.
 
-前处理流程如下(图中绿色节点皆为可选)：
+The pre-processing process is as follows (the green nodes in the figure are optional):
 
 ![preprocess.png](https://i.loli.net/2021/11/08/fhBLsozUTCbt4dp.png)
 
-**代码示例**
+**Code example**
 
-实例化CompileOptions, 配置各属性的值
+Instantiate CompileOptions, configure the values of each property
 
 ```python
 # compile_options
@@ -510,11 +510,11 @@ compile_options.dump_dir = 'tmp'
 
 ### 4.2.2 ImportOptions
 
-**功能描述**
+**Feature description**
 
-ImportOptions类, 用于配置nncase导入选项
+ImportOptions class for configuring nncase import options
 
-**类定义**
+**Class definition**
 
 ```python
 py::class_<import_options>(m, "ImportOptions")
@@ -522,15 +522,15 @@ py::class_<import_options>(m, "ImportOptions")
     .def_readwrite("output_arrays", &import_options::output_arrays);
 ```
 
-各属性说明如下
+Each property is described below
 
-| 属性名称      | 类型   | 是否必须 | 描述     |
+| Property name      | type   | Yes or no | description     |
 | ------------- | ------ | -------- | -------- |
-| output_arrays | string | 否       | 输出名称 |
+| output_arrays | string | not       | Output name |
 
-**代码示例**
+**Code example**
 
-实例化ImportOptions, 配置各属性的值
+Instantiate ImageOptions, configure the values of each property
 
 ```python
 # import_options
@@ -540,11 +540,11 @@ import_options.output_arrays = 'output' # Your output node name
 
 ### 4.2.3 PTQTensorOptions
 
-**功能描述**
+**Feature description**
 
-PTQTensorOptions类, 用于配置nncase PTQ选项
+PTQTensorOptions class for configuring nncase PTQ options
 
-**类定义**
+**Class definition**
 
 ```python
 py::class_<ptq_tensor_options>(m, "PTQTensorOptions")
@@ -560,36 +560,36 @@ py::class_<ptq_tensor_options>(m, "PTQTensorOptions")
     });
 ```
 
-各属性说明如下
+Each property is described below
 
-| 字段名称         | 类型   | 是否必须 | 描述                                                                                  |
+| The field name         | type   | Yes or no | description                                                                                  |
 | ---------------- | ------ | -------- | ------------------------------------------------------------------------------------- |
-| calibrate_method | string | 否       | 校准方法 ,  支持'no_clip', 'l2', 'kld_m0', 'kld_m1', 'kld_m2', 'cdf', 默认是'no_clip' |
-| samples_count    | int    | 否       | 样本个数                                                                              |
+| calibrate_method | string | not       | Calibration method , supports 'no_clip', 'l2', 'kld_m0', 'kld_m1', 'kld_m2', 'cdf', default is 'no_clip' |
+| samples_count    | int    | not       | The number of samples                                                                              |
 
 #### set_tensor_data()
 
-**功能描述**
+**Feature description**
 
-设置校正数据
+Set the correction data
 
-**接口定义**
+**Interface definition**
 
 ```python
 set_tensor_data(calib_data)
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称   | 类型   | 是否必须 | 描述     |
+| Parameter name   | type   | Yes or no | description     |
 | ---------- | ------ | -------- | -------- |
-| calib_data | byte[] | 是       | 校正数据 |
+| calib_data | byte[] | be       | Correct the data |
 
-**返回值**
+**The return value**
 
 N/A
 
-**代码示例**
+**Code example**
 
 ```python
 # ptq_options
@@ -600,11 +600,11 @@ ptq_options.set_tensor_data(np.asarray([sample['data'] for sample in self.calibs
 
 ### 4.2.4 Compiler
 
-**功能描述**
+**Feature description**
 
-Compiler类, 用于编译神经网络模型
+Compiler class for compiling neural network models
 
-**类定义**
+**Class definition**
 
 ```python
 py::class_<compiler>(m, "Compiler")
@@ -626,7 +626,7 @@ py::class_<compiler>(m, "Compiler")
     });
 ```
 
-**代码示例**
+**Code example**
 
 ```python
 compiler = nncase.Compiler(compile_options)
@@ -634,28 +634,28 @@ compiler = nncase.Compiler(compile_options)
 
 #### import_tflite()
 
-**功能描述**
+**Feature description**
 
-导入tflite模型
+Import the tflite model
 
-**接口定义**
+**Interface definition**
 
 ```python
 import_tflite(model_content, import_options)
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称       | 类型          | 是否必须 | 描述           |
+| Parameter name       | type          | Yes or no | description           |
 | -------------- | ------------- | -------- | -------------- |
-| model_content  | byte[]        | 是       | 读取的模型内容 |
-| import_options | ImportOptions | 是       | 导入选项       |
+| model_content  | byte[]        | be       | Read the model content |
+| import_options | ImportOptions | be       | Import options       |
 
-**返回值**
+**The return value**
 
 N/A
 
-**代码示例**
+**Code example**
 
 ```python
 model_content = read_model_file(model)
@@ -664,28 +664,28 @@ compiler.import_tflite(model_content, import_options)
 
 #### import_onnx()
 
-**功能描述**
+**Feature description**
 
-导入onnx模型
+Import the onnx model
 
-**接口定义**
+**Interface definition**
 
 ```python
 import_onnx(model_content, import_options)
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称       | 类型          | 是否必须 | 描述           |
+| Parameter name       | type          | Yes or no | description           |
 | -------------- | ------------- | -------- | -------------- |
-| model_content  | byte[]        | 是       | 读取的模型内容 |
-| import_options | ImportOptions | 是       | 导入选项       |
+| model_content  | byte[]        | be       | Read the model content |
+| import_options | ImportOptions | be       | Import options       |
 
-**返回值**
+**The return value**
 
 N/A
 
-**代码示例**
+**Code example**
 
 ```python
 model_content = read_model_file(model)
@@ -694,30 +694,30 @@ compiler.import_onnx(model_content, import_options)
 
 #### import_caffe()
 
-**功能描述**
+**Feature description**
 
-导入caffe模型
+Import the caffe model
 
-> 用户需在本地机器自行编译/安装caffe.
+> Users need to compile/install caffe on the local machine.
 
-**接口定义**
+**Interface definition**
 
 ```python
 import_caffe(caffemodel, prototxt)
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称   | 类型   | 是否必须 | 描述                 |
+| Parameter name   | type   | Yes or no | description                 |
 | ---------- | ------ | -------- | -------------------- |
-| caffemodel | byte[] | 是       | 读取的caffemodel内容 |
-| prototxt   | byte[] | 是       | 读取的prototxt内容   |
+| caffemodel | byte[] | be       | Read the caffemodel content |
+| prototxt   | byte[] | be       | Read the prototxt content   |
 
-**返回值**
+**The return value**
 
 N/A
 
-**代码示例**
+**Code example**
 
 ```python
 # import
@@ -728,27 +728,27 @@ compiler.import_caffe(caffemodel, prototxt)
 
 #### use_ptq()
 
-**功能描述**
+**Feature description**
 
-设置PTQ配置选项
+Set PTQ configuration options
 
-**接口定义**
+**Interface definition**
 
 ```python
 use_ptq(ptq_options)
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称    | 类型             | 是否必须 | 描述        |
+| Parameter name    | type             | Yes or no | description        |
 | ----------- | ---------------- | -------- | ----------- |
-| ptq_options | PTQTensorOptions | 是       | PTQ配置选项 |
+| ptq_options | PTQTensorOptions | be       | PTQ configuration options |
 
-**返回值**
+**The return value**
 
 N/A
 
-**代码示例**
+**Code example**
 
 ```python
 compiler.use_ptq(ptq_options)
@@ -756,25 +756,25 @@ compiler.use_ptq(ptq_options)
 
 #### compile()
 
-**功能描述**
+**Feature description**
 
-编译神经网络模型
+Compile the neural network model
 
-**接口定义**
+**Interface definition**
 
 ```python
 compile()
 ```
 
-**输入参数**
+**Input parameters**
 
 N/A
 
-**返回值**
+**The return value**
 
 N/A
 
-**代码示例**
+**Code example**
 
 ```python
 compiler.compile()
@@ -782,25 +782,25 @@ compiler.compile()
 
 #### gencode_tobytes()
 
-**功能描述**
+**Feature description**
 
-生成代码字节流
+Generates a stream of code bytes
 
-**接口定义**
+**Interface definition**
 
 ```python
 gencode_tobytes()
 ```
 
-**输入参数**
+**Input parameters**
 
 N/A
 
-**返回值**
+**The return value**
 
 bytes[]
 
-**代码示例**
+**Code example**
 
 ```python
 kmodel = compiler.gencode_tobytes()
@@ -808,16 +808,16 @@ with open(os.path.join(infer_dir, 'test.kmodel'), 'wb') as f:
     f.write(kmodel)
 ```
 
-## 4.3 编译模型示例
+## 4.3 Compile the model example
 
-下面示例中使用到的模型和python编译脚本
+The following example uses the model and python compilation script
 
-- 模型位于/path/to/nncase_sdk/examples/models/子目录
-- python编译脚本位于/path/to/nncase_sdk/examples/scripts子目录
+- The model is located in the /path/to/nncase_sdk/examples/models/subdirectory
+- The python compilation script is located in the /path/to/nncase_sdk/examples/scripts subdirectory
 
-### 4.3.1 编译float32 tflite模型
+### 4.3.1 Compile the float32 tflite model
 
-- mobilenetv2_tflite_fp32_image.py脚本如下
+- Mobilenetv2_tflite_fp32_image.py script is as follows
 
 ```python
 import nncase
@@ -865,17 +865,17 @@ if __name__ == '__main__':
     main()
 ```
 
-- 执行如下命令即可编译mobilenetv2的tflite模型, target为k510
+- Run the following command to compile the tflite model of mobiletv2, target k510
 
 ```shell
 cd /path/to/nncase_sdk/examples
 python3 scripts/mobilenetv2_tflite_fp32_image.py --target k510 --model models/mobilenet_v2_1.0_224.tflite
 ```
 
-### 4.3.2 编译float32 onnx模型
+### 4.3.2 Compile the float32 onnx model
 
-- 针对onnx模型, 建议先使用[ONNX Simplifier](https://github.com/daquexian/onnx-simplifier)进行简化, 然后再使用nncase编译.
-- mobilenetv2_onnx_fp32_image.py 脚本如下
+- For onnx models, it is recommended to simplify using[ONNX Simplifier](https://github.com/daquexian/onnx-simplifier)before compiling with nncase
+- mobilenetv2_onnx_fp32_image.py script is as follows
 
 ```python
 import os
@@ -968,17 +968,17 @@ if __name__ == '__main__':
     main()
 ```
 
-- 执行如下命令即可编译mobilenetv2的onnx模型, target为k510
+- Run the following command to compile the onnx model of mobiletv2, target k510
 
 ```shell
 cd /path/to/nncase_sdk/examples
 python3 scripts/mobilenetv2_onnx_fp32_image.py --target k510 --model models/mobilenetv2-7.onnx
 ```
 
-### 4.3.3 编译float32 caffe模型
+### 4.3.3 Compile the float32 caffe model
 
-- caffe wheel包从[kendryte caffe](https://github.com/kendryte/caffe/releases)获取
-- conv2d_caffe_fp32.py 脚本如下
+- The caffe wheel package is[taken from](https://github.com/kendryte/caffe/releases)kendryte caffe
+- conv2d_caffe_fp32.py script is as follows
 
 ```python
 import nncase
@@ -1028,17 +1028,17 @@ if __name__ == '__main__':
     main()
 ```
 
-- 执行如下命令即可编译conv2d的caffe模型, target为k510
+- Run the following command to compile the caffe model of conv2d, with the target k510
 
 ```shell
 cd /path/to/nncase_sdk/examples
 python3 scripts/conv2d_caffe_fp32.py --target k510 --caffemodel models/test.caffemodel --prototxt models/test.prototxt
 ```
 
-### 4.3.4 编译添加前处理float32 onnx模型
+### 4.3.4 Compile and add pre-process float32 onnx model
 
-- 针对onnx模型, 建议先使用[ONNX Simplifier](https://github.com/daquexian/onnx-simplifier)进行简化, 然后再使用nncase编译.
-- mobilenetv2_onnx_fp32_preprocess.py脚本如下
+- For onnx models, it is recommended to simplify using[ONNX Simplifier](https://github.com/daquexian/onnx-simplifier)before compiling with nncase
+- Mobilenetv2_onnx_fp32_preprocess.py script is as follows
 
 ```python
 import os
@@ -1140,16 +1140,16 @@ if __name__ == '__main__':
     main()
 ```
 
-- 执行如下命令即可编译添加前处理的mobilenetv2的onnx模型, target为k510
+- Run the following command to compile the onnx model of mobiletv2 with the target k510
 
 ```shell
 cd /path/to/nncase_sdk/examples
 python3 scripts/mobilenetv2_onnx_fp32_preprocess.py --target k510 --model models/mobilenetv2-7.onnx
 ```
 
-### 4.3.5 编译uint8量化tflite模型
+### 4.3.5 Compile the uint8 quantization tflite model
 
-- mobilenetv2_tflite_uint8_image.py脚本如下
+- Mobilenetv2_tflite_uint8_image.py script is as follows
 
 ```python
 import nncase
@@ -1217,24 +1217,24 @@ if __name__ == '__main__':
     main()
 ```
 
-- 执行如下命令即可编译uint8量化的mobilenetv2的tflite模型, target为k510
+- Run the following command to compile the tflite model of uint8 quantized mobiletv2, target k510
 
 ```shell
 cd /path/to/nncase_sdk/examples
 python3 scripts/mobilenetv2_tflite_uint8_image.py --target k510 --model models/mobilenet_v2_1.0_224.tflite
 ```
 
-## 4.4 推理模型APIs
+## 4.4 Inference Model APIs
 
-除了编译模型APIs, nncase还提供了推理模型的APIs, 在PC上可推理前面编译生成的kmodel,  用来验证nncase推理结果和相应深度学习框架的runtime的结果是否一致等.
+In addition to the APs of the compiled model, nncase also provides the APIs of the inference model, which can be inferred on the PC before the compilation of the kmodel, which is used to verify whether the nncase inference results and the runtime results of the corresponding deep learning framework are consistent.
 
 ### 4.4.1 MemoryRange
 
-**功能描述**
+**Feature description**
 
-MemoryRange类, 用于表示内存范围
+The MemoryRange class, which is used to represent a range of memory
 
-**类定义**
+**Class definition**
 
 ```python
 py::class_<memory_range>(m, "MemoryRange")
@@ -1246,18 +1246,18 @@ py::class_<memory_range>(m, "MemoryRange")
     .def_readwrite("size", &memory_range::size);
 ```
 
-各属性说明如下
+Each property is described below
 
-| 属性名称 | 类型           | 是否必须 | 描述                                                                       |
+| Property name | type           | Yes or no | description                                                                       |
 | -------- | -------------- | -------- | -------------------------------------------------------------------------- |
-| location | int            | 否       | 内存位置, 0表示input, 1表示output, 2表示rdata, 3表示data, 4表示shared_data |
-| dtype    | python数据类型 | 否       | 数据类型                                                                   |
-| start    | int            | 否       | 内存起始地址                                                               |
-| size     | int            | 否       | 内存大小                                                                   |
+| location | int            | not       | Memory position, 0 for input, 1 for output, 2 for rdata, 3 for data, 4 for shared_data |
+| dtype    | Python data type | not       | data type                                                                   |
+| start    | int            | not       | Memory start address                                                               |
+| size     | int            | not       | Memory size                                                                   |
 
-**代码示例**
+**Code example**
 
-实例化MemoryRange
+Instantiate MemoryRange
 
 ```python
 mr = nncase.MemoryRange()
@@ -1265,11 +1265,11 @@ mr = nncase.MemoryRange()
 
 ### 4.4.2 RuntimeTensor
 
-**功能描述**
+**Feature description**
 
-RuntimeTensor类, 用于表示运行时tensor
+The RuntimeTensor class, which represents the runtime tensor
 
-**类定义**
+**Class definition**
 
 ```python
 py::class_<runtime_tensor>(m, "RuntimeTensor")
@@ -1307,36 +1307,36 @@ py::class_<runtime_tensor>(m, "RuntimeTensor")
     });
 ```
 
-各属性说明如下
+Each property is described below
 
-| 属性名称 | 类型 | 是否必须 | 描述             |
+| Property name | type | Yes or no | description             |
 | -------- | ---- | -------- | ---------------- |
-| dtype    | int  | 否       | tensor的数据类型 |
-| shape    | list | 否       | tensor的形状     |
+| dtype    | int  | not       | Tensor's data type |
+| shape    | list | not       | The shape of tensor     |
 
 #### from_numpy()
 
-**功能描述**
+**Feature description**
 
-从numpy.ndarray构造RuntimeTensor对象
+Construct the RuntimeTensor object from numpy.ndarray
 
-**接口定义**
+**Interface definition**
 
 ```python
 from_numpy(py::array arr)
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称 | 类型          | 是否必须 | 描述              |
+| Parameter name | type          | Yes or no | description              |
 | -------- | ------------- | -------- | ----------------- |
-| arr      | numpy.ndarray | 是       | numpy.ndarray对象 |
+| arr      | numpy.ndarray | be       | numpy.ndarray object |
 
-**返回值**
+**The return value**
 
 RuntimeTensor
 
-**代码示例**
+**Code example**
 
 ```python
 tensor = nncase.RuntimeTensor.from_numpy(self.inputs[i]['data'])
@@ -1344,27 +1344,27 @@ tensor = nncase.RuntimeTensor.from_numpy(self.inputs[i]['data'])
 
 #### copy_to()
 
-**功能描述**
+**Feature description**
 
-拷贝RuntimeTensor
+Copy Runtime Tensor
 
-**接口定义**
+**Interface definition**
 
 ```python
 copy_to(RuntimeTensor to)
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称 | 类型          | 是否必须 | 描述              |
+| Parameter name | type          | Yes or no | description              |
 | -------- | ------------- | -------- | ----------------- |
-| to       | RuntimeTensor | 是       | RuntimeTensor对象 |
+| to       | RuntimeTensor | be       | RuntimeTensor object |
 
-**返回值**
+**The return value**
 
 N/A
 
-**代码示例**
+**Code example**
 
 ```python
 sim.get_output_tensor(i).copy_to(to)
@@ -1372,25 +1372,25 @@ sim.get_output_tensor(i).copy_to(to)
 
 #### to_numpy()
 
-**功能描述**
+**Feature description**
 
-将RuntimeTensor转换为numpy.ndarray对象
+Convert RuntimeTensor to a numpy.ndarray object
 
-**接口定义**
+**Interface definition**
 
 ```python
 to_numpy()
 ```
 
-**输入参数**
+**Input parameters**
 
 N/A
 
-**返回值**
+**The return value**
 
-numpy.ndarray对象
+numpy.ndarray object
 
-**代码示例**
+**Code example**
 
 ```python
 arr = sim.get_output_tensor(i).to_numpy()
@@ -1398,11 +1398,11 @@ arr = sim.get_output_tensor(i).to_numpy()
 
 ### 4.4.3 Simulator
 
-**功能描述**
+**Feature description**
 
-Simulator类, 用于在PC上推理kmodel
+Simulator class for inference kmodel on PC
 
-**类定义**
+**Class definition**
 
 ```python
 py::class_<interpreter>(m, "Simulator")
@@ -1419,16 +1419,16 @@ py::class_<interpreter>(m, "Simulator")
     .def("run", [](interpreter &interp) { interp.run().unwrap_or_throw(); });
 ```
 
-各属性说明如下
+Each property is described below
 
-| 属性名称     | 类型 | 是否必须 | 描述     |
+| Property name     | type | Yes or no | description     |
 | ------------ | ---- | -------- | -------- |
-| inputs_size  | int  | 否       | 输入个数 |
-| outputs_size | int  | 否       | 输出个数 |
+| inputs_size  | int  | not       | Enter the number of |
+| outputs_size | int  | not       | The number of outputs |
 
-**代码示例**
+**Code example**
 
-实例化Simulator
+Instantiate the Simulator
 
 ```python
 sim = nncase.Simulator()
@@ -1436,27 +1436,27 @@ sim = nncase.Simulator()
 
 #### load_model()
 
-**功能描述**
+**Feature description**
 
-加载kmodel
+Load the kmodel
 
-**接口定义**
+**Interface definition**
 
 ```python
 load_model(model_content)
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称      | 类型   | 是否必须 | 描述         |
+| Parameter name      | type   | Yes or no | description         |
 | ------------- | ------ | -------- | ------------ |
-| model_content | byte[] | 是       | kmodel字节流 |
+| model_content | byte[] | be       | Kmodel byte stream |
 
-**返回值**
+**The return value**
 
 N/A
 
-**代码示例**
+**Code example**
 
 ```python
 sim.load_model(kmodel)
@@ -1464,27 +1464,27 @@ sim.load_model(kmodel)
 
 #### get_input_desc()
 
-**功能描述**
+**Feature description**
 
-获取指定索引的输入的描述信息
+Gets the description of the input for the specified index
 
-**接口定义**
+**Interface definition**
 
 ```python
 get_input_desc(index)
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称 | 类型 | 是否必须 | 描述       |
+| Parameter name | type | Yes or no | description       |
 | -------- | ---- | -------- | ---------- |
-| index    | int  | 是       | 输入的索引 |
+| index    | int  | be       | The index of the input |
 
-**返回值**
+**The return value**
 
 MemoryRange
 
-**代码示例**
+**Code example**
 
 ```python
 input_desc_0 = sim.get_input_desc(0)
@@ -1492,27 +1492,27 @@ input_desc_0 = sim.get_input_desc(0)
 
 #### get_output_desc()
 
-**功能描述**
+**Feature description**
 
-获取指定索引的输出的描述信息
+Gets the description of the output of the specified index
 
-**接口定义**
+**Interface definition**
 
 ```python
 get_output_desc(index)
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称 | 类型 | 是否必须 | 描述       |
+| Parameter name | type | Yes or no | description       |
 | -------- | ---- | -------- | ---------- |
-| index    | int  | 是       | 输出的索引 |
+| index    | int  | be       | The index of the output |
 
-**返回值**
+**The return value**
 
 MemoryRange
 
-**代码示例**
+**Code example**
 
 ```python
 output_desc_0 = sim.get_output_desc(0)
@@ -1520,27 +1520,27 @@ output_desc_0 = sim.get_output_desc(0)
 
 #### get_input_tensor()
 
-**功能描述**
+**Feature description**
 
-获取指定索引的输入的RuntimeTensor
+Gets the RuntimeTensor for the input for the specified index
 
-**接口定义**
+**Interface definition**
 
 ```python
 get_input_tensor(index)
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称 | 类型 | 是否必须 | 描述             |
+| Parameter name | type | Yes or no | description             |
 | -------- | ---- | -------- | ---------------- |
-| index    | int  | 是       | 输入tensor的索引 |
+| index    | int  | be       | Enter the index of the tensor |
 
-**返回值**
+**The return value**
 
 RuntimeTensor
 
-**代码示例**
+**Code example**
 
 ```python
 input_tensor_0 = sim.get_input_tensor(0)
@@ -1548,28 +1548,28 @@ input_tensor_0 = sim.get_input_tensor(0)
 
 #### set_input_tensor()
 
-**功能描述**
+**Feature description**
 
-设置指定索引的输入的RuntimeTensor
+Sets the Runtime Tensor for the input of the specified index
 
-**接口定义**
+**Interface definition**
 
 ```python
 set_input_tensor(index, tensor)
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称 | 类型          | 是否必须 | 描述                    |
+| Parameter name | type          | Yes or no | description                    |
 | -------- | ------------- | -------- | ----------------------- |
-| index    | int           | 是       | 输入RuntimeTensor的索引 |
-| tensor   | RuntimeTensor | 是       | 输入RuntimeTensor       |
+| index    | int           | be       | Enter the index of RuntimeTensor |
+| tensor   | RuntimeTensor | be       | Enter RuntimeTensor       |
 
-**返回值**
+**The return value**
 
 N/A
 
-**代码示例**
+**Code example**
 
 ```python
 sim.set_input_tensor(0, nncase.RuntimeTensor.from_numpy(self.inputs[0]['data']))
@@ -1577,27 +1577,27 @@ sim.set_input_tensor(0, nncase.RuntimeTensor.from_numpy(self.inputs[0]['data']))
 
 #### get_output_tensor()
 
-**功能描述**
+**Feature description**
 
-获取指定索引的输出的RuntimeTensor
+Gets the Runtime Tensor for the output of the specified index
 
-**接口定义**
+**Interface definition**
 
 ```python
 get_output_tensor(index)
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称 | 类型 | 是否必须 | 描述                    |
+| Parameter name | type | Yes or no | description                    |
 | -------- | ---- | -------- | ----------------------- |
-| index    | int  | 是       | 输出RuntimeTensor的索引 |
+| index    | int  | be       | Outputs the index of the RuntimeTensor |
 
-**返回值**
+**The return value**
 
 RuntimeTensor
 
-**代码示例**
+**Code example**
 
 ```python
 output_arr_0 = sim.get_output_tensor(0).to_numpy()
@@ -1605,28 +1605,28 @@ output_arr_0 = sim.get_output_tensor(0).to_numpy()
 
 #### set_output_tensor()
 
-**功能描述**
+**Feature description**
 
-设置指定索引的输出的RuntimeTensor
+Sets the RuntimeTensor for the output of the specified index
 
-**接口定义**
+**Interface definition**
 
 ```python
 set_output_tensor(index, tensor)
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称 | 类型          | 是否必须 | 描述                    |
+| Parameter name | type          | Yes or no | description                    |
 | -------- | ------------- | -------- | ----------------------- |
-| index    | int           | 是       | 输出RuntimeTensor的索引 |
-| tensor   | RuntimeTensor | 是       | 输出RuntimeTensor       |
+| index    | int           | be       | Outputs the index of the RuntimeTensor |
+| tensor   | RuntimeTensor | be       | Output Runtime Tensor       |
 
-**返回值**
+**The return value**
 
 N/A
 
-**代码示例**
+**Code example**
 
 ```python
 sim.set_output_tensor(0, tensor)
@@ -1634,35 +1634,35 @@ sim.set_output_tensor(0, tensor)
 
 #### run()
 
-**功能描述**
+**Feature description**
 
-运行kmodel推理
+Run kmodel inference
 
-**接口定义**
+**Interface definition**
 
 ```python
 run()
 ```
 
-**输入参数**
+**Input parameters**
 
 N/A
 
-**返回值**
+**The return value**
 
 N/A
 
-**代码示例**
+**Code example**
 
 ```python
 sim.run()
 ```
 
-## 4.5 推理模型示例
+## 4.5 Example of an inference model
 
-**前置条件**: mobilenetv2_onnx_fp32_image.py脚本已编译过mobilenetv2-7.onnx模型
+**Prerequisite:**mobilenetv2_onnx_fp32_image.py script has been compiled with the mobiletv2-7.onnx model
 
-mobilenetv2_onnx_simu.py位于/path/to/nncase_sdk/examples/scripts子目录， 内容如下
+mobilenetv2_onnx_simu.py is located in the /path/to/nncase_sdk/examples/scripts subdirectory, which reads as follows
 
 ```python
 import os
@@ -1726,27 +1726,27 @@ if __name__ == '__main__':
     main()
 ```
 
-执行推理脚本
+Execute the inference script
 
 ```shell
 cd /path/to/nncase_sdk/examples
 python3 scripts/mobilenetv2_onnx_simu.py --model_file models/mobilenetv2-7.onnx --kmodel_file tmp/mobilenetv2_onnx_fp32_image/test.kmodel --input_file mobilenetv2_onnx_fp32_image/data/input_0_0.bin
 ```
 
-nncase simulator和cpu推理结果对比如下
+The comparison of nncase simulator and CPU inference results is as follows
 
 ```shell
 ... ...
 output 0 cosine similarity : 0.9992437958717346
 ```
 
-# 5 nncase 运行时库
+# 5 nncase runtime library
 
-## 5.1 nncase Runtime 简介
+## 5.1 Introduction to the nncase Runtime
 
-nncase runtime用于在AI设备加载kmodel/设置输入数据/执行KPU计算/获取输出数据等.
+nncase runtime is used to load kmodel on AI devices/ set input data/ perform KPU calculations / obtain output data, etc.
 
-目前只提供**C++版本**的APIs, 相关的头文件和静态库在nncase sdk/riscv64目录下.
+Currently, only **the C++ version**of APIs, related header files and static libraries are available in the nncase sdk/riscv64 directory
 
 ```bash
 $ tree -L 3 riscv64/
@@ -1782,15 +1782,15 @@ riscv64/
 
 ### 5.2.1 class runtime_tensor
 
-用于存储模型输入/输出数据的tensor
+Tensor used to store model input/output data
 
 #### hrt::create()
 
-**功能描述**
+**Feature description**
 
-创建runtime_tensor
+Create a runtime_tensor
 
-**接口定义**
+**Interface definition**
 
 ```C++
 (1) NNCASE_API result<runtime_tensor> create(datatype_t datatype, runtime_shape_t shape, memory_pool_t pool = pool_cpu_only, uintptr_t physical_address = 0) noexcept;
@@ -1798,22 +1798,22 @@ riscv64/
 (2) NNCASE_API result<runtime_tensor> create(datatype_t datatype, runtime_shape_t shape, gsl::span<gsl::byte> data, bool copy, memory_pool_t pool = pool_cpu_only, uintptr_t physical_address = 0) noexcept;
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称         | 类型                  | 是否必须 | 描述                              |
+| Parameter name         | type                  | Yes or no | description                              |
 | ---------------- | --------------------- | -------- | --------------------------------- |
-| datatype         | datatype_t            | 是       | 数据类型, 如dt_float32            |
-| shape            | runtime_shape_t       | 是       | tensor的形状                      |
-| data             | gsl::span\<gsl::byte> | 是       | 用户态数据buffer                  |
-| copy             | bool                  | 是       | 是否拷贝                          |
-| pool             | memory_pool_t         | 否       | 内存池类型, 默认值为pool_cpu_only |
-| physical_address | uintptr_t             | 否       | 物理地址, 默认值为0               |
+| datatype         | datatype_t            | be       | Data type, such as dt_float32            |
+| shape            | runtime_shape_t       | be       | The shape of tensor                      |
+| data             | gsl::span\<gsl::byte> | be       | User-state data buffer                  |
+| copy             | bool                  | be       | Whether to copy                          |
+| pool             | memory_pool_t         | not       | Memory pool type, default value is pool_cpu_only |
+| physical_address | uintptr_t             | not       | Physical address, default value is 0               |
 
-**返回值**
+**The return value**
 
 result<runtime_tensor>
 
-代码示例
+Code example
 
 ```c++
 // create input
@@ -1825,31 +1825,31 @@ auto input_tensor = host_runtime_tensor::create(dt_float32, in_shape,
 
 ### 5.2.2 class  interpreter
 
-interpreter是nncase runtime的运行实例, 它提供了load_model()/run()/input_tensor()/output_tensor()等核心功能函数.
+Interpreter is a running instance of the nncase runtime, which provides core functional functions such as load_model()/run()/input_tensor()/output_tensor().
 
 #### load_model()
 
-**功能描述**
+**Feature description**
 
-加载kmodel模型
+Load the kmodel model
 
-**接口定义**
+**Interface definition**
 
 ```C++
  NNCASE_NODISCARD result<void> load_model(gsl::span<const gsl::byte> buffer) noexcept;
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称 | 类型                            | 是否必须 | 描述          |
+| Parameter name | type                            | Yes or no | description          |
 | -------- | ------------------------------- | -------- | ------------- |
-| buffer   | gsl::span `<const gsl::byte>` | 是       | kmodel buffer |
+| buffer   | gsl::span `<const gsl::byte>` | be       | kmodel buffer |
 
-**返回值**
+**The return value**
 
 result `<void>`
 
-**代码示例**
+**Code example**
 
 ```c++
 template <class T>
@@ -1872,25 +1872,25 @@ interp.load_model({(const gsl::byte *)model.data(), model.size()}).expect("canno
 
 #### inputs_size()
 
-**功能描述**
+**Feature description**
 
-获取模型输入的个数
+Gets the number of model inputs
 
-**接口定义**
+**Interface definition**
 
 ```C++
 size_t inputs_size() const noexcept;
 ```
 
-**输入参数**
+**Input parameters**
 
 N/A
 
-**返回值**
+**The return value**
 
 size_t
 
-**代码示例**
+**Code example**
 
 ```c++
 auto inputs_size = interp.inputs_size();
@@ -1898,25 +1898,25 @@ auto inputs_size = interp.inputs_size();
 
 #### outputs_size()
 
-**功能描述**
+**Feature description**
 
-获取模型输出的个数
+Gets the number of model outputs
 
-**接口定义**
+**Interface definition**
 
 ```C++
 size_t outputs_size() const noexcept;
 ```
 
-**输入参数**
+**Input parameters**
 
 N/A
 
-**返回值**
+**The return value**
 
 size_t
 
-**代码示例**
+**Code example**
 
 ```c++
 auto outputs_size = interp.outputs_size();
@@ -1924,27 +1924,27 @@ auto outputs_size = interp.outputs_size();
 
 #### input_shape()
 
-**功能描述**
+**Feature description**
 
-获取模型指定输入的shape
+Gets the shape of the model specified input
 
-**接口定义**
+**Interface definition**
 
 ```C++
 const runtime_shape_t &input_shape(size_t index) const noexcept;
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称 | 类型   | 是否必须 | 描述       |
+| Parameter name | type   | Yes or no | description       |
 | -------- | ------ | -------- | ---------- |
-| index    | size_t | 是       | 输入的索引 |
+| index    | size_t | be       | The index of the input |
 
-**返回值**
+**The return value**
 
 runtime_shape_t
 
-**代码示例**
+**Code example**
 
 ```c++
 auto in_shape = interp.input_shape(0);
@@ -1952,27 +1952,27 @@ auto in_shape = interp.input_shape(0);
 
 #### output_shape()
 
-**功能描述**
+**Feature description**
 
-获取模型指定输出的shape
+Gets the shape of the specified output of the model
 
-**接口定义**
+**Interface definition**
 
 ```C++
 const runtime_shape_t &output_shape(size_t index) const noexcept;
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称 | 类型   | 是否必须 | 描述       |
+| Parameter name | type   | Yes or no | description       |
 | -------- | ------ | -------- | ---------- |
-| index    | size_t | 是       | 输出的索引 |
+| index    | size_t | be       | The index of the output |
 
-**返回值**
+**The return value**
 
 runtime_shape_t
 
-**代码示例**
+**Code example**
 
 ```c++
 auto out_shape = interp.output_shape(0);
@@ -1980,31 +1980,31 @@ auto out_shape = interp.output_shape(0);
 
 #### input_tensor()
 
-**功能描述**
+**Feature description**
 
-获取/设置指定索引的input tensor
+Gets/sets the input tensor for the specified index
 
-**接口定义**
+**Interface definition**
 
 ```C++
 (1) result<runtime_tensor> input_tensor(size_t index) noexcept;
 (2) result<void> input_tensor(size_t index, runtime_tensor tensor) noexcept;
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称 | 类型           | 是否必须 | 描述                     |
+| Parameter name | type           | Yes or no | description                     |
 | -------- | -------------- | -------- | ------------------------ |
-| index    | size_t         | 是       | kmodel buffer            |
-| tensor   | runtime_tensor | 是       | 输入对应的runtime tensor |
+| index    | size_t         | be       | kmodel buffer            |
+| tensor   | runtime_tensor | be       | Enter the corresponding runtime tensor |
 
-**返回值**
+**The return value**
 
-(1) 返回result<runtime_tensor>
+(1) Returns the results<runtime_tensor>
 
-(2) 返回result `<void>`
+(2) Returns the results `<void>`
 
-**代码示例**
+**Code example**
 
 ```c++
 // set input
@@ -2013,31 +2013,31 @@ interp.input_tensor(0, input_tensor).expect("cannot set input tensor");
 
 #### output_tensor()
 
-**功能描述**
+**Feature description**
 
-获取/设置指定索引的output tensor
+Gets/sets the outbound tensor for the specified index
 
-**接口定义**
+**Interface definition**
 
 ```C++
 (1) result<runtime_tensor> output_tensor(size_t index) noexcept;
 (2) result<void> output_tensor(size_t index, runtime_tensor tensor) noexcept;
 ```
 
-**输入参数**
+**Input parameters**
 
-| 参数名称 | 类型           | 是否必须 | 描述                     |
+| Parameter name | type           | Yes or no | description                     |
 | -------- | -------------- | -------- | ------------------------ |
-| index    | size_t         | 是       |                          |
-| tensor   | runtime_tensor | 是       | 输入对应的runtime tensor |
+| index    | size_t         | be       |                          |
+| tensor   | runtime_tensor | be       | Enter the corresponding runtime tensor |
 
-**返回值**
+**The return value**
 
-(1) 返回result<runtime_tensor>
+(1) Returns the results<runtime_tensor>
 
-(2) 返回result `<void>`
+(2) Returns the results `<void>`
 
-**代码示例**
+**Code example**
 
 ```c++
 // get output
@@ -2052,58 +2052,58 @@ std::cout << "image classification result: " << labels[idx] << "(" << *it << ")"
 
 #### run()
 
-**功能描述**
+**Feature description**
 
-执行kpu计算
+Perform kPU calculations
 
-**接口定义**
+**Interface definition**
 
 ```C++
 result<void> run() noexcept;
 ```
 
-**输入参数**
+**Input parameters**
 
 N/A
 
-**返回值**
+**The return value**
 
 result `<void>`
 
-**代码示例**
+**Code example**
 
 ```c++
 // run
 interp.run().expect("error occurred in running model");
 ```
 
-## 5.3 Runtime示例
+## 5.3 Runtime example
 
-示例代码位于/path/to/nncase_sdk/examples/mobilenetv2_onnx_fp32_image
+The sample code is located at /path/to/nncase_sdk/examples/mobilenetv2_onnx_fp32_image
 
-**前置条件**
+**Prefix Condition**
 
-- mobilenetv2_onnx_fp32_image.py脚本已编译过mobilenetv2-7.onnx模型
-- 由于该示例依赖OpenCV库，需要在示例的CMakeLists.txt中指定OpenCV的路径。
+- mobilenetv2_onnx_fp32_image.py script has compiled the mobiletv2-7.onnx model
+- Since the example relies on the OpenCV library, you need to specify the path to OpenCV in the CMakeLists .txt of the sample.
 
-**交叉编译app**
+**Cross-compile apps**
 
 ```shell
 cd /path/to/nncase_sdk/examples
 ./build.sh
 ```
 
-最后在out/bin目录下生成mobilenetv2_onnx_fp32_image
+Finally, generate the mobilenetv2_onnx_fp32_image in the out/bin directory
 
-**k510 EVB上板运行**
+**The k510 EVB operates on the board**
 
-将下面几个文件拷贝到k510 EVB板上
+Copy the following files onto the k510 EVB board
 
-| 文件                        | 备注                                                         |
+| file                        | remark                                                         |
 | --------------------------- | ------------------------------------------------------------ |
-| mobilenetv2_onnx_fp32_image | 交叉编译examples生成                                         |
-| test.kmodel                 | 使用mobilenetv2_onnx_fp32_image.py编译mobilenetv2-7.onnx生成 |
-| cat.png和labels_1000.txt    | 位于/path/to/nncase_sdk/examples/mobilenetv2_onnx_fp32_image/data/子目录下 |
+| mobilenetv2_onnx_fp32_image | Cross-compile examples are generated                                         |
+| test.kmodel                 | Use mobilenetv2_onnx_fp32_image.py compile the mobiletv2-7.onnx build |
+| Cat .png and labels_1000.txt    | Located under the /path/to/nncase_sdk/examples/mobilenetv2_onnx_fp32_image/data/ subdirectory |
 
 ```bash
 $ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mnt/zhangyang/nncase_check/lib/gomp:/mnt/zhangyang/nncase_check/lib/opencv
@@ -2113,38 +2113,38 @@ interp.run() duration: 12.6642 ms
 image classification result: tiger cat(9.25)
 ```
 
-# 6 函数式编程库(运行时支持)
+# 6 Functional programming libraries (runtime support)
 
-## 6.1 Functional简介
+## 6.1 Introduction to Functional
 
-nncase Functional用于提升用户对模型进行前后处理时的易用性
+nncase Functional is used to improve ease of use when users pre- and post-process models
 
-目前只提供C++版本的APIs, 相关的头文件和库在nncase sdk的riscv64目录下.
+Currently, only the C++ version of APIs is available, and the associated header files and libraries are in the riscv64 directory of the nncase sdk.
 
 ## 6.2 APIS
 
 ### 6.2.1 square
 
-**功能描述**
+**Feature description**
 
-计算平方,目前支持输入uint8/int8,输出也为uint8/int8,注意输入为定点且输出为浮点时需要设置量化参数.
+Calculate the square, currently support input uint8/int8, output is also uint8/int8, note that the input is fixed point and the output is floating point need to set the quantization parameters.
 
-**接口定义**
+**Interface definition**
 
 `public inline NNCASE_API`[`result`](#classnncase_1_1result)`< runtime::runtime_tensor >`[`square`](#ops_8h_1adff2f60c7c045a9840519eab2c04d127)`(runtime::runtime_tensor & input,datatype_t dtype) noexcept`
 
-**输入参数**
+**Input parameters**
 
-| 参数名称  | 类型           | 是否必须 | 描述                |
+| Parameter name  | type           | Yes or no | description                |
 | --------- | -------------- | -------- | ------------------- |
-| `input` | runtime_tensor | 是       | 输入                |
-| `dtype` | datatype_t     | 是       | 输出tensor datatype |
+| `input` | runtime_tensor | be       | input                |
+| `dtype` | datatype_t     | be       | Output tensor datatype |
 
-**返回值**
+**The return value**
 
 `result<runtime_tensor>`
 
-**代码示例**
+**Code example**
 
 ```cpp
 if ((input_type == dt_uint8 or input_type == dt_int8) and (output_type == dt_float32 or output_type == dt_bfloat16))
@@ -2156,26 +2156,26 @@ auto squared = F::square(input, output_type).unwrap_or_throw();
 
 ### 6.2.2 sqrt
 
-**功能描述**
+**Feature description**
 
-计算根号值,目前支持输入uint8/int8,输出也为uint8/int8,注意输入为定点且输出为浮点时需要设置量化参数.
+Calculate the root number value, currently support input uint8/int8, output is also uint8/int8, note that the input is fixed point and the output is floating point needs to set the quantization parameters.
 
-**接口定义**
+**Interface definition**
 
 `public inline NNCASE_API`[`result`](#classnncase_1_1result)`< runtime::runtime_tensor >`[`sqrt`](#ops_8h_1a53f8dde3dd4e27058b5dc743eb5dd076)`(runtime::runtime_tensor & input,datatype_t dtype) noexcept`
 
-**输入参数**
+**Input parameters**
 
-| 参数名称  | 类型           | 是否必须 | 描述                |
+| Parameter name  | type           | Yes or no | description                |
 | --------- | -------------- | -------- | ------------------- |
-| `input` | runtime_tensor | 是       | 输入                |
-| `dtype` | datatype_t     | 是       | 输出tensor datatype |
+| `input` | runtime_tensor | be       | input                |
+| `dtype` | datatype_t     | be       | Output tensor datatype |
 
-**返回值**
+**The return value**
 
 `result<runtime_tensor>`
 
-**代码示例**
+**Code example**
 
 ```cpp
 if ((input_type == dt_uint8 or input_type == dt_int8) and (output_type == dt_float32 or output_type == dt_bfloat16))
@@ -2187,26 +2187,26 @@ auto output = F::sqrt(input, output_type).unwrap_or_throw();
 
 ### 6.2.3 log
 
-**功能描述**
+**Feature description**
 
-计算log值,输入的负数会被转换为Nan,目前支持输入uint8/int8,输出也为uint8/int8,注意输入为定点且输出为浮点时需要设置量化参数.
+Calculate the log value, the negative number of input will be converted to Nan, currently support input uint8/int8, output is also uint8/int8, note that the input is fixed point and the output is floating point needs to set the quantization parameter.
 
-**接口定义**
+**Interface definition**
 
 `public inline NNCASE_API`[`result`](#classnncase_1_1result)`< runtime::runtime_tensor >`[`log`](#ops_8h_1a91df53276c3f1511427d4ac1a0140b71)`(runtime::runtime_tensor & input,datatype_t dtype) noexcept`
 
-**输入参数**
+**Input parameters**
 
-| 参数名称  | 类型           | 是否必须 | 描述                |
+| Parameter name  | type           | Yes or no | description                |
 | --------- | -------------- | -------- | ------------------- |
-| `input` | runtime_tensor | 是       | 输入                |
-| `dtype` | datatype_t     | 是       | 输出tensor datatype |
+| `input` | runtime_tensor | be       | input                |
+| `dtype` | datatype_t     | be       | Output tensor datatype |
 
-**返回值**
+**The return value**
 
 `result<runtime_tensor>`
 
-**代码示例**
+**Code example**
 
 ```cpp
 if ((input_type == dt_uint8 or input_type == dt_int8) and (output_type == dt_float32 or output_type == dt_bfloat16))
@@ -2218,26 +2218,26 @@ auto output = F::log(input, output_type).unwrap_or_throw();
 
 ### 6.2.4 exp
 
-**功能描述**
+**Feature description**
 
-计算exp值,目前支持输入uint8/int8,输出也为uint8/int8,注意输入为定点且输出为浮点时需要设置量化参数.
+Calculate the exp value, currently support input uint8/int8, output is also uint8/int8, note that the input is fixed point and the output is floating point need to set the quantization parameters.
 
-**接口定义**
+**Interface definition**
 
 `public inline NNCASE_API`[`result`](#classnncase_1_1result)`< runtime::runtime_tensor >`[`exp`](#ops_8h_1a2c6ce457805a5ba515fa7454fb4aede0)`(runtime::runtime_tensor & input,datatype_t dtype) noexcept`
 
-**输入参数**
+**Input parameters**
 
-| 参数名称  | 类型           | 是否必须 | 描述                |
+| Parameter name  | type           | Yes or no | description                |
 | --------- | -------------- | -------- | ------------------- |
-| `input` | runtime_tensor | 是       | 输入                |
-| `dtype` | datatype_t     | 是       | 输出tensor datatype |
+| `input` | runtime_tensor | be       | input                |
+| `dtype` | datatype_t     | be       | Output tensor datatype |
 
-**返回值**
+**The return value**
 
 `result<runtime_tensor>`
 
-**代码示例**
+**Code example**
 
 ```cpp
 if ((input_type == dt_uint8 or input_type == dt_int8) and (output_type == dt_float32 or output_type == dt_bfloat16))
@@ -2247,28 +2247,28 @@ if ((input_type == dt_uint8 or input_type == dt_int8) and (output_type == dt_flo
 auto output = F::exp(input, output_type).unwrap_or_throw();
 ```
 
-### 6.2.5 sin
+### 6.2.5 without
 
-**功能描述**
+**Feature description**
 
-计算sin值,目前支持输入uint8/int8,输出也为uint8/int8,注意输入为定点且输出为浮点时需要设置量化参数.
+To calculate the sin value, the input uint8/int8 is currently supported, and the output is also uint8/int8, note that the quantization parameters need to be set when the input is fixed-point and the output is floating-point.
 
-**接口定义**
+**Interface definition**
 
 `public inline NNCASE_API`[`result`](#classnncase_1_1result)`< runtime::runtime_tensor >`[`sin`](#ops_8h_1a9605b2b0dc9a6892ce878bda14586890)`(runtime::runtime_tensor & input,datatype_t dtype) noexcept`
 
-**输入参数**
+**Input parameters**
 
-| 参数名称  | 类型           | 是否必须 | 描述                |
+| Parameter name  | type           | Yes or no | description                |
 | --------- | -------------- | -------- | ------------------- |
-| `input` | runtime_tensor | 是       | 输入                |
-| `dtype` | datatype_t     | 是       | 输出tensor datatype |
+| `input` | runtime_tensor | be       | input                |
+| `dtype` | datatype_t     | be       | Output tensor datatype |
 
-**返回值**
+**The return value**
 
 `result<runtime_tensor>`
 
-**代码实例**
+**Code examples**
 
 ```cpp
 if ((input_type == dt_uint8 or input_type == dt_int8) and (output_type == dt_float32 or output_type == dt_bfloat16))
@@ -2278,28 +2278,28 @@ if ((input_type == dt_uint8 or input_type == dt_int8) and (output_type == dt_flo
 auto output = F::sin(input, output_type).unwrap_or_throw();
 ```
 
-### 6.2.6 cos
+### 6.2.6 body
 
-**功能描述**
+**Feature description**
 
-计算cos值,目前支持输入uint8/int8,输出也为uint8/int8,注意输入为定点且输出为浮点时需要设置量化参数.
+Calculate the cos value, currently support input uint8/int8, output is also uint8/int8, note that the input is fixed point and the output is floating point needs to set the quantization parameter.
 
-**接口定义**
+**Interface definition**
 
 `public inline NNCASE_API`[`result`](#classnncase_1_1result)`< runtime::runtime_tensor >`[`cos`](#ops_8h_1a71d36c13c82f4c411f24d030cf333249)`(runtime::runtime_tensor & input,datatype_t dtype) noexcept`
 
-**输入参数**
+**Input parameters**
 
-| 参数名称  | 类型           | 是否必须 | 描述                |
+| Parameter name  | type           | Yes or no | description                |
 | --------- | -------------- | -------- | ------------------- |
-| `input` | runtime_tensor | 是       | 输入                |
-| `dtype` | datatype_t     | 是       | 输出tensor datatype |
+| `input` | runtime_tensor | be       | input                |
+| `dtype` | datatype_t     | be       | Output tensor datatype |
 
-**返回值**
+**The return value**
 
 `result<runtime_tensor>`
 
-**代码实例**
+**Code examples**
 
 ```cpp
 if ((input_type == dt_uint8 or input_type == dt_int8) and (output_type == dt_float32 or output_type == dt_bfloat16))
@@ -2311,26 +2311,26 @@ auto output = F::cos(input, output_type).unwrap_or_throw();
 
 ### 6.2.7 round
 
-**功能描述**
+**Feature description**
 
-计算round值,目前支持输入uint8/int8,输出也为uint8/int8,注意输入为定点且输出为浮点时需要设置量化参数.
+To calculate the round value, the input uint8/int8 is currently supported, and the output is also uint8/int8, note that the quantization parameter needs to be set when the input is fixed point and the output is floating point.
 
-**接口定义**
+**Interface definition**
 
 `public inline NNCASE_API`[`result`](#classnncase_1_1result)`< runtime::runtime_tensor >`[`round`](#ops_8h_1a81db8ac4866004f75fb65db876262785)`(runtime::runtime_tensor & input,datatype_t dtype) noexcept`
 
-**输入参数**
+**Input parameters**
 
-| 参数名称  | 类型           | 是否必须 | 描述                |
+| Parameter name  | type           | Yes or no | description                |
 | --------- | -------------- | -------- | ------------------- |
-| `input` | runtime_tensor | 是       | 输入                |
-| `dtype` | datatype_t     | 是       | 输出tensor datatype |
+| `input` | runtime_tensor | be       | input                |
+| `dtype` | datatype_t     | be       | Output tensor datatype |
 
-**返回值**
+**The return value**
 
 `result<runtime_tensor>`
 
-**代码实例**
+**Code examples**
 
 ```cpp
 if ((input_type == dt_uint8 or input_type == dt_int8) and (output_type == dt_float32 or output_type == dt_bfloat16))
@@ -2342,26 +2342,26 @@ auto output = F::round(input, output_type).unwrap_or_throw();
 
 ### 6.2.8 floor
 
-**功能描述**
+**Feature description**
 
-计算floor值,目前支持输入uint8/int8,输出也为uint8/int8,注意输入为定点且输出为浮点时需要设置量化参数.
+Calculate the frost value, currently support input uint8/int8, output is also uint8/int8, note that the input is fixed point and the output is floating point need to set the quantization parameters.
 
-**接口定义**
+**Interface definition**
 
 `public inline NNCASE_API`[`result`](#classnncase_1_1result)`< runtime::runtime_tensor >`[`floor`](#ops_8h_1a1079af8fe9fb6edbb2906d91fac12635)`(runtime::runtime_tensor & input,datatype_t dtype) noexcept`
 
-**输入参数**
+**Input parameters**
 
-| 参数名称  | 类型           | 是否必须 | 描述                |
+| Parameter name  | type           | Yes or no | description                |
 | --------- | -------------- | -------- | ------------------- |
-| `input` | runtime_tensor | 是       | 输入                |
-| `dtype` | datatype_t     | 是       | 输出tensor datatype |
+| `input` | runtime_tensor | be       | input                |
+| `dtype` | datatype_t     | be       | Output tensor datatype |
 
-**返回值**
+**The return value**
 
 `result<runtime_tensor>`
 
-**代码实例**
+**Code examples**
 
 ```cpp
 if ((input_type == dt_uint8 or input_type == dt_int8) and (output_type == dt_float32 or output_type == dt_bfloat16))
@@ -2373,26 +2373,26 @@ auto output = F::floor(input, output_type).unwrap_or_throw();
 
 ### 6.2.9 ceil
 
-**功能描述**
+**Feature description**
 
-计算ceil值,目前支持输入uint8/int8,输出也为uint8/int8,注意输入为定点且输出为浮点时需要设置量化参数.
+Calculate the ceil value, currently support input uint8/int8, output is also uint8/int8, note that the input is fixed point and the output is floating point need to set the quantization parameters.
 
-**接口定义**
+**Interface definition**
 
 `public inline NNCASE_API`[`result`](#classnncase_1_1result)`< runtime::runtime_tensor >`[`ceil`](#ops_8h_1ad3b78c97f1e5348a26de7e5ba2396fb7)`(runtime::runtime_tensor & input,datatype_t dtype) noexcept`
 
-**输入参数**
+**Input parameters**
 
-| 参数名称  | 类型           | 是否必须 | 描述                |
+| Parameter name  | type           | Yes or no | description                |
 | --------- | -------------- | -------- | ------------------- |
-| `input` | runtime_tensor | 是       | 输入                |
-| `dtype` | datatype_t     | 是       | 输出tensor datatype |
+| `input` | runtime_tensor | be       | input                |
+| `dtype` | datatype_t     | be       | Output tensor datatype |
 
-**返回值**
+**The return value**
 
 `result<runtime_tensor>`
 
-**代码实例**
+**Code examples**
 
 ```cpp
 if ((input_type == dt_uint8 or input_type == dt_int8) and (output_type == dt_float32 or output_type == dt_bfloat16))
@@ -2404,26 +2404,26 @@ auto output = F::ceil(input, output_type).unwrap_or_throw();
 
 ### 6.2.10 abs
 
-**功能描述**
+**Feature description**
 
-计算abs值,目前支持输入uint8/int8,输出也为uint8/int8,注意输入为定点且输出为浮点时需要设置量化参数.
+Calculate the abs value, currently support input uint8/int8, output is also uint8/int8, note that the input is fixed point and the output is floating point needs to set the quantization parameters.
 
-**接口定义**
+**Interface definition**
 
 `public inline NNCASE_API`[`result`](#classnncase_1_1result)`< runtime::runtime_tensor >`[`abs`](#ops_8h_1ad8290dc793bae0dc22b3baf9e0f80c14)`(runtime::runtime_tensor & input,datatype_t dtype) noexcept`
 
-**输入参数**
+**Input parameters**
 
-| 参数名称  | 类型           | 是否必须 | 描述                |
+| Parameter name  | type           | Yes or no | description                |
 | --------- | -------------- | -------- | ------------------- |
-| `input` | runtime_tensor | 是       | 输入                |
-| `dtype` | datatype_t     | 是       | 输出tensor datatype |
+| `input` | runtime_tensor | be       | input                |
+| `dtype` | datatype_t     | be       | Output tensor datatype |
 
-**返回值**
+**The return value**
 
 `result<runtime_tensor>`
 
-**代码实例**
+**Code examples**
 
 ```cpp
 if ((input_type == dt_uint8 or input_type == dt_int8) and (output_type == dt_float32 or output_type == dt_bfloat16))
@@ -2435,26 +2435,26 @@ auto output = F::abs(input, output_type).unwrap_or_throw();
 
 ### 6.2.11 neg
 
-**功能描述**
+**Feature description**
 
-计算neg值,目前支持输入uint8/int8,输出也为uint8/int8,注意输入为定点且输出为浮点时需要设置量化参数.
+Calculate the value of neg, currently support input uint8/int8, output is also uint8/int8, note that the input is fixed point and the output is floating point needs to set the quantization parameters.
 
-**接口定义**
+**Interface definition**
 
 `public inline NNCASE_API`[`result`](#classnncase_1_1result)`< runtime::runtime_tensor >`[`neg`](#ops_8h_1aa1b7858802e1afce78db72163c5210d8)`(runtime::runtime_tensor & input,datatype_t dtype) noexcept`
 
-**输入参数**
+**Input parameters**
 
-| 参数名称  | 类型           | 是否必须 | 描述                |
+| Parameter name  | type           | Yes or no | description                |
 | --------- | -------------- | -------- | ------------------- |
-| `input` | runtime_tensor | 是       | 输入                |
-| `dtype` | datatype_t     | 是       | 输出tensor datatype |
+| `input` | runtime_tensor | be       | input                |
+| `dtype` | datatype_t     | be       | Output tensor datatype |
 
-**返回值**
+**The return value**
 
 `result<runtime_tensor>`
 
-**代码实例**
+**Code examples**
 
 ```cpp
 if ((input_type == dt_uint8 or input_type == dt_int8) and (output_type == dt_float32 or output_type == dt_bfloat16))
@@ -2466,26 +2466,26 @@ auto output = F::neg(input, output_type).unwrap_or_throw();
 
 ### 6.2.12 quantize
 
-**功能描述**
+**Feature description**
 
-输入dt_bfloat16, dt_float32 数据,输出dt_int8或 dt_uint8输出
+Input dt_bfloat16, dt_float32 data, output dt_int8, or dt_uint8 output
 
-**接口定义**
+**Interface definition**
 
 `public inline NNCASE_API`[`result`](#classnncase_1_1result)`< runtime::runtime_tensor >`[`quantize`](#ops_8h_1ad8ad779083b5c08da520d2f1c2469c3a)`(runtime::runtime_tensor & input,datatype_t dtype) noexcept`
 
-**输入参数**
+**Input parameters**
 
-| 参数名称  | 类型           | 是否必须 | 描述                                |
+| Parameter name  | type           | Yes or no | description                                |
 | --------- | -------------- | -------- | ----------------------------------- |
-| `input` | runtime_tensor | 是       | 输入, 类型必须为float32 或 bfloat16 |
-| `dtype` | datatype_t     | 是       | 输出tensor datatype                 |
+| `input` | runtime_tensor | be       | Input, type must be float32 or bfloat16 |
+| `dtype` | datatype_t     | be       | Output tensor datatype                 |
 
-**返回值**
+**The return value**
 
 `result<runtime_tensor>`
 
-**代码实例**
+**Code examples**
 
 ```cpp
 auto quantized = F::quantize(input, dt_int8).unwrap_or_throw();
@@ -2493,26 +2493,26 @@ auto quantized = F::quantize(input, dt_int8).unwrap_or_throw();
 
 ### 6.2.13 dequantize
 
-**功能描述**
+**Feature description**
 
-输入 uint8 or int8 输入,转换到 float or bfloat数据. 注意,用户必须提前为数据设置好正确的量化参数用于反量化.
+Enter uint8 or int8 input, convert to float or bfloat data. Note that the user must set the correct quantization parameters for the data in advance for dequantization.
 
-**接口定义**
+**Interface definition**
 
 `public inline NNCASE_API`[`result`](#classnncase_1_1result)`< runtime::runtime_tensor >`[`dequantize`](#ops_8h_1ab91a262349baf393c91abad6f393de24)`(runtime::runtime_tensor & input,datatype_t dtype) noexcept`
 
-**输入参数**
+**Input parameters**
 
-| 参数名称  | 类型           | 是否必须 | 描述                |
+| Parameter name  | type           | Yes or no | description                |
 | --------- | -------------- | -------- | ------------------- |
-| `input` | runtime_tensor | 是       | 输入                |
-| `dtype` | datatype_t     | 是       | 输出tensor datatype |
+| `input` | runtime_tensor | be       | input                |
+| `dtype` | datatype_t     | be       | Output tensor datatype |
 
-**返回值**
+**The return value**
 
 `result<runtime_tensor>`
 
-**代码实例**
+**Code examples**
 
 ```cpp
 input.quant_param({ 0, 1 });
@@ -2521,31 +2521,31 @@ auto dequantized = F::dequantize(input, output_type).unwrap_or_throw();
 
 ### 6.2.14 crop
 
-**功能描述**
+**Feature description**
 
-给定bboxs,从原始tensor中裁剪并resize输出到新tensor中. 接受dt_bfloat16, dt_float32, dt_int8, dt_uint8类型输出,输出相同类型.
+Given bboxes, cropped from the original tensor and resize output into the new tensor. Accept dt_bfloat16, dt_float32, dt_int8, dt_uint8 type output, output of the same type.
 
-**接口定义**
+**Interface definition**
 
 `NNCASE_API inline result<runtime::runtime_tensor> crop(runtime::runtime_tensor &input, runtime::runtime_tensor &bbox, size_t out_h, size_t out_w, image_resize_mode_t resize_mode, bool align_corners, bool half_pixel_centers) noexcept`
 
-**输入参数**
+**Input parameters**
 
-| 参数名称           | 类型                | 是否必须 | 描述                                                                                     |
+| Parameter name           | type                | Yes or no | description                                                                                     |
 | ------------------ | ------------------- | -------- | ---------------------------------------------------------------------------------------- |
-| input              | runtime_tensor      | 是       | 输入数据,需要 [n,c,h,w] 格式排布 ,如果数据为uint8或int8 请保证数据量化参数的正确性       |
-| bbox               | runtime_tensor      | 是       | 输入bbox数据, 需要 [1,1,m,4] 格式排布, 内部数据为[y0,x0,y1,x1], 类型为[float32,bfloat16] |
-| out_h              | size_t              | 是       | 输出数据height                                                                           |
-| out_w              | size_t              | 是       | 输入数据width                                                                            |
-| resize_mode        | image_resize_mode_t | 是       | resize方法模式                                                                           |
-| align_corners      | bool                | 是       | resize 是否             align_corners                                                    |
-| half_pixel_centers | bool                | 是       | resize是否pixel中心对齐                                                                  |
+| input              | runtime_tensor      | be       | Enter the data, need to [n,c,h,w] format the layout, if the data is uint8 or int8 please ensure the correctness of the data quantization parameters       |
+| bbox               | runtime_tensor      | be       | Enter the bbox data, need to [1,1,m,4] format the layout, the internal data is[y0,x0,y1,x1], the type is[float32,bfloat16] |
+| out_h              | size_t              | be       | Output data height                                                                           |
+| out_w              | size_t              | be       | Enter the data width                                                                            |
+| resize_mode        | image_resize_mode_t | be       | Resize method pattern                                                                           |
+| align_corners      | bool                | be       | Resize whether align_corners                                                    |
+| half_pixel_centers | bool                | be       | Resize if the pixel is center aligned                                                                  |
 
-**返回值**
+**The return value**
 
 `result<runtime_tensor>`
 
-**代码实例**
+**Code examples**
 
 ```cpp
 auto bbox = get_rand_bbox(input_shape, roi_amount);
@@ -2555,30 +2555,30 @@ auto output_opt = F::crop(input, bbox, out_h, out_w, resize_mode).unwrap_or_thro
 
 ### 6.2.15 resize
 
-**功能描述**
+**Feature description**
 
-给定输出高度 宽度,把输入tensor resize到新尺寸. 接受dt_bfloat16, dt_float32, dt_int8, dt_uint8类型输出,输出相同类型.
+Given the output height width, put the input tensor resize to the new size. Accept dt_bfloat16, dt_float32, dt_int8, dt_uint8 type output, output of the same type.
 
-**接口定义**
+**Interface definition**
 
 `NNCASE_API inline result<runtime::runtime_tensor> resize(runtime::runtime_tensor &input, size_t out_h, size_t out_w, image_resize_mode_t resize_mode, bool align_corners, bool half_pixel_centers) noexcept`
 
-**输入参数**
+**Input parameters**
 
-| 参数名称           | 类型                | 是否必须 | 描述                                                                               |
+| Parameter name           | type                | Yes or no | description                                                                               |
 | ------------------ | ------------------- | -------- | ---------------------------------------------------------------------------------- |
-| input              | runtime_tensor      | 是       | 输入数据,需要 [n,c,h,w] 格式排布, 如果数据为uint8或int8 请保证数据量化参数的正确性 |
-| out_h              | size_t              | 是       | 输出数据height                                                                     |
-| out_w              | size_t              | 是       | 输入数据width                                                                      |
-| resize_mode        | image_resize_mode_t | 是       | resize方法模式                                                                     |
-| align_corners      | bool                | 是       | resize 是否             align_corners                                              |
-| half_pixel_centers | bool                | 是       | resize是否pixel中心对齐                                                            |
+| input              | runtime_tensor      | be       | Enter the data, need to be [n,c,h,w] formatted, if the data is uint8 or int8 please ensure the correctness of the data quantization parameters |
+| out_h              | size_t              | be       | Output data height                                                                     |
+| out_w              | size_t              | be       | Enter the data width                                                                      |
+| resize_mode        | image_resize_mode_t | be       | Resize method pattern                                                                     |
+| align_corners      | bool                | be       | Resize whether align_corners                                              |
+| half_pixel_centers | bool                | be       | Resize if the pixel is center aligned                                                            |
 
-**返回值**
+**The return value**
 
 `result<runtime_tensor>`
 
-**代码实例**
+**Code examples**
 
 ```cpp
 auto &&[out_h, out_w] = get_rand_out_hw();
@@ -2587,39 +2587,39 @@ auto output_opt = F::resize(input, out_h, out_w, resize_mode, false, false).unwr
 
 ### 6.2.16 pad
 
-**功能描述**
+**Feature description**
 
-在每个维度上padding数据,接受dt_bfloat16, dt_float32, dt_int8, dt_uint8类型输出,输出相同类型.
+Padding data on each dimension accepts dt_bfloat16, dt_float32, dt_int8, dt_uint8 type output and output of the same type.
 
-**接口定义**
+**Interface definition**
 
 `NNCASE_API inline result<runtime::runtime_tensor> pad(runtime::runtime_tensor &input, runtime_paddings_t &paddings, pad_mode_t pad_mode, float fill_v)`
 
-**输入参数**
+**Input parameters**
 
-| 参数名称 | 类型               | 是否必须 | 描述                                                                                                                                       |
+| Parameter name | type               | Yes or no | description                                                                                                                                       |
 | -------- | ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| input    | runtime_tensor     | 是       | 输入数据,如果数据为uint8或int8 请保证数据量化参数的正确性                                                                                  |
-| padding  | runtime_paddings_t | 是       | 每个维度的padding值, 注意顺序为逆向. 比如padding值为 `[ {2,3}, {1,3} ]`表示在最后一维前面pad 2,后面pad 3. 倒数第二维前面pad 1, 后面pad 2 |
-| pad_mode | pad_mode_t         | 是       | 目前暂时只支持const 模式                                                                                                                   |
-| fill_v   | float              | 是       | 填充值                                                                                                                                     |
+| input    | runtime_tensor     | be       | Enter the data, if the data is uint8 or int8 Ensure the correctness of the data quantization parameters                                                                                  |
+| padding  | runtime_paddings_t | be       | For example, the padding value is `[ {2,3}, {1,3} ]`indicated in front of pad 2 in the last dimension, followed by pad 3. The penultimate dimension is preceded by pad 1, followed by pad 2 |
+| pad_mode | pad_mode_t         | be       | Currently, only const mode is supported                                                                                                                   |
+| fill_v   | float              | be       | Populate the values                                                                                                                                     |
 
-**返回值**
+**The return value**
 
 `result<runtime_tensor>`
 
-**代码实例**
+**Code examples**
 
 ```cpp
 runtime_paddings_t paddings{ { 0, 0 }, { 0, 0 }, { 0, 0 }, { 1, 2 } };
 auto output = F::pad(input, paddings, pad_constant, pad_value).unwrap_or_throw();
 ```
 <!-- markdownlint-enable no-emphasis-as-header -->
-# 7 量化白皮书
+# 7 Quantitative White Paper
 
-## 7.1 分类模型量化白皮书
+## 7.1 Classification Model Quantification White Paper
 
-| 分类模型     | cpu精度(Top-1) | 浮点精度(Top-1) | uint8精度(Top-1) | int8精度(Top-1) |
+| Classification model     | CPU Precision (Top-1) | Floating-point accuracy (Top-1) | uint8 precision (Top-1) | int8 Precision (Top-1) |
 | ------------ | -------------- | --------------- | ---------------- | --------------- |
 | alexnet      | 0.531          | 0.53            | N/A              | 0.52            |
 | densenet 121 | 0.732          | 0.732           | 0.723            | N/A             |
@@ -2630,17 +2630,17 @@ auto output = F::pad(input, paddings, pad_constant, pad_value).unwrap_or_throw()
 | resnet50 v2  | 0.747          | 0.74            | 0.748            | 0.749           |
 | vgg 16       | 0.689          | 0.687           | 0.690            | 0.689           |
 
-> 本表格主要为了对比量化的性能，cpu精度为完整ImageNet验证集数据，浮点和量化精度为验证集中1000类按照序号首先出现的图片作为数据子集测试的结果。
+> This table is mainly to compare the performance of quantization, the CPU precision is the full ImageNet validation set data, and the floating-point and quantization accuracy is the result of the data subset test for the first image of the 1000 classes in the validation set according to the ordinal number.
 >
-> Alexnet和DenseNet的测试结果为旧数据，均为验证集前1000张图像作为数据子集的测试结果，N/A为当时的测试数据子集与CPU不同，因此不作为比较。
+> The test results of Alexnet and SenseNet are old data, both of which are test results of the first 1000 images of the verification set as a subset of the data, and N/A is that the test data subset at that time is different from the CPU, so it is not used as a comparison.
 >
-> 因为所选网络不一定来源于官方或者预处理等存在差异，可能与官方性能有所不同。
+> Because the selected network does not necessarily originate from the official or there are differences in pre-processing, etc., it may differ from the official performance.
 
-## 7.2 检测模型量化白皮书
+## 7.2 Detection Model Quantification White Paper
 
 1. YOLOV3
 
-    | COCOAPI                                                      | 官方结果 | CPU浮点精度 | gnne浮点精度 | uint8精度 | int8精度 |
+    | COCOAPI                                                      | Official results | CPU floating-point precision | gnne floating-point precision | uint8 precision | int8 precision |
     | ------------------------------------------------------------ | -------- | ----------- | ------------ | --------- | -------- |
     | Average Precision (AP) @ [IoU = 0.50:0.95\| area = all \| maxDets = 100] | 0.314    | 0.307       | 0.306        | 0.295     | 0.288    |
     | Average Precision (AP) @ [IoU = 0.50\| area = all \| maxDets = 100] | 0.559    | 0.555       | 0.554        | 0.555     | 0.554    |
@@ -2657,7 +2657,7 @@ auto output = F::pad(input, paddings, pad_constant, pad_value).unwrap_or_throw()
 
 2. ssd-mobilenetv1
 
-    | COCOAPI                                                                    | 官方结果 | CPU浮点精度 | gnne浮点精度 | uint8精度 | int8精度 |
+    | COCOAPI                                                                    | Official results | CPU floating-point precision | gnne floating-point precision | uint8 precision | int8 precision |
     | -------------------------------------------------------------------------- | -------- | ----------- | ------------ | --------- | -------- |
     | Average Precision (AP) @ [IoU = 0.50:0.95\| area = all \| maxDets = 100]   | 0.184    | 0.184       | 0.184        | 0.183     | 0.183    |
     | Average Precision (AP) @ [IoU = 0.50\| area = all \| maxDets = 100]        | 0.306    | 0.307       | 0.306        | 0.305     | 0.306    |
@@ -2674,7 +2674,7 @@ auto output = F::pad(input, paddings, pad_constant, pad_value).unwrap_or_throw()
 
 3. YOLOV5S
 
-    | COCOAPI                                                                    | 官方结果 | CPU浮点精度 | gnne浮点精度 | uint8精度 | int8精度 |
+    | COCOAPI                                                                    | Official results | CPU floating-point precision | gnne floating-point precision | uint8 precision | int8 precision |
     | -------------------------------------------------------------------------- | -------- | ----------- | ------------ | --------- | -------- |
     | Average Precision (AP) @ [IoU = 0.50:0.95\| area = all \| maxDets = 100]   | 0.367    | 0.365       | 0.335        | 0.334     | 0.335    |
     | Average Precision (AP) @ [IoU = 0.50\| area = all \| maxDets = 100]        | 0.555    | 0.552       | 0.518        | 0.518     | 0.518    |
@@ -2691,39 +2691,39 @@ auto output = F::pad(input, paddings, pad_constant, pad_value).unwrap_or_throw()
 
 # 8 FAQ
 
-1.安装wheel时报错: "xxx.whl is not a supported wheel on this platform."**
+1. 安装wheel时报错: "xxx.whl is not a supported wheel on this platform." **
 
-Q: 安装nncase wheel包, 出现ERROR: nncase-1.0.0.20210830-cp37-cp37m-manylinux_2_24_x86_64.whl is not a supported wheel on this platform.
+    Q: 安装nncase wheel包, 出现ERROR: nncase-1.0.0.20210830-cp37-cp37m-manylinux_2_24_x86_64.whl is not a supported wheel on this platform.
 
-A: 升级 pip >= 20.3
+    A: Upgrade pip > = 20.3
 
-```shell
-sudo pip3 install --upgrade pip
-```
+    ```shell
+    sudo pip3 install --upgrade pip
+    ```
 
-2.**CRB运行App推理程序时, 报错"std::bad_alloc"**
+2. **When the CRB runs the App inference program, it reports the error "std::bad_alloc"**
 
-Q:  CRB上运行App推理程序, 抛出"std::bad_alloc"异常
+    Q: Run the App inference program on the CRB and throw a "std::bad_alloc" exception
 
-```shell
-$ ./cpp.sh
-case ./yolov3_bfloat16 build at Sep 16 2021 18:12:03
-terminate called after throwing an instance of 'std::bad_alloc'
-  what():  std::bad_alloc
-```
+    ```shell
+    $ ./cpp.sh
+    case ./yolov3_bfloat16 build at Sep 16 2021 18:12:03
+    terminate called after throwing an instance of 'std::bad_alloc'
+    what():  std::bad_alloc
+    ```
 
-A: std::bad_alloc异常通常是因为内存分配失败导致的, 可做如下排查.
+    A: std::bad_alloc exceptions are usually caused by memory allocation failures, which can be checked as follows.
 
-- 检查生成的kmodel是否超过当前系统可用内存(如yolov3 bfloat16 kmodel大小为121MB, 当前linux可用内存只有70MB, 则会抛出该异常).  若超过,  可尝试使用训练后量化来减小kmodel大小.
-- 检查App是否存在内存泄露
+    - Check whether the generated kmodel exceeds the current system available memory (such as yolov3 bfloat16 kmodel size is 121MB, the current Linux available memory is only 70MB, the exception will be thrown).  If it exceeds, try using post-training quantization to reduce the kmodel size.
+    - Check the app for memory leaks
 
-3.**运行App推理程序时[..t_runtime_tensor.cpp:310 (create)] data.size_bytes() == size = false (bool)**
+3. **When running the App inference program[.. t_runtime_tensor.cpp:310 (create)] data.size_bytes() == size = false (bool).**
 
-Q: simulator运行App推理程序, 抛出"[..t_runtime_tensor.cpp:310 (create)] data.size_bytes() == size = false (bool)"异常
+    Q: Simulator runs the App inference program, throwing a "[.. t_runtime_tensor.cpp:310 (create)] data.size_bytes() == size = false (bool)" exception
 
-A: 检查设置的输入tensor信息,  重点是输入shape和每个元素占用的字节数(fp32/uint8)
+    A: Check the input tensor information for the settings, focusing on the input shape and the number of bytes occupied by each element (fp32/uint8)
 
-**翻译免责声明**  
-为方便客户，Canaan 使用 AI 翻译程序将文本翻译为多种语言，它可能包含错误。我们不保证提供的译文的准确性、可靠性或时效性。对于因依赖已翻译信息的准确性或可靠性而造成的任何损失或损害，Canaan 概不负责。如果不同语言翻译之间存在内容差异，以简体中文版本为准。
+**Translation Disclaimer**  
+For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail.
 
-如果您要报告翻译错误或不准确的问题，欢迎通过邮件与我们联系。
+If you would like to report a translation error or inaccuracy, please feel free to contact us by mail.

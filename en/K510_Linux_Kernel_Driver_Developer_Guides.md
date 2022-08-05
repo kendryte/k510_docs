@@ -2,45 +2,45 @@
 
 **<font face="黑体" size="6" style="float:right">K510 Linux Kernel Driver Developer's Guide</font>**
 
-<font face="黑体"  size=3>文档版本：V1.0.0</font>
+<font face="黑体"  size=3>Document version: V1.0.0</font>
 
-<font face="黑体"  size=3>发布日期：2022-03-09</font>
-
-<div style="page-break-after:always"></div>
-
-<font face="黑体" size=3>**免责声明**</font>
-您购买的产品、服务或特性等应受北京嘉楠捷思信息技术有限公司（“本公司”，下同）商业合同和条款的约束，本文档中描述的全部或部分产品、服务或特性可能不在您的购买或使用范围之内。除非合同另有约定，本公司不对本文档的任何陈述、信息、内容的准确性、可靠性、完整性、营销型、特定目的性和非侵略性提供任何明示或默示的声明或保证。除非另有约定，本文档仅作为使用指导的参考。
-由于产品版本升级或其他原因，本文档内容将可能在未经任何通知的情况下，不定期进行更新或修改。
-
-**<font face="黑体"  size=3>商标声明</font>**
-
-“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
-
-**<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
-本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
-
-**<font face="黑体"  size=3>北京嘉楠捷思信息技术有限公司</font>**
-网址：canaan-creative.com
-商务垂询：salesAI@canaan-creative.com
+<font face="黑体"  size=3>Published: 2022-03-09</font>
 
 <div style="page-break-after:always"></div>
-# 前言
-**<font face="黑体"  size=5>文档目的</font>**
-本文档为K510 sdk的配套文档，本文档主要讲linux相关驱动、配置、调试等
 
-**<font face="黑体"  size=5>读者对象</font>**
+<font face="黑体" size=3>**Disclaimer**</font>
+The products, services or features you purchase shall be subject to the commercial contracts and terms of Beijing Canaan Jiesi Information Technology Co., Ltd. ("the Company", the same hereinafter), and all or part of the products, services or features described in this document may not be within the scope of your purchase or use. Except as otherwise agreed in the contract, the Company disclaims all representations or warranties, express or implied, as to the accuracy, reliability, completeness, marketing, specific purpose and non-aggression of any representations, information, or content of this document. Unless otherwise agreed, this document is provided as a guide for use only.
+Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice.
 
-本文档（本指南）主要适用的人员：
+**<font face="黑体"  size=3>Trademark Notices</font>**
 
-- 软件开发人员
-- 技术支持人员
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners.
 
-**<font face="黑体"  size=5>修订记录</font>**
-<font face="宋体"  size=2>修订记录累积了每次文档更新的说明。最新版本的文档包含以前所有版本的更新内容。</font>
+**<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
+This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form.
 
-| 版本号   | 修改者     | 修订日期 | 修订说明 |
+**<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
+URL: canaan-creative.com
+Business Enquiries: salesAI@canaan-creative.com
+
+<div style="page-break-after:always"></div>
+# preface
+**<font face="黑体"  size=5>Document purpose</font>**
+This document is a supporting document for the K510 SDK, this document mainly talks about Linux-related drivers, configuration, debugging, etc
+
+**<font face="黑体"  size=5>Reader Objects</font>**
+
+The main people to whom this document (this guide) applies:
+
+- Software developers
+- Technical support personnel
+
+**<font face="黑体"  size=5>Revision history</font>**
+ <font face="宋体"  size=2>The revision history accumulates a description of each document update. The latest version of the document contains updates for all previous versions. </font>
+
+| The version number   | Modified by     | Date of revision | Revision Notes |
 |  :-----  |-------   |  ------  |  ------  |
-| V1.0.0 | 系统软件组 | 2022-03-09 | SDK V1.5发布 |
+| V1.0.0 | System software groups | 2022-03-09 | SDK V1.5 released |
 |        |        |            |                    |
 |        |        |            |                    |
 |        |        |            |                    |
@@ -48,65 +48,64 @@
 |        |        |            |                    |
 
 <div style="page-break-after:always"></div>
-**<font face="黑体"  size=6>目 录</font>**
+**<font face="黑体"  size=6>Contents</font>**
 
 [TOC]
 
 <div style="page-break-after:always"></div>
 
-# 1 Linux Kernel简介
+# 1 Introduction to Linux Kernel
 
-目前sdk使用的linux版本是4.17.0。Linux，全称GNU/Linux，是一种免费使用和自由传播的类UNIX操作系统，其内核由林纳斯·本纳第克特·托瓦兹于1991年10月5日首次发布，它主要受到Minix和Unix思想的启发，是一个基于POSIX的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的Unix工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。Linux有上百种不同的发行版，如基于社区开发的debian、archlinux，和基于商业开发的Red Hat Enterprise Linux、SUSE、Oracle Linux等。
+The linux version currently used by sdk is 4.17.0. Linux, full name GNU/Linux, is a free-to-use and freely disseminated UNIX-like operating system with a kernel first released by Linus Bennadict Torvaz on October 5, 1991, it is mainly inspired by the ideas of Minix and Unix, and is a multi-user, multi-tasking, multi-threaded and multi-CPU-based operating system based on POSIX. It runs major Unix tool software, applications, and network protocols. It supports both 32-bit and 64-bit hardware. Linux inherits Unix's network-centric design philosophy and is a stable multi-user network operating system. Linux has hundreds of different distributions, such as community-based debian, archlinux, and commercially developed Red Hat Enterprise Linux, SUSE, Oracle Linux, etc.
 
-了解更多Linux kernel的相关资料，请访问：
-<https://docs.kernel.org/>
+For more information about the Linux kernel, please visit:<https://docs.kernel.org/>
 
-## 1.1 获取方式
+## 1.1 How to get it
 
-下载并编译sdk，sdk编译的时候会下载并编译linux代码。
+Download and compile the SDK, the SDK will download and compile the Linux code when compiling.
 
-sdk的下载编译方法请参考[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md)。
+For more information about how to download and compile the SDK, see[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md).
 
-## 1.2开发环境需求
+## 1.2 Development Environment Requirements
 
-- 操作系统
+- operating system
 
-| 编号 | 软件资源 | 说明        |
+| numbering | Software resources | illustrate        |
 | ---- | -------- | ----------- |
 | 1    | Ubuntu   | 18.04/20.04 |
 
-- 软件环境要求如下表所示：
+- The software environment requirements are shown in the following table:
 
-| 编号 | 软件资源 | 说明 |
+| numbering | Software resources | illustrate |
 | ---- | -------- | ---- |
 | 1    | K510 SDK | v1.5 |
 
-# 2 内核默认配置文件及dts
+# 2 Kernel default configuration file and dts
 
-默认的内核配置文件路径：
+Default kernel configuration file path:
 
 arch/riscv/configs/k510_defconfig
 
-kernel支持两个开发板 K510 CRB 和EVB，相应的dts文件如下：
+The kernel supports two development boards, K510 CRB and EVB, and the corresponding dts files are as follows:
 
 arch/riscv/boot/dts/canaan/k510_crb_lp3_v0_1.dts
 
 arch/riscv/boot/dts/canaan/k510_evb_lp3_v1_1.dts
 
-在arch/riscv/boot/dts/canaan/k510_common目录下存放的是soc级公共dts定义。
+In the arch/riscv/boot/dts/canaan/k510_common directory is the soc-level public dts definition.
 
-# 3调试
+# 3 Debugging
 
-## 3.1 使用JTAG调试linux内核
+## 3.1 Debug linux kernel with JTAG
 
-1. 安装Andesight v3.2.1
-2. 进入andesight安装目录下ice目录，运行ICEMAN
+1. Install Andesight v3.2.1
+2. Go to the ice directory under the andesight installation directory and run ICEMAN
 
     ```shell
     #ICEman -Z v5 --smp
     ```
 
-3. 使用gdb调试，这里以 /dev/mem  内核代码driver/char/mem.c为例
+3. Using gdb debugging, here is the /dev/mem kernel code driver/char/mem.c as an example
 
     ```shell
     riscv64-linux-gdb --eval-command="target remote 192.168.200.100:1111"
@@ -114,25 +113,25 @@ arch/riscv/boot/dts/canaan/k510_evb_lp3_v1_1.dts
     (gdb) hbreak mmap_mem
     ```
 
-4. 应用程序打开/dev/mem，调用mmap后进入断点
+4. The application opens /dev/mem, calls mmap and enters the breakpoint
 
-# 4 驱动说明
+# 4 Driver description
 
 ## 4.1 UART
 
-配置选项：
+Configuration options:
 
 ```shell
 CONFIG_SERIAL_8250_DW
 ```
 
-驱动文件：
+Driver files:
 
 ```shell
 /tty/serial/8250
 ```
 
-设备树：
+Device Tree:
 
 ```text
 serial@96000000 {
@@ -155,14 +154,14 @@ serial@96000000 {
 };
 ```
 
-API：设备文件节点：
+API: Device File Node:
 
 ```shell
 /dev/ttyS0
 /dev/ttyS1/2/3    #目前dts中disable
 ```
 
-编程接口：标准串口驱动，参考Linux man page
+Programming interface: standard serial port driver, refer to Linux man page
 
 ```shell
 man termios
@@ -170,19 +169,19 @@ man termios
 
 ## 4.2 ETH
 
-配置选项：
+Configuration options:
 
 ```shell
 CONFIG_NET_CADENCE
 ```
 
-驱动文件：
+Driver files:
 
 ```shell
 drivers/net/ethernet/cadence
 ```
 
-设备树：
+Device Tree:
 
 ```text
 emac@93030000 {
@@ -203,10 +202,10 @@ emac@93030000 {
 };
 ```
 
-设备：`eth0`
-Api说明：标准网口驱动，请参考tcp/ip socket编程；
+Device:`eth0`
+API description: Standard Ethernet port driver, please refer to tcp/ip socket programming;
 
-网口ip配置：
+Ethernet port IP configuration:
 
 ```shell
 ifconfig eth0 xxx.xxx.xxx.xxx
@@ -214,19 +213,19 @@ ifconfig eth0 xxx.xxx.xxx.xxx
 
 ## 4.3 EMMC
 
-配置选项：
+Configuration options:
 
 ```shell
 CONFIG_MMC_SDHCI_CADENCE
 ```
 
-驱动文件：
+Driver files:
 
 ```shell
 drivers/mmc/host/sdhci-cadence.c
 ```
 
-设备树：
+Device Tree:
 
 ```text
 sdio@93000000 {
@@ -246,7 +245,7 @@ sdio@93000000 {
 };
 ```
 
-设备和分区：
+Devices and partitions:
 
 ```shell
 [root@k510-test ~ ]$ ls -l /dev/ | grep mmcblk0
@@ -258,23 +257,23 @@ brw------- 179,  2 Jan 1 1970 mmcblk0p2    # emmc第二个分区(kenrel,env,vfat
 brw------- 179,  3 Jan 1 1970 mmcblk0p3    # emmmc第三个分区(rootfs文件系统，ext2)
 ```
 
-驱动API：标准驱动，当成普通文件读写就可以。
+Driver API: Standard driver, as an ordinary file to read and write.
 
 ## 4.4 SD CARD
 
-配置选项：
+Configuration options:
 
 ```shell
 CONFIG_MMC_SDHCI_CADENCE
 ```
 
-驱动文件：
+Driver files:
 
 ```shell
 drivers/mmc/host/sdhci-cadence.c
 ```
 
-设备树：
+Device Tree:
 
 ```text
 sdio@93020000 {
@@ -297,7 +296,7 @@ sdio@93020000 {
 };
 ```
 
-设备：
+Equipment:
 
 ```shell
 [root@k510-test ~ ]$ ls -l /dev/ | grep mmcblk1
@@ -307,23 +306,23 @@ brw------- 179, 26 mmcblk1p2    # sd卡第二个分区(rootfs文件系统，ext2
 brw------- 179, 27 mmcblk1p3    # sd卡第三个分区(用户分区)
 ```
 
-驱动API：标准驱动，当成普通文件读写就可以。
+Driver API: Standard driver, as an ordinary file to read and write.
 
 ## 4.5 WDT
 
-配置选项：
+Configuration options:
 
 ```shell
 CONFIG_DW_WATCHDOG
 ```
 
-驱动文件：
+Driver files:
 
 ```shell
 drivers/watchdog/dw_wdt.c
 ```
 
-设备树：
+Device Tree:
 
 ```text
 wdt@97010000 {
@@ -354,33 +353,33 @@ wdt@97030000 {
 };
 ```
 
-API：设备文件节点：
+API: Device File Node:
 
 ```shell
 /dev/watchdog
 /dev/watchdog0/1/2
 ```
 
-编程接口：linux文件IO（open， close , ioctl），详见Linux man page
-内核源码自带文档：`Documentation/watchdog/watchdog-api.txt`
+Programming interface: linux file IO(open, close, ioctl), see Linux man page
+Kernel source code comes with documentation:`Documentation/watchdog/watchdog-api.txt`
 
 ## 4.6 PWM
 
-配置选项：
+Configuration options:
 
 ```shell
 CONFIG_PWM_GPIO
 CONFIG_PWM_CANAAN
 ```
 
-驱动文件：
+Driver files:
 
 ```shell
 drivers/pwm/pwm-canaan.c
 drivers/pwm/pwm-gpio.c
 ```
 
-设备树：
+Device Tree:
 
 ```text
 pwm0@970f0000 {
@@ -408,29 +407,29 @@ pwm1@970f0000 {
 };
 ```
 
-API：pwm驱动在用户态可以通过sysfs访问， `/sys/class/pwm/`
+API: pwm driver in user state can be accessed through sysfs, `/sys/class/pwm/`
 
-编程接口：Linux文件IO（open，read， write），详见Linux man page
+Programming interface: Linux file IO (open, read, write), see Linux man page
 
-内核源码自带文档：`Documentation/pwm.txt`
+Kernel source code comes with documentation:`Documentation/pwm.txt`
 
 ## 4.7 I2C
 
-配置选项：
+Configuration options:
 
 ```shell
 CONFIG_I2C_DESIGNWARE_CORE
 CONFIG_I2C0_TEST_DRIVER
 ```
 
-驱动文件：
+Driver files:
 
 ```shell
 drivers/misc/canaan/i2c/test-i2c0.c
 drivers/i2c/busses/i2c-designware-platdrv.c
 ```
 
-设备树：
+Device Tree:
 
 ```text
 i2c@97060000 {
@@ -446,30 +445,30 @@ i2c@97060000 {
 };
 ```
 
-API： I2C驱动属于总线驱动，使用Linux kernel I2C子系统框架实现。用户态可以通过sysfs访问，也可以使用i2c-tools等用户态工具程序。
+API: The I2C driver is a bus driver and is implemented using the Linux kernel I2C subsystem framework. User-state can be accessed through sysfs, or user-state tool programs such as i2c-tools can be used.
 
 ```shell
 /sys/bus/i2c/devices/
 ```
 
-编程接口：linux文件IO（open，read， write），详见Linux man page
-内核源码自带文档：`Documentation/i2c/dev-interface`
+Programming interface: Linux file IO(open, read, write), see Linux man page
+Kernel source code comes with documentation:`Documentation/i2c/dev-interface`
 
 ## 4.8 USB OTG
 
-配置选项：
+Configuration options:
 
 ```shell
 USB_CANAAN_OTG20
 ```
 
-驱动：
+Drive:
 
 ```shell
 drivers/usb/canaan_otg20/core_drv_mod
 ```
 
-设备树：
+Device Tree:
 
 ```text
 usb@93060000 {
@@ -485,47 +484,47 @@ usb@93060000 {
 };
 ```
 
-USB作为host，可以挂载U盘，作为device，可以当作U盘。
+USB as a host, can be attached to a U disk, as a device, can be used as a U disk.
 
 ## 4.9 CLK
 
-配置选项：
+Configuration options:
 
 ```shell
 CONFIG_COMMON_CLK_CAN_K510
 ```
 
-驱动文件：
+Driver files:
 
 ```shell
 drivers/reset/canaan/reset-k510.c
 ```
 
-设备树：
+Device Tree:
 
 ```shell
 arch/riscv/boot/dts/canaan/k510_common/clock_provider.dtsi
 arch/riscv/boot/dts/canaan/k510_common/clock_consumer.dtsi
 ```
 
-- `clock_provider.dtsi`中定义所有时钟节点
-- `clock_consumer.dtsi`中在各个驱动dts节点引用
+- `clock_provider.dtsi`Define all clock nodes in
+- `clock_consumer.dtsi`References in each driver dts node
 
 ## 4.10 POWER
 
-配置选项：
+Configuration options:
 
 ```shell
 CONFIG_CANAAN_PM_DOMAIN
 ```
 
-驱动文件：
+Driver files:
 
 ```shell
 drivers/soc/canaan/k510_pm_domains.c
 ```
 
-设备树：
+Device Tree:
 
 ```shell
 arch/riscv/boot/dts/canaan/k510_common/power_provider.dtsi
@@ -542,25 +541,25 @@ sysctl_power@97003000 {
 };
 ```
 
-- `power_provider.dtsi` 定义了provider的dts节点
-- `include/dt-bindings/soc/canaan,k510_pm_domains.h` 中定义了全部电源域
-- `power_consumer.dtsi`中在驱动各自dts节点中引用
+- `power_provider.dtsi` The dts node of the provideder is defined
+- `include/dt-bindings/soc/canaan,k510_pm_domains.h` All power domains are defined in
+- `power_consumer.dtsi`The <a0> is referenced in the drivers' respective dts nodes
 
 ## 4.11 RESET
 
-配置选项：
+Configuration options:
 
 ```shell
 CONFIG_COMMON_RESET_K510
 ```
 
-驱动文件：
+Driver files:
 
 ```shell
 drivers/reset/canaan/reset-k510.c
 ```
 
-设备树：
+Device Tree:
 
 ```shell
 arch/riscv/boot/dts/canaan/k510_common/reset_provider.dtsi
@@ -577,25 +576,25 @@ sysctl_reset@97002000 {
 };
 ```
 
-- `reset_provider.dtsi` 定义了provider的dts节点
-- `include/ dt-bindings/reset/canaan-k510-reset.h` 中定义了全部reset信号
-- `reset_consumer.dtsi`中在驱动各自dts节点中引用
+- `reset_provider.dtsi` The dts node of the provideder is defined
+- `include/ dt-bindings/reset/canaan-k510-reset.h` All reset signals are defined in
+- `reset_consumer.dtsi`The <a0> is referenced in the drivers' respective dts nodes
 
 ## 4.12 PINCTL
 
-配置选项：
+Configuration options:
 
 ```shell
 CONFIG_PINCTRL_K510
 ```
 
-驱动文件：
+Driver files:
 
 ```shell
 drivers/pinctrl/canaan
 ```
 
-相关设备树：
+Related Device Tree:
 
 ```shell
 arch/riscv/boot/dts/canaan/k510_common/iomux_provider.dtsi
@@ -709,25 +708,25 @@ iomux@97040000 {
 };
 ```
 
-`iomux_provider.dtsi` 定义了provider的dts节点
-`include/include/dt-bindings/pinctrl/k510.h`中定义了全部IO function number
-`iomux_consumer.dtsi`中在驱动各自dts节点中引用
+`iomux_provider.dtsi` The dts node of the provideder is defined
+`include/include/dt-bindings/pinctrl/k510.h`All IO function numbers are defined in
+`iomux_consumer.dtsi`The <a0> is referenced in the drivers' respective dts nodes
 
 ## 4.13 H264
 
-配置选项：
+Configuration options:
 
 ```shell
 CONFIG_ ALLEGRO_CODEC_DRIVER
 ```
 
-驱动文件：
+Driver files:
 
 ```shell
 drivers/media/platform/canaan/al5r
 ```
 
-相关设备树：
+Related Device Tree:
 
 ```text
 h264@92740000 {
@@ -743,11 +742,11 @@ h264@92740000 {
 };
 ```
 
-API: 设备文件节点： `/dev/h264-codec`
+API: Device File Node: `/dev/h264-codec`
 
-编程接口： linux文件IO（open， close , ioctl），详见Linux man page
+Programming interface: Linux file IO(open, close, ioctl), see Linux man page
 
-支持的IOCTL命令：
+Supported IOCTL commands:
 
 ```c
 #define AL_CMD_IP_WRITE_REG    _IOWR('q', 10, struct al5_reg)
@@ -757,23 +756,23 @@ API: 设备文件节点： `/dev/h264-codec`
 #define AL_CMD_IP_CLR_IRQ      _IOWR('q', 14, int)
 ```
 
-示例代码：`package/h264_demo/src`
+Sample code:`package/h264_demo/src`
 
 ## 4.14 DSP
 
-配置选项：
+Configuration options:
 
 ```shell
 CONFIG_ K510_DSP_DRIVER
 ```
 
-驱动文件：
+Driver files:
 
 ```shell
 drivers/misc/canaan/k510-dsp
 ```
 
-相关设备树：
+Related Device Tree:
 
 ```text
 dsp@99800000 {
@@ -787,17 +786,17 @@ dsp@99800000 {
 };
 ```
 
-API： 设备文件节点： `/dev/k510-dsp`
+API: Device File Node: `/dev/k510-dsp`
 
-编程接口： linux文件IO（open， close , ioctl），详见Linux man page
+Programming interface: Linux file IO(open, close, ioctl), see Linux man page
 
-支持的ioctl命令：
+Supported ioctl commands:
 
 ```c
 #define DSP_CMD_BOOT       _IOWR('q', 1, unsigned long)
 ```
 
-示例代码：
+Sample code:
 
 ```shell
 package/dsp_app/src/
@@ -806,19 +805,19 @@ package/dsp_app_evb_lp3_v1_1/src/
 
 ## 4.15 GNNE
 
-配置选项：
+Configuration options:
 
 ```shell
 CONFIG_ K510_GNNE_DRIVER
 ```
 
-驱动文件：
+Driver files:
 
 ```shell
 drivers/misc/canaan/gnne
 ```
 
-相关设备树：
+Related Device Tree:
 
 ```text
 gnne@94000000 {
@@ -833,9 +832,9 @@ gnne@94000000 {
 };
 ```
 
-API： 设备文件节点：/dev/k510-gnne
-编程接口： linux文件IO（open， close , ioctl），详见Linux man page
-支持的ioctl命令：
+API: Device file node: /dev/k510-gnne
+Programming interface: Linux file IO(open, close, ioctl), see Linux man page
+Supported ioctl commands:
 
 ```c
 #define GNNE_ENABLE                   _IOWR('g', 1, unsigned long)
@@ -864,7 +863,7 @@ API： 设备文件节点：/dev/k510-gnne
 #define GNNE_GET_CCR_STATUS3          _IOWR('g', 28, unsigned long)
 ```
 
-示例代码：
+Sample code:
 
 ```shell
 package/nncase_demo/src/mobilenetv2
@@ -872,19 +871,19 @@ package/nncase_demo/src/mobilenetv2
 
 ## 4.16 TWOD
 
-配置选项：
+Configuration options:
 
 ```shell
 CONFIG_K510_2D_DRIVER
 ```
 
-驱动文件：
+Driver files:
 
 ```shell
 drivers/media/platform/canaan/kendryte_2d.c
 ```
 
-相关设备树：
+Related Device Tree:
 
 ```text
 twod@92720000 {
@@ -898,9 +897,9 @@ twod@92720000 {
 };
 ```
 
-API： 设备文件节点：/dev/kendryte_2d
-编程接口： linux文件IO（open， close , ioctl），详见Linux man page
-支持的ioctl命令：
+API: Device file node: /dev/kendryte_2d
+Programming interface: Linux file IO(open, close, ioctl), see Linux man page
+Supported ioctl commands:
 
 ```c
 #define KENDRTY_2DROTATION_90     _IOWR('k', 0, unsigned long)
@@ -911,15 +910,15 @@ API： 设备文件节点：/dev/kendryte_2d
 #define KENDRTY_2DROTATION_GET_REG_VAL    _IOWR('k', 4, unsigned long)
 ```
 
-## 4.17 AES和SHA
+## 4.17 AES and SHA
 
-配置选项：
+Configuration options:
 
 ```shell
 CONFIG_CRYPTO_DEV_KENDRYTE_CRYP
 ```
 
-驱动文件：
+Driver files:
 
 ```shell
 drivers/crypto/kendryte/kendryte-aes.c
@@ -928,7 +927,7 @@ drivers/crypto/kendryte/kendryte-hash.c
 drivers/crypto/kendryte/kendryte-hash.h
 ```
 
-相关设备树：
+Related Device Tree:
 
 ```text
 aes@91000000 {
@@ -956,34 +955,33 @@ sha@91010000 {
 };
 ```
 
-API: 设备节点文件：
-`/sys/bus/platform/devices/91000000.aes`
+API: Device Node Files:`/sys/bus/platform/devices/91000000.aes`
 `/sys/bus/platform/devices/91010000.sha`
 
-编程接口： 用户态程序使用socket访问内核的驱动API，参考文档位于`/Documentation/crypto/userspace-if.rst`
+Programming Interface: User-state programs use sockets to access the kernel's driver API, where the reference documentation is located`/Documentation/crypto/userspace-if.rst`
 
-示例代码：
+Sample code:
 
 ```shell
 package/crypto_demo/src
 ```
 
-## 4.18  温度监测——thermal
+## 4.18 Temperature monitoring - thermal
 
-配置选项：
+Configuration options:
 
 ```shell
 CONFIG_THERMAL
 CONFIG_CANAAN_THERMAL
 ```
 
-驱动文件：
+Driver files:
 
 ```shell
 drivers/thermal/canaan_thermal.c
 ```
 
-相关设备树：
+Related Device Tree:
 
 ```text
 tsensor@970e0300 {
@@ -996,7 +994,7 @@ tsensor@970e0300 {
 };
 ```
 
-使用方法：
+How to use:
 
 ```shell
 cd /sys/class/thermal/thermal_zone0/
@@ -1004,16 +1002,16 @@ echo enabled > mode
 cat temp
 ```
 
-## 4.19 2D 旋转——twod
+## 4.19 2D Rotation - twod
 
-配置选项：
+Configuration options:
 
 ```shell
 CONFIG_KENDRYTE_TWOD_SUPPORT
 CONFIG_KENDRYTE_TWOD
 ```
 
-驱动文件：
+Driver files:
 
 ```shell
 drivers/video/canaan/twod/kendryte_td.c
@@ -1022,7 +1020,7 @@ drivers/video/canaan/twod/kendryte_td.h
 drivers/video/canaan/twod/kendryte_td_table.h
 ```
 
-相关设备树：
+Related Device Tree:
 
 ```text
 twod@92720000 {
@@ -1036,11 +1034,11 @@ twod@92720000 {
 };
 ```
 
-# 5 注意事项
+# 5 Precautions
 
-无
+not
 
-**翻译免责声明**  
-为方便客户，Canaan 使用 AI 翻译程序将文本翻译为多种语言，它可能包含错误。我们不保证提供的译文的准确性、可靠性或时效性。对于因依赖已翻译信息的准确性或可靠性而造成的任何损失或损害，Canaan 概不负责。如果不同语言翻译之间存在内容差异，以简体中文版本为准。
+**Translation Disclaimer**  
+For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail.
 
-如果您要报告翻译错误或不准确的问题，欢迎通过邮件与我们联系。
+If you would like to report a translation error or inaccuracy, please feel free to contact us by mail.

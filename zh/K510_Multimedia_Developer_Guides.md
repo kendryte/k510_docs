@@ -1,4 +1,4 @@
-![](images/canaan-cover.png)
+![](../zh/images/canaan-cover.png)
 
 **<font face="黑体" size="6" style="float:right">K510 多媒体开发指南</font>**
 
@@ -14,7 +14,7 @@
 
 **<font face="黑体"  size=3>商标声明</font>**
 
-“<img src="images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
+“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
 
 **<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
 本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
@@ -61,7 +61,7 @@ k510_buildroot/package/encode_app/enc_interface.h
 【语法】
 
 ```c
-EncoderHandle* VIdeoEncoder_Create(EncSettings *pCfg)
+EncoderHandle* VideoEncoder_Create(EncSettings *pCfg)
 ```
 
 【参数】
@@ -81,7 +81,7 @@ pCfg：输入编码配置参数
 |             MinQP             | 最小qp值                                                     |                         [0,sliceqp]                          | avc          |
 |             MaxQP             | 最大qp值                                                     |                         [sliceqp,54]                         | avc          |
 |            profile            | SPS 中的 profile_idc 参数:0: base 1:main 2:high 3:jpeg       |                            [0,3]                             | jpeg，avc    |
-|             level             | PS 中的 level_idc 参数                                       |                           [10,42]                            | avc          |
+|             level             | SPS 中的 level_idc 参数                                       |                           [10,42]                            | avc          |
 |          AspectRatio          | 显示比例                                                     |                     参见AVC_AspectRatio                      | jpeg，avc    |
 |            FreqIDR            | 两个idr帧的间隔                                              |                           [1,1000]                           | avc          |
 |            gopLen             | Group Of Picture，即两个 I 帧之间的间隔                      |                           [1,1000]                           | avc          |
@@ -389,7 +389,7 @@ typedef struct
 {
     unsigned short width;
     unsigned short height;
-    unsigned short stride;
+    unsigned short stride; //must be multiple of 32
     unsigned char *data;
 }EncInputFrame;
 ```
@@ -496,7 +496,7 @@ Enc_ERR = 1
 # 2.1 硬件结构图
 
 K510的硬件框图如下：
-![hardware_block_diagram](images/multimedia_guides/hardware_block_diagram.png)
+![hardware_block_diagram](../zh/images/multimedia_guides/hardware_block_diagram.png)
 
 从video sensor接收到的数据，经MIPI DPHY、CSI、VI、ISP处理得到yuv源数据，并存储到DDR中。h264 encoder模块从DDR读取数据，进行编码运算，运算结果存储到DDR中。
 
@@ -504,7 +504,7 @@ K510的硬件框图如下：
 
 多媒体开发平台的软件架构如下：
 
-![multimedia_block_diagram.png](images/multimedia_guides/multimedia_block_diagram.png)
+![multimedia_block_diagram.png](../zh/images/multimedia_guides/multimedia_block_diagram.png)
 
 其中，
 
@@ -534,13 +534,13 @@ K510的硬件框图如下：
 | o | 输出| NULL | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG | jpeg、avc |
 | w | 输出图像宽度 | 1920 | avc: [128,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 16 | jpeg、avc |
 | h | 输出图像高度 | 1080 | avc: [64,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 2 | jpeg、avc |
-| fps | 摄像头采集帧率，目前只支持30pfs | 30 | 30 | avc |
-| r | 编码输出帧率 | 30 | 能整除fps或者被fps整除的数 | avc |
-| inframes | 输入yuv帧数 | 0 | [0,32767] | jpeg、avc |
+| fps | 摄像头采集帧率 | 30 | (30, 60, 75) <br> 与`video_sample_xxx.conf`文件配置一致 | avc |
+| r | 编码输出帧率 | 与参数`fps`相等 | 支持常用帧率转换，与encoder API的FrameRate参数取值范围一致 | avc |
+| inframes | 输入yuv帧数 | 0 | [0,50] | jpeg、avc |
 | outframes | 输出yuv帧数，如果比参数-inframes大，将会重复编码 | 0 | [0,32767] | jpeg、avc |
 | gop | Group Of Picture，即两个 I 帧之间的间隔 | 25 | [1,1000] | avc |
 | rcmode | 表示码率控制模式 0:CONST_QP 1:CBR 2:VBR | CBR | [0,2] | avc |
-| bitrate | CBR 模式下的目标码率或VBR模式下的最低码率,单位Kb | 4000 | [1,20000] | avc |
+| bitrate | 目标码率,单位Kb | 4000 | [1,20000] | avc |
 | maxbitrate | VBR模式下的最高码率,单位Kb | 4000 | [1,20000] | avc |
 | profile | SPS 中的 profile_idc 参数:0: base 1:main 2:high 3:jpeg | AVC_HIGH | [0,3] | jpeg、avc |
 | level | SPS 中的 level_idc 参数 | 42 | [10,42] | avc |
@@ -549,7 +549,7 @@ K510的硬件框图如下：
 | maxqp | 最大QP值 | 54 | [sliceqp,54] | avc |
 | enableLTR | 使能长期参考帧，参数指定刷新周期。0：不启用刷新周期。正数：周期性设置参考帧并且下一帧设置为使用长期参考帧 | 0 | [0,65535] | avc |
 | roi | roi配置文件，指定多个roi区域 | NULL | xxx.conf | avc |
-| ae | 使能AE | 0 | 0-不使能AE<br>1-使能AE |
+| ae | 使能AE | 0 | 0-不使能AE<br>1-使能AE ||
 | conf | vl42配置文件,会指定的配置文件的基础上，根据命令行输入参数修改v4l2配置参数 | NULL | xxx.conf | avc |
 
 ### 3.1.1 输入yuv文件，输出文件
@@ -662,13 +662,21 @@ ffplay拉流命令同上。
 
 - 运行环境：核心板sensor：IMX219_SENSOR
 
-- live555拉流的端口号为（8554 + <通道号>*2)
+- 多路编码时的总数据量不能超过1080p60。
+
+- rtsp流地址格式:rtsp://ip地址:端口号/testStream，其中ip地址和端口号可变，其余部分固定.
+
+  如：rtsp://192.168.137.11:8554/testStream，其中ip地址为192.168.137.11，端口号为8554.
+
+  ip地址：开发板的ip地址，在板子上输入ifconfig即可获取。
+
+  端口号：8554 + <通道号>*2，通道号一般从0开始(-ch 0,-ch 1...)。
 
 - 播放rtsp流方式:可通过vlc或ffplay来播放对应的rtsp流，数据流可以通过udp或tcp协议传输。
 
-  1)rtp over udp播放：ffplay -rtsp_transport  udp rtsp://192.168.137.11:8556/testStream
+  1)rtp over udp播放：ffplay -rtsp_transport  udp rtsp://192.168.137.11:8554/testStream
 
-  2)rtp over tcp 播放:   ffplay -rtsp_transport   tcp  rtsp://192.168.137.11:8556/testStream
+  2)rtp over tcp 播放:   ffplay -rtsp_transport   tcp  rtsp://192.168.137.11:8554/testStream
 
   建议使用rtp over tcp方式播放，避免因udp丢包导致画面花屏。
 
@@ -685,8 +693,8 @@ ffmpeg放在/usr/local/bin目录下。
 |:-|:-|:-|:-|
 | g | gop size | 25 | 1~1000 |
 | b | bitrate | 4000000 | 0~20000000 |
-| r | 帧率,由于isp目前只支持30fps，故解码器应设置为30 | 30 | 30 |
-| idr_freq | IDR频率 | -1(没有IDR) | -1~256 |
+| r | 帧率 | 30 | (30, 60, 75) <br> 与`video_sample_xxx.conf`文件配置一致 |
+| idr_freq | IDR频率 | 25 | -1~256 |
 | qp | 用cqp编码时，配置qp值 | -1(auto) | -1~100 |
 | maxrate | bitrate的最大值 | 0 | 20000000 |
 | profile | 支持的profile | 2(high) | 0 - baseline <br> 1 - main <br> 2 - high |
@@ -698,23 +706,29 @@ ffmpeg放在/usr/local/bin目录下。
 (2) encoder libk510_jpeg参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
-| qp | 用cqp编码时，配置qp值 | 25 | -1~100 |
+| qp | 配置qp值 | 25 | -1~100 |
 | r | framerate | 30 | 25~60 |
 | ch | encode channel | 0 | 0~7 |
-| maxrate | Maximum bitrate. (0=ignore) | 4000000 | 0~20000000 |
 | ar | aspect ratio | 0(auto) | 0 - auto <br> 1 - 4:3 <br> 2 - 16:9 <br> 3 - none |
 
 (3) device libk510_video参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
-| wh | frame size | NULL | **for encoder libk510_h264:**:<br>  up to 2048x2048 <br> width multiple of 8 <br> height multiple of 8 <br> min. width: 128 <br> min. height: 64 <br> **for encoder libk510_jpeg:** <br> up to 8192x8192 <br> width multiple of 16 <br> height multiple of 2 |
+| wh | frame size | NULL | **for encodelibk510_h264:**:<br>  up to 2048x2048 <br> width multiple of 8 <br> height multiple of 8 <br> min. width: 128 <br> min. height: 64 <br> **for encoder libk510_jpeg:** <br> up to 8192x8192 <br> width multiple of 16 <br> height multiple of 2 |
 | exp | exposure parameter | 0 | 0~128 |
 | agc | analog gain | 0 | 0~232 |
 
-(4) audio3a参数
+(4) device alsa参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
-| sample_rate | 音频采样率 | 16000 | 1~65535 |
+| ac | 音频通道数 | 2 | 2 |
+| ar | 音频采样率 | 48000 |  up to 48000 |
+| i | 设备号 | hw:0 | hw:0 |
+
+(5) filter audio3a参数
+| 参数名 | 参数解释 | 默认值 | 取值范围 |
+|:-|:-|:-|:-|
+| sample_rate | 音频采样率 | 16000 | 8000, 16000 |
 | agc | 音频增益模式 | 3(AgcModeFixedDigital) | 0 - AgcModeUnchanged <br> 1 - AgcModeAdaptiveAnalog <br> 2 - AgcModeAdaptiveDigital <br> 3 - AgcModeFixedDigital |
 | ns | 噪声level | 3(VeryHigh) | 0 - Low <br> 1 - Moderate <br> 2 - High <br> 3 - VeryHigh |
 | dsp_task | auido3a运行位置 | 1(dsp) | 0 - cpu <br>1 - dsp |
@@ -729,11 +743,11 @@ ffmpeg -h filter=audio3a #查看audio3a的配置参数
 
 ffmpeg的逻辑框如下：
 
-![ffmpeg_block_diagram](images/multimedia_guides/ffmpeg_block_diagram.png)
+![ffmpeg_block_diagram](../zh/images/multimedia_guides/ffmpeg_block_diagram.png)
 
 audio3a用于将接收到的音频进行3a运算并输出，其逻辑框图如下：
 
-![ffmpeg_canaan_audio3a](images/multimedia_guides/ffmpeg_canaan_audio3a.png)
+![ffmpeg_canaan_audio3a](../zh/images/multimedia_guides/ffmpeg_canaan_audio3a.png)
 
 ### 3.2.1 程序运行说明
 
@@ -756,20 +770,9 @@ ffplay接收命令：
 ffplay.exe -protocol_whitelist "file,udp,rtp" -i test.sdp -fflags nobuffer -analyzeduration 1000000 -flags low_delay
 ```
 
-其中test.sdp按照如下示例配置。
+其中test.sdp内容可以从命令输出中获取。
 
-```text
-SDP:
-v=0
-o=- 0 0 IN IP4 127.0.0.1
-s=No Name
-c=IN IP4 10.102.231.29
-t=0 0
-a=tool:libavformat 58.76.100
-m=video 1234 RTP/AVP 96
-a=rtpmap:96 H264/90000
-a=fmtp:96 packetization-mode=1
-```
+![image-20220721162011470](../zh/images/multimedia_guides/sdp.png)
 
 .sdp参数说明：
 
@@ -790,21 +793,7 @@ ffmpeg -f alsa -ac 2 -ar 32000 -i hw:0 -acodec aac -f rtp rtp://10.100.232.11:12
 - ac：设置音频通道数
 - ar：设置音频采样率
 
-ffplay接收命令与接收视频流相同，sdp文件参考下面的示例。
-
-```text
-SDP:
-v=0
-o=- 0 0 IN IP4 127.0.0.1
-s=No Name
-c=IN IP4 10.100.232.11
-t=0 0
-a=tool:libavformat 58.76.100
-m=audio 1234 RTP/AVP 97
-b=AS:128
-a=rtpmap:97 MPEG4-GENERIC/32000/2
-a=fmtp:97 profile-level-id=1;mode=AAC-hbr;sizelength=13;indexlength=3;indexdeltalength=3; config=129056E500
-```
+ffplay接收命令同上。
 
 ##### 3.2.1.1.3 rtp推送音视频流
 
@@ -814,45 +803,31 @@ ffmpeg运行命令示例：
 ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_h264 -an -f rtp rtp://10.100.232.11:1234 -f alsa -ac 2 -ar 32000 -i hw:0 -acodec aac -vn -f rtp rtp://10.100.232.11:1236
 ```
 
-ffplay接收命令与接收音频流相同，sdp文件参考下面的示例。
-
-```text
-SDP:
-v=0
-o=- 0 0 IN IP4 127.0.0.1
-s=No Name
-t=0 0
-a=tool:libavformat 58.76.100
-m=video 1234 RTP/AVP 96
-c=IN IP4 10.100.232.11
-a=rtpmap:96 H264/90000
-a=fmtp:96 packetization-mode=1
-m=audio 1236 RTP/AVP 97
-c=IN IP4 10.100.232.11
-b=AS:128
-a=rtpmap:97 MPEG4-GENERIC/32000/2
-a=fmtp:97 profile-level-id=1;mode=AAC-hbr;sizelength=13;indexlength=3;indexdeltalength=3; config=129056E500
-```
+ffplay接收命令同上。
 
 #### 3.2.1.2 rtsp推流
 
-rtsp推流前需要部署rtsp服务器，将数据流推送到服务器上。
+rtsp推流前需要部署rtsp服务器，将数据流推送到服务器上。rtsp服务器推荐使用EasyDarwin，下载地址:[Releases · EasyDarwin/EasyDarwin (github.com)](https://github.com/EasyDarwin/EasyDarwin/releases).
+
+软件安装成功后，会以系统服务的形式开机自启，默认监听端口号:554.
+
+![image-20220721113937361](../zh/images/multimedia_guides/EasyDarwin_run.png)
 
 ##### 3.2.1.2.1 rtsp推视频流
 
 ffmpeg运行命令示例：
 
 ```shell
-ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_h264 -acodec copy -f rtsp rtsp://10.100.232.11:5544/live/test110
+ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -vcodec libk510_h264 -acodec copy -f rtsp rtsp://10.100.232.11:554/test110
 ```
 
 - `idr_freq`为IDR帧间隔，需要为GOP的整数倍。rtsp推流必须生成IDR帧才能拉到流。
-- `rtsp://10.100.232.11:5544/live/test110`为rtsp服务器的推拉流url地址
+- `rtsp://10.100.232.11:554/test110`为rtsp服务器的推拉流url地址
 
 ffplay拉流命令示例：
 
 ```shell
-ffplay.exe -protocol_whitelist "file,udp,rtp,tcp" -i rtsp://10.100.232.11:5544/live/test110
+ffplay.exe -protocol_whitelist "file,udp,rtp,tcp" -i rtsp://10.100.232.11:554/test110
 ```
 
 ##### 3.2.1.2.2 rtsp推音频流
@@ -860,7 +835,7 @@ ffplay.exe -protocol_whitelist "file,udp,rtp,tcp" -i rtsp://10.100.232.11:5544/l
 ffmpeg运行命令示例：
 
 ```shell
-ffmpeg -f alsa -ac 2 -ar 32000 -i hw:0 -acodec aac -f rtsp rtsp://10.100.232.11:5544/live/test110
+ffmpeg -f alsa -ac 2 -ar 32000 -i hw:0 -acodec aac -f rtsp rtsp://10.100.232.11:554/test110
 ```
 
 ffplay拉流命令与rtsp拉视频流的命令相同。
@@ -870,7 +845,7 @@ ffplay拉流命令与rtsp拉视频流的命令相同。
 ffmpeg运行命令示例：
 
 ```shell
-ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -f alsa -ac 2 -ar 32000 -i hw:0 -idr_freq 25 -vcodec libk510_h264 -acodec aac -f rtsp rtsp://10.100.232.11:5544/live/test110
+ffmpeg -f v4l2 -s 1920x1080 -conf "video_sample.conf" -isp 1 -buf_type 2 -r 30 -i /dev/video3 -f alsa -ac 2 -ar 32000 -i hw:0 -idr_freq 25 -vcodec libk510_h264 -acodec aac -f rtsp rtsp://10.100.232.11:554/test110
 ```
 
 ffplay拉流命令与rtsp拉视频流的命令相同。
@@ -897,7 +872,7 @@ ffplay -fflags nobuffer rtmp://10.100.232.11/live/1
 
 - `rtmp://10.100.232.11/live/1`为从rtmp服务器拉流的url地址 （推流和拉流的地址一样）,-fflags nobuffer选项来避免因播放器缓存而增加的延迟。
 
-##### 3.2.1.3.2 rtmp推视音频流
+##### 3.2.1.3.2 rtmp推音频流
 
 ffmpeg运行命令示例:
 
@@ -909,7 +884,7 @@ ffmpeg -f alsa -ac 2 -ar 32000 -i hw:0 -acodec aac -f flv rtmp://10.100.232.11/l
 
 ffplay拉流命令与rtmp拉视频流的命令相同。
 
-##### 3.2.1.3.3 rtmp推视音视频流
+##### 3.2.1.3.3 rtmp推音视频流
 
 ffmpeg运行命令示例:
 
@@ -996,7 +971,7 @@ ffmpeg -h demuxer=v4l2 #查看v4l2的配置参数
 | s | 图像分辨率，例如1920x1080 | NULL | |
 | r | 帧率，目前只支持30fps | 30 | 30 |
 | isp | 打开k510 isp硬件 | 0 | 0-1 |
-| buf_type | v4l2 buffer`类型` <br>1: V4L2_MEMORY_MMAP ：适合于-vcodec copy<br>2: V4L2_MEMORY_USERPTR：适合于-vcodec libk510_h264 | 1 | 1~4 |
+| buf_type | v4l2 buffer`类型` <br>1: V4L2_MEMORY_MMAP ：适合于-vcodec copy<br>2: V4L2_MEMORY_USERPTR：适合于-vcodec libk510_h264 | 1 | 1~2 |
 | conf | v4l2 config file | NULL | |
 
 ffmpeg运行命令示例：其中10.100.232.11为接收端地址，根据实际修改。
@@ -1106,3 +1081,8 @@ sed -i "s/\/dl\/ffmpeg_canaan\/ffmpeg-4.4//g" ../../package/ffmpeg_canaan/xxx.pa
     --enalbe-audio3a \
     --enable-indev=v4l2 \
 ```
+
+**翻译免责声明**  
+为方便客户，Canaan 使用 AI 翻译程序将文本翻译为多种语言，它可能包含错误。我们不保证提供的译文的准确性、可靠性或时效性。对于因依赖已翻译信息的准确性或可靠性而造成的任何损失或损害，Canaan 概不负责。如果不同语言翻译之间存在内容差异，以简体中文版本为准。
+
+如果您要报告翻译错误或不准确的问题，欢迎通过邮件与我们联系。

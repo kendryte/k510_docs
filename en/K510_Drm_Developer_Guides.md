@@ -1,96 +1,96 @@
 ![](../zh/images/canaan-cover.png)
 
-**<font face="黑体" size="6" style="float:right">K510 Direct Rendering Manager开发指南</font>**
+**<font face="黑体" size="6" style="float:right">K510 Direct Rendering Manager Development Guide</font>**
 
-<font face="黑体"  size=3>文档版本：P0.1.0</font>
+<font face="黑体"  size=3>Document version: P0.1.0</font>
 
-<font face="黑体"  size=3>发布日期：2022-01-01</font>
-
-<div style="page-break-after:always"></div>
-
-<font face="黑体" size=3>**免责声明**</font>
-您购买的产品、服务或特性等应受北京嘉楠捷思信息技术有限公司（“本公司”，下同）商业合同和条款的约束，本文档中描述的全部或部分产品、服务或特性可能不在您的购买或使用范围之内。除非合同另有约定，本公司不对本文档的任何陈述、信息、内容的准确性、可靠性、完整性、营销型、特定目的性和非侵略性提供任何明示或默示的声明或保证。除非另有约定，本文档仅作为使用指导的参考。
-由于产品版本升级或其他原因，本文档内容将可能在未经任何通知的情况下，不定期进行更新或修改。
-
-**<font face="黑体"  size=3>商标声明</font>**
-
-“<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />”、“Canaan”图标、嘉楠和嘉楠其他商标均为北京嘉楠捷思信息技术有限公司的商标。本文档可能提及的其他所有商标或注册商标，由各自的所有人拥有。
-
-**<font face="黑体"  size=3>版权所有©2022北京嘉楠捷思信息技术有限公司</font>**
-本文档仅适用K510平台开发设计，非经本公司书面许可，任何单位和个人不得以任何形式对本文档的部分或全部内容传播。
-
-**<font face="黑体"  size=3>北京嘉楠捷思信息技术有限公司</font>**
-网址：canaan-creative.com
-商务垂询：salesAI@canaan-creative.com
+<font face="黑体"  size=3>Published: 2022-01-01</font>
 
 <div style="page-break-after:always"></div>
-# 前言
-**<font face="黑体"  size=5>文档目的</font>**
-本文档为Direct Rendering Manager开发手册，旨在帮助工程师更快上手
 
-**<font face="黑体"  size=5>读者对象</font>**
+<font face="黑体" size=3>**Disclaimer**</font>
+The products, services or features you purchase shall be subject to the commercial contracts and terms of Beijing Canaan Jiesi Information Technology Co., Ltd. ("the Company", the same hereinafter), and all or part of the products, services or features described in this document may not be within the scope of your purchase or use. Except as otherwise agreed in the contract, the Company disclaims all representations or warranties, express or implied, as to the accuracy, reliability, completeness, marketing, specific purpose and non-aggression of any representations, information, or content of this document. Unless otherwise agreed, this document is provided as a guide for use only.
+Due to product version upgrades or other reasons, the contents of this document may be updated or modified from time to time without any notice.
 
-本文档（本指南）主要适用的人员：
+**<font face="黑体"  size=3>Trademark Notices</font>**
 
-- 软件开发人员
-- 技术支持人员
+""<img src="../zh/images/canaan-logo.png" style="zoom:33%;" />, "Canaan" icon, Canaan and other trademarks of Canaan and other trademarks of Canaan are trademarks of Beijing Canaan Jiesi Information Technology Co., Ltd. All other trademarks or registered trademarks that may be mentioned in this document are owned by their respective owners.
 
-**<font face="黑体"  size=5>修订记录</font>**
-<font face="宋体"  size=2>修订记录累积了每次文档更新的说明。最新版本的文档包含以前所有版本的更新内容。</font>
+**<font face="黑体"  size=3>Copyright ©2022 Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
+This document is only applicable to the development and design of the K510 platform, without the written permission of the company, no unit or individual may disseminate part or all of the content of this document in any form.
 
-| 版本号   | 修改者     | 修订日期 | 修订说明 |
+**<font face="黑体"  size=3>Beijing Canaan Jiesi Information Technology Co., Ltd</font>**
+URL: canaan-creative.com
+Business Enquiries: salesAI@canaan-creative.com
+
+<div style="page-break-after:always"></div>
+# preface
+**<font face="黑体"  size=5>Document purpose</font>**
+This document is a manual developed for Direct Rendering Manager to help engineers get started faster
+
+**<font face="黑体"  size=5>Reader Objects</font>**
+
+The main people to whom this document (this guide) applies:
+
+- Software developers
+- Technical support personnel
+
+**<font face="黑体"  size=5>Revision history</font>**
+ <font face="宋体"  size=2>The revision history accumulates a description of each document update. The latest version of the document contains updates for all previous versions. </font>
+
+| The version number   | Modified by     | Date of revision | Revision Notes |
 |  :-----  |-------   |  ------  |  ------  |
-| V1.0.0 | 系统软件组 | 2022-03-22 |          |
+| V1.0.0 | System software groups | 2022-03-22 |          |
 |        |        |            |                    |
 |        |        |            |                    |
 |        |        |            |                    |
 |        |        |            |                    |
 
 <div style="page-break-after:always"></div>
-**<font face="黑体"  size=6>目 录</font>**
+**<font face="黑体"  size=6>Contents</font>**
 
 [TOC]
 
 <div style="page-break-after:always"></div>
 
-# 1简介
+# 1 Introduction
 
-目前sdk使用的linux版本是4.17.0。Linux，全称GNU/Linux，是一种免费使用和自由传播的类UNIX操作系统，其内核由林纳斯·本纳第克特·托瓦兹于1991年10月5日首次发布，它主要受到Minix和Unix思想的启发，是一个基于POSIX的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的Unix工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。Linux有上百种不同的发行版，如基于社区开发的debian、archlinux，和基于商业开发的Red Hat Enterprise Linux、SUSE、Oracle Linux等。
+The linux version currently used by sdk is 4.17.0. Linux, full name GNU/Linux, is a free-to-use and freely disseminated UNIX-like operating system with a kernel first released by Linus Bennadict Torvaz on October 5, 1991, it is mainly inspired by the ideas of Minix and Unix, and is a multi-user, multi-tasking, multi-threaded and multi-CPU-based operating system based on POSIX. It runs major Unix tool software, applications, and network protocols. It supports both 32-bit and 64-bit hardware. Linux inherits Unix's network-centric design philosophy and is a stable multi-user network operating system. Linux has hundreds of different distributions, such as community-based debian, archlinux, and commercially developed Red Hat Enterprise Linux, SUSE, Oracle Linux, etc.
 
-# 2硬件介绍
+# 2 Hardware introduction
 
-## 2.1获取方式
+## 2.1 Acquisition Method
 
-下载并编译sdk，sdk编译的时候会下载并编译linux代码。
+Download and compile the SDK, the SDK will download and compile the Linux code when compiling.
 
-sdk的下载编译方法请参考[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md)。
+For more information about how to download and compile the SDK, see[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md).
 
-## 2.2驱动文件及目录
+## 2.2 Driver files and directories
 
 ```text
 drivers/gpu/drm/canaan/
 ```
 
-## 2.3开发环境需求
+## 2.3 Development Environment Requirements
 
-无
+not
 
-## 2.4操作系统
+## 2.4 Operating system
 
-Linux系统及版本号支持如下图所示：
+Linux system and version number support are shown in the following figure:
 
-| 编号 | 软件资源 | 说明        |
+| numbering | Software resources | illustrate        |
 | ---- | -------- | ----------- |
 | 1    | Ubuntu   | 18.04/20.04 |
 |      |          |             |
 |      |          |             |
 |      |          |             |
 
-## 2.5软件环境
+## 2.5 Software Environment
 
-软件环境要求如下表所示：
+The software environment requirements are shown in the following table:
 
-| 编号 | 软件资源 | 说明 |
+| numbering | Software resources | illustrate |
 | :--- | -------- | ---- |
 | 1    | K510 SDK | v1.1 |
 |      |          |      |
@@ -99,7 +99,7 @@ Linux系统及版本号支持如下图所示：
 
 # 3Direct Rendering Manager
 
-## 3.1 参考连接
+## 3.1 Reference Connections
 
 nvdia drm:
 <https://docs.nvidia.com/jetson/l4t-multimedia/group__direct__rendering__manager.html>
@@ -108,7 +108,7 @@ drm freedesktop:
 <https://cgit.freedesktop.org/mesa/drm>
 <https://gitlab.freedesktop.org/mesa/drm>
 
-## 3.2 drm 官方常用api
+## 3.2 drm official api
 <!-- markdownlint-disable header-increment no-hard-tabs -->
 ##### ◆ drmModeAddFB()
 
@@ -954,9 +954,9 @@ user_data:	Data used by the page flip handler if vblank event was requested.
 -errno	otherwise.
 ```
 <!-- markdownlint-enable header-increment no-hard-tabs -->
-## 3.3 k510 DRM 新增画框函数使用说明
+## 3.3 k510 DRM added a description of the use of the frame function
 
-结构体定义
+Struct definition
 
 ```c
 struct vo_draw_frame {
@@ -973,7 +973,7 @@ struct vo_draw_frame {
 };
 ```
 
-宏定义
+Macro definitions
 
 ```c
 define DRM_KENDRYTE_DRAW_FRAME         0x00
@@ -982,7 +982,7 @@ define DRM_KENDRYTE_DRAW_FRAME         0x00
                 DRM_KENDRYTE_DRAW_FRAME, struct vo_draw_frame)
 ```
 
-画框函数
+Frame function
 
 ```c
 static int draw_frame(struct vo_draw_frame *frame)
@@ -991,7 +991,7 @@ static int draw_frame(struct vo_draw_frame *frame)
 }
 ```
 
-**翻译免责声明**  
-为方便客户，Canaan 使用 AI 翻译程序将文本翻译为多种语言，它可能包含错误。我们不保证提供的译文的准确性、可靠性或时效性。对于因依赖已翻译信息的准确性或可靠性而造成的任何损失或损害，Canaan 概不负责。如果不同语言翻译之间存在内容差异，以简体中文版本为准。
+**Translation Disclaimer**  
+For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail.
 
-如果您要报告翻译错误或不准确的问题，欢迎通过邮件与我们联系。
+If you would like to report a translation error or inaccuracy, please feel free to contact us by mail.
