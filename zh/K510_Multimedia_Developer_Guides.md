@@ -61,7 +61,7 @@ k510_buildroot/package/encode_app/enc_interface.h
 【语法】
 
 ```c
-EncoderHandle* VIdeoEncoder_Create(EncSettings *pCfg)
+EncoderHandle* VideoEncoder_Create(EncSettings *pCfg)
 ```
 
 【参数】
@@ -81,7 +81,7 @@ pCfg：输入编码配置参数
 |             MinQP             | 最小qp值                                                     |                         [0,sliceqp]                          | avc          |
 |             MaxQP             | 最大qp值                                                     |                         [sliceqp,54]                         | avc          |
 |            profile            | SPS 中的 profile_idc 参数:0: base 1:main 2:high 3:jpeg       |                            [0,3]                             | jpeg，avc    |
-|             level             | PS 中的 level_idc 参数                                       |                           [10,42]                            | avc          |
+|             level             | SPS 中的 level_idc 参数                                       |                           [10,42]                            | avc          |
 |          AspectRatio          | 显示比例                                                     |                     参见AVC_AspectRatio                      | jpeg，avc    |
 |            FreqIDR            | 两个idr帧的间隔                                              |                           [1,1000]                           | avc          |
 |            gopLen             | Group Of Picture，即两个 I 帧之间的间隔                      |                           [1,1000]                           | avc          |
@@ -389,7 +389,7 @@ typedef struct
 {
     unsigned short width;
     unsigned short height;
-    unsigned short stride;
+    unsigned short stride; //must be multiple of 32
     unsigned char *data;
 }EncInputFrame;
 ```
@@ -534,13 +534,13 @@ K510的硬件框图如下：
 | o | 输出| NULL | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG | jpeg、avc |
 | w | 输出图像宽度 | 1920 | avc: [128,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 16 | jpeg、avc |
 | h | 输出图像高度 | 1080 | avc: [64,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 2 | jpeg、avc |
-| fps | 摄像头采集帧率，目前只支持30pfs | 30 | 30 | avc |
-| r | 编码输出帧率 | 30 | 能整除fps或者被fps整除的数 | avc |
+| fps | 摄像头采集帧率 | 30 | (30, 60, 75) <br> 与`video_sample_xxx.conf`文件配置一致 | avc |
+| r | 编码输出帧率 | 与参数`fps`相等 | 支持常用帧率转换，与encoder API的FrameRate参数取值范围一致 | avc |
 | inframes | 输入yuv帧数 | 0 | [0,50] | jpeg、avc |
 | outframes | 输出yuv帧数，如果比参数-inframes大，将会重复编码 | 0 | [0,32767] | jpeg、avc |
 | gop | Group Of Picture，即两个 I 帧之间的间隔 | 25 | [1,1000] | avc |
 | rcmode | 表示码率控制模式 0:CONST_QP 1:CBR 2:VBR | CBR | [0,2] | avc |
-| bitrate | CBR 模式下的目标码率或VBR模式下的最低码率,单位Kb | 4000 | [1,20000] | avc |
+| bitrate | 目标码率,单位Kb | 4000 | [1,20000] | avc |
 | maxbitrate | VBR模式下的最高码率,单位Kb | 4000 | [1,20000] | avc |
 | profile | SPS 中的 profile_idc 参数:0: base 1:main 2:high 3:jpeg | AVC_HIGH | [0,3] | jpeg、avc |
 | level | SPS 中的 level_idc 参数 | 42 | [10,42] | avc |
@@ -693,8 +693,8 @@ ffmpeg放在/usr/local/bin目录下。
 |:-|:-|:-|:-|
 | g | gop size | 25 | 1~1000 |
 | b | bitrate | 4000000 | 0~20000000 |
-| r | 帧率,由于isp目前只支持30fps，故解码器应设置为30 | 30 | 30 |
-| idr_freq | IDR频率 | -1(没有IDR) | -1~256 |
+| r | 帧率 | 30 | (30, 60, 75) <br> 与`video_sample_xxx.conf`文件配置一致 |
+| idr_freq | IDR频率 | 25 | -1~256 |
 | qp | 用cqp编码时，配置qp值 | -1(auto) | -1~100 |
 | maxrate | bitrate的最大值 | 0 | 20000000 |
 | profile | 支持的profile | 2(high) | 0 - baseline <br> 1 - main <br> 2 - high |
@@ -706,23 +706,29 @@ ffmpeg放在/usr/local/bin目录下。
 (2) encoder libk510_jpeg参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
-| qp | 用cqp编码时，配置qp值 | 25 | -1~100 |
+| qp | 配置qp值 | 25 | -1~100 |
 | r | framerate | 30 | 25~60 |
 | ch | encode channel | 0 | 0~7 |
-| maxrate | Maximum bitrate. (0=ignore) | 4000000 | 0~20000000 |
 | ar | aspect ratio | 0(auto) | 0 - auto <br> 1 - 4:3 <br> 2 - 16:9 <br> 3 - none |
 
 (3) device libk510_video参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
-| wh | frame size | NULL | **for encoder libk510_h264:**:<br>  up to 2048x2048 <br> width multiple of 8 <br> height multiple of 8 <br> min. width: 128 <br> min. height: 64 <br> **for encoder libk510_jpeg:** <br> up to 8192x8192 <br> width multiple of 16 <br> height multiple of 2 |
+| wh | frame size | NULL | **for encodelibk510_h264:**:<br>  up to 2048x2048 <br> width multiple of 8 <br> height multiple of 8 <br> min. width: 128 <br> min. height: 64 <br> **for encoder libk510_jpeg:** <br> up to 8192x8192 <br> width multiple of 16 <br> height multiple of 2 |
 | exp | exposure parameter | 0 | 0~128 |
 | agc | analog gain | 0 | 0~232 |
 
-(4) audio3a参数
+(4) device alsa参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
-| sample_rate | 音频采样率 | 16000 | 1~65535 |
+| ac | 音频通道数 | 2 | 2 |
+| ar | 音频采样率 | 48000 |  up to 48000 |
+| i | 设备号 | hw:0 | hw:0 |
+
+(5) filter audio3a参数
+| 参数名 | 参数解释 | 默认值 | 取值范围 |
+|:-|:-|:-|:-|
+| sample_rate | 音频采样率 | 16000 | 8000, 16000 |
 | agc | 音频增益模式 | 3(AgcModeFixedDigital) | 0 - AgcModeUnchanged <br> 1 - AgcModeAdaptiveAnalog <br> 2 - AgcModeAdaptiveDigital <br> 3 - AgcModeFixedDigital |
 | ns | 噪声level | 3(VeryHigh) | 0 - Low <br> 1 - Moderate <br> 2 - High <br> 3 - VeryHigh |
 | dsp_task | auido3a运行位置 | 1(dsp) | 0 - cpu <br>1 - dsp |
