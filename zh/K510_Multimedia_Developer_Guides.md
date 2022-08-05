@@ -540,7 +540,7 @@ K510的硬件框图如下：
 | outframes | 输出yuv帧数，如果比参数-inframes大，将会重复编码 | 0 | [0,32767] | jpeg、avc |
 | gop | Group Of Picture，即两个 I 帧之间的间隔 | 25 | [1,1000] | avc |
 | rcmode | 表示码率控制模式 0:CONST_QP 1:CBR 2:VBR | CBR | [0,2] | avc |
-| bitrate | CBR 模式下的目标码率或VBR模式下的最低码率,单位Kb | 4000 | [1,20000] | avc |
+| bitrate | 目标码率,单位Kb | 4000 | [1,20000] | avc |
 | maxbitrate | VBR模式下的最高码率,单位Kb | 4000 | [1,20000] | avc |
 | profile | SPS 中的 profile_idc 参数:0: base 1:main 2:high 3:jpeg | AVC_HIGH | [0,3] | jpeg、avc |
 | level | SPS 中的 level_idc 参数 | 42 | [10,42] | avc |
@@ -693,7 +693,7 @@ ffmpeg放在/usr/local/bin目录下。
 |:-|:-|:-|:-|
 | g | gop size | 25 | 1~1000 |
 | b | bitrate | 4000000 | 0~20000000 |
-| r | 帧率,由于isp目前只支持30fps，故解码器应设置为30 | 30 | 30 |
+| r | 帧率 | 30 | (30, 60, 75) <br> 与`video_sample_xxx.conf`文件配置一致 |
 | idr_freq | IDR频率 | 25 | -1~256 |
 | qp | 用cqp编码时，配置qp值 | -1(auto) | -1~100 |
 | maxrate | bitrate的最大值 | 0 | 20000000 |
@@ -706,10 +706,9 @@ ffmpeg放在/usr/local/bin目录下。
 (2) encoder libk510_jpeg参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
-| qp | 用cqp编码时，配置qp值 | 25 | -1~100 |
+| qp | 配置qp值 | 25 | -1~100 |
 | r | framerate | 30 | 25~60 |
 | ch | encode channel | 0 | 0~7 |
-| maxrate | Maximum bitrate. (0=ignore) | 4000000 | 0~20000000 |
 | ar | aspect ratio | 0(auto) | 0 - auto <br> 1 - 4:3 <br> 2 - 16:9 <br> 3 - none |
 
 (3) device libk510_video参数
