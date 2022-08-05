@@ -208,13 +208,7 @@ alsa demo程序放在`/app/alsa_demo`目录下：
 
 1. 插上耳机
 
-运行alsa demo：
-
-```shell
-cd /app/alsa_demo/
-./alsa_demo c #录音到文件capture.pcm，demo程序仅作参考，可以参考package/alsa_demo的源码。
-./alsa_demo p #播放capture.pcm
-```
+使用ALSA UTILS测试。
 
 ## 1.4 TWOD demo
 
