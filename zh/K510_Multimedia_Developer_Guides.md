@@ -82,7 +82,7 @@ pCfg：输入编码配置参数
 |             MaxQP             | 最大qp值                                                     |                         [sliceqp,54]                         | avc          |
 |            profile            | SPS 中的 profile_idc 参数:0: base 1:main 2:high 3:jpeg       |                            [0,3]                             | jpeg，avc    |
 |             level             | SPS 中的 level_idc 参数                                       |                           [10,42]                            | avc          |
-|          AspectRatio          | 显示比例                                                     |                     参见AVC_AspectRatio                      | jpeg，avc    |
+|          AspectRatio          | 显示比例                                                     |                     参见AVC_AspectRatio                      | avc    |
 |            FreqIDR            | 两个idr帧的间隔                                              |                           [1,1000]                           | avc          |
 |            gopLen             | Group Of Picture，即两个 I 帧之间的间隔                      |                           [1,1000]                           | avc          |
 |          bEnableGDR           | 是否启用帧内刷新                                             |                         [true,false]                         | avc          |
@@ -141,10 +141,12 @@ typedef enum
 } AVC_Profile;
 typedef enum
 {
-    ASPECT_RATIO_AUTO,
-    ASPECT_RATIO_4_3,
-    ASPECT_RATIO_16_9,
-    ASPECT_RATIO_NONE
+    ASPECT_RATIO_AUTO, 
+    ASPECT_RATIO_1_1,
+    ASPECT_RATIO_4_3, 
+    ASPECT_RATIO_16_9, 
+    ASPECT_RATIO_NONE,
+    ASPECT_RATIO_MAX,
 } AVC_AspectRatio;
 typedef struct
 {
@@ -534,7 +536,7 @@ K510的硬件框图如下：
 | o | 输出| NULL | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG | jpeg、avc |
 | w | 输出图像宽度 | 1920 | avc: [128,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 16 | jpeg、avc |
 | h | 输出图像高度 | 1080 | avc: [64,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 2 | jpeg、avc |
-| fps | 摄像头采集帧率 | 30 | (30, 60, 75) <br> 与`video_sample_xxx.conf`文件配置一致 | avc |
+| fps | 摄像头采集帧率 | 30 | (30, 60, 75) <br> 与v4l2配置文件一致 | avc |
 | r | 编码输出帧率 | 与参数`fps`相等 | 支持常用帧率转换，与encoder API的FrameRate参数取值范围一致 | avc |
 | inframes | 输入yuv帧数 | 0 | [0,50] | jpeg、avc |
 | outframes | 输出yuv帧数，如果比参数-inframes大，将会重复编码 | 0 | [0,32767] | jpeg、avc |
@@ -548,10 +550,16 @@ K510的硬件框图如下：
 | minqp | 最小QP 值 | 0 | [0,sliceqp] | avc |
 | maxqp | 最大QP值 | 54 | [sliceqp,54] | avc |
 | enableLTR | 使能长期参考帧，参数指定刷新周期。0：不启用刷新周期。正数：周期性设置参考帧并且下一帧设置为使用长期参考帧 | 0 | [0,65535] | avc |
+| GDRMode | 帧率刷新模式 | 0(GDR_VERTICAL) | 0-GDR_VERTICAL <br> 1-GDR_VERTICAL | avc |
+| enableLTR | 使能长期参考帧 | 0(disable) | 0-disable <br> 1-enable | avc |
 | roi | roi配置文件，指定多个roi区域 | NULL | xxx.conf | avc |
-| ae | 使能AE | 0 | 0-不使能AE<br>1-使能AE ||
-| conf | vl42配置文件,会指定的配置文件的基础上，根据命令行输入参数修改v4l2配置参数 | NULL | xxx.conf | avc |
-
+| disableAE | 关闭AE | 0 | 0-不关闭AE<br>1-关闭AE <br> **AE的开关与sensor相关，故关闭某一个dev的AE功能，会同时关闭该dev对应sensor的其余dev的AE功能**| avc |
+| conf | v4l2配置文件,会指定的配置文件的基础上，根据命令行输入参数修改v4l2配置参数 | NULL | xxx.conf <br> *conf文件说明：<br>video_sample.conf：摄像头输入1080p30 <br> video_sample_720p60: 摄像头输入720p60 <br> video_sample_vga480p75: 摄像头输入480p75* **<br> w/h的配置应不大于摄像头采集的宽高，fps的配置应等于摄像头采集帧率** | avc |
+| alsa | 使能音频 | 0(disable) | 0-disable <br> 1-enable | audio |
+| ac | 音频通道数 | 2 | 2 | audio |
+| ar | 音频采样率 | 44100 | up to 48000 | audio |
+| af | 音频采样格式 | 2(SND_PCM_FORMAT_S16_LE) | 2-SND_PCM_FORMAT_S16_LE <br> 3-SND_PCM_FORMAT_S16_BE <br> 4-SND_PCM_FORMAT_U16_LE <br> 5-SND_PCM_FORMAT_U16_BE | audio |
+| ad | 音频设备号 | hw:0 | hw:0 | audio |
 ### 3.1.1 输入yuv文件，输出文件
 
 ```shell
@@ -693,7 +701,7 @@ ffmpeg放在/usr/local/bin目录下。
 |:-|:-|:-|:-|
 | g | gop size | 25 | 1~1000 |
 | b | bitrate | 4000000 | 0~20000000 |
-| r | 帧率 | 30 | (30, 60, 75) <br> 与`video_sample_xxx.conf`文件配置一致 |
+| r | 帧率 | 30 | 30 |
 | idr_freq | IDR频率 | 25 | -1~256 |
 | qp | 用cqp编码时，配置qp值 | -1(auto) | -1~100 |
 | maxrate | bitrate的最大值 | 0 | 20000000 |
@@ -707,9 +715,8 @@ ffmpeg放在/usr/local/bin目录下。
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
 | qp | 配置qp值 | 25 | -1~100 |
-| r | framerate | 30 | 25~60 |
+| r | framerate | 30 | 30 |
 | ch | encode channel | 0 | 0~7 |
-| ar | aspect ratio | 0(auto) | 0 - auto <br> 1 - 4:3 <br> 2 - 16:9 <br> 3 - none |
 
 (3) device libk510_video参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
