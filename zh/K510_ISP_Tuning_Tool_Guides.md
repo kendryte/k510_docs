@@ -95,11 +95,15 @@ ISP Tuning Tool是在PC上运行的应用程序。除了能设置寄存器外还
 
 ### 服务端
 
-isp-tuningd会从标准输入接收大小为3133440字节的yuv图像（NV12）并广播给所有客户端，我们可以使用v4l2_drm_isptool，他会自动启动isp-tuningd并送入图像数据，具体用法与v4l2_drm一致。我们可以用如下命令运行
+isp-tuningd会从标准输入接收yuv图像（NV12）并广播给所有客户端，我们可以使用v4l2_drm_isptool，他会自动启动isp-tuningd并送入图像数据，具体用法与v4l2_drm一致。我们可以用如下命令运行
 
 ```shell
 cd /app/mediactl_lib
+# 使用camera 0
 ./v4l2_drm_isptool -f video_drm_1080x1920.conf
+
+# 使用camera 1
+./v4l2_drm_isptool -f video_drm_1080x1920_r2k.conf
 ```
 
 # ISP调优选项

@@ -3,16 +3,6 @@
 
 * [English](en/README.md)
 * [简体中文](zh/README.md)
-* [繁體中文](zh-Hant/README.md)
-* [Nederlands](nl/README.md)
-* [Français](fr/README.md)
-* [Deutsch](de/README.md)
-* [Italiano](it/README.md)
-* [日本語](ja/README.md)
-* [한국어](ko/README.md)
-* [Русский](ru/README.md)
-* [Español](es/README.md)
-* [Polski](pl/README.md)
 
 # Documentation overview
 
