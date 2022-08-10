@@ -560,6 +560,7 @@ K510的硬件框图如下：
 | ar | 音频采样率 | 44100 | up to 48000 | audio |
 | af | 音频采样格式 | 2(SND_PCM_FORMAT_S16_LE) | 2-SND_PCM_FORMAT_S16_LE <br> 3-SND_PCM_FORMAT_S16_BE <br> 4-SND_PCM_FORMAT_U16_LE <br> 5-SND_PCM_FORMAT_U16_BE | audio |
 | ad | 音频设备号 | hw:0 | hw:0 | audio |
+
 ### 3.1.1 输入yuv文件，输出文件
 
 ```shell
