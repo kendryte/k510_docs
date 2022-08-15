@@ -183,8 +183,9 @@ typedef struct
 
 typedef enum
 {
-    ENTROPY_MODE_CABAC = 0,
-    ENTROPY_MODE_CAVLC,
+    ENTROPY_MODE_CAVLC = 0,
+    ENTROPY_MODE_CABAC,
+    ENTROPY_MODE_MAX,
 }EncEntropyMode;
 
 typedef struct
