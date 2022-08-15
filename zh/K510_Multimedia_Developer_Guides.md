@@ -736,7 +736,7 @@ ffmpeg放在/usr/local/bin目录下。
 (5) filter audio3a参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
-| sample_rate | 音频采样率 | 16000 | 8000, 16000 |
+| sample_rate | 音频采样率 | 16000 | 16000 |
 | agc | 音频增益模式 | 3(AgcModeFixedDigital) | 0 - AgcModeUnchanged <br> 1 - AgcModeAdaptiveAnalog <br> 2 - AgcModeAdaptiveDigital <br> 3 - AgcModeFixedDigital |
 | ns | 噪声level | 3(VeryHigh) | 0 - Low <br> 1 - Moderate <br> 2 - High <br> 3 - VeryHigh |
 | dsp_task | auido3a运行位置 | 1(dsp) | 0 - cpu <br>1 - dsp |
