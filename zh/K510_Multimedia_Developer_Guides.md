@@ -534,7 +534,7 @@ K510的硬件框图如下：
 | ch | 通道号（从0开始） | NULL | [0,3] | jpeg、avc |
 | i | 输入yuv文件，只支持**nv12**格式 | NULL | v4l2 <br> xxx.yuv | jpeg、avc |
 | dev | v4l2 device name | NULL | **sensor0:**<br> /dev/video3 <br> /dev/video4 <br> **sensor1:** <br> /dev/video7 <br> /dev/video8 | avc |
-| o | 输出| NULL | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG | jpeg、avc |
+| o | 输出| NULL | rtsp <br> xxx.264 <br> xxx.mjpeg <br> xxx.jpg | jpeg、avc |
 | w | 输出图像宽度 | 1920 | avc: [128,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 16 | jpeg、avc |
 | h | 输出图像高度 | 1080 | avc: [64,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 2 | jpeg、avc |
 | fps | 摄像头采集帧率 | 30 | (30, 60, 75) <br> 与v4l2配置文件一致 | avc |
@@ -550,7 +550,7 @@ K510的硬件框图如下：
 | sliceqp | 初始 QP 值,-1表示auto | 25 | avc:-1,[0,51]<br/>jpeg:[1,100] | jpeg、avc |
 | minqp | 最小QP 值 | 0 | [0,sliceqp] | avc |
 | maxqp | 最大QP值 | 54 | [sliceqp,54] | avc |
-| enableLTR | 使能长期参考帧，参数指定刷新周期。0：不启用刷新周期。正数：周期性设置参考帧并且下一帧设置为使用长期参考帧 | 0 | [0,65535] | avc |
+| enableGDR | 使能帧率刷新，参数指定刷新周期。0：不启用刷新周期。正数：周期性设置参考帧并且下一帧设置为使用长期参考帧 | 0 | [0,65535] | avc |
 | GDRMode | 帧率刷新模式 | 0(GDR_VERTICAL) | 0-GDR_VERTICAL <br> 1-GDR_VERTICAL | avc |
 | enableLTR | 使能长期参考帧 | 0(disable) | 0-disable <br> 1-enable | avc |
 | roi | roi配置文件，指定多个roi区域 | NULL | xxx.conf | avc |
