@@ -711,7 +711,6 @@ ffmpeg放在/usr/local/bin目录下。
 | level | 编码level | 42 | 10~42 |
 | ar | 屏幕宽高比 | 0（auto） | 0 - auto <br> 1 - 4:3 <br> 2 - 16:9 <br> 3 - none |
 | ch | channel number | 0 | 0-7 |
-| framesToEncode | 编码帧数 | -1(所有帧) | -1~16383 |
 
 (2) encoder libk510_jpeg参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
