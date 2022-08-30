@@ -551,7 +551,7 @@ K510的硬件框图如下：
 | minqp | 最小QP 值 | 0 | [0,sliceqp] | avc |
 | maxqp | 最大QP值 | 51 | [sliceqp,51] | avc |
 | enableGDR | 使能帧率刷新，参数指定刷新周期。0：不启用刷新周期。正数：周期性设置参考帧并且下一帧设置为使用长期参考帧 | 0 | [0,65535] | avc |
-| GDRMode | 帧率刷新模式 | 0(GDR_VERTICAL) | 0-GDR_VERTICAL <br> 1-GDR_VERTICAL | avc |
+| GDRMode | 帧率刷新模式 | 0(GDR_VERTICAL) | 0-GDR_VERTICAL <br> 1-GDR_HORIZONTAL | avc |
 | enableLTR | 使能长期参考帧 | 0(disable) | 0-disable <br> 1-enable | avc |
 | roi | roi配置文件，指定多个roi区域 | NULL | xxx.conf | avc |
 | disableAE | 关闭AE | 0 | 0-不关闭AE<br>1-关闭AE <br> **AE的开关与sensor相关，故关闭某一个dev的AE功能，会同时关闭该dev对应sensor的其余dev的AE功能**| avc |
