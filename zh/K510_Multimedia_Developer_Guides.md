@@ -549,7 +549,7 @@ K510的硬件框图如下：
 | level | SPS 中的 level_idc 参数 | 42 | [10,42] | avc |
 | sliceqp | 初始 QP 值,-1表示auto | 25 | avc:-1,[0,51]<br/>jpeg:[1,100] | jpeg、avc |
 | minqp | 最小QP 值 | 0 | [0,sliceqp] | avc |
-| maxqp | 最大QP值 | 54 | [sliceqp,54] | avc |
+| maxqp | 最大QP值 | 51 | [sliceqp,51] | avc |
 | enableGDR | 使能帧率刷新，参数指定刷新周期。0：不启用刷新周期。正数：周期性设置参考帧并且下一帧设置为使用长期参考帧 | 0 | [0,65535] | avc |
 | GDRMode | 帧率刷新模式 | 0(GDR_VERTICAL) | 0-GDR_VERTICAL <br> 1-GDR_VERTICAL | avc |
 | enableLTR | 使能长期参考帧 | 0(disable) | 0-disable <br> 1-enable | avc |
@@ -709,7 +709,7 @@ ffmpeg放在/usr/local/bin目录下。
 | maxrate | bitrate的最大值 | 0 | 20000000 |
 | profile | 支持的profile | 2(high) | 0 - baseline <br> 1 - main <br> 2 - high |
 | level | 编码level | 42 | 10~42 |
-| ar | 屏幕宽高比 | 0（auto） | 0 - auto <br> 1 - 4:3 <br> 2 - 16:9 <br> 3 - none |
+| ar | 屏幕宽高比 | 0（auto） | 0 - auto <br> 1 - 1:1 <br> 2 - 4:3 <br> 3 - 16:9 <br> 4 - none |
 | ch | channel number | 0 | 0-7 |
 
 (2) encoder libk510_jpeg参数
