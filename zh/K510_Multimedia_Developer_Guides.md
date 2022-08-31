@@ -719,21 +719,14 @@ ffmpeg放在/usr/local/bin目录下。
 | r | framerate | 30 | 30 |
 | ch | encode channel | 0 | 0~7 |
 
-(3) device libk510_video参数
-| 参数名 | 参数解释 | 默认值 | 取值范围 |
-|:-|:-|:-|:-|
-| wh | frame size | NULL | **for encodelibk510_h264:**:<br>  up to 2048x2048 <br> width multiple of 8 <br> height multiple of 8 <br> min. width: 128 <br> min. height: 64 <br> **for encoder libk510_jpeg:** <br> up to 8192x8192 <br> width multiple of 16 <br> height multiple of 2 |
-| exp | exposure parameter | 0 | 0~128 |
-| agc | analog gain | 0 | 0~232 |
-
-(4) device alsa参数
+(3) device alsa参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
 | ac | 音频通道数 | 2 | 2 |
 | ar | 音频采样率 | 48000 |  up to 48000 |
 | i | 设备号 | hw:0 | hw:0 |
 
-(5) filter audio3a参数
+(4) filter audio3a参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
 | sample_rate | 音频采样率 | 16000 | 16000 |
