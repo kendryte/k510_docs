@@ -549,9 +549,9 @@ K510的硬件框图如下：
 | level | SPS 中的 level_idc 参数 | 42 | [10,42] | avc |
 | sliceqp | 初始 QP 值,-1表示auto | 25 | avc:-1,[0,51]<br/>jpeg:[1,100] | jpeg、avc |
 | minqp | 最小QP 值 | 0 | [0,sliceqp] | avc |
-| maxqp | 最大QP值 | 54 | [sliceqp,54] | avc |
+| maxqp | 最大QP值 | 51 | [sliceqp,51] | avc |
 | enableGDR | 使能帧率刷新，参数指定刷新周期。0：不启用刷新周期。正数：周期性设置参考帧并且下一帧设置为使用长期参考帧 | 0 | [0,65535] | avc |
-| GDRMode | 帧率刷新模式 | 0(GDR_VERTICAL) | 0-GDR_VERTICAL <br> 1-GDR_VERTICAL | avc |
+| GDRMode | 帧率刷新模式 | 0(GDR_VERTICAL) | 0-GDR_VERTICAL <br> 1-GDR_HORIZONTAL | avc |
 | enableLTR | 使能长期参考帧 | 0(disable) | 0-disable <br> 1-enable | avc |
 | roi | roi配置文件，指定多个roi区域 | NULL | xxx.conf | avc |
 | disableAE | 关闭AE | 0 | 0-不关闭AE<br>1-关闭AE <br> **AE的开关与sensor相关，故关闭某一个dev的AE功能，会同时关闭该dev对应sensor的其余dev的AE功能**| avc |
@@ -702,16 +702,15 @@ ffmpeg放在/usr/local/bin目录下。
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
 | g | gop size | 25 | 1~1000 |
-| b | bitrate | 4000000 | 0~20000000 |
+| b | bitrate | 4000000 | 1000~20000000 |
 | r | 帧率 | 30 | 30 |
 | idr_freq | IDR频率 | 25 | -1~256 |
 | qp | 用cqp编码时，配置qp值 | -1(auto) | -1~100 |
 | maxrate | bitrate的最大值 | 0 | 20000000 |
 | profile | 支持的profile | 2(high) | 0 - baseline <br> 1 - main <br> 2 - high |
 | level | 编码level | 42 | 10~42 |
-| ar | 屏幕宽高比 | 0（auto） | 0 - auto <br> 1 - 4:3 <br> 2 - 16:9 <br> 3 - none |
+| ar | 屏幕宽高比 | 0（auto） | 0 - auto <br> 1 - 1:1 <br> 2 - 4:3 <br> 3 - 16:9 <br> 4 - none |
 | ch | channel number | 0 | 0-7 |
-| framesToEncode | 编码帧数 | -1(所有帧) | -1~16383 |
 
 (2) encoder libk510_jpeg参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
@@ -720,21 +719,14 @@ ffmpeg放在/usr/local/bin目录下。
 | r | framerate | 30 | 30 |
 | ch | encode channel | 0 | 0~7 |
 
-(3) device libk510_video参数
-| 参数名 | 参数解释 | 默认值 | 取值范围 |
-|:-|:-|:-|:-|
-| wh | frame size | NULL | **for encodelibk510_h264:**:<br>  up to 2048x2048 <br> width multiple of 8 <br> height multiple of 8 <br> min. width: 128 <br> min. height: 64 <br> **for encoder libk510_jpeg:** <br> up to 8192x8192 <br> width multiple of 16 <br> height multiple of 2 |
-| exp | exposure parameter | 0 | 0~128 |
-| agc | analog gain | 0 | 0~232 |
-
-(4) device alsa参数
+(3) device alsa参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
 | ac | 音频通道数 | 2 | 2 |
 | ar | 音频采样率 | 48000 |  up to 48000 |
 | i | 设备号 | hw:0 | hw:0 |
 
-(5) filter audio3a参数
+(4) filter audio3a参数
 | 参数名 | 参数解释 | 默认值 | 取值范围 |
 |:-|:-|:-|:-|
 | sample_rate | 音频采样率 | 16000 | 16000 |
