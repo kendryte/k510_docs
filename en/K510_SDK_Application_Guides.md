@@ -206,13 +206,7 @@ The alsa demo program is placed in`/app/alsa_demo` the directory :
 Run preparation:
 (1) Plug in the headphones
 
-Run alsa demo:
-
-```shell
-cd /app/alsa_demo/
-./alsa_demo c #录音到文件capture.pcm，demo程序仅作参考，可以参考package/alsa_demo的源码。
-./alsa_demo p #播放capture.pcm
-```
+Use ALSA UTILS to test.
 
 ## 1.4 TWOD demo
 
