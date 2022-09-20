@@ -231,13 +231,14 @@
 
 &emsp;&emsp;在使用K510 CRB进行学习和开发之前，建议先参考K510手册中芯片的详细架构，这样可以对K510的供电、存储、计算资源和外设等有更深入的了解，有利于芯片方案的熟悉和开发。
 
-K510 核心板如图4-1。
+K510 核心板如图3-1。
 
 <div align="center">
     <img src="../zh/images/hw_crb_v1_2/image-hw_3_1.png">
 </div>
 
 <center>图3-1 K510 Core核心模组</center>
+
 关于K510 核心模组更详细的资料请参阅《K510 Core 核心模组数据手册.pdf》
 <div style="page-break-after:always"></div>
 

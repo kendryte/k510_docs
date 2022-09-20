@@ -225,11 +225,9 @@ The main people to whom this document (this guide) applies:
 
 <div style="page-break-after:always"></div>
 
-# 3 Introduction to each section of the development board
+# 3 Introduction to K510 Core Module
 
-## 3.1 Core Modules
-
-&emsp; &emsp; Before using K510 CRB for learning and development, it is recommended to refer to the detailed architecture of the chip in the K510 manual, so that you can have a deeper understanding of the power supply, storage, computing resources and peripherals of the K510, which is conducive to the familiarity and development of the chip solution. The K510 core board is shown in Figure 3-1.
+Before using K510 CRB for learning and development, it is recommended to refer to the detailed architecture of the chip in the K510 manual, so that you can have a deeper understanding of the power supply, storage, computing resources and peripherals of the K510, which is conducive to the familiarity and development of the chip solution. The K510 core board is shown in Figure 3-1.
 
 <div align="center">
     <img src="../zh/images/hw_crb_v1_2/image-hw_3_1.png">
@@ -237,9 +235,11 @@ The main people to whom this document (this guide) applies:
 
 <center>Figure 3-1 K510 Core Core Module</center>
 
-<div style="page-break-after:always"></div>
+For more detailed information about the K510 core module, please refer to the K510 Core Module Datasheet.pdf
 
-## 3.2 Input power supply
+# 4 Introduction to each section of the development board
+
+## 4.1 Input power supply
 
 &emsp; &emsp; K510 CRB uses external 5V power supply, on-board two USB type C interfaces, can be used to power the development board, of which the UART interface is used to connect to the computer, the COMPUTER's USB interface can only provide 500mA current, in the case of insufficient power supply, please use the adapter at the same time to supply power at DC: 5V. The interface is shown in the following figure.
 
@@ -247,7 +247,7 @@ The main people to whom this document (this guide) applies:
     <img src="../zh/images/hw_crb_v1_2/image-hw_3_2.png" width=60%>
 </div>
 
-<center> Figure 3-2 Power input connector </center>
+<center> Figure 4-1 Power input connector </center>
 
 **Note: Limit the use of 5V power supply, when using the fast charge adapter, try not to connect other devices such as mobile phones at the same time, so as not to cause the fast charge adapter to incorrectly output a power supply higher than 5V, resulting in damage to the power supply part of the development board.**
 &emsp; &emsp; Use the K2 toggle switch for power-up and power-down operation, as shown in the following figure.
@@ -256,15 +256,15 @@ The main people to whom this document (this guide) applies:
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-3.jpg" width=50%>
 </div>
 
-<center>Figure 3-3 Power switch description</center>
+<center>Figure 4-2 Power switch description</center>
 
 <div style="page-break-after:always"></div>
 
-## 3.3 Storage Devices
+## 4.2 Storage Devices
 
 &emsp; &emsp; The K510 CRB includes a variety of storage devices on board, including DDR, eMMC, NAND Flash, and TF Card.
 
-### 3.3.1 eMMC
+### 4.2.1 eMMC
 
 &emsp; &emsp; A 4G Bytes eMMC memory on board on the K510 CRB, located on the core module, can be used to store data such as startup code and user files.
 
@@ -272,9 +272,9 @@ The main people to whom this document (this guide) applies:
     <img src="../zh/images/hw_crb_v1_2/image-eMMC.png" width=70%>
 </div>
 
-<center>Figure 3-4 eMMC memory</center>
+<center>Figure 4-3 eMMC memory</center>
 
-### 3.3.2 NandFlash
+### 4.2.2 NandFlash
 
 &emsp; &emsp; The K510 CRB includes 128M Bytes of NAND Flash memory, which can be used to store data such as startup code and user files.
 
@@ -282,9 +282,9 @@ The main people to whom this document (this guide) applies:
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_5.jpg " width=75%>
 </div>
 
-<center>Figure 3-5 NAND Flash memory</center>
+<center>Figure 4-4 NAND Flash memory</center>
 
-### 3.3.2 TF Card
+### 4.2.3 TF Card
 
 &emsp; &emsp; The K510 CRB has a TF card holder on board that can be connected externally to a TF card to store data such as startup code and user files.
 
@@ -292,11 +292,11 @@ The main people to whom this document (this guide) applies:
     <img src="../zh/images/hw_crb_v1_2/image-hw_3_6.png">
 </div>
 
-<center>Figure 3-6 TF Card Holder</center>
+<center>Figure 4-5 TF Card Holder</center>
 
 <div style="page-break-after:always"></div>
 
-## 3.4 Keystrokes
+## 4.3 Keystrokes
 
 &emsp; &emsp; The K510 CRB contains two user touch buttons that allow users to customize the tap buttons to trigger as system inputs or other software-related functions.
 
@@ -304,9 +304,9 @@ The main people to whom this document (this guide) applies:
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_7.jpg" width=50%>
 </div>
 
-<center>Figure 3-7 Keys</center>
+<center>Figure 4-6 Keys</center>
 
-## 3.5 LEDs
+## 4.4 LEDs
 
 &emsp; &emsp; The K510 CRB has a light-emitting diode on board that is connected directly to the GPIO pin of the K510 chip.
 
@@ -318,11 +318,11 @@ The main people to whom this document (this guide) applies:
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_8.jpg" width=60%>
 </div>
 
-<center>Figure 3-8 LED</center>
+<center>Figure 4-7 LED</center>
 
 <div style="page-break-after:always"></div>
 
-## 3.6 Boot Mode and Reset
+## 4.5 Boot Mode and Reset
 
 &emsp; &emsp; The K510 CRB has a variety of storage devices on board, and the boot mode is selected by configuring the levels of the boot pins, BOOT0 and BOOT1, with 0 and 1 representing low and high levels.
 
@@ -330,7 +330,7 @@ The main people to whom this document (this guide) applies:
 
 &emsp; &emsp; The K510 determines the chip boot mode by the status of the boot0 and BOOT1 hardware pins, and the boot mode selection is shown in the following table.
 
-<center>Table 2-1 Boot modes</center>
+<center>Table 4-1 Boot modes</center>
 
 | BOOT1   | BOOT0   | Startup mode      |
 | ------- | ------- | ------------ |
@@ -343,13 +343,13 @@ The main people to whom this document (this guide) applies:
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_9.jpg" width=60%>
 </div>
 
-<center>Figure 3-9 Reset switch and start mode DIP switch</center>
+<center>Figure 4-8 Reset switch and start mode DIP switch</center>
 
 &emsp; &emsp; The K510 CRB on-board reset button is K2 in Figure 3-9, which can be pressed to perform a hardware reset operation of the system.
 
 <div style="page-break-after:always"></div>
 
-## 3.7 Audio input and output
+## 4.6 Audio input and output
 
 &emsp; &emsp; The K510 CRB uses Nuvoton's audio codec chip, NAU88C22, to implement input and output functions for speech. Includes an onboard microphone, standard 3.5mm headphone jack and 2P speaker connector.
 
@@ -357,9 +357,9 @@ The main people to whom this document (this guide) applies:
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-10.jpg" width=60%>
 </div>
 
-<center>Figure 3-10 Audio</center>
+<center>Figure 4-9 Audio</center>
 
-## 3.8 USB OTG socket
+## 4.7 USB OTG socket
 
 &emsp; &emsp; The K510 CRB onboard USB OTG socket can be used to implement USB host/device functionality.
 
@@ -367,11 +367,11 @@ The main people to whom this document (this guide) applies:
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_11.jpg">
 </div>
 
-<center>Figure 3-11 USB-OTG seat</center>
+<center>Figure 4-10 USB-OTG seat</center>
 
 <div style="page-break-after:always"></div>
 
-## 3.9 UART interface
+## 4.8 UART interface
 
 &emsp; &emsp; K510 CRB In order to facilitate user development and debugging, the K510 CRB has a USB-> UART interface on board, which can be operated by USART serial port communication and debugging of the K510 through the PC-USB cable. Initial use may require loading the driver, as detailed in Section 4.2. The on-board UART interface is shown in the figure below.
 
@@ -379,9 +379,9 @@ The main people to whom this document (this guide) applies:
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_12.jpg" width=50%>
 </div>
 
-<center>Figure 3-12 USB-UART interface</center>
+<center>Figure 4-11 USB-UART interface</center>
 
-## 3.10 WIFI/BT module
+## 4.9 WIFI/BT module
 
 &emsp; &emsp; The K510 CRB includes a WIFI/BT 2-in-1 module AP6212 to extend the development board for network connectivity and Bluetooth communication functions, as shown in the on-board interface below.
 
@@ -389,11 +389,11 @@ The main people to whom this document (this guide) applies:
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-13.jpg" width=40%>
 </div>
 
-<center>Figure 3-13 WIFI/BT module</center>
+<center>Figure 4-12 WIFI/BT module</center>
 
 <div style="page-break-after:always"></div>
 
-## 3.11 Ethernet
+## 4.10 Ethernet
 
 &emsp; &emsp; The K510 CRB has an on-board Gigabit Ethernet holder, and the K510 is implemented via an external PHY chip with an RGMII interface. The on-board interface is shown in the following figure.
 
@@ -401,9 +401,9 @@ The main people to whom this document (this guide) applies:
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_14.jpg" width=60%>
 </div>
 
-<center>Figure 3-14 Ethernet interface</center>
+<center>Figure 4-13 Ethernet interface</center>
 
-## 3.12 hdmi output
+## 4.11 hdmi output
 
 &emsp; &emsp; The K510 CRB onboard HDMI-A female mount can be connected to the external display via a standard HDMI cable, using the K510's mipi dsi interface output conversion. The on-board interface is shown in the following figure.
 
@@ -411,13 +411,13 @@ The main people to whom this document (this guide) applies:
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_15.jpg" width=60%>
 </div>
 
-<center>Figure 3-15 HDMI interface</center>
+<center>Figure 4-14 HDMI interface</center>
 
  **Note**: Because both the HDMI and 1080P TFT displays use mipi dsi drivers, they can only choose one of the two displays, can not be used at the same time, switch through the control pin GPIO to select one of the outputs.
 
 <div style="page-break-after:always"></div>
 
-## 3.13 Video In
+## 4.12 Video In
 
 &emsp; &emsp; The K510 CRB draws mipi CSI, DVP, power supply, and partial GPIO through a 0.8mm pitch board-to-board connector to achieve camera input in different scenarios and different demand situations. The on-board interface is shown in the following figure. The interface definitions are shown in the following table.
 
@@ -425,9 +425,9 @@ The main people to whom this document (this guide) applies:
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-16.jpg">
 </div>
 
-<center>Figure 3-16 Video IN interface</center>
+<center>Figure 4-15 Video IN interface</center>
 
-<center>Table 3-2 Video IN interface definitions</center>
+<center>Table 4-2 Video IN interface definitions</center>
 
 | numbering | definition             | numbering | definition                       |
 | ---- | ---------------- | ---- | --------------- |
@@ -466,7 +466,7 @@ The main people to whom this document (this guide) applies:
 
 <div style="page-break-after:always"></div>
 
-## 3.14 Video Out
+## 4.13 Video Out
 
 &emsp; &emsp; The K510 CRB has a 0.5mm pitch 30P flap under the FPC connector for connecting to an external LCD display, as shown in the figure below. The interface definitions are shown in the following table.
 
@@ -474,9 +474,9 @@ The main people to whom this document (this guide) applies:
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-17.jpg">
 </div>
 
-<center>Figure 3-17 Video Out interface</center>
+<center>Figure 4-16 Video Out interface</center>
 
-<center>Table 3-3 Video Out interface definitions</center>
+<center>Table 4-3 Video Out interface definitions</center>
 
 | numbering | definition              | numbering | definition             |
 | ---- | ----------------- | ---- | ---------------- |
@@ -498,7 +498,7 @@ The main people to whom this document (this guide) applies:
 
 <div style="page-break-after:always"></div>
 
-## 3.15 Extending the Interface
+## 4.14 Extending the Interface
 
 &emsp; &emsp; In order to facilitate the implementation of custom expansion functions for users, a 30P 2.54mm expansion pin is reserved on the K510 CRB, which leads to a power supply and part of the GPIO, which the user can operate through the software iomux to map hardware resources such as I2C, UART, SPI to the corresponding GPIO to achieve external connection and expansion of the corresponding functions. The on-board interface is shown in the following figure. The detailed definitions are shown in the following table.
 
@@ -506,9 +506,9 @@ The main people to whom this document (this guide) applies:
     <img src="../zh/images/hw_crb_v1_2/clip_hw-3-18.jpg">
 </div>
 
-<center>Figure 3-18 40P pin extension interface</center>
+<center>Figure 4-17 40P pin extension interface</center>
 
-<center>Table 3-4 Extended interface definitions</center>
+<center>Table 4-4 Extended interface definitions</center>
 
 | numbering | definition         | numbering | definition         |
 | ---- | ------------ | ---- | ------------ |
@@ -532,9 +532,17 @@ The main people to whom this document (this guide) applies:
 
 <div style="page-break-after:always"></div>
 
-# 4 Development board use
+# 5 Introduction to the IMX219 Dual Channel RGB Camera Module
 
-## 4.1 Installing the Driver
+The IMX219 dual channel RGB camera module uses the Video IN interface in Section 4.12 to connect the K510 CRB V1.2 development board. Each camera inputs images to the K510 chip through the 2 lane MIPI CSI. Refer to IMX219 Dual Channel RGB Camera Module CAD.pdf for module structure size and interface, IMX219 PLCC28 datasheet rev1.0.pdf for IMX219 sensor related parameters, and JM-5546-120-Model.pdf for lens related parameters.
+
+# 6 Introduction to 1080P LCD capacitive touch screen module
+
+None
+
+# 7 Development board use
+
+## 7.1 Installing the Driver
 
 &emsp; &emsp; The K510 CRB has ch340E onboard to implement the USB-UART communication function, so the corresponding driver needs to be installed before use.
 
@@ -542,11 +550,11 @@ The main people to whom this document (this guide) applies:
 
 &emsp;&emsp;<http://www.wch.cn/product/CH340.html>
 
-## 4.2 Firmware burn
+## 7.2 Firmware burn
 
 &emsp; &emsp; Please refer to[the K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md)documentation.
 
-## 4.3 Switch on and off
+## 7.3 Switch on and off
 
 &emsp; &emsp; 1) Install the power cable and USB debugging cable.
 
@@ -554,7 +562,7 @@ The main people to whom this document (this guide) applies:
 
 &emsp; &emsp; 3) Power on the switch by toggling the switch as shown in Section 3.2.
 
-## 4.4 Serial port debugging
+## 7.4 Serial port debugging
 
 &emsp; &emsp; After the driver is installed, power-on the K510 CRB, at which point the port appears in the PC's Device Manager - Port.
 
@@ -566,7 +574,7 @@ The main people to whom this document (this guide) applies:
     <img src="../zh/images/hw_crb_v1_2/clip_hw_4_1.jpg">
 </div>
 
-<center>Figure 4-1 Device Manager after driver installation is complete</center>
+<center>Figure 7-1 Device Manager after driver installation is complete</center>
 
 **Translation Disclaimer**  
 For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail.
