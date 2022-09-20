@@ -227,21 +227,22 @@
 
 <div style="page-break-after:always"></div>
 
-# 3 开发板各部分介绍
+# 3 K510 Core V1.2核心模组
 
-## 3.1 核心模组
+&emsp;&emsp;在使用K510 CRB进行学习和开发之前，建议先参考K510手册中芯片的详细架构，这样可以对K510的供电、存储、计算资源和外设等有更深入的了解，有利于芯片方案的熟悉和开发。
 
-&emsp;&emsp;在使用K510 CRB进行学习和开发之前，建议先参考K510手册中芯片的详细架构，这样可以对K510的供电、存储、计算资源和外设等有更深入的了解，有利于芯片方案的熟悉和开发。K510 核心板如图3-1。
+K510 核心板如图4-1。
 
 <div align="center">
     <img src="../zh/images/hw_crb_v1_2/image-hw_3_1.png">
 </div>
 
-<center>图3-1 K510 Core核心模组</center>
-
+<center>图4-1 K510 Core核心模组</center>
+关于K510 核心模组更详细的资料请参阅《K510 Core 核心模组数据手册.pdf》
 <div style="page-break-after:always"></div>
+# 4 K510 CRB V1.2 客户参考板介绍
 
-## 3.2 输入电源
+## 4.1 输入电源
 
 &emsp;&emsp;K510 CRB使用外部5V供电，板载了两个USB type C接口，都可以为开发板进行供电，其中UART接口用于连接电脑，电脑的USB接口只能提供500mA电流，在遇到供电不足时，请同时使用适配器在DC:5V处供电。接口如下图所示。
 
@@ -249,7 +250,7 @@
     <img src="../zh/images/hw_crb_v1_2/image-hw_3_2.png" width=60%>
 </div>
 
-<center> 图3-2 电源输入接口 </center>
+<center> 图4-2 电源输入接口 </center>
 
 **注：限定使用5V电源，在使用快充适配器时，尽量不要同时连接手机等其它设备，以免造成快充适配器错误输出高于5V的电源，导致开发板电源部分损坏。**
 &emsp;&emsp;使用K2 拨动开关进行上电和掉电的操作，如下图所示。
@@ -258,15 +259,15 @@
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-3.jpg" width=50%>
 </div>
 
-<center>图3-3 电源开关说明</center>
+<center>图4-3 电源开关说明</center>
 
 <div style="page-break-after:always"></div>
 
-## 3.3 存储设备
+## 4.2 存储设备
 
 &emsp;&emsp;K510 CRB 板载了多种存储设备，包括DDR、eMMC、NAND Flash和TF Card。
 
-### 3.3.1 eMMC
+### 4.2.1 eMMC
 
 &emsp;&emsp;K510 CRB板载的一颗4G Bytes的eMMC存储器，位于核心模组上，可以用于存储启动代码和用户文件等数据。
 
@@ -274,9 +275,9 @@
     <img src="../zh/images/hw_crb_v1_2/image-eMMC.png" width=70%>
 </div>
 
-<center>图3-4 eMMC存储器</center>
+<center>图4-4 eMMC存储器</center>
 
-### 3.3.2 NandFlash
+### 4.2.2 NandFlash
 
 &emsp;&emsp;K510 CRB 板载了128M Bytes的NAND Flash存储器，可以用于存储启动代码和用户文件等数据。
 
@@ -284,9 +285,9 @@
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_5.jpg " width=75%>
 </div>
 
-<center>图3-5 NAND Flash存储器</center>
+<center>图4-5 NAND Flash存储器</center>
 
-### 3.3.2 TF卡
+### 4.2.3 TF卡
 
 &emsp;&emsp;K510 CRB 板载了TF卡座，可以外接TF卡，用于存储启动代码和用户文件等数据。
 
@@ -294,11 +295,11 @@
     <img src="../zh/images/hw_crb_v1_2/image-hw_3_6.png">
 </div>
 
-<center>图3-6 TF卡座</center>
+<center>图4-6 TF卡座</center>
 
 <div style="page-break-after:always"></div>
 
-## 3.4 按键
+## 4.3 按键
 
 &emsp;&emsp;K510 CRB板载了两颗用户轻触按键，用户可以对轻触按键进行自定义编程，作为系统输入触发或软件相关的其他功能等。
 
@@ -306,9 +307,9 @@
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_7.jpg" width=50%>
 </div>
 
-<center>图3-7 按键</center>
+<center>图4-7 按键</center>
 
-## 3.5 指示灯
+## 4.4 指示灯
 
 &emsp;&emsp;K510 CRB板载了一颗发光二极管，直接连接到了K510芯片的GPIO管脚上。
 
@@ -320,11 +321,11 @@
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_8.jpg" width=60%>
 </div>
 
-<center>图3-8 指示灯</center>
+<center>图4-8 指示灯</center>
 
 <div style="page-break-after:always"></div>
 
-## 3.6 启动模式和复位
+## 4.5 启动模式和复位
 
 &emsp;&emsp;K510 CRB板载了多种存储设备，通过配置启动时 BOOT0 和 BOOT1 两个管脚的电平来选择启动模式，0和1代表低电平和高电平。
 
@@ -332,7 +333,7 @@
 
 &emsp;&emsp;K510 通过 BOOT0 和 BOOT1 两个硬件管脚的状态决定芯片启动模式，启动模式选择如下表所示。
 
-<center>表2-1 启动模式</center>
+<center>表4-1 启动模式</center>
 
 | BOOT1   | BOOT0   | 启动方式      |
 | ------- | ------- | ------------ |
@@ -345,13 +346,13 @@
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_9.jpg" width=60%>
 </div>
 
-<center>图3-9 复位开关和启动模式拨码开关</center>
+<center>图4-9 复位开关和启动模式拨码开关</center>
 
 &emsp;&emsp;K510 CRB板载复位按键为图3-9 中的K2，按下可实现系统的硬件复位操作。
 
 <div style="page-break-after:always"></div>
 
-## 3.7 Audio 输入输出
+## 4.6 Audio 输入输出
 
 &emsp;&emsp;K510 CRB使用了nuvoton公司的音频编解码器芯片NAU88C22，实现语音的输入和输出功能。包括一颗板载麦克风、标准3.5mm耳机插座和2P扬声器接口。
 
@@ -359,9 +360,9 @@
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-10.jpg" width=60%>
 </div>
 
-<center>图3-10 Audio</center>
+<center>图4-10 Audio</center>
 
-## 3.8 USB OTG插座
+## 4.7 USB OTG插座
 
 &emsp;&emsp;K510 CRB 板载USB OTG插座，可以用来实现USB host/device功能。
 
@@ -369,11 +370,11 @@
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_11.jpg">
 </div>
 
-<center>图3-11 USB-OTG座</center>
+<center>图4-11 USB-OTG座</center>
 
 <div style="page-break-after:always"></div>
 
-## 3.9 UART接口
+## 4.8 UART接口
 
 &emsp;&emsp;K510 CRB为了方便用户开发和调试，板载了USB->UART接口，可以通过PC-USB线缆对K510进行UART串口通信和调试等操作。初次使用可能会需要加载驱动，详见4.2节。板载UART接口如下图所示。
 
@@ -381,9 +382,9 @@
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_12.jpg" width=50%>
 </div>
 
-<center>图3-12 USB-UART接口</center>
+<center>图4-12 USB-UART接口</center>
 
-## 3.10 WIFI/BT模组
+## 4.9 WIFI/BT模组
 
 &emsp;&emsp;K510 CRB 板载了一颗WIFI/BT二合一模组AP6212，用于拓展开发板进行网络的连接和蓝牙的通信功能，板载接口如下图所示。
 
@@ -391,11 +392,11 @@
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-13.jpg" width=40%>
 </div>
 
-<center>图3-13 WIFI/BT模组</center>
+<center>图4-13 WIFI/BT模组</center>
 
 <div style="page-break-after:always"></div>
 
-## 3.11 以太网
+## 4.10 以太网
 
 &emsp;&emsp;K510 CRB 板载千兆以太网座，K510通过RGMII接口外接PHY芯片实现。板载接口如下图所示。
 
@@ -403,9 +404,9 @@
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_14.jpg" width=60%>
 </div>
 
-<center>图3-14 以太网接口</center>
+<center>图4-14 以太网接口</center>
 
-## 3.12 hdmi 输出
+## 4.11 HDMI输出
 
 &emsp;&emsp;K510 CRB板载HDMI-A母座，可以通过标准HDMI线缆连接外置显示屏，使用K510的mipi dsi接口输出转换实现。板载接口如下图所示。
 
@@ -413,13 +414,13 @@
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_15.jpg" width=60%>
 </div>
 
-<center>图3-15 HDMI接口</center>
+<center>图4-15 HDMI接口</center>
 
  **注意**：因为HDMI和1080P TFT显示屏都是使用mipi dsi驱动，所以只能二选一显示，无法同时使用，切换通过控制管脚GPIO来选择其中之一输出。
 
 <div style="page-break-after:always"></div>
 
-## 3.13 Video In
+## 4.12 Video In
 
 &emsp;&emsp;K510 CRB通过0.8mm 间距板对板连接器，将MIPI CSI、DVP、电源和部分GPIO等进行了引出，用于实现不同场景和不同需求情况下的摄像头输入。板载接口如下图所示。接口定义如下表所示。
 
@@ -427,9 +428,9 @@
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-16.jpg">
 </div>
 
-<center>图3-16 Video IN接口</center>
+<center>图4-16 Video IN接口</center>
 
-<center>表3-2 Video IN接口定义</center>
+<center>表4-2 Video IN接口定义</center>
 
 | 编号 | 定义             | 编号 | 定义                       |
 | ---- | ---------------- | ---- | --------------- |
@@ -468,7 +469,7 @@
 
 <div style="page-break-after:always"></div>
 
-## 3.14 Video Out
+## 4.13 Video Out
 
 &emsp;&emsp;K510 CRB板载了0.5mm间距30P的翻盖下接FPC连接器，用于连接外部的LCD显示屏，板载接口如下图所示。接口定义如下表所示。
 
@@ -476,9 +477,9 @@
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-17.jpg">
 </div>
 
-<center>图3-17 Video Out接口</center>
+<center>图4-17 Video Out接口</center>
 
-<center>表3-3 Video Out接口定义</center>
+<center>表4-3 Video Out接口定义</center>
 
 | 编号 | 定义              | 编号 | 定义             |
 | ---- | ----------------- | ---- | ---------------- |
@@ -500,7 +501,7 @@
 
 <div style="page-break-after:always"></div>
 
-## 3.15 拓展接口
+## 4.14 拓展接口
 
 &emsp;&emsp;为了方便用户进行自定义拓展功能的实现，在K510 CRB上预留了30P的2.54mm拓展排针，引出了包括电源和部分GPIO，用户可通过软件iomux操作，将I2C、UART、SPI等硬件资源映射到相应的GPIO上，以实现相应功能的外部连接和拓展。板载接口如下图所示。详细定义如下表所示。
 
@@ -508,9 +509,9 @@
     <img src="../zh/images/hw_crb_v1_2/clip_hw-3-18.jpg">
 </div>
 
-<center>图3-18 40P排针拓展接口</center>
+<center>图4-18 40P排针拓展接口</center>
 
-<center>表3-4 拓展接口定义</center>
+<center>表4-4 拓展接口定义</center>
 
 | 编号 | 定义         | 编号 | 定义         |
 | ---- | ------------ | ---- | ------------ |
@@ -534,9 +535,17 @@
 
 <div style="page-break-after:always"></div>
 
-# 4 开发板使用
+# 5 IMX219 双通道RGB摄像头模组介绍
 
-## 4.1 安装驱动
+    IMX219双通道RGB摄像头模组，使用第4.12节中的Video IN接口连接K510 CRB V1.2开发板, 每个摄像头通过2 lane MIPI CSI 输入图像到K510芯片。详细数据手册请参阅《IMX219双通道RGB摄像头模组数据手册》。
+
+# 6 1080P LCD 电容触摸显示屏模组介绍
+
+    暂无
+
+# 7 开发板使用
+
+## 7.1 安装驱动
 
 &emsp;&emsp;K510 CRB板载了CH340E来实现USB-UART通信功能，所以在使用前，需要先安装对应的驱动。
 
@@ -544,19 +553,19 @@
 
 &emsp;&emsp;<http://www.wch.cn/product/CH340.html>
 
-## 4.2 固件烧录
+## 7.2 固件烧录
 
 &emsp;&emsp;请参考[K510_SDK_Build_and_Burn_Guide](./K510_SDK_Build_and_Burn_Guide.md)文档。
 
-## 4.3 开关机
+## 7.3 开关机
 
 &emsp;&emsp;1）安装电源线和USB调试线。
 
 &emsp;&emsp;2）拨码开关选择从TF卡启动。
 
-&emsp;&emsp;3）按照3.2节所示的方法拨动开关进行上电。
+&emsp;&emsp;3）按照4.1节所示的方法拨动开关进行上电。
 
-## 4.4 串口调试
+## 7.4 串口调试
 
 &emsp;&emsp;驱动安装完成后，对K510 CRB进行上电操作，这时候，在PC的设备管理器-端口中会出现端口。
 
@@ -568,7 +577,7 @@
     <img src="../zh/images/hw_crb_v1_2/clip_hw_4_1.jpg">
 </div>
 
-<center>图4-1 驱动安装完成后的设备管理器</center>
+<center>图7-1 驱动安装完成后的设备管理器</center>
 
 **翻译免责声明**  
 为方便客户，Canaan 使用 AI 翻译程序将文本翻译为多种语言，它可能包含错误。我们不保证提供的译文的准确性、可靠性或时效性。对于因依赖已翻译信息的准确性或可靠性而造成的任何损失或损害，Canaan 概不负责。如果不同语言翻译之间存在内容差异，以简体中文版本为准。
