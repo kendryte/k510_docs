@@ -240,6 +240,7 @@ K510 核心板如图3-1。
 <center>图3-1 K510 Core核心模组</center>
 
 关于K510 核心模组更详细的资料请参阅《K510 Core 核心模组数据手册.pdf》
+
 <div style="page-break-after:always"></div>
 
 # 4 K510 CRB V1.2 客户参考板介绍
