@@ -221,7 +221,8 @@ The main people to whom this document (this guide) applies:
 
 ## 2.5 Schematics
 
-&emsp; &emsp; The reference schematic for the K510 CRB development board should be[downloaded at release](https://github.com/kendryte/k510_docs/releases).
+&emsp; &emsp; The reference schematic for the K510 CRB development board should be downloaded at 
+https://github.com/kendryte/k510_docs/releases/download/v1.8/K510_CRB_SCH_MECH_FILE.zip
 
 <div style="page-break-after:always"></div>
 
@@ -535,6 +536,8 @@ For more detailed information about the K510 core module, please refer to the K5
 # 5 Introduction to the IMX219 Dual Channel RGB Camera Module
 
 The IMX219 dual channel RGB camera module uses the Video IN interface in Section 4.12 to connect the K510 CRB V1.2 development board. Each camera inputs images to the K510 chip through the 2 lane MIPI CSI. Refer to IMX219 Dual Channel RGB Camera Module CAD.pdf for module structure size and interface, IMX219 PLCC28 datasheet rev1.0.pdf for IMX219 sensor related parameters, and JM-5546-120-Model.pdf for lens related parameters.
+
+https://github.com/kendryte/k510_docs/releases/download/v1.8/K510_CRB_SCH_MECH_FILE.zip
 
 # 6 Introduction to 1080P LCD capacitive touch screen module
 

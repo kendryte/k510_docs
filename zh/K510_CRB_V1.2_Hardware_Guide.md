@@ -223,7 +223,10 @@
 
 ## 2.5 原理图
 
-&emsp;&emsp;K510 CRB开发板对应的参考原理图请在[release](https://github.com/kendryte/k510_docs/releases)处下载。
+&emsp;&emsp;K510 CRB开发板对应的参考原理图请在下方链接处下载。
+
+https://github.com/kendryte/k510_docs/releases/download/v1.8/K510_CRB_SCH_MECH_FILE.zip
+
 
 <div style="page-break-after:always"></div>
 
@@ -542,6 +545,8 @@ K510 核心板如图3-1。
 # 5 IMX219 双通道RGB摄像头模组介绍
 
 IMX219双通道RGB摄像头模组，使用第4.12节中的Video IN接口连接K510 CRB V1.2开发板, 每个摄像头通过2 lane MIPI CSI 输入图像到K510芯片。模组结构尺寸和接口请参阅《IMX219双通道RGB摄像头模组CAD.pdf》，IMX219 sensor相关参数请参阅《IMX219 PLCC28 datasheet rev1.0.pdf》，镜头相关参数请参阅《JM-5546-120-Model.pdf》。
+
+https://github.com/kendryte/k510_docs/releases/download/v1.8/K510_CRB_SCH_MECH_FILE.zip
 
 # 6 1080P LCD 电容触摸显示屏模组介绍
 
