@@ -231,15 +231,18 @@
 
 &emsp;&emsp;在使用K510 CRB进行学习和开发之前，建议先参考K510手册中芯片的详细架构，这样可以对K510的供电、存储、计算资源和外设等有更深入的了解，有利于芯片方案的熟悉和开发。
 
-K510 核心板如图4-1。
+K510 核心板如图3-1。
 
 <div align="center">
     <img src="../zh/images/hw_crb_v1_2/image-hw_3_1.png">
 </div>
 
-<center>图4-1 K510 Core核心模组</center>
+<center>图3-1 K510 Core核心模组</center>
+
 关于K510 核心模组更详细的资料请参阅《K510 Core 核心模组数据手册.pdf》
+
 <div style="page-break-after:always"></div>
+
 # 4 K510 CRB V1.2 客户参考板介绍
 
 ## 4.1 输入电源
@@ -250,16 +253,17 @@ K510 核心板如图4-1。
     <img src="../zh/images/hw_crb_v1_2/image-hw_3_2.png" width=60%>
 </div>
 
-<center> 图4-2 电源输入接口 </center>
+<center> 图4-1 电源输入接口 </center>
 
 **注：限定使用5V电源，在使用快充适配器时，尽量不要同时连接手机等其它设备，以免造成快充适配器错误输出高于5V的电源，导致开发板电源部分损坏。**
+
 &emsp;&emsp;使用K2 拨动开关进行上电和掉电的操作，如下图所示。
 
 <div align="center">
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-3.jpg" width=50%>
 </div>
 
-<center>图4-3 电源开关说明</center>
+<center>图4-2 电源开关说明</center>
 
 <div style="page-break-after:always"></div>
 
@@ -275,7 +279,7 @@ K510 核心板如图4-1。
     <img src="../zh/images/hw_crb_v1_2/image-eMMC.png" width=70%>
 </div>
 
-<center>图4-4 eMMC存储器</center>
+<center>图4-3 eMMC存储器</center>
 
 ### 4.2.2 NandFlash
 
@@ -285,7 +289,7 @@ K510 核心板如图4-1。
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_5.jpg " width=75%>
 </div>
 
-<center>图4-5 NAND Flash存储器</center>
+<center>图4-4 NAND Flash存储器</center>
 
 ### 4.2.3 TF卡
 
@@ -295,7 +299,7 @@ K510 核心板如图4-1。
     <img src="../zh/images/hw_crb_v1_2/image-hw_3_6.png">
 </div>
 
-<center>图4-6 TF卡座</center>
+<center>图4-5 TF卡座</center>
 
 <div style="page-break-after:always"></div>
 
@@ -307,7 +311,7 @@ K510 核心板如图4-1。
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_7.jpg" width=50%>
 </div>
 
-<center>图4-7 按键</center>
+<center>图4-6 按键</center>
 
 ## 4.4 指示灯
 
@@ -321,7 +325,7 @@ K510 核心板如图4-1。
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_8.jpg" width=60%>
 </div>
 
-<center>图4-8 指示灯</center>
+<center>图4-7 指示灯</center>
 
 <div style="page-break-after:always"></div>
 
@@ -346,7 +350,7 @@ K510 核心板如图4-1。
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_9.jpg" width=60%>
 </div>
 
-<center>图4-9 复位开关和启动模式拨码开关</center>
+<center>图4-8 复位开关和启动模式拨码开关</center>
 
 &emsp;&emsp;K510 CRB板载复位按键为图3-9 中的K2，按下可实现系统的硬件复位操作。
 
@@ -360,7 +364,7 @@ K510 核心板如图4-1。
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-10.jpg" width=60%>
 </div>
 
-<center>图4-10 Audio</center>
+<center>图4-9 Audio</center>
 
 ## 4.7 USB OTG插座
 
@@ -370,7 +374,7 @@ K510 核心板如图4-1。
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_11.jpg">
 </div>
 
-<center>图4-11 USB-OTG座</center>
+<center>图4-10 USB-OTG座</center>
 
 <div style="page-break-after:always"></div>
 
@@ -382,7 +386,7 @@ K510 核心板如图4-1。
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_12.jpg" width=50%>
 </div>
 
-<center>图4-12 USB-UART接口</center>
+<center>图4-11 USB-UART接口</center>
 
 ## 4.9 WIFI/BT模组
 
@@ -392,7 +396,7 @@ K510 核心板如图4-1。
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-13.jpg" width=40%>
 </div>
 
-<center>图4-13 WIFI/BT模组</center>
+<center>图4-12 WIFI/BT模组</center>
 
 <div style="page-break-after:always"></div>
 
@@ -404,7 +408,7 @@ K510 核心板如图4-1。
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_14.jpg" width=60%>
 </div>
 
-<center>图4-14 以太网接口</center>
+<center>图4-13 以太网接口</center>
 
 ## 4.11 HDMI输出
 
@@ -414,7 +418,7 @@ K510 核心板如图4-1。
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3_15.jpg" width=60%>
 </div>
 
-<center>图4-15 HDMI接口</center>
+<center>图4-14 HDMI接口</center>
 
  **注意**：因为HDMI和1080P TFT显示屏都是使用mipi dsi驱动，所以只能二选一显示，无法同时使用，切换通过控制管脚GPIO来选择其中之一输出。
 
@@ -428,7 +432,7 @@ K510 核心板如图4-1。
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-16.jpg">
 </div>
 
-<center>图4-16 Video IN接口</center>
+<center>图4-15 Video IN接口</center>
 
 <center>表4-2 Video IN接口定义</center>
 
@@ -477,7 +481,7 @@ K510 核心板如图4-1。
     <img src="../zh/images/hw_crb_v1_2/clip_hw_3-17.jpg">
 </div>
 
-<center>图4-17 Video Out接口</center>
+<center>图4-16 Video Out接口</center>
 
 <center>表4-3 Video Out接口定义</center>
 
@@ -509,7 +513,7 @@ K510 核心板如图4-1。
     <img src="../zh/images/hw_crb_v1_2/clip_hw-3-18.jpg">
 </div>
 
-<center>图4-18 40P排针拓展接口</center>
+<center>图4-17 40P排针拓展接口</center>
 
 <center>表4-4 拓展接口定义</center>
 
@@ -537,7 +541,7 @@ K510 核心板如图4-1。
 
 # 5 IMX219 双通道RGB摄像头模组介绍
 
-    IMX219双通道RGB摄像头模组，使用第4.12节中的Video IN接口连接K510 CRB V1.2开发板, 每个摄像头通过2 lane MIPI CSI 输入图像到K510芯片。详细数据手册请参阅《IMX219双通道RGB摄像头模组数据手册》。
+IMX219双通道RGB摄像头模组，使用第4.12节中的Video IN接口连接K510 CRB V1.2开发板, 每个摄像头通过2 lane MIPI CSI 输入图像到K510芯片。模组结构尺寸和接口请参阅《IMX219双通道RGB摄像头模组CAD.pdf》，IMX219 sensor相关参数请参阅《IMX219 PLCC28 datasheet rev1.0.pdf》，镜头相关参数请参阅《JM-5546-120-Model.pdf》。
 
 # 6 1080P LCD 电容触摸显示屏模组介绍
 
