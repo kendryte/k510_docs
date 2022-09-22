@@ -221,7 +221,7 @@ The main people to whom this document (this guide) applies:
 
 ## 2.5 Schematics
 
-The reference schematic for the K510 CRB development board should be downloaded at 
+The reference schematic for the K510 CRB development board should be downloaded at
 [https://github.com/kendryte/k510_docs/releases/download/v1.8/K510_CRB_SCH_MECH_FILE.zip](https://github.com/kendryte/k510_docs/releases/download/v1.8/K510_CRB_SCH_MECH_FILE.zip)
 
 <div style="page-break-after:always"></div>
