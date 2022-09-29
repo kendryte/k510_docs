@@ -107,6 +107,7 @@ cd /app/mediactl_lib
 ```
 
 If you don't need to view the picture, just launch isp-tuningd
+
 ```shell
 /app/mediactl_lib/isp-tuningd
 ```
