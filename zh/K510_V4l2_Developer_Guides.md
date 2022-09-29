@@ -160,7 +160,45 @@ mediactl_init(video_cfg_file,&dev_info)
 无
 ```
 
-### ◆ mediactl_set_ae
+### ◆ mediactl_rect
+
+```c
+/**
+ * @brief Use ISP to draw rect.
+ * @param pipeline
+ * @param layer 0: main out, 1: DS0, 2: DS1.
+ * @param area support 32 area, 0 to 31
+ * @param x
+ * @param y
+ * @param width
+ * @param height
+ * @param line_width 0 to 63 pixels
+ * @param color AYCbCr, Alpha as hight bits, Cr as low bits
+ * @param border_mask up/right/bottom/left, up as low bit, left as hight bit
+ * @return return 0 if success, -1 if failed.
+*/
+int mediactl_rect(enum isp_pipeline_e pipeline, unsigned layer, unsigned area, unsigned x, unsigned y, unsigned width, unsigned height, unsigned line_width, unsigned color, unsigned border_mask);
+```
+
+绘制矩形。
+
+#### 参数
+
+```text
+参数:
+pipeline ISP_F2K_PIPELINE 或 ISP_R2K_PIPELINE
+layer 0: main out, 1: DS0, 2: DS1
+area 支持32个框，0到31
+x x坐标
+y y坐标
+width 宽度
+height 高度
+line_width 0 到 63 像素
+color AYCbCr, Alpha为高为，Cr为低位
+border_mask 外框mask，上/右/下/左
+```
+
+### ◆ mediactl_disable_ae
 
 ```c
 enum isp_pipeline_e {
@@ -168,18 +206,17 @@ enum isp_pipeline_e {
     ISP_R2K_PIPELINE,
     ISP_TOF_PIPELINE
 };
-int mediactl_set_ae(enum isp_pipeline_e pipeline);
+void mediactl_disable_ae(enum isp_pipeline_e pipeline);
 ```
 
-配置sensor的AE值
+关闭ISP的AE。
 
 #### 参数
 
 ```text
 参数:
-ISP_F2K_PIPELINE:配置f2k pipeline的AE。
-ISP_R2K_PIPELINE:配置r2k pipeline的AE。
-ISP_TOF_PIPELINE:没有使用。
+ISP_F2K_PIPELINE:关闭f2k pipeline的AE。
+ISP_R2K_PIPELINE:关闭r2k pipeline的AE。
 ```
 
 ### ◆ mediactl_get_isp_modules
