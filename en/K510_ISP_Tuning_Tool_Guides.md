@@ -57,7 +57,7 @@ This section describes the ISP tuning tools and descriptions of the data streams
 |                                                    |
 |    +-------+        +--------------------------+   |
 |    |       |        |                          |   |
-|    |  ISP  +------> |   v4l2_drm_isptool.out   |   |
+|    |  ISP  +------> |        v4l2_drm.out      |   |
 |    |       |        |                          |   |
 |    +-------+        +-------------+------------+   |
 |                                   |                |
@@ -95,15 +95,20 @@ The ISP Tuning Tool is an application that runs on a PC. In addition to being ab
 
 ### Server-side
 
-isp-tuningd receives a yuv image (NV12) in size of 3133440 bytes from the standard input and broadcasts it to all clients, we can use v4l2_drm_isptool, he will automatically start isp-tuningd and send in the image data, the specific usage is consistent with the v4l2_drm. We can run it with the following command
+isp-tuningd receives a yuv image (NV12) in size of 3133440 bytes from the standard input and broadcasts it to all clients, we can use v4l2_drm, it will automatically start isp-tuningd and send in the image data, the specific usage is consistent with the v4l2_drm. We can run it with the following command
 
 ```shell
 cd /app/mediactl_lib
 # use camera 0
-./v4l2_drm_isptool -f video_drm_1080x1920.conf
+./v4l2_drm.out -t 0 -f video_drm_1080x1920.conf
 
 # use camera 1
-./v4l2_drm_isptool -f video_drm_1080x1920_r2k.conf
+./v4l2_drm.out -t 1 -f video_drm_1080x1920_r2k.conf
+```
+
+If you don't need to view the picture, just launch isp-tuningd
+```shell
+/app/mediactl_lib/isp-tuningd
 ```
 
 # ISP tuning options
