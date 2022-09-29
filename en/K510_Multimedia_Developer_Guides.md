@@ -82,7 +82,7 @@ pCfg: Enter the encoding configuration parameters
 |             MaxQP             | The maximum qp value                                                     |                         [sliceqp,54]                         | stroke          |
 |            profile            | profile_idc parameters in SPS: 0: base 1:main 2:high 3:jpeg       |                            [0,3]                             | jpeg,avc    |
 |             level             | level_idc parameters in PS                                       |                           [10,42]                            | stroke          |
-|          AspectRatio          | Display scale                                                     |                     See AVC_AspectRatio                      | jpeg,avc    |
+|          AspectRatio          | Display scale                                                     |                     See AVC_AspectRatio                      | avc    |
 |            FreqIDR            | The interval between two idr frames                                              |                           [1,1000]                           | stroke          |
 |            gopLen             | Group Of Picture, the interval between two I frames                      |                           [1,1000]                           | stroke          |
 |          bEnableGDR           | Whether to enable in-frame refresh                                             |                         [true,false]                         | stroke          |
@@ -141,10 +141,12 @@ typedef enum
 } AVC_Profile;
 typedef enum
 {
-    ASPECT_RATIO_AUTO,
-    ASPECT_RATIO_4_3,
-    ASPECT_RATIO_16_9,
-    ASPECT_RATIO_NONE
+    ASPECT_RATIO_AUTO, 
+    ASPECT_RATIO_1_1,
+    ASPECT_RATIO_4_3, 
+    ASPECT_RATIO_16_9, 
+    ASPECT_RATIO_NONE,
+    ASPECT_RATIO_MAX,
 } AVC_AspectRatio;
 typedef struct
 {
@@ -181,8 +183,9 @@ typedef struct
 
 typedef enum
 {
-    ENTROPY_MODE_CABAC = 0,
-    ENTROPY_MODE_CAVLC,
+    ENTROPY_MODE_CAVLC = 0,
+    ENTROPY_MODE_CABAC,
+    ENTROPY_MODE_MAX,
 }EncEntropyMode;
 
 typedef struct
@@ -530,27 +533,34 @@ run`encode_app`
 | split | The number of channels | NULL | [1,4] | jpeg、avc |
 | ch | Channel number (0-based) | NULL | [0,3] | jpeg、avc |
 | i | Enter the YUV file, only**support nv12** format | NULL | v4l2 <br> xxx.yuv | jpeg、avc |
-| dev | v4l2 device name | NULL | **sensor0:** /dev/video3 /dev/video4 <br> <br>sensor1:<br> **/dev/video7 /** dev/ <br> video8 <br> | stroke |
-| or | output| NULL | rtsp <br> xxx.264 <br> xxx.MJPEG <br> xxx.JPEG | jpeg、avc |
+| dev | v4l2 device name | NULL | **sensor0:** /dev/video3 /dev/video4 <br> <br>sensor1:<br> **/dev/video7 /** dev/ <br> video8 <br> | jpeg、avc |
+| or | output| NULL | rtsp <br> xxx.264 <br> xxx.mjpeg <br> xxx.jpg | jpeg、avc |
 | in | Output image width | 1920 | avc: [128,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 16 | jpeg、avc |
 | h | Output image height | 1080 | avc: [64,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 2 | jpeg、avc |
-| fps | The camera captures frame rates, which currently only support 30pfs | 30 | 30 | stroke |
+| fps | The camera captures frame rates, which currently only support 30pfs | 30 | (30, 60, 75) <br> According to v4l2 config file | stroke |
 | r | Encoded output frame rate | 30 | The number that can divisible or be divisible by fps | stroke |
 | inframes | Enter the number of yuv frames | 0 | [0,50] | jpeg、avc |
 | outframes | The output of the yuv frames, if larger than the parameter -inframes, will be repeated encoding | 0 | [0,32767] | jpeg、avc |
-| gop | Group Of Picture, the interval between two I frames | 25 | [1,1000] | stroke |
-| rcmode | Represents bitrate control mode 0:CONST_QP 1:CBR 2:VBR | CBR | [0,2] | stroke |
-| bitrate | Target bitrate in CBR mode or lowest bitrate in VBR mode, in KB | 4000 | [1,20000] | stroke |
+| gop | Group Of Picture, the interval between two I frames | 25 | [1,1000] | avc |
+| rcmode | Represents bitrate control mode 0:CONST_QP 1:CBR 2:VBR 3:jpg| CBR | [0,3] | avc |
+| bitrate | Target bitrate in CBR mode or lowest bitrate in VBR mode, in KB | 4000 | [1,20000] | avc |
 | maxbitrate | The highest bitrate in VBR mode, in Kb | 4000 | [1,20000] | stroke |
 | profile | profile_idc parameters in SPS: 0: base 1:main 2:high 3:jpeg | AVC_HIGH | [0,3] | jpeg、avc |
 | level | level_idc parameters in SPS | 42 | [10,42] | stroke |
 | sliceqp | The initial QP value, -1 for auto | 25 | avc:-1,jpeg[0,51]<br/>:[1,100] | jpeg、avc |
-| minqp | The minimum QP value | 0 | [0,sliceqp] | stroke |
-| maxqp | The maximum QP value | 54 | [sliceqp,54] | stroke |
-| enableLTR | Enables long-term reference frames, and parameters specify the refresh period. 0: The refresh cycle is not enabled. Positive: Periodically sets the reference frame and the next frame is set to use the long reference frame | 0 | [0,65535] | stroke |
-| king | Roi configuration file, which specifies multiple roi regions | NULL | xxx.conf | stroke |
-| ae | Enable AE | 0 | 0 - Does not enable AE<br>1 - Enable AE | |
+| minqp | The minimum QP value | 0 | [0,sliceqp] | avc |
+| maxqp | The maximum QP value | 51 | [sliceqp,51] | avc |
+| enableGDR | Enbale intra refresh and specifies intra refresh peroid. 0: Disable intra refresh. Positive: Intra refresh peroid| 0 | [0,65535] | avc |
+| GDRMode | Intra refresh mode | 0(GDR_VERTICAL) | 0-GDR_VERTICAL <br> 1-GDR_HORIZONTAL | avc |
+| enableLTR | Enables long-term reference frames, and parameters specify the refresh period. 0: The refresh cycle is not enabled. Positive: Periodically sets the reference frame and the next frame is set to use the long reference frame | 0 | [0,65535] | avc |
+| roi | Roi configuration file, which specifies multiple roi regions | NULL | xxx.conf | stroke |
+| disableAE | Disale AE | 0 | 0-Enable AE<br>1-Disable AE <br> **The switch of AE is related to the sensor, so turning off the AE function of a certain dev will also turn off the AE functions of the other devs corresponding to the sensor of the dev.**| avc |
 | Conf | The vl42 configuration file modifies the v4l2 configuration parameters based on the specified configuration file and the command line input parameters | NULL | xxx.conf | stroke |
+| alsa | Enable alsa | 0(disable) | 0-disable <br> 1-enable | audio |
+| ac | Number of audio channels | 2 | 2 | audio |
+| ar | Audio sample rate | 44100 | up to 48000 | audio |
+| af | Audio sample format | 2(SND_PCM_FORMAT_S16_LE) | 2-SND_PCM_FORMAT_S16_LE <br> 3-SND_PCM_FORMAT_S16_BE <br> 4-SND_PCM_FORMAT_U16_LE <br> 5-SND_PCM_FORMAT_U16_BE | audio |
+| ad | Audio device | hw:0 | hw:0 | audio |
 
 ### 3.1.1 Enter the yuv file and output the file
 
@@ -690,32 +700,31 @@ run`ffmpeg`
 | The parameter name | Parameter interpretation | The default value | The value range |
 |:-|:-|:-|:-|
 | g | gop size | 25 | 1~1000 |
-| b | bitrate | 4000000 | 0~20000000 |
+| b | bitrate | 4000000 | 1000~20000000 |
 | r | Frame rate, since isps currently only support 30fps, so the decoder should be set to 30 | 30 | 30 |
 | idr_freq | IDR frequency | -1 (no IDR) | -1~256 |
 | qp | When encoding with cqp, configure the qp value | -1(auto) | -1~100 |
 | maxrate | The maximum value of the bitrate | 0 | 20000000 |
 | profile | Supported profiles | 2(high) | 0 - baseline <br> 1 - main <br> 2 - high |
 | level | Encode level | 42 | 10~42 |
-| would | Screen aspect ratio | 0(auto) | 0 - auto <br> 1 - 4:3 <br> 2 - 16:9 <br> 3 - none |
+| aratio | Screen aspect ratio | 0(auto) |0 - auto <br> 1 - 1:1 <br> 2 - 4:3 <br> 3 - 16:9 <br> 4 - none |
 | ch | channel number | 0 | 0-7 |
-| framesToEncode | The number of encoded frames | -1 (all frames) | -1~16383 |
 
 (2) Encoder libk510_jpeg parameters
 | The parameter name | Parameter interpretation | The default value | The value range |
 |:-|:-|:-|:-|
 | qp | When encoding with cqp, configure the qp value | 25 | -1~100 |
-| r | framerate | 30 | 25~60 |
+| r | framerate | 30 | 30 |
 | ch | encode channel | 0 | 0~7 |
 | maxrate | Maximum bitrate. (0=ignore) | 4000000 | 0~20000000 |
 | would | aspect ratio | 0(auto) | 0 - auto <br> 1 - 4:3 <br> 2 - 16:9 <br> 3 - none |
 
-(3) The device libk510_video parameter
+(3) device alsa参数
 | The parameter name | Parameter interpretation | The default value | The value range |
 |:-|:-|:-|:-|
-| wh | frame size | NULL | **for encoder libk510_h264:**:<br>  up to 2048x2048 <br> width multiple of 8 <br> height multiple of 8 <br> min. width: 128 <br> min. height: 64 <br> **for encoder libk510_jpeg:** <br> up to 8192x8192 <br> width multiple of 16 <br> height multiple of 2 |
-| exp | exposure parameter | 0 | 0~128 |
-| agc | analog gain | 0 | 0~232 |
+| ac | Number of audio channels | 2 | 2 |
+| ar | Audio sample rate | 48000 |  up to 48000 |
+| i | Audio device | hw:0 | hw:0 |
 
 (4) audio3a parameter
 | The parameter name | Parameter interpretation | The default value | The value range |
