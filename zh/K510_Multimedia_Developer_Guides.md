@@ -533,7 +533,7 @@ K510的硬件框图如下：
 | split | 通道个数 | NULL | [1,4] | jpeg、avc |
 | ch | 通道号（从0开始） | NULL | [0,3] | jpeg、avc |
 | i | 输入yuv文件，只支持**nv12**格式 | NULL | v4l2 <br> xxx.yuv | jpeg、avc |
-| dev | v4l2 device name | NULL | **sensor0:**<br> /dev/video3 <br> /dev/video4 <br> **sensor1:** <br> /dev/video7 <br> /dev/video8 | avc |
+| dev | v4l2 device name | NULL | **sensor0:**<br> /dev/video3 <br> /dev/video4 <br> **sensor1:** <br> /dev/video7 <br> /dev/video8 | jpeg、avc |
 | o | 输出| NULL | rtsp <br> xxx.264 <br> xxx.mjpeg <br> xxx.jpg | jpeg、avc |
 | w | 输出图像宽度 | 1920 | avc: [128,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 16 | jpeg、avc |
 | h | 输出图像高度 | 1080 | avc: [64,2048], multiple of 8 <br> jpeg: up to 8192, multiple of 2 | jpeg、avc |
@@ -550,7 +550,7 @@ K510的硬件框图如下：
 | sliceqp | 初始 QP 值,-1表示auto | 25 | avc:-1,[0,51]<br/>jpeg:[1,100] | jpeg、avc |
 | minqp | 最小QP 值 | 0 | [0,sliceqp] | avc |
 | maxqp | 最大QP值 | 51 | [sliceqp,51] | avc |
-| enableGDR | 使能帧率刷新，参数指定刷新周期。0：不启用刷新周期。正数：周期性设置参考帧并且下一帧设置为使用长期参考帧 | 0 | [0,65535] | avc |
+| enableGDR | 使能帧内刷新，参数指定刷新周期。0：不启用刷新周期。正数：帧内刷新周期 | 0 | [0,65535] | avc |
 | GDRMode | 帧率刷新模式 | 0(GDR_VERTICAL) | 0-GDR_VERTICAL <br> 1-GDR_HORIZONTAL | avc |
 | enableLTR | 使能长期参考帧 | 0(disable) | 0-disable <br> 1-enable | avc |
 | roi | roi配置文件，指定多个roi区域 | NULL | xxx.conf | avc |
@@ -709,7 +709,7 @@ ffmpeg放在/usr/local/bin目录下。
 | maxrate | bitrate的最大值 | 0 | 20000000 |
 | profile | 支持的profile | 2(high) | 0 - baseline <br> 1 - main <br> 2 - high |
 | level | 编码level | 42 | 10~42 |
-| ar | 屏幕宽高比 | 0（auto） | 0 - auto <br> 1 - 1:1 <br> 2 - 4:3 <br> 3 - 16:9 <br> 4 - none |
+| aratio | 屏幕宽高比 | 0（auto） | 0 - auto <br> 1 - 1:1 <br> 2 - 4:3 <br> 3 - 16:9 <br> 4 - none |
 | ch | channel number | 0 | 0-7 |
 
 (2) encoder libk510_jpeg参数
