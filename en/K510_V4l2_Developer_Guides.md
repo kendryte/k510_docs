@@ -82,62 +82,62 @@ Initialize media.
 #### parameter
 
 ```text
-参数:
-[in]    video_cfg_file: video的配置文件，这个文件的内容只需关心下面解释的内容，具体解释如下。
-sensor0_name:只在V4L2驱动中设置的sensor驱动名字。
-sensor0_cfg_file:sensor对应的isp参数配置文件名字，如imx219_0.conf。
-sensor0_total_width:sensor输出的水平方向的总像素，用来产生VSYNC信号，如3476
-sensor0_total_height:sensor输出的总行数，用来产生HSYNC信号，如1166
-sensor0_active_width:sensor输出的水平方向的有效像素，如1920,
-sensor0_active_height:sensor输出的有效行数，如1080
-video2_used:1 -- 使能，0 -- 没有使用。
-video2_width:video输出的宽度，如1920。
-video2_height:video输出的高度，如1080。
-video2_out_format:1--指YUV420,NV21。
-video3_used:1 -- 使能，0 -- 没有使用。
-video3_width:video输出的宽度，如1080。
-video3_height:video输出的高度，如720。
-video3_out_format:1--指YUV420,NV21。
-video4_used:1 -- 使能，0 -- 没有使用。
-video4_width:video输出的宽度，如640。
-video4_height:video输出的高度，如480。
-video4_out_format:1--指YUV420,NV21。
-video5_used:1 -- 使能，0 -- 没有使用。
-video5_width:video输出的宽度，如320。
-video5_height":video存储的高度，如320。
-video5_height_r:video输出的高度，如240。
-video5_out_format:0--指分离RGB，1--指ARGB。
-sensor1_name:只在V4L2驱动中设置的sensor驱动名字。
-sensor1_cfg_file:sensor对应的isp参数配置文件名字，如imx219_0.conf。
-sensor1_total_width:sensor输出的水平方向的总像素，用来产生VSYNC信号，如3476
-sensor1_total_height:sensor输出的总行数，用来产生HSYNC信号，如1166
-sensor1_active_width:sensor输出的水平方向的有效像素，如1920,
-sensor1_active_height:sensor输出的有效行数，如1080
-video6_used:1 -- 使能，0 -- 没有使用。
-video6_width:video输出的宽度，如1920。
-video6_height:video输出的高度，如1080。
-video6_out_format:1--指YUV420,NV21。
-video7_used:1 -- 使能，0 -- 没有使用。
-video7_width:video输出的宽度，如1080。
-video7_height:video输出的高度，如720.
-video7_out_format:1--指YUV420,NV21。
-video8_used:1 -- 使能，0 -- 没有使用。
-video8_width:video输出的宽度，如640。
-video8_height:video输出的高度，如480。
-video8_out_format:1--指YUV420,NV21。
-video9_used:1 -- 使能，0 -- 没有使用。
-video9_width:video输出的宽度，如320。
-video9_height:video存储的宽度，如320。
-video9_height_r:video输出的高度，如240。
-video9_out_format:0--指分离RGB，1--指ARGB。
-[out]   dev_info: mediactl_lib返回从video的配置文件得到的video信息，具体的解释如下。
-video_used:这里是指ISP的pipeline，如果使用就会返回1，否则0。K510支持ISP_F2K/ISP_R2K这两个pipeline，每个pipeline最多支持4个video输出。
-video_name[4]:返回的video的名字。f2k的四个video是video2/video3/video4/video5;r2k的四个video是 video6/video7/video8/video9
-enable[4]:返回的每个video是否使能，1 -- 使能，0 -- 没有使用。
-video_width[4]:返回的每个video的宽度。
-video_height[4]:返回的每个video的高度。
-video_out_format[4]:返回的每个video的输出图像格式，具体见《video的配置文件》的解释。
-具体使用方法如下:
+parameter:
+[in]    video_cfg_file: The video configuration file, the content of this file only needs to care about the content explained below, the specific explanation is as follows.
+sensor0_name: the name of the sensor driver only set in the V4L2 driver.
+sensor0_cfg_file: the name of the isp parameter configuration file corresponding to the sensor, such as imx219_0.conf.
+sensor0_total_width: the total pixels in the horizontal direction output by the sensor are used to generate the VSYNC signal, such as 3476
+sensor0_total_height: the total number of lines output by sensor, used to generate HSYNC signal, such as 1166
+sensor0_active_width: the effective pixels in the horizontal direction of the sensor output, such as 1920
+sensor0_active_height: number of valid lines of sensor output, such as 1080
+video2_used: 1 -- enable, 0 -- not use.
+video2_width: video output width, such as 1920.
+video2_height: video output height, such as 1080.
+video2_out_format: 1--YUV420,NV21.
+video3_used: 1 -- enable，0 -- not use.
+video3_width: video output width, such as 1080.
+video3_height: video output height, such as 720.
+video3_out_format: 1--YUV420,NV21.
+video4_used: 1 -- enable，0 -- not use.
+video4_width: video output width, such as 640.
+video4_height: video output height, such as 480.
+video4_out_format: 1--YUV420,NV21.
+video5_used: 1 -- enable，0 -- not use.
+video5_width: video output width, such as 320.
+video5_height: the height of video storage, such as 320.
+video5_height_r: video output height, such as 240.
+video5_out_format: 0--Separate RGB, 1--ARGB.
+sensor1_name: the name of the sensor driver only set in the V4L2 driver.
+sensor1_cfg_file: the name of the isp parameter configuration file corresponding to the sensor, such as imx219_0.conf.
+sensor1_total_width: the total pixels in the horizontal direction output by the sensor are used to generate the VSYNC signal, such as 3476.
+sensor1_total_height: the total number of lines output by sensor, used to generate HSYNC signal, such as 1166.
+sensor1_active_width: the effective pixels in the horizontal direction output by the sensor, such as 1920.
+sensor1_active_height: the number of valid lines output by sensor, such as 1080
+video6_used: 1 -- enable，0 -- not use.
+video6_width: video output width, such as 1920.
+video6_height: video output height, such as 1080.
+video6_out_format: 1--YUV420,NV21.
+video7_used: 1 -- enable，0 -- not use.
+video7_width: video output width, such as 1080.
+video7_height: video output height, such as 720.
+video7_out_format: 1--YUV420,NV21.
+video8_used: 1 -- enable，0 -- not use.
+video8_width: video output width, such as 640.
+video8_height: video output height, such as 480.
+video8_out_format: 1--YUV420,NV21.
+video9_used: 1 -- enable，0 -- not use.
+video9_width: video output width, such as 320.
+video9_height: the width of video storage, such as 320.
+video9_height_r: video output height, such as 240.
+video9_out_format: 0--Separate RGB, 1--ARGB.
+[out]   dev_info: mediactl_lib returns the video information obtained from the video configuration file, the specific explanation is as follows.
+video_used: this refers to the ISP's pipeline, if it is used, it will return 1, otherwise 0. K510 supports two pipelines, ISP_F2K/ISP_R2K, and each pipeline supports up to 4 video outputs.
+video_name[4]: the name of the returned video. The four videos of f2k are video2/video3/video4/video5; the four videos of r2k are video6/video7/video8/video9.
+enable[4]: whether each video returned is enable, 1 -- enable, 0 -- not use.
+video_width[4]: the width of each video returned.
+video_height[4]: the height of each video returned.
+video_out_format[4]: the output image format of each video returned, see the explanation of "Video Configuration File" for details.
+The specific usage is as follows:
 char *video_cfg_file = "video_cfg";
 struct video_info dev_info[2]
 mediactl_init(video_cfg_file,&dev_info)
@@ -146,7 +146,7 @@ mediactl_init(video_cfg_file,&dev_info)
 #### The return value
 
 ```text
-0 成功,  -1 失败.
+0 success,  -1 fail.
 ```
 
 ### ◆ mediactl_exit
@@ -156,8 +156,76 @@ Shut down the media device and free up the requested share memory memory.
 #### parameter
 
 ```text
-参数:
-无
+parameter:
+N/A
+```
+
+### ◆ adaptive_enable
+
+```c
+enum adaptive_enable_select_e
+{
+    ADAPTIVE_SELECT_DISABLE,
+    ADAPTIVE_SELECT_ENABLE,
+};
+int adaptive_enable(int scl);
+```
+
+Configuring the ISP Adaptive Function Switch
+
+#### parameter
+
+```text
+parameter
+ADAPTIVE_SELECT_DISABLE: disable adaptive calc function
+ADAPTIVE_SELECT_ENABLE: disable adaptive calc function(default)
+```
+
+### ◆ ae_select_init
+
+```c
+enum ae_select_e
+{
+    AE_SELECT_SW_MODE,
+    AE_SELECT_HW_MODE,
+};
+int ae_select_init(int scl);
+
+```
+
+configure sw/hw AE switch function
+
+#### parameter
+
+```text
+parameter
+AE_SELECT_SW_MODE: enable sw AE(default)
+AE_SELECT_HW_MODE: enable hw AE
+```
+
+### ◆ anti_flicker_init
+
+```c
+enum anti_flicker_scl_e
+{
+    ANTI_FLICKER_ALL_DSIABLE,
+    ANTI_FLICKER_F2K_ENABLE,
+    ANTI_FLICKER_R2K_ENABLE,
+    ANTI_FLICKER_ALL2K_ENABLE,
+};
+int anti_flicker_init(int scl);
+```
+
+configure antiflicker correction function
+
+#### parameter
+
+```text
+parameter
+ANTI_FLICKER_ALL_DSIABLE: disable antiflicker correction function
+ANTI_FLICKER_F2K_ENABLE: enable F2K antiflicker50Hz correction function
+ANTI_FLICKER_R2K_ENABLE: enable R2K antiflicker50Hz correction function
+ANTI_FLICKER_ALL2K_ENABLE: enableF2K/R2K antiflicker50Hz  correction function(default)
 ```
 
 ### ◆ mediactl_set_ae
@@ -176,10 +244,10 @@ Configure the AE value of the sensor
 #### parameter
 
 ```text
-参数:
-ISP_F2K_PIPELINE:配置f2k pipeline的AE。
-ISP_R2K_PIPELINE:配置r2k pipeline的AE。
-ISP_TOF_PIPELINE:没有使用。
+parameter:
+ISP_F2K_PIPELINE: configure f2k pipeline AE
+ISP_R2K_PIPELINE: configure r2k pipeline AE
+ISP_TOF_PIPELINE:not use.
 ```
 
 ### ◆ mediactl_get_isp_modules
@@ -222,41 +290,41 @@ Gets the enable status of each module of the ISP.
 #### parameter
 
 ```text
-参数:
-isp_pipeline_e:具体见mediactl_set_ae中的解释。
+parameter:
+isp_pipeline_e: more details see notes in mediactl_set_ae
 isp_modules:
-  ISP_TPG --  Test Pattern Control模块
-  ISP_BLC --  Black Level Correction模块
-  ISP_LSC --  Lens Shading Correction模块
-  ISP_AE --  AUTO Exposure Gain模块
-  ISP_AWB -- AUTO white balance模块
-  ISP_AWB_D65 -- AUTO white balance d65模块 
-  ISP_AWB_CCM -- AUTO white balance ccm模块 
-  ISP_WDR --  wide dynamic range模块
-  ISP_RGB_GAMMA -- rgb gamma模块 
-  ISP_YUV_GAMMA -- yuv gamma模块 
-  ISP_ADA --  Adaptive dynamic range adjust模块
-  ISP_ADA_SBZ -- Image stabilization模块 
-  ISP_ADA_CCR -- Color correction模块 
-  ISP_RGBIR -- rgbir rectify模块 
-  ISP_RAW_2DNR -- raw域2D降噪模块 
-  ISP_YUV_Y_2DNR -- yuv域2D Y方向降噪模块 
-  ISP_YUV_UV_2DNR -- yuv域2D uv方向降噪模块 
-  ISP_3DNR --  yuv域3D降噪模块
-  ISP_LTM --  local tone mapping模块
-  ISP_SHARP -- sharpness模块  
-  ISP_CC --  color correction模块
-  ISP_CTRST -- contrast adjust模块 
-  ISP_LUMA --  luma adjust模块
-  ISP_SATURATION -- saturation adjust 模块 
-  ISP_LDC -- lens Distortion Correction模块 
-  ISP_AF -- ATUO FOCUS模块 
+  ISP_TPG --  Test Pattern Control moudel
+  ISP_BLC --  Black Level Correction moudel
+  ISP_LSC --  Lens Shading Correction moudel
+  ISP_AE --  AUTO Exposure Gain moudel
+  ISP_AWB -- AUTO white balance moudel
+  ISP_AWB_D65 -- AUTO white balance d65 moudel
+  ISP_AWB_CCM -- AUTO white balance ccm moudel
+  ISP_WDR --  wide dynamic range moudel
+  ISP_RGB_GAMMA -- rgb gamma moudel
+  ISP_YUV_GAMMA -- yuv gamma moudel
+  ISP_ADA --  Adaptive dynamic range adjust moudel
+  ISP_ADA_SBZ -- Image stabilization moudel
+  ISP_ADA_CCR -- Color correction moudel
+  ISP_RGBIR -- rgbir rectify moudel
+  ISP_RAW_2DNR -- raw domain 2DNR moudel
+  ISP_YUV_Y_2DNR -- yuv domain 2D YNR moudel
+  ISP_YUV_UV_2DNR -- yuv domain 2D uvNR moudel
+  ISP_3DNR --  yuv domain 3DNR moudel
+  ISP_LTM --  local tone mapping moudel
+  ISP_SHARP -- sharpness moudel
+  ISP_CC --  color correction moudel
+  ISP_CTRST -- contrast adjust moudel
+  ISP_LUMA --  luma adjust moudel
+  ISP_SATURATION -- saturation adjust  moudel
+  ISP_LDC -- lens Distortion Correction moudel
+  ISP_AF -- ATUO FOCUS moudel
 ```
 
 #### The return value
 
 ```text
-0 -- 模块没有使能  1 -- 模块使能 
+0 -- moudel disable  1 -- moudel enable
 ```
 
 # 2 Demo app
@@ -270,13 +338,16 @@ The program is placed`/app/mediactl_lib` in the directory:
 Run v4l2_drm.out
 
 - -e:0 turns off all aes, 1 turns on f-2k ae, 2 turns on r-2k ae, and 3 turns on all aes. By default, you can leave -e to turn off all aes.
+- -x:0 switch to sw ae provided by lib3actl, 1 switch to hardware AE. By default, you can not specify -x, will use sw ae.
+- -a:0 disable antiflicker correction, 1 enable f-2k 50Hz correction, 2 enable r-2k correction, 3 enable all antiflicker 50Hz correction. By default, you can not specify -a, will enable f2k/r2k 50Hz correction functions.
+- -l:0 disable the ISP adaptive calculation function provided by libadaptive.so, 1 ISP adaptive calculation function provided by libadaptive.so. By default, you can not specify -l, will enable the ISP adaptive computing function provided by libadaptive.so.
 - The demo requires the video configuration file and the corresponding sensor configuration file to be in the current directory.
 - The demo can demonstrate single and double cameras by changing the configuration file.
 - The demo demo single-camera full screen: ./v4l2_drm.out -e 1 -f video_drm_1080x1920.conf
 - The demo demo dual camera: ./v4l2_drm.out -f video_drm_1920x1080.conf
 - The demo must ensure that three profiles video_drm_1920x1080.conf, imx219_0.conf, and imx219_1.conf exist
 
-**Translation Disclaimer**  
+**Translation Disclaimer**
 For the convenience of customers, Canaan uses an AI translator to translate text into multiple languages, which may contain errors. We do not guarantee the accuracy, reliability or timeliness of the translations provided. Canaan shall not be liable for any loss or damage caused by reliance on the accuracy or reliability of the translated information. If there is a content difference between the translations in different languages, the Chinese Simplified version shall prevail.
 
 If you would like to report a translation error or inaccuracy, please feel free to contact us by mail.

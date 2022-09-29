@@ -160,6 +160,74 @@ mediactl_init(video_cfg_file,&dev_info)
 无
 ```
 
+### ◆ adaptive_enable
+
+```c
+enum adaptive_enable_select_e
+{
+    ADAPTIVE_SELECT_DISABLE,
+    ADAPTIVE_SELECT_ENABLE,
+};
+int adaptive_enable(int scl);
+```
+
+配置ISP自适应功能开关
+
+#### 参数
+
+```text
+参数
+ADAPTIVE_SELECT_DISABLE:关闭libadaptive.so提供的自适应功能计算
+ADAPTIVE_SELECT_ENABLE:开启libadaptive.so提供的自适应功能计算（默认）
+```
+
+### ◆ ae_select_init
+
+```c
+enum ae_select_e
+{
+    AE_SELECT_SW_MODE,
+    AE_SELECT_HW_MODE,
+};
+int ae_select_init(int scl);
+
+```
+
+配置软硬AE切换
+
+#### 参数
+
+```text
+参数
+AE_SELECT_SW_MODE:开启软件AE，使用lib3actl.so提供的软件AE（默认）
+AE_SELECT_HW_MODE:开启硬件AE，使用硬件AE
+```
+
+### ◆ anti_flicker_init
+
+```c
+enum anti_flicker_scl_e
+{
+    ANTI_FLICKER_ALL_DSIABLE,
+    ANTI_FLICKER_F2K_ENABLE,
+    ANTI_FLICKER_R2K_ENABLE,
+    ANTI_FLICKER_ALL2K_ENABLE,
+};
+int anti_flicker_init(int scl);
+```
+
+配置antiflicker矫正功能
+
+#### 参数
+
+```text
+参数
+ANTI_FLICKER_ALL_DSIABLE:关闭antiflicker矫正功能
+ANTI_FLICKER_F2K_ENABLE:开启F2K antiflicker50Hz矫正功能
+ANTI_FLICKER_R2K_ENABLE:开启R2K antiflicker50Hz矫正功能
+ANTI_FLICKER_ALL2K_ENABLE:开启F2K和R2K antiflicker50Hz矫正功能（默认）
+```
+
 ### ◆ mediactl_set_ae
 
 ```c
@@ -230,33 +298,33 @@ isp_modules:
   ISP_LSC --  Lens Shading Correction模块
   ISP_AE --  AUTO Exposure Gain模块
   ISP_AWB -- AUTO white balance模块
-  ISP_AWB_D65 -- AUTO white balance d65模块 
-  ISP_AWB_CCM -- AUTO white balance ccm模块 
+  ISP_AWB_D65 -- AUTO white balance d65模块
+  ISP_AWB_CCM -- AUTO white balance ccm模块
   ISP_WDR --  wide dynamic range模块
-  ISP_RGB_GAMMA -- rgb gamma模块 
-  ISP_YUV_GAMMA -- yuv gamma模块 
+  ISP_RGB_GAMMA -- rgb gamma模块
+  ISP_YUV_GAMMA -- yuv gamma模块
   ISP_ADA --  Adaptive dynamic range adjust模块
-  ISP_ADA_SBZ -- Image stabilization模块 
-  ISP_ADA_CCR -- Color correction模块 
-  ISP_RGBIR -- rgbir rectify模块 
-  ISP_RAW_2DNR -- raw域2D降噪模块 
-  ISP_YUV_Y_2DNR -- yuv域2D Y方向降噪模块 
-  ISP_YUV_UV_2DNR -- yuv域2D uv方向降噪模块 
+  ISP_ADA_SBZ -- Image stabilization模块
+  ISP_ADA_CCR -- Color correction模块
+  ISP_RGBIR -- rgbir rectify模块
+  ISP_RAW_2DNR -- raw域2D降噪模块
+  ISP_YUV_Y_2DNR -- yuv域2D Y方向降噪模块
+  ISP_YUV_UV_2DNR -- yuv域2D uv方向降噪模块
   ISP_3DNR --  yuv域3D降噪模块
   ISP_LTM --  local tone mapping模块
-  ISP_SHARP -- sharpness模块  
+  ISP_SHARP -- sharpness模块
   ISP_CC --  color correction模块
-  ISP_CTRST -- contrast adjust模块 
+  ISP_CTRST -- contrast adjust模块
   ISP_LUMA --  luma adjust模块
-  ISP_SATURATION -- saturation adjust 模块 
-  ISP_LDC -- lens Distortion Correction模块 
-  ISP_AF -- ATUO FOCUS模块 
+  ISP_SATURATION -- saturation adjust 模块
+  ISP_LDC -- lens Distortion Correction模块
+  ISP_AF -- ATUO FOCUS模块
 ```
 
 #### 返回值
 
 ```text
-0 -- 模块没有使能  1 -- 模块使能 
+0 -- 模块没有使能  1 -- 模块使能
 ```
 
 # 2  配置imx385 sensor
@@ -265,7 +333,7 @@ isp_modules:
 
 ```text
 修改k510_crb_lp3_v1_2.dts 文件，将
-#include "k510_common/camera-imx219x2.dtsi" 替换成 
+#include "k510_common/camera-imx219x2.dtsi" 替换成
 #include "k510_common/camera-imx385.dtsi"， 如下图所示
 ```
 
@@ -275,7 +343,7 @@ isp_modules:
 
 ```shell
 cd k510_buildroot/k510_crb_lp3_v1_2_defconfig
-make linux-menuconfig 
+make linux-menuconfig
 ```
 
 进入配置界面后，进入下边路径：
@@ -296,7 +364,7 @@ cd k510_buildroot/k510_crb_lp3_v1_2_defconfig
 make linux-rebuild
 make riscv-pk-k510-dirclean
 make riscv-pk-k510
-make 
+make
 ```
 
 # 3  Demo应用
@@ -310,6 +378,9 @@ make
 运行v4l2_drm.out
 
 - -e：0 关闭所有ae，1打开 f-2k ae，2打开r-2k ae，3打开所有ae。默认情况下可以不指定-e 就是关闭所有ae。
+- -x：0 切换至由lib3actl提供的sw ae，1切换至硬件AE。默认情况下可以不指定-x就是sw ae。
+- -a：0 关闭antiflicker矫正功能，1 打开f-2k 50Hz矫正功能，2打开r-2k矫正功能，3打开所有antiflicker 50Hz矫正功能。默认情况下可以不指定-a就是开启所有50Hz矫正功能。
+- -l：0 关闭libadaptive.so提供的ISP自适应计算功能，1 libadaptive.so提供的ISP自适应计算功能。默认情况下可以不指定-l就是开启libadaptive.so提供的ISP自适应计算功能。
 - 该demo 需要video配置文件及对应的sensor配置文件在当前目录下。
 - 该demo通过更改配置文件，可以演示单双摄。
 - 该demo演示单摄全屏：./v4l2_drm.out -f video_drm_1080x1920.conf
@@ -317,7 +388,7 @@ make
 - 该demo必须保证video_drm_1920x1080.conf，imx219_0.conf及imx219_1.conf三个配置文件存在
 - imx385 demo：./v4l2_drm.out -e 1 -f   imx385_video_1920x1080.conf
 
-**翻译免责声明**  
+**翻译免责声明**
 为方便客户，Canaan 使用 AI 翻译程序将文本翻译为多种语言，它可能包含错误。我们不保证提供的译文的准确性、可靠性或时效性。对于因依赖已翻译信息的准确性或可靠性而造成的任何损失或损害，Canaan 概不负责。如果不同语言翻译之间存在内容差异，以简体中文版本为准。
 
 如果您要报告翻译错误或不准确的问题，欢迎通过邮件与我们联系。
