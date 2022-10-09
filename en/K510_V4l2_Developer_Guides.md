@@ -160,7 +160,29 @@ Shut down the media device and free up the requested share memory memory.
 无
 ```
 
-### ◆ mediactl_set_ae
+### ◆ mediactl_rect
+
+```c
+/**
+ * @brief Use ISP to draw rect.
+ * @param pipeline
+ * @param layer 0: main out, 1: DS0, 2: DS1.
+ * @param area support 32 area, 0 to 31
+ * @param x
+ * @param y
+ * @param width
+ * @param height
+ * @param line_width 0 to 63 pixels
+ * @param color AYCbCr, Alpha as hight bits, Cr as low bits
+ * @param border_mask up/right/bottom/left, up as low bit, left as hight bit
+ * @return return 0 if success, -1 if failed.
+*/
+int mediactl_rect(enum isp_pipeline_e pipeline, unsigned layer, unsigned area, unsigned x, unsigned y, unsigned width, unsigned height, unsigned line_width, unsigned color, unsigned border_mask);
+```
+
+Draw rectangles.
+
+### ◆ mediactl_disable_ae
 
 ```c
 enum isp_pipeline_e {
@@ -171,15 +193,15 @@ enum isp_pipeline_e {
 int mediactl_set_ae(enum isp_pipeline_e pipeline);
 ```
 
-Configure the AE value of the sensor
+Disable specific ISP AE.
 
 #### parameter
 
 ```text
 参数:
-ISP_F2K_PIPELINE:配置f2k pipeline的AE。
-ISP_R2K_PIPELINE:配置r2k pipeline的AE。
-ISP_TOF_PIPELINE:没有使用。
+ISP_F2K_PIPELINE:disable F2K AE。
+ISP_R2K_PIPELINE:disable R2K AE。
+ISP_TOF_PIPELINE:not support。
 ```
 
 ### ◆ mediactl_get_isp_modules
