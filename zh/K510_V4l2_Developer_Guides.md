@@ -160,7 +160,45 @@ mediactl_init(video_cfg_file,&dev_info)
 无
 ```
 
-### ◆ mediactl_set_ae
+### ◆ mediactl_rect
+
+```c
+/**
+ * @brief Use ISP to draw rect.
+ * @param pipeline
+ * @param layer 0: main out, 1: DS0, 2: DS1.
+ * @param area support 32 area, 0 to 31
+ * @param x
+ * @param y
+ * @param width
+ * @param height
+ * @param line_width 0 to 63 pixels
+ * @param color AYCbCr, Alpha as hight bits, Cr as low bits
+ * @param border_mask up/right/bottom/left, up as low bit, left as hight bit
+ * @return return 0 if success, -1 if failed.
+*/
+int mediactl_rect(enum isp_pipeline_e pipeline, unsigned layer, unsigned area, unsigned x, unsigned y, unsigned width, unsigned height, unsigned line_width, unsigned color, unsigned border_mask);
+```
+
+绘制矩形。
+
+#### 参数
+
+```text
+参数:
+pipeline ISP_F2K_PIPELINE 或 ISP_R2K_PIPELINE
+layer 0: main out, 1: DS0, 2: DS1
+area 支持32个框，0到31
+x x坐标
+y y坐标
+width 宽度
+height 高度
+line_width 0 到 63 像素
+color AYCbCr, Alpha为高为，Cr为低位
+border_mask 外框mask，上/右/下/左
+```
+
+### ◆ mediactl_disable_ae
 
 ```c
 enum isp_pipeline_e {
@@ -168,18 +206,17 @@ enum isp_pipeline_e {
     ISP_R2K_PIPELINE,
     ISP_TOF_PIPELINE
 };
-int mediactl_set_ae(enum isp_pipeline_e pipeline);
+void mediactl_disable_ae(enum isp_pipeline_e pipeline);
 ```
 
-配置sensor的AE值
+关闭ISP的AE。
 
 #### 参数
 
 ```text
 参数:
-ISP_F2K_PIPELINE:配置f2k pipeline的AE。
-ISP_R2K_PIPELINE:配置r2k pipeline的AE。
-ISP_TOF_PIPELINE:没有使用。
+ISP_F2K_PIPELINE:关闭f2k pipeline的AE。
+ISP_R2K_PIPELINE:关闭r2k pipeline的AE。
 ```
 
 ### ◆ mediactl_get_isp_modules
@@ -259,22 +296,63 @@ isp_modules:
 0 -- 模块没有使能  1 -- 模块使能 
 ```
 
-# 2  Demo应用
+# 2  配置imx385 sensor
 
-## 2.1 v4l2_drm
+## 2.1 修改 设备树
+
+```text
+修改k510_crb_lp3_v1_2.dts 文件，将
+#include "k510_common/camera-imx219x2.dtsi" 替换成 
+#include "k510_common/camera-imx385.dtsi"， 如下图所示
+```
+
+![ouput.yuv](../zh/images/sdk_application/image-imx385-dts.jpg)
+
+## 2.2 修改内核
+
+```shell
+cd k510_buildroot/k510_crb_lp3_v1_2_defconfig
+make linux-menuconfig 
+```
+
+进入配置界面后，进入下边路径：
+
+```text
+Device Drivers  --->
+Multimedia support  --->
+Sensors used on soc_camera driver  --->
+```
+
+进入目录后，将Sony IMX385 sensor support 选上，两个219 的不选上，如下如：
+![ouput.yuv](../zh/images/sdk_application/image-imx385-kernel-config.jpg)
+
+## 2.3 重新编译镜像
+
+```shell
+cd k510_buildroot/k510_crb_lp3_v1_2_defconfig
+make linux-rebuild
+make riscv-pk-k510-dirclean
+make riscv-pk-k510
+make 
+```
+
+# 3  Demo应用
+
+## 3.1 v4l2_drm
 
 程序放在`/app/mediactl_lib`目录下：
 
-- `v4l2_drm.out`：v4l2和drm联动case，添加了-f 修改输入配置文件的名字, -e 打开isp ae 功能。可以使用-h 查看帮助。
+- `v4l2_drm.out`：v4l2和drm联动case，添加了-f 修改输入配置文件的名字。可以使用-h 查看帮助。
 
 运行v4l2_drm.out
 
 - -e：0 关闭所有ae，1打开 f-2k ae，2打开r-2k ae，3打开所有ae。默认情况下可以不指定-e 就是关闭所有ae。
 - 该demo 需要video配置文件及对应的sensor配置文件在当前目录下。
 - 该demo通过更改配置文件，可以演示单双摄。
-- 该demo演示单摄全屏：./v4l2_drm.out -e 1 -f video_drm_1080x1920.conf
+- 该demo演示单摄全屏：./v4l2_drm.out -f video_drm_1080x1920.conf
 - 该demo演示双摄：./v4l2_drm.out -f video_drm_1920x1080.conf
 - 该demo必须保证video_drm_1920x1080.conf，imx219_0.conf及imx219_1.conf三个配置文件存在
+- imx385 demo：./v4l2_drm.out -e 1 -f   imx385_video_1920x1080.conf
 
 **翻译免责声明**  
 为方便客户，Canaan 使用 AI 翻译程序将文本翻译为多种语言，它可能包含错误。我们不保证提供的译文的准确性、可靠性或时效性。对于因依赖已翻译信息的准确性或可靠性而造成的任何损失或损害，Canaan 概不负责。如果不同语言翻译之间存在内容差异，以简体中文版本为准。

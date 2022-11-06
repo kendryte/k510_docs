@@ -3,16 +3,6 @@
 
 * [English](en/README.md)
 * [简体中文](zh/README.md)
-* [繁體中文](zh-Hant/README.md)
-* [Nederlands](nl/README.md)
-* [Français](fr/README.md)
-* [Deutsch](de/README.md)
-* [Italiano](it/README.md)
-* [日本語](ja/README.md)
-* [한국어](ko/README.md)
-* [Русский](ru/README.md)
-* [Español](es/README.md)
-* [Polski](pl/README.md)
 
 # Documentation overview
 
@@ -21,7 +11,6 @@ K510 related documentation is as follows：
 | Document name                                                                                                  | Document description                                                                        |
 |----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
 | [K510_CRB_V1.2_Hardware_Guide.md](en/K510_CRB_V1.2_Hardware_Guide.md)                                          | K510 CRB Version 1.2 hardware resource description documentation                                                                      |
-| [K510_CRB_V1.2 Schematic](https://github.com/kendryte/k510_docs/releases/download/v1.5/K510_CRB_Schematic.zip) | K510 CRB V1.2 schematic                                                                           |
 | [K510_SDK_Build_and_Burn_Guide.md](en/K510_SDK_Build_and_Burn_Guide.md)                                        | The K510 SDK compiles and burns the documentation                                                                          |
 | [K510_System_memory_map.md](en/K510_System_memory_map.md)                                                      | K510 SDK system memory division documentation                                                                     |
 | [K510_SDK_Application_Guides.md](en/K510_SDK_Application_Guides.md)                                            | K510 Refer to the sample program documentation                                                                             |
@@ -36,6 +25,7 @@ K510 related documentation is as follows：
 | [K510_Multimedia_Developer_Guides.md](en/K510_Multimedia_Developer_Guides.md)                                  | K510 Multimedia application example documentation                                                                    |
 | [K510_Mailbox_Developer_Guides.md](en/K510_Mailbox_Developer_Guides.md)                                        | K510 Multiprocessor Communication Documentation                                                                             |
 | [K510_ISP_Tuning_Tool_Guides.md](en/K510_ISP_Tuning_Tool_Guides.md)                                            | [K510 ISP Tuning Tool documentation](https://github.com/kendryte/k510_isp_tuning_tool/releases) |
+| [K510_CRB_SCH_MECH_FILE.zip](https://github.com/kendryte/k510_docs/releases/download/v1.8/K510_CRB_SCH_MECH_FILE.zip)                                            | Schematic and Mechanical dimension drawing of K510 Core module and K510 CRB |
 
 ## Contribute this project
 
