@@ -236,18 +236,17 @@ enum isp_pipeline_e {
     ISP_R2K_PIPELINE,
     ISP_TOF_PIPELINE
 };
-int mediactl_set_ae(enum isp_pipeline_e pipeline);
+void mediactl_disable_ae(enum isp_pipeline_e pipeline);
 ```
 
-配置sensor的AE值
+关闭ISP的AE。
 
 #### 参数
 
 ```text
 参数:
-ISP_F2K_PIPELINE:配置f2k pipeline的AE。
-ISP_R2K_PIPELINE:配置r2k pipeline的AE。
-ISP_TOF_PIPELINE:没有使用。
+ISP_F2K_PIPELINE:关闭f2k pipeline的AE。
+ISP_R2K_PIPELINE:关闭r2k pipeline的AE。
 ```
 
 ### ◆ mediactl_get_isp_modules

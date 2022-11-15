@@ -228,7 +228,29 @@ ANTI_FLICKER_R2K_ENABLE: enable R2K antiflicker50Hz correction function
 ANTI_FLICKER_ALL2K_ENABLE: enableF2K/R2K antiflicker50Hz  correction function(default)
 ```
 
-### ◆ mediactl_set_ae
+### ◆ mediactl_rect
+
+```c
+/**
+ * @brief Use ISP to draw rect.
+ * @param pipeline
+ * @param layer 0: main out, 1: DS0, 2: DS1.
+ * @param area support 32 area, 0 to 31
+ * @param x
+ * @param y
+ * @param width
+ * @param height
+ * @param line_width 0 to 63 pixels
+ * @param color AYCbCr, Alpha as hight bits, Cr as low bits
+ * @param border_mask up/right/bottom/left, up as low bit, left as hight bit
+ * @return return 0 if success, -1 if failed.
+*/
+int mediactl_rect(enum isp_pipeline_e pipeline, unsigned layer, unsigned area, unsigned x, unsigned y, unsigned width, unsigned height, unsigned line_width, unsigned color, unsigned border_mask);
+```
+
+Draw rectangles.
+
+### ◆ mediactl_disable_ae
 
 ```c
 enum isp_pipeline_e {
@@ -239,7 +261,7 @@ enum isp_pipeline_e {
 int mediactl_set_ae(enum isp_pipeline_e pipeline);
 ```
 
-Configure the AE value of the sensor
+Disable specific ISP AE.
 
 #### parameter
 
