@@ -109,8 +109,8 @@ video5_height_r:video输出的高度，如240。
 video5_out_format:0--指分离RGB，1--指ARGB。
 sensor1_name:只在V4L2驱动中设置的sensor驱动名字。
 sensor1_cfg_file:sensor对应的isp参数配置文件名字，如imx219_0.conf。
-sensor1_total_width:sensor输出的水平方向的总像素，用来产生VSYNC信号，如3476
-sensor1_total_height:sensor输出的总行数，用来产生HSYNC信号，如1166
+sensor1_total_width:sensor输出的水平方向的总像素，用来产生VSYNC信号，如3476，
+sensor1_total_height:sensor输出的总行数，用来产生HSYNC信号，如1166，
 sensor1_active_width:sensor输出的水平方向的有效像素，如1920,
 sensor1_active_height:sensor输出的有效行数，如1080
 video6_used:1 -- 使能，0 -- 没有使用。
