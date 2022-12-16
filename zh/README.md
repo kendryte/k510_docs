@@ -23,6 +23,7 @@ k510 相关文档如下：
 | [K510_Multimedia_Developer_Guides.md](K510_Multimedia_Developer_Guides.md) | K510 Multimedia 应用实例说明文档 |
 | [K510_Mailbox_Developer_Guides.md](K510_Mailbox_Developer_Guides.md) | K510 多处理器通信说明文档 |
 | [K510_ISP_Tuning_Tool_Guides.md](K510_ISP_Tuning_Tool_Guides.md) | K510 ISP Tuning Tool 说明文档 [下载地址](https://github.com/kendryte/k510_isp_tuning_tool/releases) |
+| [K510_ISP_Adaptive_Tuning_Guides.md](K510_ISP_Adaptive_Tuning_Guides.md) | K510 ISP Adaptive Tuning 参数说明文档 |
 
 ## 贡献指南
 
@@ -30,11 +31,11 @@ k510 相关文档如下：
 
 ## 联系我们
 
-北京嘉楠捷思信息技术有限公司  
-网址：[canaan-creative.com](https://canaan-creative.com/)  
+北京嘉楠捷思信息技术有限公司
+网址：[canaan-creative.com](https://canaan-creative.com/)
 商务垂询：[salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
 
-**翻译免责声明**  
+**翻译免责声明**
 为方便客户，Canaan 使用 AI 翻译程序将文本翻译为多种语言，它可能包含错误。我们不保证提供的译文的准确性、可靠性或时效性。对于因依赖已翻译信息的准确性或可靠性而造成的任何损失或损害，Canaan 概不负责。如果不同语言翻译之间存在内容差异，以简体中文版本为准。
 
 如果您要报告翻译错误或不准确的问题，欢迎通过邮件与我们联系。
