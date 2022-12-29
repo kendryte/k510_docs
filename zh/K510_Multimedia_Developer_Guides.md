@@ -542,7 +542,7 @@ K510的硬件框图如下：
 | inframes | 输入yuv帧数 | 0 | [0,50] | jpeg、avc |
 | outframes | 输出yuv帧数，如果比参数-inframes大，将会重复编码 | 0 | [0,32767] | jpeg、avc |
 | gop | Group Of Picture，即两个 I 帧之间的间隔 | 25 | [1,1000] | avc |
-| rcmode | 表示码率控制模式 0:CONST_QP 1:CBR 2:VBR 3:jpg| CBR | [0,3] | avc |
+| rcmode | 表示码率控制模式 0:CONST_QP 1:CBR 2:VBR | CBR | [0,2] | avc |
 | bitrate | 目标码率,单位Kb | 4000 | [1,20000] | avc |
 | maxbitrate | VBR模式下的最高码率,单位Kb | 4000 | [1,20000] | avc |
 | profile | SPS 中的 profile_idc 参数:0: base 1:main 2:high 3:jpeg | AVC_HIGH | [0,3] | jpeg、avc |
