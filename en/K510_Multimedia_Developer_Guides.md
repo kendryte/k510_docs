@@ -542,7 +542,7 @@ run`encode_app`
 | inframes | Enter the number of yuv frames | 0 | [0,50] | jpeg、avc |
 | outframes | The output of the yuv frames, if larger than the parameter -inframes, will be repeated encoding | 0 | [0,32767] | jpeg、avc |
 | gop | Group Of Picture, the interval between two I frames | 25 | [1,1000] | avc |
-| rcmode | Represents bitrate control mode 0:CONST_QP 1:CBR 2:VBR 3:jpg| CBR | [0,3] | avc |
+| rcmode | Represents bitrate control mode 0:CONST_QP 1:CBR 2:VBR | CBR | [0,2] | avc |
 | bitrate | Target bitrate in CBR mode or lowest bitrate in VBR mode, in KB | 4000 | [1,20000] | avc |
 | maxbitrate | The highest bitrate in VBR mode, in Kb | 4000 | [1,20000] | stroke |
 | profile | profile_idc parameters in SPS: 0: base 1:main 2:high 3:jpeg | AVC_HIGH | [0,3] | jpeg、avc |
