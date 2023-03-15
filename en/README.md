@@ -32,7 +32,7 @@ If you are interested in this project and would like feedback or submit document
 ## Contact us
 
 Canaan Inc.
-URL:[canaan-creative.com](https://canaan-creative.com/)
+URL:[canaan-creative.com](https://www.canaan-creative.com/)
 Business Enquiries:[salesAI@canaan-creative.com](mailto:salesAI@canaan-creative.com)
 
 **Translation Disclaimer**
